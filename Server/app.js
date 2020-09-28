@@ -1,6 +1,6 @@
 const express = require("express")
 const route = require("./route/index")
-const sendemal = require('./controller/sendEmal')
+//const sendemal = require('./controller/sendEmal')
 const port = 80
 var app = express()
 // sendemal("1206047095@qq.com","11")
