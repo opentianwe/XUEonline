@@ -3,7 +3,6 @@ const router = express.Router()
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const mysql = require('../msOp')
-const port = require('./port')
 const Tool = require('../Toos')
 
 router.use(cookieParser("wcasd2398123asd12aasd"))
