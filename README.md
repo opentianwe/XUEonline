@@ -13,4 +13,7 @@ git commit -m "message"
  
 
 5. 推送到远端
-git push origin master
+git push origin mastergit 
+
+也可以直接用git push
+
