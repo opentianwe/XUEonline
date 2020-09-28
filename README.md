@@ -1,4 +1,4 @@
-
+    Git 命令
 1. 先将别人的项目进行克隆下来
 git clone https://github.com/opentianwe/XUEonline
  
@@ -16,8 +16,6 @@ git commit -m "message"
 git push origin mastergit 
 
 也可以直接用git push
-
-
 
 .二次提交说明
 
