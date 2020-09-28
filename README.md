@@ -18,7 +18,8 @@ git push origin mastergit
 也可以直接用git push
 
 .二次提交说明
-
+提交命令
+6. git push -u origin master
 git add 修改过的文件
 
 git commit -m "修改说明"
