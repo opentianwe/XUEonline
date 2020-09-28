@@ -17,3 +17,12 @@ git push origin mastergit
 
 也可以直接用git push
 
+
+
+.二次提交说明
+
+git add 修改过的文件
+
+git commit -m "修改说明"
+
+git push 上传
