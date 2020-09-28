@@ -30,13 +30,13 @@ router.get('/1.html', (req, res) => {
 router.post('/checkout', (req, res) => {
     if (req.body.CommodityID == undefined || req.signedCookies.malli == undefined) {
         res.send({
-            state: 0,
+            status: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
         return
     }
     if (req.body.nonce == '' || req.body.nonce == undefined) {
-        res.send({ status: 0, msg: "数据异常!" })
+        res.send({ status: 144, msg: "数据异常!" })
         return
     }
 
@@ -48,12 +48,12 @@ router.post('/checkout', (req, res) => {
 
         var ret = await mysql.asyncqueryCommodityInfoByID(CommodityID)
         if (ret == null) {
-            return { error: 101, msg: "未找到相关商品信息!" }
+            return { status: 101, msg: "未找到相关商品信息!" }
         }
         var Yen = Number(ret.Yen)
         var integral = ret.integral
         if (Yen == 0 || integral == 0) {
-            return { error: 102, msg: "商品价格信息有误请联系网站管理员!" }
+            return { status: 102, msg: "商品价格信息有误请联系网站管理员!" }
         }
         var ActualPayment = Yen + (Yen * ServiceCharge)
         //查询用户ID
@@ -61,7 +61,7 @@ router.post('/checkout', (req, res) => {
         if (ret == null) {
             ret = await mysql.asyncqueryUserTbyEmal(Emal)
             if (ret == null) {
-                return { error: 104, msg: "未找到相关用户信息!" }
+                return { status: 104, msg: "未找到相关用户信息!" }
             }
         }
         var ID = ret.ID
@@ -86,16 +86,16 @@ router.post('/checkout', (req, res) => {
             console.log(Emal)
             ret = toos.aUpdatePoints(integral, Emal, ID)
             if (ret) {
-                return { error: 1, msg: "付款成功!" }
+                return { status: 1, msg: "付款成功!" }
             } else {
-                return { error: 105, msg: "付款已经成功,但是积分数据库异常,请将此截图并发给网站管理员" }
+                return { status: 105, msg: "付款已经成功,但是积分数据库异常,请将此截图并发给网站管理员" }
             }
         } else {
             switch (ret.message) {
                 case 'Cannot use a payment_method_nonce more than once.':
-                    return { error: 2, msg: "该订单已付款请勿重复付款!" }
+                    return { status: 2, msg: "该订单已付款请勿重复付款!" }
                 default:
-                    return { error: 3, msg: ret.message }
+                    return { status: 3, msg: ret.message }
             }
         }
     }
@@ -108,14 +108,14 @@ router.post('/checkout', (req, res) => {
 router.post('/tocheckout', (req, res) => {
     if (req.body.CommodityID == undefined || req.signedCookies.malli == undefined || req.signedCookies.malli == '' || req.signedCookies.malli == null) {
         res.send({
-            state: 0,
+            status: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
         return
     }
     var CommodityID = req.body.CommodityID
     if (CommodityID == '' || CommodityID == undefined) {
-        res.send({ status: 0, msg: "数据异常!" })
+        res.send({ status: 144, msg: "数据异常!" })
         return
     }
     mysql.queryCommodityInfoByID(CommodityID, function (data, err) {
@@ -130,10 +130,10 @@ router.post('/tocheckout', (req, res) => {
                     integral: data[0].integral
                 })
             } else {
-                res.send({ status: 0, msg: "数据库商品信息异常!" })
+                res.send({ status: 145, msg: "数据库商品信息异常!" })
             }
         } else {
-            res.send({ status: 0, msg: "数据库商品信息异常!" })
+            res.send({ status: 146, msg: "数据库商品信息异常!" })
         }
     })
 })
