@@ -33,6 +33,7 @@ router.post('/checkout', (req, res) => {
             state: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
+        return
     }
     if (req.body.nonce == '' || req.body.nonce == undefined) {
         res.send({ status: 0, msg: "数据异常!" })
@@ -105,11 +106,12 @@ router.post('/checkout', (req, res) => {
 })
 
 router.post('/tocheckout', (req, res) => {
-    if (req.body.CommodityID == undefined || req.signedCookies.malli == undefined) {
+    if (req.body.CommodityID == undefined || req.signedCookies.malli == undefined || req.signedCookies.malli == '' || req.signedCookies.malli == null) {
         res.send({
             state: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
+        return
     }
     var CommodityID = req.body.CommodityID
     if (CommodityID == '' || CommodityID == undefined) {

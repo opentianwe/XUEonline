@@ -388,12 +388,12 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 
 
 router.get('/personal.html', function (req, res) {
-    if (req.signedCookies.malli == undefined) {
-        res.redirect('./logoin.html')
+    if (req.signedCookies.malli == undefined || req.signedCookies.malli == '' || req.signedCookies.malli == null) {
+        res.redirect('/')
         return
     }
     var mem
-
+    console.log(req.signedCookies.malli)
     mysql.queryPointsbyemal(req.signedCookies.malli, function (data, err) {
         if (data == undefined || data.length == 0 || data == null || err) {
             mem = 0
@@ -407,7 +407,7 @@ router.get('/personal.html', function (req, res) {
             if (data == undefined || data.length == 0 || data == null || err) {
                 mysql.queryUserTbyEmal(req.signedCookies.malli, function (data, err) {
                     if (data == undefined || data.length == 0 || data == null || err) {
-                        res.redirect('./logoin.html')
+                        res.redirect('/')
                         return
                     } else {
                         mysql.seleteTAppointment(req.signedCookies.malli)
