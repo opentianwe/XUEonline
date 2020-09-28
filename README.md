@@ -26,6 +26,7 @@ git commit -m "修改说明"
 
 git push 上传
 
+git pull  
 
-### userTable2 日语版修改说明 
-#### 1 修复 学生 25分钟后评论现在问题  2020/9/28 20:00 
+
+

@@ -80,15 +80,22 @@
 	$('.list-items>li').eq(0).html('')
 	$('.address').html('<i class="webexflaticon flaticon-placeholder-1"></i>管理員skype ID')
 	$('.pintarest-list').remove()
-	var str=`
+	var str = `
 	<div>XUEonline
 	</div>
 	
 	`
+	console.log($('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> 日语版'))
+	$('.language-btn').on('click', function () {
+		window.location.href = '../ja_JP/index.html'
+	})
+	//console.log(.attr('href', ''))
 	$('.side-panel-element').eq(1).append(str)
-	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>')
-	$('.sub-menu>.has-sub-child>a').html('登录')
+	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
+	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
+	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">教师资料填写入口</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
+
 	function clearCookie() {
 		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
 		if (keys) {
@@ -99,7 +106,7 @@
 			}
 		}
 		// $("#divcookie").html(document.cookie);
-		alert('退出成功')
+		window.location.href = './logoin.html'
 
 	}
 	$('#qiut-s').on('click', function () {

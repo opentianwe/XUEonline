@@ -1900,7 +1900,7 @@ section.anim-object {
 .header-top-area .header-top-right-part .language .language-btn::after {
   content: "\f107";
   position: absolute;
-  right: -3px;
+  right: -10px;
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   top: 0;
