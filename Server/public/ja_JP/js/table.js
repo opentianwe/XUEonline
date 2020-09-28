@@ -163,7 +163,7 @@ new Vue({
                     return
                 }
             }
-            layer.msg('已经是第一页了', { icon: 5 })
+            layer.msg('もう最後のページです', { icon: 5 })
         },
         nextPage: function () {
             if (this.pageNO < this.Totalpage) {
@@ -178,7 +178,7 @@ new Vue({
                     return
                 }
             }
-            layer.msg('已经到最后一页了', { icon: 5 })
+            layer.msg('もう最後のページです', { icon: 5 })
         }
 
     },

@@ -66,7 +66,7 @@ $(function () {
                     if (data.status == 1) {
                         res(data.msg)
                     } else {
-                        rej('数据校检失败')
+                        res('数据校检失败')
                     }
                 }, error: function (error) {
                     console.log(error)
@@ -106,7 +106,7 @@ $(function () {
                 // console.log(res)
                 return res
             } else {
-                layer.msg('已经超过预约时间了!如果没联系到老师请联系XUE管理员', { icon: 2, })
+                layer.msg('予約時間が過ぎました！先生と連絡をとれない場合， XUEサポート管理員に連絡してください', { icon: 2, })
                 return -1
             }
         } else {
@@ -128,7 +128,7 @@ $(function () {
     })
     tobody.addEventListener('click', (e) => {
         var strTime;
-        console.log('1')
+        //console.log('1')
         if (e.target.className == 'timeApp') {
             strTime = e.target.innerHTML
             isDate(userTimeStr(), e.target.innerHTML, true)
@@ -145,7 +145,7 @@ $(function () {
             }
             // console.log(!time_aa('2020-09-28  09:25', arr[0].innerHTML))
             if (!time_aa(userTimeStr(), arr[0].innerHTML)) {
-                return layer.msg('请在预约时间25分钟后进行评论', {
+                return layer.msg('予約時間の25分後にコメントしてください', {
                     closeBtn: 0
                     , anim: 6 //动画类型
                     , icon: 2
@@ -173,14 +173,13 @@ $(function () {
                     if (d.status == 0) {
                         layer.confirm(str, {
                             area: ['55vw', '400px'],
-                            btn: ['确认评价', '取消评价'],
+                            btn: ['コメントの確認', 'コメントキャンセル'],
                             title: "对 " + arr[1].innerHTML + '老师的评价', //按钮
                             closeBtn: false
                             , shade: 0.8
                         }, function () {
                             if ($('#terText').val() == '') {
-
-                                return layer.msg('你好像没有对老师评价哦', { icon: 2, });
+                                return layer.msg('先生へのコメントをお願いします', { icon: 2, });
                             }
                             // layer.msg(arr[1] + '老师评价成功', { icon: 1, })
                             var userData = {
@@ -213,7 +212,7 @@ $(function () {
                             //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
                         }, function () {
 
-                            layer.msg('记得给你喜欢的老师留下最美的评价', { icon: 6, });
+                            layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
                         })
                     } else if (d.status == 1) {
                         layer.confirm(str, {
@@ -223,14 +222,13 @@ $(function () {
                             closeBtn: false
                             , shade: 0.8
                         }, function () {
-                            layer.msg('如果喜欢该老师可以继续联系老师', { icon: 6, });
+                            layer.msg('この先生に気になったら、続けてご予約をお願いします', { icon: 6, });
                             //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
                         }, function () {
-
-                            layer.msg('记得给你喜欢的老师留下最美的评价', { icon: 6, });
+                            layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
                         })
                         $('#terText').attr("disabled", "disabled")
-                        $('#terText').val(msg + '\n系统提示:(你已经评论过这个老师了无法进行二次评论)')
+                        $('#terText').val(msg + '\nリマインド:(先生に評価をしました、二度目の評価はできません）')
                     }
                 }, error: (error) => {
                     layer.msg(error, { icon: 2 })
@@ -245,7 +243,7 @@ $(function () {
                 Time: arr[0].innerHTML
             }
             if (!time_aa(userTimeStr(), arr[0].innerHTML)) {
-                return layer.msg('请在预约时间25分钟后进行评论', {
+                return layer.msg('予約時間の25分後にコメントしてください', {
                     closeBtn: 0
                     , anim: 6 //动画类型
                     , icon: 2
