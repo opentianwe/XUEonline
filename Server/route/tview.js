@@ -657,7 +657,7 @@ router.get('/ja_JP/ter.html', function (req, res) {
 
 router.get('/ja_JP/personal.html', function (req, res) {
     if (req.signedCookies.malli == undefined) {
-        res.redirect('./logoin.html')
+        res.redirect('./ja_JP/logoin.html')
         return
     }
     var mem
@@ -675,7 +675,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
             if (data == undefined || data.length == 0 || data == null || err) {
                 mysql.queryUserTbyEmal(req.signedCookies.malli, function (data, err) {
                     if (data == undefined || data.length == 0 || data == null || err) {
-                        res.redirect('./logoin.html')
+                        res.redirect('./ja_JP/logoin.html')
                         return
                     } else {
                         mysql.seleteTAppointment(req.signedCookies.malli)

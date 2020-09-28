@@ -155,7 +155,7 @@ $(function () {
 
             $.ajax({
                 type: "post",
-                url: "./getstudentEvaluation",
+                url: "../getstudentEvaluation",
                 datatype: "json",
                 data: JSON.stringify(stu),
                 xhrFields: {
@@ -189,7 +189,7 @@ $(function () {
                             $.ajax({
                                 type: "post",
                                 datatype: "json",
-                                url: './studentEvaluation',
+                                url: '../studentEvaluation',
                                 data: JSON.stringify(userData),
                                 xhrFields: {
                                     withCredentials: true
@@ -273,7 +273,7 @@ $(function () {
            `
             $.ajax({
                 type: "post",
-                url: "/geteacherEvaluation",
+                url: "../geteacherEvaluation",
                 data: JSON.stringify(dt),
                 dataType: "json",
                 success: function (response) {
