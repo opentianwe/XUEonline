@@ -244,6 +244,14 @@ $(function () {
             var dt = {
                 Time: arr[0].innerHTML
             }
+            if (!time_aa(userTimeStr(), arr[0].innerHTML)) {
+                return layer.msg('请在预约时间25分钟后进行评论', {
+                    closeBtn: 0
+                    , anim: 6 //动画类型
+                    , icon: 2
+
+                });
+            }
             var jpstr = Number(arr[0].innerHTML.substring(12, 14)) + 1
             jpstr >= 10 ? jpstr = jpstr : jpstr = '0' + jpstr
             var jptime = arr[0].innerHTML.replace(arr[0].innerHTML.substring(12, 14), jpstr)
