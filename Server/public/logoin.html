@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XUE官网登陆</title>
+  <script src="./js/vue.2.6.11.js"></script>
+  <script src="./js/jq.min.js"></script>
+  <script src="./layui/layui.js"></script>
+  <meta name="keywords" content="中国语Xueonline" />
+  <!--网页关键字-->
+  <meta name="description" content="一个在线1v1教育平台" />
+  <!--网页描述-->
+  <meta name="author" content="XUE" />
+  <!--网页作者-->
+
+  <!-- <link rel="stylesheet" href="./css/footer.css"> -->
+  <style>
+    .Logoin-wrap {
+      width: 520px;
+      background: #ffffff;
+      position: absolute;
+      right: 70px;
+      top: 10%;
+      padding: 10px 20px;
+    }
+
+    .Logoin-wrap>div {
+      font-size: 14px;
+    }
+
+    .Logoin-wrap input {
+      width: 80%;
+      margin: 10px auto;
+      display: block;
+      padding: 6px 5px;
+      border-bottom: 1px solid #ccc;
+
+    }
+
+    .Logoin-wrap h3 {
+      margin: 10px auto;
+      padding: 0 15px;
+      position: relative;
+    }
+
+    .Logoin-wrap h3::after {
+      display: block;
+      content: '';
+      width: 4px;
+      height: 30px;
+      background: #007bff;
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+
+    .Logoin-wrap button {
+      width: 300px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .Register-box {
+      transform: translateX(200%);
+      transition: 0.7s ease-in-out;
+    }
+
+    .Register-box.acitve {
+      transform: translateX(0%);
+      transition: 0.7s ease-in-out;
+    }
+
+    .Logo-box.acitve {
+      transform: translateX(200%);
+
+    }
+
+    .Logo-box {
+      transform: translateX(0%);
+      transition: 0.7s ease-in-out;
+    }
+
+    #getRegister,
+    #getLogoin {
+      text-decoration: underline;
+      color: #007bff;
+    }
+  </style>
+  <script>
+//      document.onkeydown = function HandleTabKey(evt) {
+//     if (evt.keyCode == 9) {
+//         console.log(1++)
+//     }
+// }
+//禁用tab 因为有bug
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/sweetalert.min.js"></script>
+  <script src="./js/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="./css/sweetalert.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+  <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  <header class="header-style-two">
+    <div class="header-wrapper">
+      <div class="header-top-area bg-gradient-color d-none d-lg-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 header-top-left-part">
+              <span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+              <span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+            </div>
+            <div class="col-lg-6 header-top-right-part text-right">
+              <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+              <div class="language">
+                <a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>中文</a>
+                <!-- <ul class="language-dropdown">
+                  <li> <a href="#">Chinese</a></li>
+                  <li><a href="#">English</a></li>
+                  <li><a href="#">Bangla</a></li>
+                  <li><a href="#">French</a></li>
+                  <li><a href="#">Spanish</a></li>
+                  <li><a href="#">Arabic</a></li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-navigation-area two-layers-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+                <!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+              </a>
+              <div class="mobile-menu-right"></div>
+              <div class="header-searchbox-style-two d-none d-xl-block">
+                <div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+                  <span class="bar1"></span>
+                  <span class="bar2"></span>
+                  <span class="bar3"></span>
+                </div>
+                <!-- <div class="show-searchbox">
+                  <a href="#"><i class="webex-icon-Search"></i></a>
+                </div> -->
+                <div class="toggle-searchbox">
+                  <form action="#" id="searchform-all" method="get">
+                    <div>
+                      <input type="text" id="s" class="form-control" placeholder="Search...">
+                      <div class="input-box">
+                        <input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="side-panel-content">
+                <div class="close-icon">
+                  <button><i class="webex-icon-cross"></i></button>
+                </div>
+                <div class="side-panel-logo mrb-30">
+                  XUEonline
+                </div>
+                <div class="side-info mrb-30">
+                  <div class="side-panel-element mrb-25">
+                    <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+                    <ul class="list-items">
+                      <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
+                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominajiaoyu@126.com</li>
+                      <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
+                    </ul>
+                  </div>
+                  <div class="side-panel-element mrb-30">
+                    <h4 class="mrb-15">公司状态</h4>
+                    <ul class="pintarest-list">
+                      <li><a href="#"><img class="img-full" src="images/side-panel/1.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/2.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/3.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/4.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/5.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/6.jpg" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h4 class="mrb-15">可靠联系方式</h4>
+                <ul class="social-list">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="main-menu f-right">
+                <nav id="mobile-menu-right">
+                  <ul>
+                    <li>
+                      <!-- class="has-sub" -->
+                      <a href="./index.html">首页</a>
+                      <!-- <ul class="sub-menu">
+                        <li><a href="index.html">Layout 1</a></li>
+                        <li><a href="index2.html">Layout 2</a></li>
+                        <li class="has-sub-child">
+                          <a href="#">Header Styles</a>
+                          <ul class="sub-menu">
+                            <li><a href="page-header-style-one.html">Header Style One</a></li>
+                            <li><a href="page-header-style-two.html">Header Style Two</a></li>
+                          </ul>
+                        </li>
+                      </ul> -->
+                    </li>
+                    <li><a href="./getmoeny.html">购买积分</a></li>
+                    <li class="has-sub">
+                      <a href="./terTbale.html">老师一览</a>
+                      <ul class="sub-menu">
+                        <li><a href="./terTbale.html">预约老师</a></li>
+                        <li class="has-sub-child">
+                          <a href="./logoin.html">教师登入</a>
+                          <ul class="sub-menu right-view">
+                            <li><a href="./logoin.html">教师注册</a></li>
+                            <li><a href="./teacherdata.html">教师资料填写</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="./stunews.html">问题解答</a>
+
+                    </li>
+                    <li class=" right-view">
+                      <a href="./logoin.html">登录/注册</a>
+
+                    </li>
+                    <li class="has-sub right-view">
+                      <a href="#">个人中心</a>
+                      <ul class="sub-menu">
+                        <li><a href="./personal.html">个人资料</a></li>
+                        <li><a href="./logoin.html">登入</a></li>
+                        <li><a id="qiut-s">退出</a></li>
+
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header End -->
+  <!-- Home Slider Start -->
+
+
+  <div
+    style="background-image: url(./img/login-bg-xinnian.jpg);background-size: cover;position: relative;height: 150vh;">
+    <div style="overflow: hidden;width: 100%;position: relative;height: 100%;">
+      <div class='Logoin-wrap Logo-box shadow-lg'>
+        <h3>登录账号</h3>
+        <br>
+        <input type="text" id="userName" placeholder="请输入邮箱">
+        <div class="formtit" style="text-align: center;color: green;">
+
+        </div>
+
+        <input type="password" placeholder="请输入密码" id="passWord">
+        <div class="formtit2" style="text-align: center;color: green;">
+
+        </div>
+        <!-- <span><a href="#">忘记密码</a></span> -->
+        <p style="text-align: right;padding-right: 40px;"><a id="getRegister">注册账号</a></p>
+        <p style="text-align: center;color: #007bff;">请您保护好个人账户信息，谨防上当受骗！</p>
+        <button id="LoginBtn" class="layui-btn  layui-btn-lg layui-btn-normal">登陆</button>
+      </div>
+
+
+      <div class="Logoin-wrap Register-box  shadow-lg" id="register">
+        <h3>注册账号</h3>
+        <input type="text" id="Name" placeholder="请输入姓名">
+        <div class="formtit0" style="text-align: center;">
+
+        </div>
+        <input type="text" id="userName" placeholder="请输入邮箱">
+        <div class="formtit" style="text-align: center;">
+
+        </div>
+        <input type="text" id="weixin" placeholder="微信ID(为空可以不填写)">
+        <input type="text" id="SkypeID" placeholder="请输入SKYPE">
+        <div class="formtit3" style="text-align: center;">
+
+        </div>
+        <input type="text" id="Phone" placeholder="请输入手机号">
+        <div class="formtit6" style="text-align: center;">
+
+        </div>
+        <input type="password" placeholder="请输入密码" id="passWord">
+        <div class="formtit2" style="text-align: center;">
+
+        </div>
+        <input type="password" placeholder="请确认输入密码" id="passWord2">
+        <div class="formtit4" style="text-align: center;">
+
+        </div>
+        <p style="margin-left:45px;">
+          <select name="" id="read">
+            <option value="中文">中文</option>
+            <option value="日语">日语</option>
+            <option value="英语">英语</option>
+            <option value="韩语">韩语</option>
+          </select>
+          <br>
+          <span style="font-size: 12px;">生徒さんのみ書きます</span>
+        </p>
+        <div style="margin-left: 45px;">
+          性别:
+          男<input style="display: inline;" name="Fruit" type="radio" value="男" checked="checked" />
+          女<input style="display: inline;" name="Fruit" type="radio" value="女" />
+        </div>
+        <input type="text" id="Codes" placeholder="教师邀请码(普通用户可不填写)">
+
+        <p style="text-align: right;padding-right: 40px;"><a id="getLogoin">登录账号</a></p>
+        <button id="RegsBtn" class="layui-btn  layui-btn-lg layui-btn-normal">注册</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // $('.Logo-box>#passWord').on('change',function(){
+    //    getPassWord('.Logo-box>#passWord')
+    // })
+    // $(".Logo-box>#userName").on("change",function(){
+    //  getEmali(".Logo-box>#userName")
+
+    // })
+    $("#LoginBtn").on("click", () => {
+      var datas = {
+        Email: $("#userName").val(),
+        Password: $("#passWord").val(),
+      }
+
+      function goUrl(url) {
+        $(".confirm").on("click", function () {
+          window.location.href = url
+        })
+      }
+
+      $.ajax({
+        url: "./login",
+        type: "post",
+        data: JSON.stringify(datas),
+        xhrFields: {
+          withCredentials: true
+        },
+        crossDomain: true,
+        success: (d) => {
+          console.log(d)
+          if (d.stats == "0") {
+            if (d.type == "1") {
+              window.location.href = "./teacherdata.html"
+            } else if (d.type == "0") {
+              window.location.href = "./index.html"
+            } else {
+              swal("Sorry!", d.msg, "error");
+            }
+          }
+        },
+        error: (err) => {
+          swal("Sorry!", '服务器错误', "error");
+        }
+      })
+
+    })
+    $("#getRegister").on("click", function () {
+      $(".Logo-box").css("display", "none")
+      $('.Logoin-wrap >input').each(function () {
+        $(this).val('')
+        $('.formtit').html('')
+        $('.formtit0').html('')
+        $('.formtit3').html('')
+        $('.formtit6').html('')
+        $('.formtit2').html('')
+        $('.formtit4').html('')
+      })
+      $(".Logo-box").css('display', 'block')
+      $(".Logo-box").attr("class", 'Logoin-wrap Logo-box acitve shadow-lg')
+
+      $("#register").attr("class", 'Logoin-wrap Register-box acitve shadow-lg')
+    })
+    $("#getLogoin").on("click", function () {
+      $('.formtit').html('')
+
+      $('.formtit2').html('')
+
+      $('Logoin-wrap>input').each(function () {
+        $(this).val('')
+
+      })
+
+      $("#register").removeClass("acitve")
+      $(".Logo-box").removeClass("acitve")
+    })
+
+
+
+  </script>
+  <script>
+    function getEmali(emstr) {
+      var reg = /[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}@[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]\.<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}\.[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}/i;
+      var userName = $(emstr).val()
+      if (reg.test(userName) && userName != "") {
+        $('.formtit').html('邮箱格式正确')
+        $('.formtit').css('color', 'green')
+        return true
+      } else {
+        $('.formtit').html('邮箱格式错误')
+        $('.formtit').css('color', 'red')
+        return false
+      }
+    }
+    //注册
+    $('.Register-box>#userName').on('change', function () {
+      getEmali('.Register-box>#userName')
+    })
+    $('.Register-box>#passWord').on('change', function () {
+      getPassWord('.Register-box>#passWord')
+    })
+    function getSkype() {
+      if ($('#SkypeID').val() == '', $('#SkypeID').val().length > 6) {
+        $('.formtit3').html('SKYPE格式正确')
+        $('.formtit3').css('color', 'green')
+        return true
+      }
+      $('.formtit3').html('SKYPE格式错误')
+      $('.formtit3').css('color', 'red')
+      return false
+    }
+    $('#SkypeID').on('change', function () {
+      getSkype()
+    })
+
+    function getPassWord(psstr) {
+      var reg = /^(\w){6,12}$/;
+      var a = $(psstr).val()
+
+      if (reg.test(a) && a != '') {
+        $('.formtit2').html('密码格式正确')
+        $('.formtit2').css('color', 'green')
+        return true
+      } else {
+        $('.formtit2').html('密码格式错误只能输入6-20个字母、数字、下划线')
+        $('.formtit2').css('color', 'red')
+        return false
+      }
+    }
+    function getpassWord2() {
+      console.log($('#passWord').val())
+      if ($('#passWord2').val() == $('#register>#passWord').val()) {
+        $('.formtit4').html('验证成功')
+        $('.formtit4').css('color', 'green')
+        return true
+      } else {
+        $('.formtit4').html('验证失败')
+        $('.formtit4').css('color', 'red')
+        return false
+      }
+    }
+
+    $('#passWord2').on('change', function () {
+      getpassWord2()
+    })
+    function getPhone() {
+      console.log($('#register>#Phone').val())
+      if ($('#register>#Phone').val() != '' && $('#register>#Phone').val().length >= 11) {
+        $('.formtit6').html('手机号格式正确')
+        $('.formtit6').css('color', 'green')
+        return true
+      } else {
+        $('.formtit6').html('手机号格式错误')
+        $('.formtit6').css('color', 'red')
+        return false
+      }
+    }
+    $('#Phone').on('change', function () {
+      getPhone();
+    })
+    function getName() {
+      if (($('#Name').val().length >= 1 && $('#Name').val().length <= 7) && $('#Name').val() != '') {
+        $('.formtit0').html('姓名格式正确')
+        $('.formtit0').css('color', 'green')
+        return true
+      }
+      $('.formtit0').html('姓名格式错误长度必须大于3小于7')
+      $('.formtit0').css('color', 'red')
+      return false
+    }
+    $('#Name').on('change', function () {
+      getName()
+    })
+    $('#RegsBtn').on('click', function () {
+      var options = $("#read option:selected")
+      var sex = $('input[name="Fruit"]:checked').val();
+      var datas = {
+        oAName: $("#Name").val(),
+        oAEmail: $(".Register-box>#userName").val(),
+        oAPaonee: $("#Phone").val(),
+        oApassword: $(".Register-box>#passWord2").val(),
+        oAhobby: options.val(),
+        oAsex: sex,
+        oAskype: $("#SkypeID").val(),
+        oAcodes: $("#Codes").val(),
+        oAweixin: $('#weixin').val()
+      }
+      console.log(datas)
+      console.log(getEmali())
+      if (getName() && getEmali('.Register-box>#userName') && getSkype() && getPhone() && getPassWord('.Register-box>#passWord') && getpassWord2()) {
+        function goUrl(url) {
+          $(".confirm").on("click", function () {
+            window.location.href = url
+          })
+        }
+        $.ajax({
+          type: "post",
+          data: JSON.stringify(datas),
+          dataType: 'json',
+          url: './register',
+          success: function (e) {
+            if (e.status == 0) {
+              swal("Sorry!", "请重新填写信息", "error");
+              console.log(e.msg)
+              // 
+            } else if (e.status == 1) {
+              swal("Yes!", "注册成功确认登录", "success");
+              goUrl("./index.html")
+
+            } else if (e.status == 2) {
+              swal("Yes!", "注册成功确认登录", "success");
+              goUrl("./teacherdata.html")
+
+            }
+          },
+          error: function (error) {
+            swal("Sorry!", error, "error");
+          }
+        })
+      } else {
+        swal("Sorry!", '注册资料未填写完毕', "error");
+      }
+    })
+  </script>
+  <!-- Footer Area Start -->
+  <footer class="footer">
+    <div class="footer-main-area" data-background="images/footer-bg.png">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <!-- 可以放logo -->
+              <!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+              <address class="mrb-25">
+                <p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i class="fas fa-phone-alt mrr-10"></i>+088 234
+                    432 15565</a></div>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-envelope mrr-10"></i>haominajiaoyu@126.com</a></div>
+                <div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+                      class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+              </address>
+              <ul class="social-list">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">关于我们</h5>
+              <ul class="footer-widget-list">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./about.html">公司简介</a></li>
+                <li><a href="./terTbale.html">教师资源</a></li>
+                <li><a href="./stunews.html">寻求帮助</a></li>
+                <li><a href="#">新闻</a></li>
+                <li><a href="./titMoeny.html" target="_blank">支付条款</a></li>
+                <li><a href="./logoin.html">成为老师</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">产品服务</h5>
+              <ul class="footer-widget-list">
+                <li><a href="terTbale.html">汉语在线培训</a></li>
+                <li><a href="terTbale.html">日语在线培训</a></li>
+                <li><a href="terTbale.html">英语在线培训</a></li>
+                <li><a href="terTbale.html">韩语在线培训</a></li>
+                <li><a href="terTbale.html">支付问题</a></li>
+                <li><a href="terTbale.html">初学者指南</a></li>
+                <li><a href="terTbale.html">公司条款</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">扫码添加客服Skype</h5>
+              <p class="text-light-gray">如果你有一些问题或者建议你都可以通过微软官方的一款联系软件Skype扫码联系我们的官方客服</p>
+              <img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+              <br>
+              <a href="" class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+                  class="webexflaticon flaticon-send"></i>Submit Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="text-center">
+              <span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com 辽ICP备20008656号</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Area End -->
+  <!-- BACK TO TOP SECTION -->
+  <div class="back-to-top bg-gradient-color">
+    <i class="fab fa-angle-up"></i>
+  </div>
+  <script src="./js/consloe.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/jquery.v1.12.4.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/jquery-core-plugins.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./layui/layui.js"></script>
+
+
+  <!-- JS, Popper.js, and jQuery -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+.footer{
+    width:100%;
+    padding: 10px 15%;
+    background:#458fd2;
+}
+.footer-box p{
+    color: #ffffff;
+    text-align: center;
+}
+.product-number-info {
+	position: relative;
+	background-color: rgba(41,41,41,1.00);
+}
+.product-number-info .product-number-inner {
+	width:70%;
+	margin: 0 auto;
+}
+.product-number-info ul {
+	padding: 85px 0;
+}
+.product-number-info ul.q:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+.product-number-info li {
+	float: left;
+	width: 239px;
+	height: 90px;
+	border-left: 1px solid #3c3c3c;
+	color: #fff;
+	padding-top: 1px;
+}
+.product-number-info li:first-child {
+	border: none;
+}
+.product-number-info li b {
+	font-weight: 400;
+	font-size: 36px;
+	line-height: 1;
+	display: inline-block;
+	position: relative;
+	margin: 15px 0 10px;
+}
+.product-number-info li b i {
+	font-style: normal;
+}
+.product-number-info li b sup {
+	position: absolute;
+	font-size: 20px;
+	right: -15px;
+	top: -3px;
+}
+.product-number-info li b em {
+	font-style: normal;
+	font-size: 28px;
+	font-weight: 100;
+	padding-left: 2px;
+	position: relative;
+	top: -4px;
+}
+.product-number-info li p {
+	font-size: 14px;
+}
+.product-number-info li.li-2 b, .product-number-info li.li-2 p {
+	padding-left: 70px;
+}
+.product-number-info li.li-3 b, .product-number-info li.li-3 p {
+	padding-left: 70px;
+}
+.product-number-info li.li-3 b, .product-number-info li.li-3 p {
+	padding-left: 70px;
+}
+.product-number-info li.li-4 b, .product-number-info li.li-4 p {
+	padding-left: 78px;
+}
+.product-number-info li.li-5 {
+	text-align: right;
+}
+.product-number-info li.li-5 b {
+	padding-right: 2px;
+}
+/*页脚*/
+.copyright {
+	padding-top: 79px;
+	border-top: 1px solid #ededed;
+}
+.copyright_c {
+	height: 313px;
+	width:70%;
+	margin: 0 auto;
+}
+.copyright_head {
+	height: 247px;
+	/* overflow: hidden; */
+	border-bottom: 1px solid #ededed;
+}
+.copyright_L {
+	float: left;
+	width: 406px;
+}
+.copyright_L p {
+	display: block;
+	width: 381px;
+	height: 48px;
+	margin-bottom: 26px;
+}
+.copyright_L span {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 4px;
+}
+.copyright_L span em {
+	display: block;
+	float: left;
+	font-size: 14px;
+	color: #888;
+	line-height: 30px;
+}
+.copyright_L span strong {
+	display: block;
+	float: left;
+	font-size: 24px;
+	color: #f90;
+	line-height: 30px;
+}
+.copyright_L span a {
+	display: block;
+	float: left;
+	width: 70px;
+	height: 30px;
+	border-radius: 3px;
+	overflow: hidden;
+	background: url(../images/QQ.png) #03d3ff no-repeat 11px center;
+	padding-left: 35px;
+	font-size: 14px;
+	color: #FFF;
+	line-height: 30px;
+	margin-right: 10px
+}
+.copyright_L span:last-child {
+	padding-top: 10px;
+}
+.copyright_C {
+	float: left;
+	overflow: hidden;
+}
+.copyright_C_list {
+	float: left;
+	padding-top: 24px;
+}
+.copyright_C_list p {
+	display: block;
+	font-size: 18px;
+	color: #333;
+	padding-bottom: 28px;
+}
+.about {
+	overflow: hidden;
+	margin-bottom: 22px;
+}
+.about a {
+	display: block;
+	font-size: 12px;
+	color: #666;
+	float: left;
+	margin-right: 24px;
+}
+.about a:hover {
+	color: #3fc7ff;
+}
+.copyright_C_list:nth-child(2) {
+	margin-left: 114px;
+	margin-right: 46px;
+}
+.copyright_R {
+	float: right;
+	width: 150px;
+}
+.copyright_R span {
+	display: block;
+	width: 122px;
+	height: 122px;
+	border: 1px solid #ededed;
+	padding: 13px;
+}
+.copyright_R span img {
+	width: 100%
+}
+.copyright_R p {
+	display: block;
+	font-size: 12px;
+	color: #999;
+	text-align: center;
+	padding-top: 18px;
+}
+.copyright_bottom {
+	height: 65px;
+	overflow: hidden;
+}
+.copyright_bottom span {
+	display: block;
+	line-height: 65px;
+	font-size: 12px;
+	color: #a9a9a9;
+	float: left;
+}
+.copyright_bottom p {
+	display: block;
+	line-height: 65px;
+	font-size: 12px;
+	color: #a9a9a9;
+	float: right;
+}

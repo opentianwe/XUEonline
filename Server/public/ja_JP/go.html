@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://js.braintreegateway.com/web/dropin/1.24.0/js/dropin.min.js"></script>
+    <!-- <script src="./js/dropin.min.js"></script> -->
+    <script src="./js/jq.min.js"></script>
+    <script src="./layer/layer.js"></script>
+</head>
+
+<body>
+
+    <div id="token">{{data}}</div>
+    <div>
+        付款前可查看用户<a href='./titMoeny.html'>支付协议</a>
+    </div>
+    <div>
+        <div id="dropin-container">
+
+        </div>
+    </div>
+    <button id="submit-button">Request payment method</button>
+    <button id="submit">付款</button>
+    <script>
+        var button = document.querySelector('#submit-button');
+        var token = document.querySelector('#token')
+        var submit = document.querySelector('#submit')
+        layer.msg('正在马不停蹄的加载中,请稍等...', {
+            icon: 16,
+            shade: 0.7,
+            time: 1000 * 3
+        });
+        // 需要一个页面加载的请求 把用户信息渲染上去
+        // 然后给个的是提示框 进入提示确认框后 再进入确认付款 ······
+        //console.log(token.innerHTML)
+        braintree.dropin.create({
+            authorization: 'eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpGVXpJMU5pSXNJbXRwWkNJNklqSXdNVGd3TkRJMk1UWXRjMkZ1WkdKdmVDSXNJbWx6Y3lJNkltaDBkSEJ6T2k4dllYQnBMbk5oYm1SaWIzZ3VZbkpoYVc1MGNtVmxaMkYwWlhkaGVTNWpiMjBpZlEuZXlKbGVIQWlPakUyTURFeE56QTNNRFlzSW1wMGFTSTZJbUkwTnpKaE5USTBMV0ppTWpndE5HTTFaQzA1WkdFMExUaGxOamhpWldaaFlqTXdaQ0lzSW5OMVlpSTZJbkZpWWpkdWRIWnlNbmw1TlRObWJtc2lMQ0pwYzNNaU9pSm9kSFJ3Y3pvdkwyRndhUzV6WVc1a1ltOTRMbUp5WVdsdWRISmxaV2RoZEdWM1lYa3VZMjl0SWl3aWJXVnlZMmhoYm5RaU9uc2ljSFZpYkdsalgybGtJam9pY1dKaU4yNTBkbkl5ZVhrMU0yWnVheUlzSW5abGNtbG1lVjlqWVhKa1gySjVYMlJsWm1GMWJIUWlPbVpoYkhObGZTd2ljbWxuYUhSeklqcGJJbTFoYm1GblpWOTJZWFZzZENKZExDSnpZMjl3WlNJNld5SkNjbUZwYm5SeVpXVTZWbUYxYkhRaVhTd2liM0IwYVc5dWN5STZlMzE5LkN3RDJabUY2QnY4R2JjWC1VX013eVl6M3dab0N1MHluWjdLNzEwcmV6NE1sNnpVdE9SZkUwV2kwbG5ZZU9iTlBFdVV0ZHp4WUJXWFY3MmZoOXNMMm13IiwiY29uZmlnVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3FiYjdudHZyMnl5NTNmbmsvY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiZ3JhcGhRTCI6eyJ1cmwiOiJodHRwczovL3BheW1lbnRzLnNhbmRib3guYnJhaW50cmVlLWFwaS5jb20vZ3JhcGhxbCIsImRhdGUiOiIyMDE4LTA1LTA4IiwiZmVhdHVyZXMiOlsidG9rZW5pemVfY3JlZGl0X2NhcmRzIl19LCJjbGllbnRBcGlVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvcWJiN250dnIyeXk1M2Zuay9jbGllbnRfYXBpIiwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwibWVyY2hhbnRJZCI6InFiYjdudHZyMnl5NTNmbmsiLCJhc3NldHNVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImF1dGhVcmwiOiJodHRwczovL2F1dGgudmVubW8uc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbSIsInZlbm1vIjoib2ZmIiwiY2hhbGxlbmdlcyI6W10sInRocmVlRFNlY3VyZUVuYWJsZWQiOnRydWUsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL29yaWdpbi1hbmFseXRpY3Mtc2FuZC5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tL3FiYjdudHZyMnl5NTNmbmsifSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImJpbGxpbmdBZ3JlZW1lbnRzRW5hYmxlZCI6dHJ1ZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOnRydWUsInVudmV0dGVkTWVyY2hhbnQiOmZhbHNlLCJhbGxvd0h0dHAiOnRydWUsImRpc3BsYXlOYW1lIjoiV1dXIiwiY2xpZW50SWQiOm51bGwsInByaXZhY3lVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vcHAiLCJ1c2VyQWdyZWVtZW50VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3RvcyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImVudmlyb25tZW50Ijoib2ZmbGluZSIsImJyYWludHJlZUNsaWVudElkIjoibWFzdGVyY2xpZW50MyIsIm1lcmNoYW50QWNjb3VudElkIjoid3d3IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn19',
+            container: '#dropin-container'
+        }, function (createErr, instance) {
+            button.addEventListener('click', function () {
+                //layer.msg('123456')
+                instance.requestPaymentMethod(function (err, payload) {
+                    // Submit payload.nonce to your server
+                    // $.ajax({
+                    //     type: "post",
+                    //     data: JSON.stringify(payload),
+                    //     dataType: 'json',
+                    //     success: function (data) {
+                    //         console.log(data)
+                    //     },
+                    //     error: function (error) {
+                    //         console.log(error);
+                    //     }
+                    // })
+                    submit.addEventListener('click', function () {
+                        var httpRequest = new XMLHttpRequest();
+                        httpRequest.open('POST', './checkout', true);
+                        httpRequest.setRequestHeader('Content-type', 'application/json');
+                        httpRequest.send(JSON.stringify(payload))
+                        httpRequest.onreadystatechange = function () {
+                            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                                console.log("返回:" + httpRequest.responseText)
+                            }
+                        }
+                    })
+                });
+            });
+        });
+        console.log(window.location.search)
+
+        document.onreadystatechange = subSomething;
+        function subSomething() {
+            //当页面加载状态
+            if (document.readyState == 'complete') {
+                setTimeout(() => {
+                    console.log('我在等待')
+                }, 2000)
+            }
+        }
+    </script>
+</body>
+
+</html>

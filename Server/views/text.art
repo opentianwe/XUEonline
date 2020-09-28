@@ -1,0 +1,45 @@
+<head>
+	<meta name="format-detection" content="telephone=no">
+
+	<meta name="viewport" content="width=device-width,user-scalable=yes,maximum-scale=3">
+	<title>text</title>
+	<link rel="stylesheet" type="text/css" href="./css/table.css" >
+	<script type="text/javascript">
+		function time_change(lang1) {
+			if (lang1 == "JAPAN TIME") {
+				document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s" align="right"><tr align="right"><th style="height:41px;background:#79B330;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option selected>JAPAN TIME</option><option>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr><tr><th nowrap>00:00 ~</th></tr><tr><th nowrap>00:30 ~</th></tr></table></div>';
+			} else if (lang1 == "CHINA TIME") {
+				document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option selected>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+			} else if (lang1 == "FILIPINO TIME") {
+				document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option>CHINA TIME</option><option selected>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+			} else {
+			}
+		}
+	</script>
+
+	<script type="text/javascript" src="../js/jquery.min341.js"></script>
+	<link rel="stylesheet" href="../js/fancy2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen">
+	<script type="text/javascript" src="../js/fancy2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".fancybox").fancybox({
+				maxWidth: 600,
+				maxHeight: 600,
+				fitToView: false,
+				width: '100%',
+				height: '100%',
+				autoSize: false,
+				closeClick: false,
+				openEffect: 'none',
+				closeEffect: 'none',
+				prevEffect: 'none',
+				nextEffect: 'none'
+			});
+		});
+	</script>
+
+<body>
+					{{#data.Timp}}
+</body>
+
+</html>

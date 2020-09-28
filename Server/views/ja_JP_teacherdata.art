@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="中国语Xueonline" /><!--网页关键字-->
+	<meta name="description" content="一个在线1v1教育平台"/><!--网页描述-->
+	<meta name="author" content="XUE"/><!--网页作者-->
+
+    <title>教师资料填写</title>
+    <script src="./js/vue.2.6.11.js"></script>
+    <script src="./js/jq.min.js"></script>
+    <script type="text/javascript">
+      function time_change(lang1) {
+        if (lang1 == "JAPAN TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s" align="right"><tr align="right"><th style="height:41px;background:#79B330;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option selected>JAPAN TIME</option><option>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr><tr><th nowrap>00:00 ~</th></tr><tr><th nowrap>00:30 ~</th></tr></table></div>';
+        } else if (lang1 == "CHINA TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option selected>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+        } else if (lang1 == "FILIPINO TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option>CHINA TIME</option><option selected>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+        } else {
+        }
+      }
+    </script>
+    
+     <script src="./js/sweetalert.min.js"></script>
+    <script src="./js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="./css/sweetalert.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/table.css" >
+    <link rel="stylesheet" href="./layui/css/layui.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="./css/style2.css">
+	<link rel="stylesheet" href="./css/responsive.css">
+  </head>
+<style>
+   .progress {
+   width:100%;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 0px;
+    overflow: hidden;
+}
+/* 初始状态设置进度条宽度为0px */
+.progress > div {
+    width: 0px;     
+    height: 100%;
+    background: #458fd2;
+    transition: all .3s ease;
+}
+    </style>
+<style>
+  .progress {
+  width:100%;
+   height: 10px;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   margin: 10px 0px;
+   overflow: hidden;
+}
+/* 初始状态设置进度条宽度为0px */
+.progress > div {
+   width: 0px;     
+   height: 100%;
+   background: #458fd2;
+   transition: all .3s ease;
+}
+
+
+   </style>
+   
+<body style="background:#e9f9fb;">
+  <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  <header class="header-style-two">
+    <div class="header-wrapper">
+      <div class="header-top-area bg-gradient-color d-none d-lg-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 header-top-left-part">
+              <span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+              <span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+            </div>
+            <div class="col-lg-6 header-top-right-part text-right">
+              <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+              <div class="language">
+                <a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>Japanese</a>
+                <ul class="language-dropdown">
+                  <li> <a href="#">Chinese</a></li>
+                  <!-- <li><a href="#">English</a></li> -->
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-navigation-area two-layers-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+                <!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+              </a>
+              <div class="mobile-menu-right"></div>
+              <div class="header-searchbox-style-two d-none d-xl-block">
+                <div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+                  <span class="bar1"></span>
+                  <span class="bar2"></span>
+                  <span class="bar3"></span>
+                </div>
+                <!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+                <div class="toggle-searchbox">
+                  <form action="#" id="searchform-all" method="get">
+                    <div>
+                      <input type="text" id="s" class="form-control" placeholder="Search...">
+                      <div class="input-box">
+                        <input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="side-panel-content">
+                <div class="close-icon">
+                  <button><i class="webex-icon-cross"></i></button>
+                </div>
+                <div class="side-panel-logo mrb-30">
+                  XUEonline
+                </div>
+                <div class="side-info mrb-30">
+                  <div class="side-panel-element mrb-25">
+                    <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+                    <ul class="list-items">
+                      <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
+                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominajiaoyu@126.com</li>
+                      <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
+                    </ul>
+                  </div>
+                  <div class="side-panel-element mrb-30">
+                    <h4 class="mrb-15">公司状态</h4>
+                    <ul class="pintarest-list">
+                      <li><a href="#"><img class="img-full" src="images/side-panel/1.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/2.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/3.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/4.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/5.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/6.jpg" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h4 class="mrb-15">可靠联系方式</h4>
+                <ul class="social-list">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="main-menu f-right">
+                <nav id="mobile-menu-right">
+                  <ul>
+                    <li>
+                      <!-- class="has-sub" -->
+                      <a href="./index.html">HOME</a>
+                      <!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+                    </li>
+                    <li><a href="./getmoeny.html">Point購入</a></li>
+                    <li class="has-sub">
+                      <a href="./terTbale.html">講師一覧</a>
+                      <ul class="sub-menu">
+                        <li><a href="./terTbale.html">先生の予約</a></li>
+                        <li class="has-sub-child">
+                          <a href="./logoin.html">ログイン</a>
+                          <ul class="sub-menu right-view">
+                            <li><a href="./logoin.html">登録</a></li>
+                            <li><a href="./teacherdata.html">先生入力してください</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="./stunews.html">よくある質問</a>
+
+                    </li>
+                    <li class=" right-view">
+                      <a href="./logoin.html">ログイン/新規登録</a>
+
+                    </li>
+                    <li class="has-sub right-view">
+                      <a href="#">MY PAGE</a>
+                      <ul class="sub-menu">
+                        <li><a href="./presonal.html">MY PAGE</a></li>
+                        <li><a href="./logoin.html">ログイン</a></li>
+                        <li><a id="qiut-s">サインアウト</a></li>
+
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+    <h2 style="text-align: center;">教师资料填写页面</h2>
+    <p style="text-align: center;"><a href="./teachernews.html" target="_blank"  >问题解答页面</a></p>
+    <div class="form-data">
+         <!--头像     <input class="upload" name="avatar2" id="avatar2" type="file" > -->
+         <div class="getimgs border shadow-sm">
+        <div class="layui-upload">
+  <button type="button" class="layui-btn" id="test1">上传图片</button>
+  <div class="layui-upload-list">
+    
+    <p id="demoText"><img class="layui-upload-img" id="demo1"></p>
+  </div>
+</div>   
+      </div>
+      <div class="sections border shadow-sm">
+          <p>视频上传</p>
+        <button type="button" class="layui-btn" id="test5"><i class="layui-icon"></i>上传视频</button>
+          <p class="Astate" style="padding: 0;margin: 0;">
+              视频上传进度条
+          </p>
+            <div class="layui-progress layui-progress-big" lay-showpercent="true" lay-filter="demo" >
+                    <div class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+            </div>
+
+      </div>
+      
+      
+         <div class="getID border shadow-sm" style="display: flex;flex-wrap: wrap;justify-content:space-around;">
+          <div>
+              <span class="form-text">姓名</span><input type="text" name="Name" id="Name" style="width: 300px;">
+          <span class="form-text">日本語のレベル</span><input type="text" name="Name" id="UserID"  style="width: 300px;">
+          <span class="form-text">英語の名前</span><input type="text" name="Name" id="EngName" style="width: 300px;">
+          <span class="form-text">出生地</span><input type="text" name="Name" id="JapenName" style="width: 300px;">
+          <span class="form-text">銀行名</span><select name="" id="BlANkID" style="font-size: 12px;">
+              <option selected = "selected" value="PayPal">PayPal（ペイパル）</option>
+              <option value="楽天銀行">楽天銀行</option>
+              <option value="三井住友銀行">三井住友銀行</option>
+              <option value="三菱UFJ銀行">三菱UFJ銀行</option>
+              <option  value="みずほ銀行">みずほ銀行</option>
+              <option value="ゆうちょ銀行">ゆうちょ銀行</option>
+              <option  value="支付宝">支付宝</option>
+              <option value="中国人民银行">中国人民银行</option>
+              <option value="中国建设银行">建设银行</option>
+              <option value="中国工商银行">招商银行</option>
+              <option value="中国农业银行">中国农业银行</option>
+              <option value="交通银行">交通银行</option>
+          </select>
+          <span class="form-text">收款账号</span><input type="text" id="Blank-num1" style="width: 300px;">
+          <span class="form-text">收款银行信息</span><input type="text" id="Blank-num2"  placeholder="如果是支付宝请填写收款人姓名" style="width: 300px;">
+          <span class="form-text">支店名</span><input type="text" style="width: 300px;" placeholder="例：001/在中国的银行则不需要" id="chushengdi">
+          <span class="form-text">口座名</span><input type="text" placeholder="开户人姓名" style="width: 300px;" id="kouzuomin">
+          <span class="form-text">口座番号</span><input type="text" placeholder="例:1234567中国的银行则不需要" style="width: 300px;" id="kouzuofanhao">
+          <!-- //<input type="text" name="Name" id="BlankID"  style="width: 300px;"> -->
+        
+          </div>
+          <div>
+              <span class="form-text">現在の職業</span><input type="text" style="width: 300px;"  id="xianzaizhiye">
+              <span class="form-text">手机号填写</span><input type="text" name="Name" id="Phone"  style="width: 300px;">
+              <span class="form-text">卒業大学名</span><input type="text" name="Name" id="School"  style="width: 300px;">
+              <span class="form-text">国籍</span><input type="text" name="Name" id="Home"  style="width: 300px;">
+              <span class="form-text">日本在住歴</span><input type="text" name="Name" placeholder="可以填写数字" id="yearHome"  style="width: 300px;">
+              <span class="form-text">SkypeID</span><input type="text" name="Name" id="SkyepID"  style="width: 300px;">
+              <span class="form-text">微信ID</span><input type="text" name="Name" id="WeixinID"  style="width: 300px;">
+              <span class="form-text">身份证号</span><input type="text" name="Name" id="renID"  style="width: 300px;">
+              <span class="form-text">電話番号</span><input type="text" name="Name" placeholder="例：001/在中国的银行则不需要" id="telID"  style="width: 300px;">
+  
+              <br>
+              <div class="layui-block" style="margin:10px 0;">
+                <label class="layui-form-label" style="width: 100px;">出生日期</label>
+                <div class="layui-input-block">
+                  <input type="text" style="width: 100%;" class="layui-input" id="getYear" placeholder="yyyy-MM-dd">
+                </div>
+              </div>
+          </div>
+      </div>
+      <script src="./laydate/laydate.js"></script>
+      <script>
+      
+       laydate.render({
+  elem: '#getYear'
+  ,lang: 'en'
+}); 
+      </script>
+      
+          <div class="getSEX border shadow-sm" >
+              <div>
+                  <span class="form-text">你所从事的科目教学请如实填写:(可多选)</span>
+                  <label class="checkbox-inline">
+                      <input type="checkbox" name="yuyan"  id="inlineCheckbox1" value="1"> 中国語
+                  </label>
+                  <label class="checkbox-inline">
+                      <input type="checkbox" name="yuyan" id="inlineCheckbox2" value="2"> 日本語
+                  </label>
+                  <label class="checkbox-inline">
+                      <input type="checkbox" name="yuyan" id="inlineCheckbox3" value="3"> 英語
+                  </label>
+                  <label class="checkbox-inline">
+                      <input type="checkbox" name="yuyan" id="inlineCheckbox4" value="4"> 韓国語
+                  </label>
+                  <br>
+                  <span class="form-text">通常授業料</span>
+                    <input type="text" name="" id="zheng1">
+                    
+                  <br>
+                  <span class="form-text">体験授業料</span>
+                  <input type="text" id="zheng2">
+                  <br>
+                  <span class="form-text">选择性别</span><input type="radio" id="nan" name="gender" value="男" />男
+                                                        <input type="radio" id="nv" name="gender" value="女" />女
+              </div> 
+          </div>
+         
+        
+          <div class="form-group  shadow-sm">
+              <p>自己PR</p>
+              <textarea class="form-control" rows="3" id="terData2" maxlength="1000" placeholder="自己PR/1000字以内" ></textarea>
+          </div>
+          <div class="form-group  shadow-sm">
+            <p>个人兴趣爱好教学特点填写</p>
+            <textarea class="form-control" rows="3" id="terData" maxlength="1000" placeholder="个人介绍填写此内容关系到你在页面展示的主要内容1000字符限制" ></textarea>
+        </div>
+          <div class="btn">
+              <button class="btn btn-primary" id="sub" >提交</button>
+          </div>
+         
+    </div>
+ 
+    <!-- <script type="text/javascript">
+      $(document).ready(function () {
+        $(".fancybox").fancybox({
+          maxWidth: 600,
+          maxHeight: 600,
+          fitToView: false,
+          width: '100%',
+          height: '100%',
+          autoSize: false,
+          closeClick: false,
+          openEffect: 'none',
+          closeEffect: 'none',
+          prevEffect: 'none',
+          nextEffect: 'none'
+        });
+      });
+    </script> -->
+    {{#data.Timp}}
+    <h3 style="text-align: center;">消息查看</h3>
+    <div class="form-data">
+      <div class="border shadow-sm ">
+          <p>学生留言评价查看</p>
+         <div class="Stu-list overflow-auto border">
+
+         </div>
+      </div>
+    </div>
+    <div class="form-data" >
+      <div class="border shadow-sm " >
+          <p>预约课程信息查看</p>
+         <div class="Stu-list overflow-auto border">
+            
+         </div>
+      </div>
+    </div>
+    	<!-- Footer Area Start -->
+<footer class="footer">
+    <div class="footer-main-area" data-background="images/footer-bg.png">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <!-- 可以放logo -->
+              <!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+              <address class="mrb-25">
+                <p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-envelope mrr-10"></i>haominajiaoyu@126.com</a></div>
+                <div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+                      class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+              </address>
+              <ul class="social-list">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">会社案内</h5>
+              <ul class="footer-widget-list">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./about.html">会社概要</a></li>
+                <li><a href="./terTbale.html">教師のリソース</a></li>
+                <li><a href="./stunews.html">お問い合わせ</a></li>
+                <li><a href="./titMoeny.html" target="_blank">支払い条件</a></li>
+                <li><a href="./logoin.html">先生になる</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">サビース</h5>
+              <ul class="footer-widget-list">
+                <li><a href="terTbale.html">中国語　オンライン</a></li>
+                <li><a href="terTbale.html">日本語　オンライン</a></li>
+                <li><a href="terTbale.html">英　語　オンライン</a></li>
+                <li><a href="terTbale.html">韓国語　オンライン</a></li>
+                <li><a href="terTbale.html">お支払い</a></li>
+                <li><a href="stunews.html">よくある質問</a></li>
+                <li><a href="terTbale.html">公司条款</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">QRコードを読み取り、サポート管理員を追加します。</h5>
+              <p class="text-light-gray">ご質問やご提案がある場合は、Skypeで当社のサポート管理員までにお問い合わせください。</p>
+              <img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+              <br>
+              <a href="http://skype.gmw.cn/" target="_blank"
+                class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+                  class="webexflaticon flaticon-send"></i>下载 Skype</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="text-center">
+              <span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com 辽ICP备20008656号</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+	</div>
+  <script src="./js/consloe.js"></script>
+   <script src="./js/Server.js"></script>
+   <script src="./js/jquery.v1.12.4.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-core-plugins.js"></script>
+	<script src="./js/main.js"></script>
+    <script src="./layui/layui.js"></script>   
+  <script src="./js/ter.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

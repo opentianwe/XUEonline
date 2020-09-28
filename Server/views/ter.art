@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师详情页面</title>
+    <script src="./js/vue.2.6.11.js"></script>
+    <script src="./js/jq.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <script src="./js/sweetalert.min.js"></script>
+    <script src="./js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="./css/sweetalert.css">
+    <script type="text/javascript">
+      function time_change(lang1) {
+        if (lang1 == "JAPAN TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s" align="right"><tr align="right"><th style="height:41px;background:#79B330;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option selected>JAPAN TIME</option><option>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr><tr><th nowrap>00:00 ~</th></tr><tr><th nowrap>00:30 ~</th></tr></table></div>';
+        } else if (lang1 == "CHINA TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option selected>CHINA TIME</option><option>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+        } else if (lang1 == "FILIPINO TIME") {
+          document.getElementById("timeline").innerHTML = '<div id="timeline"><table class="suke_s_chinatime" align="right"><tr align="right"><th style="height:41px;background:#FE6565;"><select name="time_table" onchange="javascript:time_change(this.options[this.selectedIndex].value);"><option>JAPAN TIME</option><option>CHINA TIME</option><option selected>FILIPINO TIME</option></select></th></tr><tr><th nowrap>05:00 ~</th></tr><tr><th nowrap>05:30 ~</th></tr><tr><th nowrap>06:00 ~</th></tr><tr><th nowrap>06:30 ~</th></tr><tr><th nowrap>07:00 ~</th></tr><tr><th nowrap>07:30 ~</th></tr><tr><th nowrap>08:00 ~</th></tr><tr><th nowrap>08:30 ~</th></tr><tr><th nowrap>09:00 ~</th></tr><tr><th nowrap>09:30 ~</th></tr><tr><th nowrap>10:00 ~</th></tr><tr><th nowrap>10:30 ~</th></tr><tr><th nowrap>11:00 ~</th></tr><tr><th nowrap>11:30 ~</th></tr><tr><th nowrap>12:00 ~</th></tr><tr><th nowrap>12:30 ~</th></tr><tr><th nowrap>13:00 ~</th></tr><tr><th nowrap>13:30 ~</th></tr><tr><th nowrap>14:00 ~</th></tr><tr><th nowrap>14:30 ~</th></tr><tr><th nowrap>15:00 ~</th></tr><tr><th nowrap>15:30 ~</th></tr><tr><th nowrap>16:00 ~</th></tr><tr><th nowrap>16:30 ~</th></tr><tr><th nowrap>17:00 ~</th></tr><tr><th nowrap>17:30 ~</th></tr><tr><th nowrap>18:00 ~</th></tr><tr><th nowrap>18:30 ~</th></tr><tr><th nowrap>19:00 ~</th></tr><tr><th nowrap>19:30 ~</th></tr><tr><th nowrap>20:00 ~</th></tr><tr><th nowrap>20:30 ~</th></tr><tr><th nowrap>21:00 ~</th></tr><tr><th nowrap>21:30 ~</th></tr><tr><th nowrap>22:00 ~</th></tr><tr><th nowrap>22:30 ~</th></tr><tr><th nowrap>23:00 ~</th></tr><tr><th nowrap>23:30 ~</th></tr></table></div>';
+        } else {
+        }
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/table.css" >
+   <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./css/style2.css">
+	<link rel="stylesheet" href="./css/responsive.css">
+  <style>
+  .layui-layer-btn>a:nth-child(1){
+    color: #ffffff !important;
+}
+  </style>
+</head>
+<body style="background:#e9f9fb;">
+  	<!-- Preloader Start -->
+	<div class="preloader"></div>
+	<!-- Preloader End -->
+	<!-- header Start -->
+	<header class="header-style-two">
+		<div class="header-wrapper">
+			<div class="header-top-area bg-gradient-color d-none d-lg-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 header-top-left-part">
+							<span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+							<span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+						</div>
+						<div class="col-lg-6 header-top-right-part text-right">
+							<ul class="social-links">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+							<div class="language">
+								<a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>中文</a>
+								<!-- <ul class="language-dropdown">
+									<li> <a href="#">Chinese</a></li>
+									<li><a href="#">English</a></li>
+									<li><a href="#">Bangla</a></li>
+									<li><a href="#">French</a></li>
+									<li><a href="#">Spanish</a></li>
+									<li><a href="#">Arabic</a></li>
+								</ul> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-navigation-area two-layers-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+								
+								<!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+							</a>
+							<div class="mobile-menu-right">
+               
+              </div>
+							<div class="header-searchbox-style-two d-none d-xl-block">
+								<div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+									<span class="bar1"></span>
+									<span class="bar2"></span>
+									<span class="bar3"></span>
+								</div>
+								<!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+								<div class="toggle-searchbox">
+									<form action="#" id="searchform-all" method="get">
+										<div>
+											<input type="text" id="s" class="form-control" placeholder="Search...">
+											<div class="input-box">
+												<input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="side-panel-content">
+								<div class="close-icon">
+									<button><i class="webex-icon-cross"></i></button>
+								</div>
+								<div class="side-panel-logo mrb-30">
+									XUEonline
+								</div>
+								<div class="side-info mrb-30">
+									<div class="side-panel-element mrb-25">
+										<h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+										<ul class="list-items">
+											<li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
+											<li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominajiaoyu@126.com</li>
+											<li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
+										</ul>
+									</div>
+									<div class="side-panel-element mrb-30">
+										<h4 class="mrb-15">公司状态</h4>
+										<ul class="pintarest-list">
+											<li><a href="#"><img class="img-full" src="images/side-panel/1.jpg" alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/2.jpg" alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/3.jpg" alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/4.jpg" alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/5.jpg" alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/6.jpg" alt=""></a></li>
+										</ul>
+									</div>
+								</div>
+								<h4 class="mrb-15">可靠联系方式</h4>
+								<ul class="social-list">
+									<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+							<div class="main-menu f-right">
+								<nav id="mobile-menu-right">
+									<ul>
+										<li >
+											<!-- class="has-sub" -->
+											<a href="./index.html">首页</a>
+											<!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</li>
+										<li><a href="./getmoeny.html">购买积分</a></li>
+										<li class="has-sub">
+											<a href="./terTbale.html">老师一览</a>
+											<ul class="sub-menu">
+												<li><a href="./terTbale.html">预约老师</a></li>
+												<li class="has-sub-child">
+													<a href="./logoin.html">教师登入</a>
+													<ul class="sub-menu right-view">
+														<li><a href="./logoin.html">教师注册</a></li>
+														<li><a href="./teacherdata.html">教师资料填写入入口</a></li>
+													</ul>
+												</li>
+												
+											</ul>
+										</li>
+										<li >
+											<a href="./stunews.html">问题解答</a>
+											
+										</li>
+										<li class=" right-view">
+											<a href="./logoin.html">登录/注册</a>
+											
+										</li>
+										<li class="has-sub right-view">
+											<a href="#">个人中心</a>
+											<ul class="sub-menu">
+												<li><a href="personal.html">个人资料</a></li>
+												<li><a href="./logoin.html">登入</a></li>
+												<li><a id="qiut-s">退出</a></li>
+												
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+   
+  
+  
+	<!-- header End -->
+	<!-- Home Slider Start -->
+    <style>
+      .user-top{
+        display: flex;
+        padding: 20px 0;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .user-top p{
+        margin-bottom: 0;
+        padding: 7px 0;
+        border-bottom: 1px solid #f2f2f2;
+        width:400px;
+        color: #458fd2;
+        cursor: pointer;
+        font-size:14px;
+      }
+      .user-top p i{
+        color: #458fd2;
+      }
+      .user-top>div:nth-child(1){
+        padding:10px;
+          width: 70%;
+         
+      }
+      .user-top>div:nth-child(2){
+          border: 1px solid  #f1f1f1;
+      }
+      .user-div{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .user-content{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      
+      .user-content-header{
+        width: 100%;
+        border: 1px solid #f1f1f1;
+        padding:10px ;
+        margin: 10px 0;
+      }
+      .viod-continue{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .psVideo-play-footer{
+        height: 45px !important;
+      }
+      .viod-continue section{
+        width: 50%;
+      }
+      .viod-continue section:nth-child(2){
+        padding:10px ;
+      }
+      .jatlt p{
+        margin-bottom: 0;
+        padding:2px;
+        font-size: 14px;
+        text-indent: 2em;
+        color: #458fd2;
+      }
+      .color-bu{
+        color: #458fd2;
+      }
+      .user-box{
+        background: #fff;width: 70%;margin: 0 auto;padding: 20px;
+        background: radial-gradient(circle at top left, transparent 0px, #ffffff 0) top left, 
+			    radial-gradient(circle at top right, transparent 65px, #ffffff 0) top right, 
+			    radial-gradient(circle at bottom right, transparent 0px,#ffffff 0) bottom right,
+			    radial-gradient(circle at bottom left, transparent 0px, #ffffff 0) bottom left;
+	        background-size: 50% 50%; 
+	        background-repeat: no-repeat;
+      }
+    </style>
+   
+    <div class="user-box"> 
+        <div class="user-top">
+            <div class="user-topL">
+                <h4 id="user-name"  class="color-bu">{{data.Name}}老师</h4>
+                <div class="user-div">
+                  <p><i>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                    </svg>
+                  </i>
+                  <span id="user-ter"> 
+                  <%for(var i = 0;i < data.Lesson.length;i++){%>
+                    <%=data.Lesson[i]%>
+                 <%}%></span>老师
+                  </p>
+                  <p >
+                    <i>
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-receipt-cutoff" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v13h-1V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51L2 2.118V15H1V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zM0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                        <path fill-rule="evenodd" d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-8a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                    </i>
+                    <span id="user-school">{{data.School}}</span></p>
+                </div>
+                <div  class="user-div">
+                  <p>
+                    <i>
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z"/>
+                        <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z"/>
+                        <path fill-rule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z"/>
+                      </svg>
+                    </i>
+                  Sykpe:<span id="user-skype">{{data.SkypeID}}</span></p>
+                  <p>
+                    <i>
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                      </svg>
+                    </i>
+                    邮箱:<span id="user-emali"> {{data.Email}}</span></p>
+                </div>  
+
+                <div  class="user-div">
+                  <p>
+                    <i>
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                        <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                        <path fill-rule="evenodd" d="M10.854 7.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 10.293l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                      </svg>
+                    </i>
+                  体验价格:<span id="user-moeny1"> {{data.moeny1}}</span></p>
+                  <p>
+                    <i>
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-dash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                        <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                        <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                      </svg>
+                    </i>
+                  正常价格:<span id="user-moeny2">{{data.moeny2}}</span></p>
+                </div> 
+            </div>
+            <div class="user-topR">
+                <img src="./upload/{{data.ImgUrl}}" alt="" style="width:150px;height:150px;">
+            </div>
+        </div>
+        <script>
+          //  老师的 Skype id 和 emla 未付款是不可以展示的 
+          var temp=true;
+          var titstr='未预约无法提供老师联系方式'
+          if(temp==true){
+            $("#user-skype").html(titstr);
+            $("#user-emali").html(titstr);
+          }else{
+            $("#user-skype").html('123456');
+            $("#user-emali").html('123456');
+            //这里就可以放ajax 里面的值
+          }
+           //这段代码可以放在ajax里面
+        </script>
+        <div class="user-content">
+              <div class="user-content-header">
+                <h3 class="color-bu">老师介绍</h3>
+                <p id="terData">{{data.terData2}}</p>
+               </div>
+              <div class="user-content-header">
+                  <h3 class="color-bu">兴趣爱好介绍</h3>
+                <p id="terData2">{{data.terData}}</p>
+              </div>
+           
+        </div>
+          <h4 style="padding: 20px 0;text-align: center;" class="color-bu">视频介绍</h4>
+        <div class="viod-continue">
+          <section  class="divo" style="position: relative;"> 
+            <div id="psVideo" class="psVideo">
+                <video src="./upload/{{data.vedioUrl}}" class="my-psVideo" id="my-video" poster="./upload/{{data.ImgUrl}}" preload="metadata">
+                </video>
+                <div class="psVideo-loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="psVideo-play-one"></div>
+                <div class="psVideo-shade psVideo-shade-on">
+                    <div class="psVideo-play-footer">
+                        <div class="psVideo-progress">
+                            <span class="psVideo-timeBar"></span>
+                        </div>
+                        <div class="psVideo-play-btn psVideo-stop"></div>
+                        <div class="psVideo-time">
+                            <span id="currentTime">00:00</span>
+                            <span>/</span>
+                            <span id="duration">00:00</span>
+                        </div>
+                        <div class="psVideo-right-btn">
+                            <div class="psVideo-btn all"></div>
+                            <div class="psVideo-btn loop" id="loop"></div>
+                            <div class="psVideo-btn set">
+                                <div class="set-list">
+                                    <div class="play-speed">播放速度</div>
+                                    <div class="play-speed-list">
+                                        <span id="speed05Btn">X0.5</span>
+                                        <span class="moren" id="speed1Btn">X1</span>
+                                        <span id="speed2Btn">X2</span>
+                                    </div>
+                                </div>
+                                <div class="konge1"></div>
+                            </div>
+                            <div class="psVideo-btn huazhi">自动</div>
+                            <div class="psVideo-btn sound" id="soundBtn">
+                                <div class="sound-list">
+                                    <div class="sound-number">90</div>
+                                    <div class="volume">
+                                        <span class="volumeBar"></span>
+                                    </div>
+                                </div>
+                                <div class="konge"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript" src="./js/index.js"></script>
+          </section>
+          <section>
+                  <h3 style="text-align: center;" class="color-bu">学无止境</h3>
+                <div class="jatlt"> 
+                  <p>知道了有人比自己更认真地对待生活，对待工作，这对自己是一种激励，会鞭策我们迎头赶上，男子汉的气概应该是：干一番事业，努力不逊于自己所尊敬的对象</p>
+                  <p class="text-right">----《日本》武者小路实笃</p>
+                </div>
+                <div class="jatlt">
+                  <p>自认为"我正在努力工作"，这实际上只是一种自我满足。自己的努力应当让对方看到，要以实际行动做到这一点。这样，合作者才会自然而然地多起来</p>
+                  <p class="text-right">-----《日本》德田虎雄</p>
+                </div>
+                <div class="jatlt">
+                  <p>有志于成为有智谋者切记：奇事必究，奇人必交。</p>
+                  <p class="text-right">----《日本》高桥治</p>
+                </div>
+                <div class="jatlt">
+                  <p>追求所有人的幸福！这是所有人协调的世界。是美的世界。</p>
+                  <p class="text-right">----《日本》武者小路实笃</p>
+                </div>
+          </section>
+        </div>
+       <!-- 续上 -->
+    </div>  
+    <!-- 表格 -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $(".fancybox").fancybox({
+          maxWidth: 600,
+          maxHeight: 600,
+          fitToView: false,
+          width: '100%',
+          height: '100%',
+          autoSize: false,
+          closeClick: false,
+          openEffect: 'none',
+          closeEffect: 'none',
+          prevEffect: 'none',
+          nextEffect: 'none'
+        });
+      });
+    </script>
+  {{#html}}
+    <!-- Testimonials Section End -->
+	<!-- Footer Area Start -->
+	<footer class="footer">
+		<div class="footer-main-area" data-background="images/footer-bg.png">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<!-- 可以放logo -->
+							<!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+							<address class="mrb-25">
+								<p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i class="fas fa-envelope mrr-10"></i>haominajiaoyu@126.com</a></div>
+								<div class="mrb-0"><a href="/index.html" class="text-light-gray"><i class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+							</address>
+							<ul class="social-list">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">关于我们</h5>
+							<ul class="footer-widget-list">
+								<li><a href="./index.html">首页</a></li>
+								<li><a href="./about.html">公司简介</a></li>
+								<li><a href="./terTbale.html">教师资源</a></li>
+								<li><a href="./stunews.html">寻求帮助</a></li>
+								<li><a href="#">新闻</a></li>
+								<li><a href="./titMoeny.html" target="_blank">支付条款</a></li>
+									<li><a href="./logoin.html">成为老师</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">产品服务</h5>
+							<ul class="footer-widget-list">
+								<li><a href="terTbale.html">汉语在线培训</a></li>
+								<li><a href="terTbale.html">日语在线培训</a></li>
+								<li><a href="terTbale.html">英语在线培训</a></li>
+								<li><a href="terTbale.html">韩语在线培训</a></li>
+								<li><a href="terTbale.html">支付问题</a></li>
+								<li><a href="terTbale.html">初学者指南</a></li>
+								<li><a href="terTbale.html">公司条款</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">扫码添加客服Skype</h5>
+							<p class="text-light-gray">如果你有一些问题或者建议你都可以通过微软官方的一款联系软件Skype扫码联系我们的官方客服</p>
+							<img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+							<br>
+							<a href="http://skype.gmw.cn/" target="_blank" class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i class="webexflaticon flaticon-send"></i>下载 Skype</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="text-center">
+							<span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com 辽ICP备20008656号</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Area End -->
+	<!-- BACK TO TOP SECTION -->
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+	</div>
+  
+  <div id='terAlert'>
+        <div id='terQiut'>x</div>
+    
+  </div>
+  <script src="./js/jquery.v1.12.4.min.js"></script>
+  <script src="./layer/layer.js"></script>
+   <script src="./js/jquery-core-plugins.js"></script> 
+   <script src="./js/main.js"></script>
+	<!-- Integrated important scripts here -->
+  <script src="./js/Server.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

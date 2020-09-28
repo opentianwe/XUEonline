@@ -1,0 +1,18 @@
+.help h3{
+    margin: 20px;
+    text-align: center;
+}
+.help p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.help .help-img{
+    width: 70%;
+    margin: 0 auto;
+    height:600px;
+}
+.help img{
+    width: 100%;
+    height: 100%;
+}

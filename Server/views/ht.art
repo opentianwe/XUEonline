@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="中国语Xueonline" /><!--网页关键字-->
+	<meta name="description" content="一个在线1v1教育平台"/><!--网页描述-->
+	<meta name="author" content="XUE"/><!--网页作者-->
+
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        td{
+            width:100px;
+            border: 1px solid #cccccc;
+            text-align: center;
+            padding: 5px ;
+        }
+        ul li{
+            padding:6px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="width: 100px;text-align: center;">
+            <ul id = "test">
+                {{each datas list}}
+                <li id="{{list}}">
+                   {{each yet as value s}}
+                      <td>1</td>
+                   {{/each}}
+                </li>       
+                {{/each}} 
+            </ul>
+        </div>
+        <table>
+            <tbody class="tobody"></tbody>
+        </table>
+    </div>
+    <script src="./tem.js"></script>
+
+   
+    <script>
+        datas = {list:[1,2,3,4,5,6,7],
+            yet:['close', 'close', 'close', 'close', 'close', 'close', 'close']
+        }
+        var data = {
+        title: '标签',
+        list: ['close', 'close', 'close', 'close', 'close', 'close', 'close']
+        };
+    var html = template('test', datas);
+    document.getElementById('test').innerHTML = html;
+        var  tobody=document.querySelector(".tobody")
+        var  items = tobody.getElementsByTagName("tr");
+       
+        // var a=new Array()
+        //     for(var i=0;i<7;i++){
+        //         a[i]=new Array;
+                
+        //         var tr=document.createElement("tr")
+        //         tobody.appendChild(tr)
+        //        // console.log(a.length)
+            
+         
+        //         for(var j=0;j<39;j++){
+        //             var td=document.createElement("td")
+        //             tr.appendChild(td)
+        //             td.innerHTML='close'
+        //             a[i][j]=0;
+                   
+        //         } 
+        //     }
+
+           
+            for(var i=0;i<7;i++){
+                items[i].id = String(i)
+                var  titems = items[i].getElementsByTagName("td");
+                for(var j = 0;j < 39;j++){
+                    titems[j].id = String(j)
+                    titems[j].onclick = function (param) {
+                        console.log("x = " + this.parentElement.id)
+                        console.log("y = " + this.id)
+                        this.innerHTML = "open"
+                      }
+                } 
+            }
+          
+            
+          
+       
+    </script>
+
+</body>
+</html>

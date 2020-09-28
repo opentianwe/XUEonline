@@ -1,0 +1,191 @@
+.vipSecondBanner {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background: url(../images/bg_banner.jpg) center center;
+    color: #A29284;
+    background-size: cover;
+  }
+
+  .vipSecondBannerText {
+    text-align: center;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 100px;
+    font-size: 30px;
+    color: #BFB1A5;
+    z-index: 2;
+  }
+
+  .vipSecondBannerText p {
+    padding-bottom: 36px;
+    line-height: 1;
+  }
+
+  .vip-content-title {
+    font-size: 24px;
+    margin: 25px auto;
+    color: #333333;
+    width: 70%;
+    margin: 30px auto;
+  }
+
+  .vip-content-title strong {
+    color: #f90;
+    margin-right: 5px;
+    font-size: 28px;
+    font-family: "Microsoft YaHei", "微软雅黑", "黑体";
+    ;
+  }
+
+  .vip-content-moenycar {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    
+  }
+
+  /* 
+} */
+  .vip-content-moenycar>div {
+    width:240px;
+    margin: 10px 5px;
+    border: 1px solid #458fd2;
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius:5px;
+  }
+
+  .vip-content-moenycar>div.acitve {
+    box-shadow: 0px 3px 10px 0px #458fd2;
+    border: 3px solid  #458fd2;
+  }
+
+  .vip-top {
+    height: 30px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.5em;
+  }
+
+  .vip-moeny {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .vip-mo p {
+    text-align: center;
+    display: block;
+    margin: 30px auto;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    font-size: 19px;
+    padding: 5px 0;
+  }
+
+  .vip-top:before {
+    content: "火热推荐";
+    position: absolute;
+    left: -70px;
+    top: 15px;
+    text-align: center;
+    transform: rotate(-40deg);
+    font-size: 12px;
+    background: #458fd2;
+    color: #fff;
+    width: 200px;
+  
+  }
+  .vip-content-moenycar>div:nth-child(1)>.vip-top::before{
+    content: "使用期限一か月間";
+    top:20px;
+    left: -56px;
+    font-size: 12px;
+  }
+  .vip-content-moenycar>div:nth-child(2)>.vip-top::before{
+    content: "使用期限一か月間";
+    top:20px;
+    left: -56px;
+    font-size: 12px;
+  }
+  .vip-content-moenycar>div:nth-child(3)>.vip-top::before{
+    content: "使用期限一か月間";
+    top:20px;
+    left: -56px;
+    font-size: 12px;
+  }
+  .VIPNewPayTop{
+    height: 80px;
+    cursor: pointer;
+    width:100%;
+    margin: 0 auto;
+    
+    display: flex;
+  }
+  .VIPNewPayTop a {
+  width:220px;
+  margin:10px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  position: relative;
+  border: 1px solid #a2a3a3;
+  border-radius: 4px;
+  font-weight: 700;
+
+  }
+  .VIPNewPayTop a.VIPNewPayWx {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  background: url(../images/vxpay.png) no-repeat 10px center;
+}
+.VIPNewPayTop a.VIPNewPaypal{
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background: url(../images/paypal_1210179_easyicon.net.svg) no-repeat 10px center;
+}
+.VIPNewPayTop a.VIPNewPayZfb {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  background: url(../images/alipay.png) no-repeat 10px center;
+}
+#checked{
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  -o-filter: grayscale(0);
+  /* filter: grayscale(0); */
+  filter: gray;
+  border: 1px solid #458fd2;
+  color: #458fd2;
+}
+.VIPNewPayTop i {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../images/checked.png) no-repeat top right;
+  display: block;
+}
+.vip-box{
+width: 70%;
+margin: 0 auto;
+}

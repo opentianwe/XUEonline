@@ -1,0 +1,72 @@
+.title1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.title1 span{
+    font-size: 16px;
+}
+.title2  h4{
+    text-align: center;
+}
+.Content-title{
+    position: relative;
+    background-image: url(../images/1597545988.jpg);
+}
+
+#btn{
+    background:#458fd2;
+    background:linear-gradient(to right, rgba(0,160,168,1) 0%, rgba(43,179,186,1) 45%, rgba(70,191,197,1) 63%, rgba(96,202,208,1) 100%);
+    width: 300px;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    transition: 0.5s ease-in-out;
+    margin: 30px auto;
+    display: block;
+}
+#btn:hover{
+    width: 310px;
+    transition: 0.5s ease-in-out;
+}
+
+.title2 div {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        margin:20px 0;
+        justify-content: space-around;
+        background:#458fd2;     
+        background:linear-gradient(to right, rgba(0,160,168,1) 0%, rgba(43,179,186,1) 45%, rgba(70,191,197,1) 63%, rgba(96,202,208,1) 100%);
+    }
+    .title2 div p{
+        padding: 0;
+        margin: 0;
+        color: #fff;
+        font-size: 18px;
+        position: relative;
+    }
+    .forms{
+        display: flex;
+        padding:0px 5px;
+        justify-content: center;
+    }
+    .forms input{
+        width:400px;
+        padding: 6px 0;
+    }
+    .span-wit{
+        width:80px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+    }
+   
+    .title-forms p{
+        margin:5px 0;
+        width:100%;
+       text-align: center;
+    }
+    
+  

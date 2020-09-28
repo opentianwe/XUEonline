@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料</title>
+    <script src="./js/vue.2.6.11.js"></script>
+    <script src="./js/jq.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+     <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <meta name="keywords" content="中国语Xueonline" /><!--网页关键字-->
+	<meta name="description" content="一个在线1v1教育平台"/><!--网页描述-->
+	<meta name="author" content="XUE"/><!--网页作者-->
+<script src="./layer/layer.js"></script>
+<link rel="stylesheet" href="./layui/css/layui.css">
+<style>
+		.header-style-two .header-wrapper .header-navigation-area .main-menu ul li.has-sub > a::before{
+			top: 65%;
+		}
+    span a{
+      color:#2d8cf0;
+    }
+    .color-bu{
+      font-size:1.8em;
+       font-weight: 600;
+    }
+	</style>
+</head>
+<body>
+ <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  <header class="header-style-two">
+    <div class="header-wrapper">
+      <div class="header-top-area bg-gradient-color d-none d-lg-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 header-top-left-part">
+              <span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+              <span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+            </div>
+            <div class="col-lg-6 header-top-right-part text-right">
+              <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+              <div class="language">
+                <a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>Japanese</a>
+                <ul class="language-dropdown">
+                  <li> <a href="#">Chinese</a></li>
+                  <!-- <li><a href="#">English</a></li> -->
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-navigation-area two-layers-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+                <!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+              </a>
+              <div class="mobile-menu-right"></div>
+              <div class="header-searchbox-style-two d-none d-xl-block">
+                <div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+                  <span class="bar1"></span>
+                  <span class="bar2"></span>
+                  <span class="bar3"></span>
+                </div>
+                <!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+                <div class="toggle-searchbox">
+                  <form action="#" id="searchform-all" method="get">
+                    <div>
+                      <input type="text" id="s" class="form-control" placeholder="Search...">
+                      <div class="input-box">
+                        <input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="side-panel-content">
+                <div class="close-icon">
+                  <button><i class="webex-icon-cross"></i></button>
+                </div>
+                <div class="side-panel-logo mrb-30">
+                  XUEonline
+                </div>
+                <div class="side-info mrb-30">
+                  <div class="side-panel-element mrb-25">
+                    <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+                    <ul class="list-items">
+                      <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
+                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominajiaoyu@126.com</li>
+                      <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
+                    </ul>
+                  </div>
+                  <div class="side-panel-element mrb-30">
+                    <h4 class="mrb-15">公司状态</h4>
+                    <ul class="pintarest-list">
+                      <li><a href="#"><img class="img-full" src="images/side-panel/1.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/2.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/3.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/4.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/5.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/6.jpg" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h4 class="mrb-15">可靠联系方式</h4>
+                <ul class="social-list">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="main-menu f-right">
+                <nav id="mobile-menu-right">
+                  <ul>
+                    <li>
+                      <!-- class="has-sub" -->
+                      <a href="./index.html">HOME</a>
+                      <!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+                    </li>
+                    <li><a href="./getmoeny.html">Point購入</a></li>
+                    <li class="has-sub">
+                      <a href="./terTbale.html">講師一覧</a>
+                      <ul class="sub-menu">
+                        <li><a href="./terTbale.html">先生の予約</a></li>
+                        <li class="has-sub-child">
+                          <a href="./logoin.html">ログイン</a>
+                          <ul class="sub-menu right-view">
+                            <li><a href="./logoin.html">登録</a></li>
+                            <li><a href="./teacherdata.html">先生入力してください</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="./stunews.html">よくある質問</a>
+
+                    </li>
+                    <li class=" right-view">
+                      <a href="./logoin.html">ログイン/新規登録</a>
+
+                    </li>
+                    <li class="has-sub right-view">
+                      <a href="#">MY PAGE</a>
+                      <ul class="sub-menu">
+                        <li><a href="./presonal.html">MY PAGE</a></li>
+                        <li><a href="./logoin.html">ログイン</a></li>
+                        <li><a id="qiut-s">サインアウト</a></li>
+
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- header End -->
+<!-- Home Slider Start -->
+        <style>
+          .user-top{
+            display: flex;
+            padding: 20px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+          .user-top p{
+            margin-bottom: 0;
+            padding: 7px 0;
+            border-bottom: 1px solid #f2f2f2;
+            width:400px;
+            cursor: pointer;
+            font-size:16px;
+          }
+          .user-top p i{
+            color: #458fd2;
+            
+          }
+          .user-top>div:nth-child(1){
+            padding:10px;
+              width: 70%;
+             
+          }
+          .user-top>div:nth-child(2){
+             padding: 20px ;
+          }
+          .user-div{
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .user-content{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+          }
+         
+          .user-content-header{
+            width: 100%;
+            border: 1px solid #f1f1f1;
+            padding:10px ;
+            margin: 10px 0;
+          }
+          .viod-continue{
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .psVideo-play-footer{
+            height: 45px !important;
+          }
+          .viod-continue section{
+            width: 50%;
+          }
+          .viod-continue section:nth-child(2){
+            padding:10px ;
+          }
+          .jatlt p{
+            margin-bottom: 0;
+            padding:2px;
+            font-size: 14px;
+            text-indent: 2em;
+            color: #458fd2;
+          }
+          .color-bu{
+            color: #458fd2;
+          }
+          .user-box{
+            background: #fff;width: 70%;margin: 0 auto;padding: 20px;
+            background: radial-gradient(circle at top left, transparent 0px, #ffffff 0) top left, 
+              radial-gradient(circle at top right, transparent 65px, #ffffff 0) top right, 
+              radial-gradient(circle at bottom right, transparent 0px,#ffffff 0) bottom right,
+              radial-gradient(circle at bottom left, transparent 0px, #ffffff 0) bottom left;
+              background-size: 50% 50%; 
+              background-repeat: no-repeat;
+          }
+          .stu-msg{
+            width: 100%;
+            padding: 10px 0;
+            border: 1px solid #cccccc;
+          }
+        </style>
+      
+        <div class="user-box shadow-sm"> 
+            <div class="user-top">
+                <div class="user-topL">
+                    <h4 id="user-name"  class="color-bu">{{data.UserName}}用户<span> 欢迎你</span></h4>
+                    <div class="user-div">
+                      <p><i>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
+                        </svg>
+                      </i>
+                      性别:<span id="user-Sex">{{data.UserSex}}</span>
+                      </p>
+                      <p >
+                        <i>
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-book-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z"/>
+                            <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869z"/>
+                          </svg>
+                        </i>
+                        您的积分余额:<span id="user-moeny">{{data.money}}</span></p>
+                    </div>
+                    <div  class="user-div">
+                      <p>
+                        <i>
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-headset" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z"/>
+                            <path d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z"/>
+                            <path fill-rule="evenodd" d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z"/>
+                          </svg>
+                        </i>
+                      SykpeID : <span id="user-skype">{{data.Userskype}}</span></p>
+                      <p>
+                        <i>
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                          </svg>
+                        </i>
+                        邮箱 : <span id="user-emali">{{data.UserEmal}}</span></p>
+                    </div>  
+    
+                    <div  class="user-div">
+                      <p>
+                        <i>
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M0 15.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zM3.12 1.175A.5.5 0 0 1 3.5 1h9a.5.5 0 0 1 .38.175l2.759 3.219A1.5 1.5 0 0 1 16 5.37v.13h-1v-.13a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.13H0v-.13a1.5 1.5 0 0 1 .361-.976l2.76-3.22z"/>
+                            <path d="M2.375 6.875c.76 0 1.375-.616 1.375-1.375h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 0 0 2.75 0h1a1.375 1.375 0 1 0 2.75 0h1a2.375 2.375 0 0 1-4.25 1.458 2.371 2.371 0 0 1-1.875.917A2.37 2.37 0 0 1 8 6.958a2.37 2.37 0 0 1-1.875.917 2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.5h1c0 .76.616 1.375 1.375 1.375z"/>
+                            <path d="M4.75 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm3.75 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                            <path fill-rule="evenodd" d="M2 7.846V7H1v.437c.291.207.632.35 1 .409zm-1 .737c.311.14.647.232 1 .271V15H1V8.583zm13 .271a3.354 3.354 0 0 0 1-.27V15h-1V8.854zm1-1.417c-.291.207-.632.35-1 .409V7h1v.437zM3 9.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5V15H7v-5H4v5H3V9.5zm6 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4zm1 .5v3h2v-3h-2z"/>
+                          </svg>
+                        </i>
+                      充值积分？: <span ><a href="getmoeny.html">前往充值</a></span></p>
+                      <p>
+                        <i>
+                          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                            <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                          </svg>
+                        </i>
+                      常见问题 :<span><a href="stunews.html" target="_black">点击查看</a></span></p>
+                    </div> 
+                </div>
+                <div class="user-topR">
+                   
+                 <svg t="1597491061649" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1759" width="150" height="150"><path d="M895.84 959.73h-767.5c-35.2 0-64-28.8-64-64v-767.5c0-35.2 28.8-64 64-64h767.5c35.2 0 64 28.8 64 64v767.5c0 35.2-28.8 64-64 64z" fill="#5B89C7" p-id="1760"></path><path d="M278.44 663.6a141.39 141.39 0 0 0-34.62 19.53 59.393 59.393 0 0 0-20.87 30.95c-2.72 9.14-4.61 18.51-5.65 28-3.2 25.54 1.11 113.76 0.28 108.88a66.22 66.22 0 0 0 7.42 23.59 42.21 42.21 0 0 0 19.79 10.68c10.84 3.69 62.46 4.95 78.72 8.69 1.45 0.33 2.91 0.56 4.38 0.7l22.21-133.9a42.3 42.3 0 0 1 4.64-19.04l11.98-117.74c-11.3 4.71-22.88 8.74-34.67 12.05-13.91 3.93-40.78 22.41-53.72 27.56l0.11 0.05z m393.78-148.69a257.326 257.326 0 0 0 46.34-149.17c-0.05-130.74-92.73-236.75-207.1-236.75S304.53 235 304.53 365.74c0 98.15 52.38 181.98 126.8 217.82a230.325 230.325 0 0 0-28.48 18.57 21.044 21.044 0 0 1 5.1 15.91l-14.73 106.63h236.49l-14.78-106.56a21.092 21.092 0 0 1 5.11-15.91 232.037 232.037 0 0 0-28.21-18.54c18.75-9.04 36-20.89 51.16-35.16a52.996 52.996 0 0 0 29.09-33.6h0.14z m-53.43-94.69c-0.24 5.66-0.31 11.38-0.3 16.73 0.39 3.18 0.59 6.39 0.59 9.6 0 1.83-0.19 3.63-0.31 5.43 0.16 4.73 0.31 7.72 0.31 7.72-0.56 1.74-1.43 3.15-2.07 4.78a93.069 93.069 0 0 1-46.43 58.81v48.69c0.39 24.87-19.44 45.36-44.31 45.8h-29.56a45.087 45.087 0 0 1-31.69-13.73 45.127 45.127 0 0 1-12.69-32.12v-48.8c-28.82-14.83-47.34-44.12-48.39-76.51 0-3.28 0.21-6.55 0.63-9.81l1.04-16.52a92.607 92.607 0 0 1 22.38-54.78 149.9 149.9 0 0 0 34.39-76.84c4.35 21.84 14.26 48.2 36.85 54.24a259.337 259.337 0 0 0 72.82 11.08 41.015 41.015 0 0 1 32.14 9A40.995 40.995 0 0 1 619 392.9l-0.99 27.3h0.61l0.17 0.02zM805.72 742.1c-1.04-9.49-2.93-18.86-5.65-28.02a59.432 59.432 0 0 0-20.87-30.95 141.235 141.235 0 0 0-34.73-19.53c-12.94-5.22-39.82-23.65-53.71-27.56a301.121 301.121 0 0 1-34.67-12.05l11.98 117.76c3.01 5.9 4.61 12.42 4.64 19.04l22.21 133.9c1.47-0.14 2.94-0.37 4.38-0.7 16.26-3.68 67.82-4.95 78.72-8.69a42.28 42.28 0 0 0 19.77-10.68 66.563 66.563 0 0 0 7.43-23.59c-0.78 4.87 3.48-83.35 0.35-108.88l0.15-0.05z m0 0" fill="#FFFFFF" p-id="1761"></path></svg>
+                    
+                </div>
+            </div>
+           
+            <div class="user-content">
+                  <div class="user-content-header">
+                    <h3 class="color-bu">预约信息查看</h3>
+                    <div class='yuyue'><span class='isAdd active' >查看全部</span><span class='isnotAdd' >未上课</span> <span class='isAddter'>已上课</span> </div>
+                   <div class="table-responsive">
+                          
+                        <table class='table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
+                            <thead>
+                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师邮箱</td><td>老师手机号</td><td>老师SkypeID</td><td>老师评价</td></tr>
+                            </thead>
+                          
+                             <tbody id='userTale'>
+                             {{#data.aif}}
+                             </tbody>
+                         
+                        </table>
+                    </div>
+                   </div>
+            </div>
+        </div>
+         <h3 style="text-align: center;">消息查看</h3>
+    <div class="form-data">
+      <div class="border shadow-sm ">
+          <p>学生留言评价查看</p>
+         <div class="Stu-list overflow-auto border">
+
+         </div>
+      </div>
+    </div>
+        <!-- Testimonials Section End -->
+	<!-- Footer Area Start -->
+<footer class="footer">
+    <div class="footer-main-area" data-background="images/footer-bg.png">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <!-- 可以放logo -->
+              <!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+              <address class="mrb-25">
+                <p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-envelope mrr-10"></i>haominajiaoyu@126.com</a></div>
+                <div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+                      class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+              </address>
+              <ul class="social-list">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">会社案内</h5>
+              <ul class="footer-widget-list">
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./about.html">会社概要</a></li>
+                <li><a href="./terTbale.html">教師のリソース</a></li>
+                <li><a href="./stunews.html">お問い合わせ</a></li>
+                <li><a href="./titMoeny.html" target="_blank">支払い条件</a></li>
+                <li><a href="./logoin.html">先生になる</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">サビース</h5>
+              <ul class="footer-widget-list">
+                <li><a href="terTbale.html">中国語　オンライン</a></li>
+                <li><a href="terTbale.html">日本語　オンライン</a></li>
+                <li><a href="terTbale.html">英　語　オンライン</a></li>
+                <li><a href="terTbale.html">韓国語　オンライン</a></li>
+                <li><a href="terTbale.html">お支払い</a></li>
+                <li><a href="stunews.html">よくある質問</a></li>
+                <li><a href="terTbale.html">公司条款</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">QRコードを読み取り、サポート管理員を追加します。</h5>
+              <p class="text-light-gray">ご質問やご提案がある場合は、Skypeで当社のサポート管理員までにお問い合わせください。</p>
+              <img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+              <br>
+              <a href="http://skype.gmw.cn/" target="_blank"
+                class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+                  class="webexflaticon flaticon-send"></i>下载 Skype</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="text-center">
+              <span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com 辽ICP备20008656号</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+	<!-- Footer Area End -->
+	<!-- BACK TO TOP SECTION -->
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+	</div>
+  <script src="./js/userTable2.js"></script>
+   <!-- <script src="./js/userTable.js"></script> -->
+   <script src="./js/jquery.v1.12.4.min.js"></script>
+   <script src="./js/bootstrap.min.js"></script>
+   <script src="./js/jquery-core-plugins.js"></script> 
+   <script src="./js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>   
+</body>
+</html>
