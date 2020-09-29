@@ -28,7 +28,7 @@ braintree.dropin.create({
                     , type: "post",
                     data: payload,
                     success: function (data) {
-                        if (data.error == 1) {
+                        if (data.status == 1) {
                             layer.closeAll('iframe')
                             layer.confirm('付款成功', {
                                 btn: ['前往个人页面', '停留在本页面'] //按钮

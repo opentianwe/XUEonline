@@ -105,6 +105,7 @@ $(function () {
           type: "post",
           dataType: "json",
           success: function (d) {
+            console.log(d)
             //if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.state == 0) return window.location.href = './logoin.html'
             if (d.state == 0) return layer.msg(d.msg, { icon: 2 })
             var str = `
