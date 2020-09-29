@@ -15,3 +15,4 @@
 ### infop.js    付款接口增加了发送邮件通知
 ### infop.js    /checkout接口修改了错误的对象命名
 ### tview.js    修复了学生也能进入教师资料填写页面的bug
+### 中日Paypal.js 修改 Error 判断为 status == 1   解决报错
