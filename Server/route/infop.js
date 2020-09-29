@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const mysql = require('../msOp')
 const Tool = require('../Toos')
-
+const sendemal = require('../controller/sendEmal')
 router.use(cookieParser("wcasd2398123asd12aasd"))
 
 router.post('/dataUpload', function (req, res) {
@@ -427,10 +427,13 @@ router.post('/pay', function (req, res) {
         })
         .then(function (data) {
             if (data != undefined) {
+                sendemal.sendEmalTeacher(pUserdata.UserEmal,pUserdata.oAName,tUserdata.Name,tUserdata.Time,false)
+                sendemal.sendEmalTeacher(tUserdata.Email,tUserdata.Name,pUserdata.oAName,tUserdata.Time,true)
                 res.send({
                     status: 0,
                     msg: "预约成功,请稍后在个人资料预约界面查看老师联系方式."
                 })
+                
             } else {
                 Tool.UpdatePoints(Number(tUserdata.moeny), pUserdata.UserEmal, pUserdata.UserID)
                 res.send({
