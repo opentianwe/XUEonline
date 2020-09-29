@@ -107,7 +107,7 @@ $(function () {
           success: function (d) {
             console.log(d)
             //if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.state == 0) return window.location.href = './logoin.html'
-            if (d.state == 0) return layer.msg(d.msg, { icon: 2 })
+            if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
             var str = `
               <div>税后总计收款:${d.Amountactuallypaid}</div>
               <div>原价:${d.integral}</div>
@@ -129,7 +129,7 @@ $(function () {
                 shadeClose: true,
                 shade: 0.8,
                 area: ['70%', '90%'],
-                content: '1.html?Moeny=' + b //iframe的url
+                content: '../1.html?Moeny=' + b //iframe的url
 
               });
             }

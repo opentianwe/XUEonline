@@ -16,14 +16,5 @@
 ### infop.js    /checkout接口修改了错误的对象命名
 ### tview.js    修复了学生也能进入教师资料填写页面的bug
 ### 中日Paypal.js 修改 Error 判断为 status == 1   解决报错
-<<<<<<< HEAD
-
-#           14:18
-## personal.art  修改了显示邮箱和手机号改为显示微信号 
-## personal.art  使用模板语法判断是否为老师登录从而做出不同的响应
-## tview.js      修改了渲染老师信息相关的关键字
-
-=======
 ###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
 #### <strong>手机端logo位置有瑕疵 问题暂存</strong>
->>>>>>> ee3e2ac2a0a82f225a6be5aaada506f3246e47a2
