@@ -53,6 +53,7 @@ exports.asyncqueryCommodityInfoByID = asyncqueryCommodityInfoByID
 exports.asyncqueryUserPbyEmalPromise = asyncqueryUserPbyEmalPromise
 exports.asyncqueryUserTbyEmal = asyncqueryUserTbyEmal
 exports.querytAinformationByEmal = querytAinformationByEmal
+exports.isTeacher = isTeacher
 var pool = mysql.createPool({
     host: '39.106.89.79',
     user: 'Tian',
@@ -194,8 +195,8 @@ function queryCommodityInfoByID(ID, callback) {
 
 
 //创建订单
-function CreatOrder(UserID, UserEmal, OrderNumber, CommodityID, OrderStatus, OrderAmount,integral ,Yen,callback) {
-    var queryStr = "INSERT INTO `OfficialWebsiteData`.`OrderList`(`ID`, `UserID`, `Useremail`, `OrderNumber`, `CommodityID`, `OrderCreationdate`, `OrderExpirationdate`, `OrderStatus`, `OrderAmount`,`integral`,`Yen`) VALUES (0, " + UserID + ", '" + UserEmal + "', '" + OrderNumber + "', '" + CommodityID + "', now(), date_add(now(), interval 1 hour), " + OrderStatus + ", '" + OrderAmount + "' , "+ integral +" , "+ Yen +");"
+function CreatOrder(UserID, UserEmal, OrderNumber, CommodityID, OrderStatus, OrderAmount, integral, Yen, callback) {
+    var queryStr = "INSERT INTO `OfficialWebsiteData`.`OrderList`(`ID`, `UserID`, `Useremail`, `OrderNumber`, `CommodityID`, `OrderCreationdate`, `OrderExpirationdate`, `OrderStatus`, `OrderAmount`,`integral`,`Yen`) VALUES (0, " + UserID + ", '" + UserEmal + "', '" + OrderNumber + "', '" + CommodityID + "', now(), date_add(now(), interval 1 hour), " + OrderStatus + ", '" + OrderAmount + "' , " + integral + " , " + Yen + ");"
     woreData(queryStr, function (data, error) {
         callback(data, error)
     })
@@ -591,9 +592,8 @@ function modifyMakeanappointment(ID, Emal, time, status) {
 }
 //
 //查询预约信息
-function seleteAppointment(emal)
-{
-    var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = '"+ emal +"'"
+function seleteAppointment(emal) {
+    var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = '" + emal + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -609,9 +609,8 @@ function seleteAppointment(emal)
     })
 }
 //查询学生预约信息
-function seleteTAppointment(emal)
-{
-    var queryStr = "SELECT * FROM `Appointment` WHERE TeacherEmal = '"+ emal +"'"
+function seleteTAppointment(emal) {
+    var queryStr = "SELECT * FROM `Appointment` WHERE TeacherEmal = '" + emal + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -628,9 +627,8 @@ function seleteTAppointment(emal)
 }
 
 //获取通过emal和time评价信息
-function  queryMsgBytime(time)
-{
-    var queryStr = "SELECT `TeacherEmal`,`TeacherID`,`Price`,`Tstatus`,`Pstatus`,`Tmsg`,`Pmsg` FROM `Appointment` WHERE timeApp = '"+ time +"'"
+function queryMsgBytime(time) {
+    var queryStr = "SELECT `TeacherEmal`,`TeacherID`,`Price`,`Tstatus`,`Pstatus`,`Tmsg`,`Pmsg` FROM `Appointment` WHERE timeApp = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -650,9 +648,8 @@ function  queryMsgBytime(time)
 
 
 //设置学生评价老师
-function  setMsgBytime(time,text)
-{
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET  `Pstatus` = 1, `Pmsg` = '"+ text +"' WHERE `timeApp` = '"+ time +"'"
+function setMsgBytime(time, text) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET  `Pstatus` = 1, `Pmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -672,9 +669,8 @@ function  setMsgBytime(time,text)
 
 
 //获取学生评价
-function  getMsgBytime(time)
-{
-    var queryStr = "SELECT `Pmsg` FROM `Appointment` WHERE `timeApp` = '"+ time +"'"
+function getMsgBytime(time) {
+    var queryStr = "SELECT `Pmsg` FROM `Appointment` WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -691,9 +687,8 @@ function  getMsgBytime(time)
 }
 
 //设置老师评价学生
-function  setTMsgBytime(time,text,classhour)
-{
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = "+ classhour +" , `Tmsg` = '"+ text +"' WHERE `timeApp` = '"+ time +"'"
+function setTMsgBytime(time, text, classhour) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Tmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -713,9 +708,8 @@ function  setTMsgBytime(time,text,classhour)
 
 
 //设置老师评价状态
-function  setTstatusBytime(time)
-{
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET Tstatus = 1 WHERE `timeApp` = '"+ time +"'"
+function setTstatusBytime(time) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET Tstatus = 1 WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -735,9 +729,8 @@ function  setTstatusBytime(time)
 
 
 //通过订单号查询订单信息
-async function queryOrderinformation(number)
-{
-    var queryStr = "SELECT * FROM `OrderList` WHERE `OrderNumber` = '"+ number +"'"
+async function queryOrderinformation(number) {
+    var queryStr = "SELECT * FROM `OrderList` WHERE `OrderNumber` = '" + number + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -754,9 +747,8 @@ async function queryOrderinformation(number)
 }
 
 //通过订单号设置订单状态
-async function setOrderstatus(code,status)
-{
-    var queryStr = "UPDATE `OfficialWebsiteData`.`OrderList` SET `OrderStatus` = "+ status +" WHERE `OrderNumber` = '"+ code +"'"
+async function setOrderstatus(code, status) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`OrderList` SET `OrderStatus` = " + status + " WHERE `OrderNumber` = '" + code + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -775,9 +767,8 @@ async function setOrderstatus(code,status)
 }
 
 //创建支付宝订单信息
-async function CreatAppinfo(data)
-{
-    var queryStr = "INSERT INTO `OfficialWebsiteData`.`AlipayOrder`(`trade_no`, `buyer_id`, `total_amount`, `receipt_amount`, `invoice_amount`, `buyer_pay_amount`, `gmt_create`, `gmt_payment`, `out_trade_no`) VALUES ('"+ data.trade_no +"', '"+ data.buyer_id +"', '"+ data.total_amount +"', '"+ data.receipt_amount +"', '"+ data.invoice_amount +"', '"+ data.buyer_pay_amount +"', '"+ data.gmt_create +"', '"+ data.gmt_payment +"', '"+ data.out_trade_no +"')"
+async function CreatAppinfo(data) {
+    var queryStr = "INSERT INTO `OfficialWebsiteData`.`AlipayOrder`(`trade_no`, `buyer_id`, `total_amount`, `receipt_amount`, `invoice_amount`, `buyer_pay_amount`, `gmt_create`, `gmt_payment`, `out_trade_no`) VALUES ('" + data.trade_no + "', '" + data.buyer_id + "', '" + data.total_amount + "', '" + data.receipt_amount + "', '" + data.invoice_amount + "', '" + data.buyer_pay_amount + "', '" + data.gmt_create + "', '" + data.gmt_payment + "', '" + data.out_trade_no + "')"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -831,7 +822,7 @@ async function asyncqueryUserPbyEmalPromise(emal) {
     })
 }
 
-async function  asyncqueryUserTbyEmal(emal) {
+async function asyncqueryUserTbyEmal(emal) {
     var Querystr = "SELECT * FROM `UserT` WHERE oAEmail = '" + emal + "'"
     return new Promise(function (resolve, reject) {
         woreData(Querystr, function (data, error) {
@@ -849,9 +840,8 @@ async function  asyncqueryUserTbyEmal(emal) {
 }
 
 //通过Emal和特定预约状态 1 2 3 4 5  查询预约信息
-function querytAinformationByEmal(emal,status)
-{
-    var Querystr = "SELECT * FROM `tAinformation` WHERE `UserEmal` = '"+ emal +"' AND `status` = " + status
+function querytAinformationByEmal(emal, status) {
+    var Querystr = "SELECT * FROM `tAinformation` WHERE `UserEmal` = '" + emal + "' AND `status` = " + status
     return new Promise(function (resolve, reject) {
         woreData(Querystr, function (data, error) {
             if (error) {
@@ -864,5 +854,30 @@ function querytAinformationByEmal(emal,status)
                 resolve(data[0])
             }
         })
-    })    
+    })
+}
+
+//通过邮箱判断是否是老师账号
+async function isTeacher(Temal) {
+    var queryStr = "SELECT * FROM `UserT` WHERE `oAEmail` = '" + Temal + "'"
+    return new Promise((resove, reject) => {
+        woreData(queryStr, (data, err) => {
+            if(err)
+            {
+                resove(false)
+            }else if(data instanceof Array)
+            {
+                if(data.length == 0)
+                {
+                    resove(false)
+                }else
+                {
+                    resove(true)
+                }
+            }else
+            {
+                resove(false)
+            }
+        })
+    })
 }

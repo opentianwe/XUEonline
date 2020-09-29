@@ -76,7 +76,7 @@ router.post('/checkout', (req, res) => {
             }
         })
         if (ret == undefined || ret == null) {
-            return { error: 103, msg: "付款过程遇到了未知的错误!" }
+            return { status : 103, msg: "付款过程遇到了未知的错误!" }
         }
         if (ret.success) {
 

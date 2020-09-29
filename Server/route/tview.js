@@ -589,12 +589,24 @@ router.get('/teacherdata.html', function (req, res) {
         res.redirect('/logoin.html')
         return;
     }
+    async function index(Emal){
+        return await mysql.isTeacher(Emal)
+    }
+    index(req.signedCookies.malli)
+    .then((data)=>{
+        if(!data)
+        {
+            res.redirect('/')
+            return
+        }
+    })
     var parseObj = url.parse(req.url, true)
     req.query = parseObj.query
     TRenderTable(req.signedCookies.malli, req.query.yyyy, req.query.mm, req.query.dd, function (data) {
         res.render('teacherdata.art', { data: { Timp: data } })
     })
 })
+
 
 
 router.get('/ja_JP/ter.html', function (req, res) {
