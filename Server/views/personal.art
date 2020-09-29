@@ -278,7 +278,7 @@
         <div class="user-box shadow-sm"> 
             <div class="user-top">
                 <div class="user-topL">
-                    <h4 id="user-name"  class="color-bu">{{data.UserName}}用户<span> 欢迎你</span></h4>
+                    <h4 id="user-name"  class="color-bu">{{data.UserName}}<%if(data.isTeacher){%>老师<%}else{%>同学<%}%><span> 欢迎您</span></h4>
                     <div class="user-div">
                       <p><i>
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -352,9 +352,12 @@
                           
                         <table class='table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
                             <thead>
-                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师邮箱</td><td>老师手机号</td><td>老师SkypeID</td><td>老师评价</td></tr>
+                            <%if(data.isTeacher){%>
+                             <tr><td>预约日期</td><td>学生姓名</td><td>学生微信</td><td>学生SkypeID</td><td>评价学生</td></tr>
+                            <%}else{%>
+                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师微信</td><td>老师SkypeID</td><td>评价老师</td></tr>
+                            <%}%>    
                             </thead>
-                          
                              <tbody id='userTale'>
                              {{#data.aif}}
                              </tbody>

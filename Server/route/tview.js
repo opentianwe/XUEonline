@@ -437,7 +437,7 @@ router.get('/personal.html', function (req, res) {
                                         datas[i].UserTelephone = "未填写"
                                     }
 
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherEmal" data-status=1 >' + datas[i].UserEmal + '</td><td class="TeacherTelephone">' + datas[i].UserTelephone + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">学生评价</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName +  '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
                                     //Str+='<tr><td>'+"预约日期:" + datas[i].timeApp+'</td><td>'+ "预约学生姓名:" + datas[i].UserName+'</td><td>'+"学生邮箱:" + datas[i].UserEmal +'</td><td>'+ " 学生手机号:" + datas[i].UserTelephone+'</td><td>'+" 学生SkypeID:" + datas[i].UserSkypeID +'</td></tr>'
                                     //Str += "预约日期:" + datas[i].timeApp + " 预约学生姓名:" + datas[i].UserName + " 学生邮箱:" + datas[i].UserEmal + " 学生手机号:" + datas[i].UserTelephone + " 学生SkypeID:" + datas[i].UserSkypeID + "<br>" 
                                 }
@@ -449,7 +449,8 @@ router.get('/personal.html', function (req, res) {
                                         UserEmal: data[0].oAEmail,
                                         UserSex: data[0].oAsex,
                                         Userskype: data[0].oAskype,
-                                        aif: Str
+                                        aif: Str,
+                                        isTeacher:true
                                     }
 
                                 })
@@ -463,7 +464,8 @@ router.get('/personal.html', function (req, res) {
                                         UserEmal: data[0].oAEmail,
                                         UserSex: data[0].oAsex,
                                         Userskype: data[0].oAskype,
-                                        aif: Str
+                                        aif: Str,
+                                        isTeacher:true
                                     }
 
                                 })
@@ -480,7 +482,7 @@ router.get('/personal.html', function (req, res) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
                             //Str += "<p>预约日期:" + datas[i].timeApp + " 预约老师姓名:" + datas[i].TeacherName + " 老师邮箱:" + datas[i].TeacherEmal + " 老师手机号:" + datas[i].TeacherTelephone + " 老师SkypeID:" + datas[i].TeacherSkypeID + " 老师微信:" + datas[i].TeacherWeChat + "</p> <button><a href=skype:"+datas[i].TeacherSkypeID+"?add'>快速进入电脑版Skype联系老师</a></button>"
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherEmal" data-status=1 >' + datas[i].TeacherEmal + '</td><td class="TeacherTelephone">' + datas[i].TeacherTelephone + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName  + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
                             // Str+='<tr><td>'+"预约日期:" + datas[i].timeApp+'</td><td>'+ "预约老师姓名:" +datas[i].TeacherName+'</td><td>'+" 老师邮箱:" + datas[i].TeacherEmal +'</td><td>'+ " 老师手机号:" + datas[i].TeacherTelephone+'</td><td>'+" 老师SkypeID:" + datas[i].TeacherSkypeID +'</td></tr>'
                         }
                         console.log(Str)
@@ -491,7 +493,8 @@ router.get('/personal.html', function (req, res) {
                                 UserEmal: data[0].oAEmail,
                                 UserSex: data[0].oAsex,
                                 Userskype: data[0].oAskype,
-                                aif: Str
+                                aif: Str,
+                                isTeacher:false
                             }
 
                         })
@@ -505,7 +508,8 @@ router.get('/personal.html', function (req, res) {
                                 UserEmal: data[0].oAEmail,
                                 UserSex: data[0].oAsex,
                                 Userskype: data[0].oAskype,
-                                aif: Str
+                                aif: Str,
+                                isTeacher:false
                             }
 
                         })
@@ -717,7 +721,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                         datas[i].UserTelephone = "未填写"
                                     }
 
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherEmal" data-status=1 >' + datas[i].UserEmal + '</td><td class="TeacherTelephone">' + datas[i].UserTelephone + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">学生评价</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherEmal" data-status=1 >' + datas[i].UserEmal + '</td><td class="TeacherTelephone">' + datas[i].UserTelephone + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
                                     //Str+='<tr><td>'+"预约日期:" + datas[i].timeApp+'</td><td>'+ "预约学生姓名:" + datas[i].UserName+'</td><td>'+"学生邮箱:" + datas[i].UserEmal +'</td><td>'+ " 学生手机号:" + datas[i].UserTelephone+'</td><td>'+" 学生SkypeID:" + datas[i].UserSkypeID +'</td></tr>'
                                     //Str += "预约日期:" + datas[i].timeApp + " 预约学生姓名:" + datas[i].UserName + " 学生邮箱:" + datas[i].UserEmal + " 学生手机号:" + datas[i].UserTelephone + " 学生SkypeID:" + datas[i].UserSkypeID + "<br>" 
                                 }
