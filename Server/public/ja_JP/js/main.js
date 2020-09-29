@@ -91,6 +91,8 @@
 	$('.language-btn').on('click', function () {
 		window.location.href = '../index.html'
 	})
+	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
+
 	$('.side-panel-element').eq(1).append(str)
 	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
 	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()

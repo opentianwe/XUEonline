@@ -152,7 +152,6 @@ $(function () {
 
                 });
             }
-
             $.ajax({
                 type: "post",
                 url: "../getstudentEvaluation",

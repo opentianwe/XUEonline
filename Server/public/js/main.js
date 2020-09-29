@@ -85,10 +85,12 @@
 	</div>
 	
 	`
-	console.log($('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> 日语版'))
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> 日语版')
 	$('.language-btn').on('click', function () {
 		window.location.href = '../ja_JP/index.html'
 	})
+	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
+
 	//console.log(.attr('href', ''))
 	$('.side-panel-element').eq(1).append(str)
 	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
