@@ -1267,7 +1267,7 @@ section.anim-object {
 /*--------------- [_Header] --------------*/
 /*========================================*/
 .logo {
-  padding-top: 1.3125rem;
+  /* padding-top: 1.3125rem; */
 }
 
 .logo img {
@@ -1453,7 +1453,8 @@ section.anim-object {
   font-size: 15px;
 }
 .header-style-two .header-wrapper .header-navigation-area {
-  background: #F7F8FC;
+  /* background: #F7F8FC; */
+  background: #ffffff;
 }
 .header-style-two .header-wrapper .header-navigation-area .main-menu ul li {
   display: inline-block;
@@ -1900,7 +1901,7 @@ section.anim-object {
 .header-top-area .header-top-right-part .language .language-btn::after {
   content: "\f107";
   position: absolute;
-  right: -3px;
+  right: -10px;
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   top: 0;
@@ -2197,7 +2198,7 @@ textarea.form-control {
 }
 
 select {
-  width: 147px;
+  width: 268px;
   padding: 5px;
   font-size: 16px;
   line-height: 1;
@@ -4111,7 +4112,7 @@ select {
 }
 
 .mrt-10 {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .mrt-15 {
@@ -5509,5 +5510,7 @@ select {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
-
+.navbar-brand{
+  padding: 0 !important;
+}
 /*# sourceMappingURL=style.css.map */

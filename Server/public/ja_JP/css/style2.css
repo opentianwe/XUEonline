@@ -1267,7 +1267,7 @@ section.anim-object {
 /*--------------- [_Header] --------------*/
 /*========================================*/
 .logo {
-  padding-top: 1.3125rem;
+  /* padding-top: 1.3125rem; */
 }
 
 .logo img {
@@ -1453,7 +1453,8 @@ section.anim-object {
   font-size: 15px;
 }
 .header-style-two .header-wrapper .header-navigation-area {
-  background: #F7F8FC;
+  /* background: #F7F8FC; */
+  background: #fff;
 }
 .header-style-two .header-wrapper .header-navigation-area .main-menu ul li {
   display: inline-block;
@@ -4111,7 +4112,7 @@ select {
 }
 
 .mrt-10 {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .mrt-15 {
@@ -4153,7 +4154,9 @@ select {
 .mrt-60 {
   margin-top: 60px;
 }
-
+.navbar-brand{
+  padding: 0 !important;
+}
 .mrt-65 {
   margin-top: 65px;
 }
