@@ -85,7 +85,7 @@
 	</div>
 	
 	`
-	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> 日语版')
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i>Japanese')
 	$('.language-btn').on('click', function () {
 		window.location.href = '../ja_JP/index.html'
 	})
