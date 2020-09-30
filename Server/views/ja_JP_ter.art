@@ -341,7 +341,7 @@
                 </div> 
             </div>
             <div class="user-topR">
-                <img src="./upload/{{data.ImgUrl}}" alt="" style="width:150px;height:150px;">
+                <img src="../upload/{{data.ImgUrl}}" alt="" style="width:150px;height:150px;">
             </div>
         </div>
         <script>
@@ -373,7 +373,7 @@
         <div class="viod-continue">
           <section  class="divo" style="position: relative;"> 
             <div id="psVideo" class="psVideo">
-                <video src="./upload/{{data.vedioUrl}}" class="my-psVideo" id="my-video" poster="./upload/{{data.ImgUrl}}" preload="metadata">
+                <video src="../upload/{{data.vedioUrl}}" class="my-psVideo" id="my-video" poster="../upload/{{data.ImgUrl}}" preload="metadata">
                 </video>
                 <div class="psVideo-loading">
                     <span></span>

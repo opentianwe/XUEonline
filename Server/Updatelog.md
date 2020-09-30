@@ -39,3 +39,8 @@
 ### /ja_JP/js/table.js 翻译内容修改
 ### public/.html       修改了错误的邮箱
 ##  public/.html       删除了底部导航的公司条款和新闻
+
+#             19:28
+### ja_JP_ter.art      修复了不显示图片和视频的问题
+### style2.css         修改了表格宽度为95px
+### /ja_JP/style2.css  修改了表格宽度为95px
