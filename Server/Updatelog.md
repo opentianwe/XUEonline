@@ -35,15 +35,25 @@
 
 
 
-#             11：42
+# 2020/9/30 11：42
 ### /ja_JP/js/table.js 翻译内容修改
 ### public/.html       修改了错误的邮箱
+<<<<<<< HEAD
+### public/.html       删除了底部导航的公司条款和新闻
+
+# 2020/9/30 19:21 
+### ./main.js 去掉了下面电话号码 
+### userTable2.js  中日双版 增加当天显示颜色功能     
+=======
 ##  public/.html       删除了底部导航的公司条款和新闻
 
 #             19:28
 ### ja_JP_ter.art      修复了不显示图片和视频的问题
 ### style2.css         修改了表格宽度为95px
 ### /ja_JP/style2.css  修改了表格宽度为95px
+<<<<<<< HEAD
 ### main.js            应要求将日语版切换按钮改成英文
 ### style2.css          注释掉了语言切换按钮旁边的after伪类
 ### /ja_JP/style2.css   注释掉了语言切换按钮旁边的after伪类
+=======
+
