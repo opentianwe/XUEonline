@@ -1,5 +1,6 @@
 $(function () {
-    function userTimeStr() {
+    function userTimeStr(t) {
+
         var newDate = new Date()
         var Dateyear = newDate.getMonth() + 1
         var Datedata = newDate.getDate()
@@ -9,7 +10,22 @@ $(function () {
         var Dateminut = newDate.getMinutes()
         Datehouse >= 10 ? Datehouse = Datehouse : Datehouse = '0' + Datehouse
         Dateminut >= 10 ? Dateminut = Dateminut : Dateminut = '0' + Dateminut
-        return str = Datefull + '-' + Dateyear + '-' + Datedata + '  ' + Datehouse + ':' + Dateminut
+
+        if (t) {
+            return str = Datefull + '-' + Dateyear + '-' + Datedata + '  ' + Datehouse + ':' + Dateminut
+        } else {
+            return str = Datefull + '-' + Dateyear + '-' + Datedata
+        }
+    }
+    function isTisDay(dayOne, dayTow) {
+        let a, b, c, d;
+        a = new Date(dayOne);
+        b = new Date(dayTow);
+        c = a.getTime();
+        d = b.getTime();
+
+        if (c == d) return true
+        return false
     }
     function time_aa(data1, data2) {
         data1 = new Date(data1)
@@ -116,7 +132,7 @@ $(function () {
     }
     var tobody = document.querySelector('#userTale')
     $('#userTale>tr> .timeApp').each(function () {
-        var temp = isDate(userTimeStr(), $(this).html(), false)
+        var temp = isDate(userTimeStr(true), $(this).html(), false)
         if (temp != -1) {
             $(this).css('background', '#67C23A')
             $(this).css('color', '#fff')
@@ -125,13 +141,18 @@ $(function () {
             $(this).css('background', '#909399')
             $(this).parent().attr('data-temp', '1')
         }
+        if (isTisDay(userTimeStr(false), $(this).html().substring(0, 10))) {
+            $(this).css('background', '#2d8cf0')
+            $(this).css('color', '#fff')
+            $(this).css('font-weight', '600')
+        }
     })
     tobody.addEventListener('click', (e) => {
         var strTime;
         //console.log('1')
         if (e.target.className == 'timeApp') {
             strTime = e.target.innerHTML
-            isDate(userTimeStr(), e.target.innerHTML, true)
+            isDate(userTimeStr(true), e.target.innerHTML, true)
         }
         if (e.target.className == 'layui-btn Teachertit') {
 
@@ -144,7 +165,7 @@ $(function () {
                 Time: arr[0].innerHTML
             }
             // console.log(!time_aa('2020-09-28  09:25', arr[0].innerHTML))
-            if (!time_aa(userTimeStr(), arr[0].innerHTML)) {
+            if (!time_aa(userTimeStr(true), arr[0].innerHTML)) {
                 return layer.msg('予約時間の25分後にコメントしてください', {
                     closeBtn: 0
                     , anim: 6 //动画类型
@@ -241,7 +262,7 @@ $(function () {
             var dt = {
                 Time: arr[0].innerHTML
             }
-            if (!time_aa(userTimeStr(), arr[0].innerHTML)) {
+            if (!time_aa(userTimeStr(true), arr[0].innerHTML)) {
                 return layer.msg('予約時間の25分後にコメントしてください', {
                     closeBtn: 0
                     , anim: 6 //动画类型

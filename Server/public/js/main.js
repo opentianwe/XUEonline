@@ -91,7 +91,7 @@
 	})
 	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
 
-
+	$('.mrb-25>.mrb-10').eq(1).hide()
 	$('.header-wrapper>div').removeClass('d-none')
 	function IsPC() {
 		var userAgentInfo = navigator.userAgent;
