@@ -24,8 +24,6 @@
 
 ###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
 #### <strong>手机端logo位置有瑕疵 问题暂存</strong>
-###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
-#### <strong>手机端logo位置有瑕疵 问题暂存</strong>
 
 
 # 2020/9/30 9:41
@@ -45,14 +43,19 @@
 ### ./main.js 去掉了下面电话号码 
 ### userTable2.js  中日双版 增加当天显示颜色功能     
 
-
-
 # 2020/9/30 19:28 ---Tian             
 ### ja_JP_ter.art      修复了不显示图片和视频的问题
 ### style2.css         修改了表格宽度为95px
 ### /ja_JP/style2.css  修改了表格宽度为95px
 ### main.js            应要求将日语版切换按钮改成英文
-### style2.css          注释掉了语言切换按钮旁边的after伪类
-### /ja_JP/style2.css   注释掉了语言切换按钮旁边的after伪类
+### style2.css         注释掉了语言切换按钮旁边的after伪类
+### /ja_JP/style2.css  注释掉了语言切换按钮旁边的after伪类
 
+
+# 2020/9/30 22:56 
+### jp-index.html     解决部分业务介绍卡片塌陷高度不一问题
+### 修改了 日语版 personal.art 的翻译 
+### 增加 personal.art 双语版 超出高度显示滚动条
+### 修改了部分style.css 解决老师按钮点击不够宽问题
+# <strong> personal.art  中日版本表格操作注意事项 表格的时间 和表格的名姓 谨慎操作 userTable 和提交按钮的值 有经过这两个值判断的</strong>
 

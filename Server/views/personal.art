@@ -230,8 +230,10 @@
             flex-wrap: wrap;
           }
          
-          .user-content-header{
+           .user-content-header{
             width: 100%;
+            overflow-y: scroll;
+            height:12 00px;
             border: 1px solid #f1f1f1;
             padding:10px ;
             margin: 10px 0;

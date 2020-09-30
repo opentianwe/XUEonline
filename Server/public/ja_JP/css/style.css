@@ -455,12 +455,13 @@ color:#303133;
     
 }
 .yuyue span{
-    width:66px;
+    width:130px;
     padding: 5px;
     text-align: center;
     color: #ffffff;
     background: #4d6789;
     margin: 10px;
+    font-size: 13px;
     border-radius: 5px ;
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px ;

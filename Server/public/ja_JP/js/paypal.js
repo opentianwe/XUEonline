@@ -35,7 +35,7 @@ braintree.dropin.create({
                             }, function () {
 
                                 layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
-                                    console.log('执行跳转操作')
+
                                     window.location.href = './personal.html'
                                 })
                             }, function () {
@@ -59,7 +59,7 @@ braintree.dropin.create({
 function ShowDiv() {
     //0代表加载的风格，支持0-2
     //loading层
-    console.log('执行中')
+
     layer.msg('正在付款请勿关闭页面，请耐心等候...', {
         icon: 16,
         shade: 0.7,

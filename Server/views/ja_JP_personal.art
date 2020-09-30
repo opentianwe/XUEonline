@@ -228,10 +228,13 @@
          
           .user-content-header{
             width: 100%;
+            overflow-y: scroll;
+            height:12 00px;
             border: 1px solid #f1f1f1;
             padding:10px ;
             margin: 10px 0;
           }
+        
           .viod-continue{
             display: flex;
             flex-wrap: wrap;
@@ -342,13 +345,13 @@
            
             <div class="user-content">
                   <div class="user-content-header">
-                    <h3 class="color-bu">预约信息查看</h3>
-                    <div class='yuyue'><span class='isAdd active' >查看全部</span><span class='isnotAdd' >未上课</span> <span class='isAddter'>已上课</span> </div>
+                    <h3 class="color-bu">予約情報閲覧</h3>
+                    <div class='yuyue'><span class='isAdd active' >全部を見る</span><span class='isnotAdd' >未授業</span> <span class='isAddter'>授業が始まった</span> </div>
                    <div class="table-responsive">
                           
-                        <table class='table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
+                        <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
                             <thead>
-                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师邮箱</td><td>老师手机号</td><td>老师SkypeID</td><td>老师评价</td></tr>
+                            <tr><td>予約日時</td><td>先生の名前を予約する</td><td>先生の邮箱</td><td>先生のWeChat</td><td>先生のSkypeID</td><td>老师评价</td></tr>
                             </thead>
                           
                              <tbody id='userTale'>
