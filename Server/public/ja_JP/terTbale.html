@@ -305,14 +305,15 @@
   </style>
   <div id="app">
     <div class="app-top">
-      <h4 style="text-align: center;">输入检索</h4>
+      <h4 style="text-align: center;">検索を入力します</h4>
       <div class="app-search">
-        <input type="text" id="se" placeholder="请输入老师姓名" style="border: 1px solid #ccc;" v-model="search"
+        <input type="text" id="se" placeholder="先生の名前を入力してください" style="border: 1px solid #ccc;" v-model="search"
           @keyup.enter="searchEnterFun($event)"> <button class="btn btn-outline-primary"
-          @click='getsearch()'>检索老师</button>
+          @click='getsearch()'>先生検索</button>
       </div>
-      <h4 style="text-align: center;">条件检索<br><span style="font-size:16px;">①レッスン当日のご予約は、 日本時間6:00-24:00の間は授業予約可能です
-          ②テキストは全部無料です。ご自由にお使いください。③通常3時間前まで可能でございます。当天预约课程的话，请提前三个小时预约，谢谢。</span></h4>
+      <h4 style="text-align: center;">検索条件<br><span style="font-size:16px;">①レッスン当日のご予約は、 日本時間6:00-24:00の間は授業予約可能です
+          <br> ②テキストは全部無料です。ご自由にお使いください。
+          <br>③通常3時間前まで可能でございます。当天预约课程的话，请提前三个小时预约，谢谢。</span></h4>
       <div class="app-btn">
         <div class='title-btn' v-for="(arry, i) in arry " :key="i">
           <!-- //"==index?'page-item  active':'page-item'" -->
@@ -335,9 +336,9 @@
               </div>
               <div class="member-info">
                 <h3>{{list.Name}}</h3>
-                <h5>毕业院校:{{list.School}}</h5>
-                <p style="display: flex;justify-content: space-around;flex-wrap: wrap;height: 70px;">
-                  <span>国籍:{{list.Home}}</span><span>授業内容:{{list.Lesson}}</span></p>
+                <h5>{{list.School}}</h5>
+                <p style="display: flex;justify-content:space-between;flex-wrap: wrap;height: 70px;">
+                  <span>国籍:{{list.Home}}</span> <span>授業内容:{{list.Lesson}}</span></p>
                 <div class="tel tel2">
                   <span><a :href="ht+list.ID">体験授業料:{{list.moeny1}}</a></span>
                 </div>
@@ -345,9 +346,10 @@
                   <span><a :href="ht+list.ID">通常授業料:{{list.moeny2}}</a></span>
                 </div>
                 <button style="width:90%;display: block;padding:7px 0;margin: 5px auto;background: #1E9FFF;"><a
-                    :href="ht+list.ID" style="color: #fff;">通話する</a></button>
+                    style="display: block;width: 100%;height: 100%;color: #fff;" :href="ht+list.ID">通話する</a></button>
                 <button style="width:90%;display: block;padding:7px 0;margin: 5px auto;background: #1E9FFF;"><a
-                    :href="ht+list.ID" style="color: #fff;">講師のプロフィール</a></button>
+                    style="display: block;width: 100%;height: 100%;color: #fff;"
+                    :href="ht+list.ID">講師のプロフィール</a></button>
                 <div>
                   <p style="text-align: center;">本日予約可能<span></span>コマ</p>
                   <p style="text-align: center;">今週予約可能コマ<span></span>コマ</p>

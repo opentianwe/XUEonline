@@ -16,6 +16,7 @@
 ### infop.js    /checkout接口修改了错误的对象命名
 ### tview.js    修复了学生也能进入教师资料填写页面的bug
 ### 中日Paypal.js 修改 Error 判断为 status == 1   解决报错
+<<<<<<< HEAD
 
 #           14:18
 ## personal.art  修改了显示邮箱和手机号改为显示微信号 
@@ -24,3 +25,13 @@
 
 ###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
 #### <strong>手机端logo位置有瑕疵 问题暂存</strong>
+=======
+###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
+#### <strong>手机端logo位置有瑕疵 问题暂存</strong>
+
+
+# 2020/9/30 9:41
+### main.js 修改翻译  解决手机端不显示切换语言版本按钮问题   
+###   getmoengy.html jp getMoney.html 翻译  中日翻译
+###   terTable 翻译   login.html 翻译  table.js 修改部分奇怪的问题
+>>>>>>> 28f135ef03e1dfb5e50f2fdcd29e739c38aa0768
