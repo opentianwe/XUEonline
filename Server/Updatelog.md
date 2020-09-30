@@ -45,5 +45,5 @@
 ### style2.css         修改了表格宽度为95px
 ### /ja_JP/style2.css  修改了表格宽度为95px
 ### main.js            应要求将日语版切换按钮改成英文
-## style2.css          注释掉了语言切换按钮旁边的after伪类
-## /ja_JP/style2.css   注释掉了语言切换按钮旁边的after伪类
+### style2.css          注释掉了语言切换按钮旁边的after伪类
+### /ja_JP/style2.css   注释掉了语言切换按钮旁边的after伪类
