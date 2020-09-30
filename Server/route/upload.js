@@ -15,8 +15,10 @@ router.use(function (req, res, next) {
             msg: "Cookies校验失败!,请跳转到登录页"
         })
         return;
-    }
-    next();
+    }else
+    {
+        next();
+    }  
 });
 
 
@@ -76,7 +78,7 @@ router.post('/upload', imageUploader, function(req, res) {
             if(err != null || data.length == 0)
             {
                 fs.unlink(g_path + '/' + req.files[0].filename,function(error){
-                    res.redirect('/logoin.html')
+                    res.redirect('/')
                     return;
                 })
                  
@@ -149,7 +151,6 @@ router.post('/uploadImg', imageUploader, function(req, res) {
                 mysql.updayeImgUrlbyemal(req.signedCookies.malli,req.files[0].filename,function(data,err){
                     if(err)
                     {
-                        console.log(err)
                         res.send({
                             state:0,
                             msg:"信息更新错误请稍后重新上传,或联系网站管理员!",

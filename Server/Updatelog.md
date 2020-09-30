@@ -37,3 +37,4 @@
 
 #             11：42
 ### /ja_JP/js/table.js 翻译内容修改
+### public/.html       修改了错误的邮箱
