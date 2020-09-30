@@ -38,3 +38,4 @@
 #             11：42
 ### /ja_JP/js/table.js 翻译内容修改
 ### public/.html       修改了错误的邮箱
+##  public/.html       删除了底部导航的公司条款和新闻
