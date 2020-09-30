@@ -90,7 +90,7 @@
   }
 
   .vip-top:before {
-    content: "火热推荐";
+    content: "使用期限なし";
     position: absolute;
     left: -70px;
     top: 15px;
@@ -103,19 +103,19 @@
   
   }
   .vip-content-moenycar>div:nth-child(1)>.vip-top::before{
-    content: "使用期限一か月間";
+    content: "一か月間半";
     top:20px;
     left: -56px;
     font-size: 12px;
   }
   .vip-content-moenycar>div:nth-child(2)>.vip-top::before{
-    content: "使用期限一か月間";
+    content: "一か月間半";
     top:20px;
     left: -56px;
     font-size: 12px;
   }
   .vip-content-moenycar>div:nth-child(3)>.vip-top::before{
-    content: "使用期限一か月間";
+    content: "二か月間";
     top:20px;
     left: -56px;
     font-size: 12px;

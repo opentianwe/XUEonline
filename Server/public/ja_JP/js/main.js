@@ -76,7 +76,42 @@
 			sticky_three_layers.addClass('fixed');
 		}
 	});
-	$('.list-items>li').eq(2).html('<span class="fas fa-phone-alt mrr-10 text-primary-color">090-4179-6014</span>')
+
+	$('.header-wrapper>div').removeClass('d-none')
+	function IsPC() {
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+			"SymbianOS", "Windows Phone",
+			"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	}
+	if (IsPC()) {
+		$(window).resize(function () {
+
+			var windowwidth = $(window).width();
+			console.log(windowwidth)
+			if (windowwidth < 1000) {
+				$('.header-top-left-part').hide()
+
+			} else {
+				$('.header-top-left-part').show()
+			}
+
+		})
+	} else {
+		$('.header-top-left-part').hide()
+	}
+
+
+	$('.list-items>li').eq(1).html('<span class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com')
+	$('.list-items>li').eq(2).hide()
 	$('.list-items>li').eq(0).html('')
 	$('.address').html('<i class="webexflaticon flaticon-placeholder-1"></i>管理員skype ID')
 	$('.pintarest-list').remove()
@@ -92,11 +127,13 @@
 		window.location.href = '../index.html'
 	})
 	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
-
+	$('.mrb-25>.mrb-10').eq(1).hide()
+	$('.mrb-25>.mrb-10>a').eq(2).html('www.haominjiaoyu.com')
+	$('.footer-widget-list>li').eq(12).hide()
 	$('.side-panel-element').eq(1).append(str)
 	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
 	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
-	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">教师资料填写入口</a></li>')
+	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">先生情報修正</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
 	function clearCookie() {
 		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);

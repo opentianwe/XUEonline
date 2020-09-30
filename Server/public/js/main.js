@@ -91,11 +91,44 @@
 	})
 	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
 
+
+	$('.header-wrapper>div').removeClass('d-none')
+	function IsPC() {
+		var userAgentInfo = navigator.userAgent;
+		var Agents = ["Android", "iPhone",
+			"SymbianOS", "Windows Phone",
+			"iPad", "iPod"];
+		var flag = true;
+		for (var v = 0; v < Agents.length; v++) {
+			if (userAgentInfo.indexOf(Agents[v]) > 0) {
+				flag = false;
+				break;
+			}
+		}
+		return flag;
+	}
+	if (IsPC()) {
+		$(window).resize(function () {
+
+			var windowwidth = $(window).width();
+			console.log(windowwidth)
+			if (windowwidth < 1000) {
+				$('.header-top-left-part').hide()
+
+			} else {
+				$('.header-top-left-part').show()
+			}
+
+		})
+	} else {
+		$('.header-top-left-part').hide()
+	}
+
 	//console.log(.attr('href', ''))
 	$('.side-panel-element').eq(1).append(str)
 	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
 	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
-	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">教师资料填写入口</a></li>')
+	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">老师修改个人信息</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
 
 	function clearCookie() {
