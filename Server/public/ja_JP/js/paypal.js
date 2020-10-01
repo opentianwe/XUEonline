@@ -30,16 +30,16 @@ braintree.dropin.create({
                     success: function (data) {
                         if (data.status == 1) {
                             layer.closeAll('iframe')
-                            layer.confirm('付款成功', {
-                                btn: ['前往个人页面', '停留在本页面'] //按钮
+                            layer.confirm('支払い完了', {
+                                btn: ['MY PAGEに移動', '現在のページにとどまる'] //按钮
                             }, function () {
 
-                                layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
+                                layer.msg('ジャンプ中', { icon: 1, time: 2000 }, function () {
 
                                     window.location.href = './personal.html'
                                 })
                             }, function () {
-                                layer.msg('查看积分可从个人界面查看')
+                                layer.msg('MY PAGEでポイントの確認ができる')
                             });
                             //layer.msg(data.msg, { icon: 1 })
                             //付款成功
@@ -60,7 +60,7 @@ function ShowDiv() {
     //0代表加载的风格，支持0-2
     //loading层
 
-    layer.msg('正在付款请勿关闭页面，请耐心等候...', {
+    layer.msg('決済中、しばらくお待ちください。...', {
         icon: 16,
         shade: 0.7,
         time: 100 * 10000

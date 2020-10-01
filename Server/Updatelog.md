@@ -59,3 +59,6 @@
 ### 修改了部分style.css 解决老师按钮点击不够宽问题
 # <strong> personal.art  中日版本表格操作注意事项 表格的时间 和表格的名姓 谨慎操作 userTable 和提交按钮的值 有经过这两个值判断的</strong>
 
+# 2020/10/01 11:00
+### 修改了jp-paypal.js  提示翻译 
+### 修改了jp-table.js 的翻译

@@ -22,7 +22,7 @@ new Vue({
             this.pageNO = index || this.pageNO
             console.log(this.pageNO)
             if (this.search == "") {
-                alert("您还未输入内容,请重新输入内容")
+                layer.msg('你未输入任何内容无法检索', { icon: 2 })
                 return;
             } else {
                 axios({
