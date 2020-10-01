@@ -109,7 +109,7 @@
   font-size: 12px;
 }
 .vip-content-moenycar>div:nth-child(2)>.vip-top::before{
-  content: "使用期限一个月";
+  content: "使用期限一个半月";
   top:20px;
   left: -56px;
   font-size: 12px;
