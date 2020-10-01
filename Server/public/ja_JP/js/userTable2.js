@@ -100,13 +100,13 @@ $(function () {
         var minutesRound = Math.floor(minutes);
         var seconds = my_time / 1000 - (24 * 60 * 60 * daysRound) - (60 * 60 * hoursRound) - (60 * minutesRound);
         if (daysRound > 0) {
-            return time = daysRound + '天' + hoursRound + '时' + minutesRound + '分'
+            return time = daysRound + '日' + hoursRound + '時' + minutesRound + '分'
         } else if (hoursRound > 0) {
-            return time = hoursRound + '时' + minutesRound + '分'
+            return time = hoursRound + '時' + minutesRound + '分'
         } else if (minutesRound > 0) {
-            return time = 00 + '时:' + minutesRound + '分'
+            return time = 00 + '時:' + minutesRound + '分'
         } else {
-            return time = '0小时'
+            return time = '0時'
         }
     }
     function isDate(timeOne, timeTow, temp) {
@@ -118,7 +118,7 @@ $(function () {
         if (temp == true) {
             if (res > 0) {
                 res = getDuration(res)
-                layer.msg('距离上课' + res, { icon: 1, })
+                layer.msg('分後に授業開始' + res, { icon: 1, })
                 // console.log(res)
                 return res
             } else {
@@ -237,7 +237,7 @@ $(function () {
                     } else if (d.status == 1) {
                         layer.confirm(str, {
                             area: ['55vw', '400px'],
-                            btn: ['确认查看', '取消查看'],
+                            btn: ['確認します', '後で確認します'],
                             title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
                             closeBtn: false
                             , shade: 0.8
@@ -274,20 +274,20 @@ $(function () {
             jpstr >= 10 ? jpstr = jpstr : jpstr = '0' + jpstr
             var jptime = arr[0].innerHTML.replace(arr[0].innerHTML.substring(12, 14), jpstr)
             var str = `
-            <h4 class='teruser'>${arr[1].innerHTML}学生的评价<h4>
-            <div>预约时间${arr[0].innerHTML}(中国时间)</div>
-            <div>预约时间${jptime}(日本时间)</div>
+            <h4 class='teruser'>${arr[1].innerHTML}生徒の評価<h4>
+            <div>予約時間${arr[0].innerHTML}（中国時間）</div>
+            <div>予約時間${jptime}（日本時間）</div>
             <div>
-            <textarea name="" class='op1' disabled id="terText" placeholder="限制输入200字" maxlength="200" cols="10" rows="2"></textarea>
+            <textarea name="" class='op1' disabled id="terText" placeholder="入力を200文字に制限する" maxlength="200" cols="10" rows="2"></textarea>
             <br>
-            <p>教师确认课时时间 选择 0 即代表 未给学生上课(0分钟是无法对学生评价的但是需要你确认课程信息谢谢) </p>
+            <p>先生の授業時間を確認する必要です。0分を選択したら、授業をしていないことになる。（0分なら、生徒にコメントを送れません）</p>
             <select name="" id="stusdata" >
-            <option class='op' selected='selected' value="0">0分钟</option>
-            <option class='op' value="25">25分钟</option>
+            <option class='op' selected='selected' value="0">0分</option>
+            <option class='op' value="25">25分</option>
             </select>
             <div>   
-            <p><strong>以便分享和了解学生信息只有老师们看的到,学生看不到</strong></p>
-            <textarea name="" class='op1' disabled id="terText2"  placeholder="限制输入200字" maxlength="200" cols="10" rows="2"></textarea>
+            <p><strong>生徒さんの情報を共有と理解するため 先生しか見えません</strong></p>
+            <textarea name="" class='op1' disabled id="terText2"  placeholder="入力を200文字に制限する" maxlength="200" cols="10" rows="2"></textarea>
             </div>
             </div>
            `
@@ -301,13 +301,13 @@ $(function () {
 
                         layer.confirm(str, {
                             area: ['55vw', 'aout'],
-                            btn: ['确认评价', '取消评价'],
-                            title: "对 " + arr[1].innerHTML + '学生的评价', //按钮
+                            btn: ['コメントを送信します', 'コメントをキャンセルします'],
+                            title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
                             closeBtn: false
                             , shade: 0.8
                         }, function () {
                             if ($('#terText').val() == '') {
-                                return layer.msg('评价不能为空', { icon: 3, });
+                                return layer.msg('評価必須(レッスン内容)', { icon: 3, });
                             }
 
                             var options = document.querySelectorAll('.op')
@@ -318,30 +318,27 @@ $(function () {
                                 }
                             }
                             console.log(isval)
-                            isAjax('./teacherEvaluation', arr[0].innerHTML, $('#terText').val(), $('#terText2').val(), isval)
+                            isAjax('../teacherEvaluation', arr[0].innerHTML, $('#terText').val(), $('#terText2').val(), isval)
                                 .then(function (val) {
-                                    layer.msg(arr[1].innerHTML + '学生评价成功', { icon: 1, })
+                                    layer.msg(arr[1].innerHTML + 'コメントを送りました', { icon: 1, })
                                 }, function (er) {
-                                    layer.msg(arr[1].innerHTML + '学生评价失败', { icon: 2, })
+                                    layer.msg(arr[1].innerHTML + 'コメントを送っていません', { icon: 2, })
                                 })
 
                             //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
                         }, function () {
-                            layer.msg('系统建议继续返回评价否则账户无法增加积分', { icon: 8, });
+                            layer.msg('リマインド：生徒さんへのコメントをしないと、ポイントを加算できません', { icon: 8, });
                         })
 
                         var stusdata = document.getElementById('stusdata')
                         var op = document.querySelectorAll('.op')
                         stusdata.addEventListener('change', function () {
                             for (let index = 0; index < op.length; index++) {
-
                                 if (op[index].selected) {
                                     if (op[index].value == '0') {
                                         $('.op1').each(function () {
                                             $(this).attr("disabled", "disabled");
-
                                         })
-
                                     } else {
                                         $('.op1').each(function () {
                                             $(this).removeAttr("disabled")
@@ -353,18 +350,18 @@ $(function () {
                     } else if (response.status == 3) {
                         layer.confirm(str, {
                             area: ['55vw', 'aout'],
-                            btn: ['确认查看', '退出查看'],
-                            title: "对 " + arr[1].innerHTML + '学生的评价', //按钮
+                            btn: ['確認します', '後で確認します'],
+                            title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
                             closeBtn: false
                             , shade: 0.8
                         }, function () {
                             if ($('#terText').val() == '') {
-                                return layer.msg('评价不能为空', { icon: 3, });
+                                return layer.msg('評価必須(レッスン内容)', { icon: 3, });
                             }
-                            layer.msg(arr[1].innerHTML + '确认信息', { icon: 1, })
+                            layer.msg(arr[1].innerHTML + '情報を確認する', { icon: 1, })
                             //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
                         }, function () {
-                            layer.msg('退出完毕', { icon: 8, });
+                            layer.msg('ログアウトしました', { icon: 8, });
                         })
                         $('#terText').val(response.Evaluation)
                         $('#terText2').val(response.onEvaluation)

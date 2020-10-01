@@ -62,3 +62,11 @@
 # 2020/10/01 11:00
 ### 修改了jp-paypal.js  提示翻译 
 ### 修改了jp-table.js 的翻译
+
+# 2020/10/01 14:16
+### 修复 jp—personal  jp-logoin  两个页面导航条 跳转到 personal 的问题
+### 修改 中日双版本 index.html 多加一个 加号
+### 翻译 jp-userTable.js  jp-getMoeny.js 提示
+### 翻译 jp-server.js  jp-paypal.js 提示
+### 修复 jp-userTable.js  teacherEvaluation APi 接口 ../问题
+### 中日 jp-getMoeny.js  jp-PayPal 购买积分提示 修改为 积分 付款金额 税后实际付款金额 税率

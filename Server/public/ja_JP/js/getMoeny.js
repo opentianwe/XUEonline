@@ -109,10 +109,11 @@ $(function () {
             console.log(d)
             //if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.state == 0) return window.location.href = './logoin.html'
             if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
+            var m = d.integral - d.money
             var str = `
-              <div>税込み価格:${d.Amountactuallypaid}</div>
-              <div>原価:${d.integral}</div>
+              <div>买入积分:${d.integral}</div>
               <div>優待価格:${d.money}</div>
+              <div>税込み価格:${d.Amountactuallypaid}</div>
               <div>税率:${d.taxRate}</div>
              `
             layer.confirm(str, {

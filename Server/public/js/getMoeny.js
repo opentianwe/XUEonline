@@ -107,10 +107,10 @@ $(function () {
           success: function (d) {
             if (d.state == 0) return layer.msg(d.msg, { icon: 2 })
             var str = `
-              <div>税后总计收款:${d.Amountactuallypaid}</div>
-              <div>原价:${d.integral}</div>
-              <div>优惠价:${d.money}</div>
-              <div>税率:${d.taxRate}</div>
+            <div>买入积分:${d.integral}</div>
+            <div>付款金额:${d.money}</div>
+            <div>税后实际付款:${d.Amountactuallypaid}</div>
+            <div>税率:${d.taxRate}</div>
              `
             layer.confirm(str, {
               area: ['55vw', 'aout'],

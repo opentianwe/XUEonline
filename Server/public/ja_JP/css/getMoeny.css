@@ -103,7 +103,7 @@
   
   }
   .vip-content-moenycar>div:nth-child(1)>.vip-top::before{
-    content: "一か月間半";
+    content: "一か月間";
     top:20px;
     left: -56px;
     font-size: 12px;

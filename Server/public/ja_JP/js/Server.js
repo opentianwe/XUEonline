@@ -28,29 +28,29 @@
         }
     };
 }
-function makeAnapp(ID, time,bID) {  
+function makeAnapp(ID, time, bID) {
     $.ajax({
         type: "POST",
         url: "../makeAnapp",
         data: JSON.stringify({ ID: ID, Time: time }),
         dataType: "json",
         success: function (res) {
-           
-            if(res.isSpecialOffer){
-                var text='尊敬的顾客你好,您是第一支付预约,可享受XUE官方给您提供的优惠活动'
-            }else{
-                text=' '
+
+            if (res.isSpecialOffer) {
+                var text = '体験授業料は198円です。XUEonlineのプレゼントは初回登録までです'
+            } else {
+                text = ' '
             }
             var str = `
                <div class='lay-tit-box'>
-               <h4>确认付款信息</h4>
-               <div>预约教师姓名:<span>${res.Name}</span></div>
-               <div>预约时间:<span>${res.Time}</span></div>
-               <div>系统提示:<strong>(中日时差一个小时 系统采用默认时间为日本时间 例如日本时间7:00 等于 中国时间 6:00)</strong></div>
-               <div>预约成功后，可直接通过系统给你提供的信息联系老师</div>
-               <div>付款金额:<span>${res.moeny}积分</span></div>
+               <h4>支払い情報を確認する</h4>
+               <div>担当先生の名前:<span>${res.Name}</span></div>
+               <div>予約時間:<span>${res.Time}</span></div>
+               <div>リマインド：:<strong>(中国と日本の時差は一時間です。XUEonlineのシステムは日本時間を表示しています。たとえば日本時間7：00＝中国時間6：00)</strong></div>
+               <div>予約した後、担当先生のSkype或はWeChatまでにご連絡お願い致します</div>
+               <div>決済金額:<span>${res.moeny}ポイント</span></div>
                <div>${text}</div>
-               <div>如对付款有任何疑惑或一些不解可以查看<a href='./titMoeny.html' target="_blank">用户支付条例</a></div>
+               <div>支払いについて疑問や不明な点がある場合<a href='./titMoeny.html' target="_blank">  支払い規則を確認してください</a></div>
                </div>
             `
             if (res.status === 0) {
@@ -61,9 +61,9 @@ function makeAnapp(ID, time,bID) {
                     closeBtn: false
                     , shade: 0.8
                 }, function () {
-                    if(!navigator.onLine){
+                    if (!navigator.onLine) {
                         e.stopPropagation();
-                        layer.msg('网络未连接，请检查重试',{time:3000,icon:5});
+                        layer.msg('ネットワークが接続されていません。確認して再試行してください', { time: 3000, icon: 5 });
                         return;
                     }
                     // 先发一个ajax 请求 然后在  根据ajax  
@@ -82,53 +82,53 @@ function makeAnapp(ID, time,bID) {
                         success: function (res) {
                             layer.close(index)
                             if (res.status === 0) {
-                                bID.parentNode.innerHTML='<td bgcolor="#ffffff"><span style="background-color:#ddffff;">予約済</span></td>'
-                                layer.confirm('付款成功', {
-                                    btn: ['查看老师信息', '稍后查看'],
-                                    title: "付款完成",
+                                bID.parentNode.innerHTML = '<td bgcolor="#ffffff"><span style="background-color:#ddffff;">予約済</span></td>'
+                                layer.confirm('購入しました', {
+                                    btn: ['先生の情報を確認します', '後で確認します'],
+                                    title: "購入しました",
                                     icon: 1,
                                     area: ['30vw', '300px'], closeBtn: false, shade: 0.8
                                 }, function () {
-                                    if(!navigator.onLine){
+                                    if (!navigator.onLine) {
                                         e.stopPropagation();
-                                        layer.msg('网络未连接，请检查重试',{time:3000,icon:5});
+                                        layer.msg('ネットワークが接続されていません。確認して再試行してください', { time: 3000, icon: 5 });
                                         return;
                                     }
-                                    layer.msg('正在跳转', { icon: 1, time: 2000  },function(){
-                                            console.log('执行跳转操作')
-                                            window.location.href='./personal.html'
-                                    })                                                           
+                                    layer.msg('→ジャンぷ中', { icon: 1, time: 2000 }, function () {
+                                        console.log('执行跳转操作')
+                                        window.location.href = './personal.html'
+                                    })
                                     //回调1
                                 }, function () {
-                                    layer.msg('退出后可从个人中心查看预约信息', { icon: 6, })
+                                    layer.msg('ログアウト後、MY　PAGEで予約情報を確認することができます', { icon: 6, })
                                 });
-                            } else if(res.status===10){
+                            } else if (res.status === 10) {
                                 layer.msg(res.msg)
-                            }else if(res.status===2){
+                            } else if (res.status === 2) {
                                 layer.msg(res.msg)
-                            }else if(res.status===5){
+                            } else if (res.status === 5) {
                                 layer.msg(res.msg)
-                            }else if(res.status===6){
+                            } else if (res.status === 6) {
                                 layer.msg(res.msg)
-                            }else if(res.status===12){
+                            } else if (res.status === 12) {
                                 layer.msg(res.msg)
-                            }else if(res.status===244){
+                            } else if (res.status === 244) {
                                 layer.msg(res.msg)
                             }
                         }
                     });
 
                 }, function () {
-                    layer.msg('欢迎下次在来', { icon: 6, });
+                    layer.msg('まだお越しください', { icon: 6, });
                 });
-            }else if(res.status === 4){
+            } else if (res.status === 4) {
                 layer.msg(res.msg)
-            }else if(res.status === 1){
+            } else if (res.status === 1) {
                 layer.msg(res.msg)
-            }else if(res.status===3){
+            } else if (res.status === 3) {
                 layer.msg(res.msg)
             }
-        },error:function(error){
+        }, error: function (error) {
             layer.msg(error)
         }
     });
@@ -151,17 +151,17 @@ function makeAnapp(ID, time,bID) {
 
 
 }
-var index 
+var index
 function ShowDiv() {
-   //0代表加载的风格，支持0-2
+    //0代表加载的风格，支持0-2
     //loading层
-    
+
     layer.msg('正在付款请勿关闭页面，请耐心等候...', {
         icon: 16,
         shade: 0.7,
         time: 100 * 10000
     });
- 
+
 }
 //隐藏加载数据
 function HiddenDiv() {

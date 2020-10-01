@@ -171,7 +171,7 @@
                     <li class="has-sub right-view">
                       <a href="#">MY PAGE</a>
                       <ul class="sub-menu">
-                        <li><a href="./presonal.html">MY PAGE</a></li>
+                        <li><a href="personal.html">MY PAGE</a></li>
                         <li><a href="./logoin.html">ログイン</a></li>
                         <li><a id="qiut-s">サインアウト</a></li>
 
