@@ -103,7 +103,7 @@
                     <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
                     <ul class="list-items">
                       <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
-                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominajiaoyu@126.com</li>
+                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com</li>
                       <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
                     </ul>
                   </div>
@@ -277,14 +277,14 @@
         <div class="user-box shadow-sm"> 
             <div class="user-top">
                 <div class="user-topL">
-                    <h4 id="user-name"  class="color-bu">{{data.UserName}}用户<span> 欢迎你</span></h4>
+                    <h4 id="user-name"  class="color-bu">{{data.UserName}}<%if(data.isTeacher){%>先生<%}else{%>同窓生<%}%><span> いらっしゃいませ</span></h4>
                     <div class="user-div">
                       <p><i>
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
                         </svg>
                       </i>
-                      性别:<span id="user-Sex">{{data.UserSex}}</span>
+                      性別:<span id="user-Sex">{{data.UserSex}}</span>
                       </p>
                       <p >
                         <i>
@@ -293,7 +293,7 @@
                             <path fill-rule="evenodd" d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869z"/>
                           </svg>
                         </i>
-                        您的积分余额:<span id="user-moeny">{{data.money}}</span></p>
+                        ポイントの残高:<span id="user-moeny">{{data.money}}</span></p>
                     </div>
                     <div  class="user-div">
                       <p>
@@ -312,7 +312,7 @@
                             <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
                           </svg>
                         </i>
-                        邮箱 : <span id="user-emali">{{data.UserEmal}}</span></p>
+                        メールボックス : <span id="user-emali">{{data.UserEmal}}</span></p>
                     </div>  
     
                     <div  class="user-div">
@@ -325,7 +325,7 @@
                             <path fill-rule="evenodd" d="M2 7.846V7H1v.437c.291.207.632.35 1 .409zm-1 .737c.311.14.647.232 1 .271V15H1V8.583zm13 .271a3.354 3.354 0 0 0 1-.27V15h-1V8.854zm1-1.417c-.291.207-.632.35-1 .409V7h1v.437zM3 9.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5V15H7v-5H4v5H3V9.5zm6 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4zm1 .5v3h2v-3h-2z"/>
                           </svg>
                         </i>
-                      充值积分？: <span ><a href="getmoeny.html">前往充值</a></span></p>
+                      ポイントチャージ？: <span ><a href="getmoeny.html">チャージに行きます</a></span></p>
                       <p>
                         <i>
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -333,7 +333,7 @@
                             <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
                           </svg>
                         </i>
-                      常见问题 :<span><a href="stunews.html" target="_black">点击查看</a></span></p>
+                      よくある問題 :<span><a href="stunews.html" target="_black">クリックして</a></span></p>
                     </div> 
                 </div>
                 <div class="user-topR">
@@ -351,7 +351,11 @@
                           
                         <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
                             <thead>
-                            <tr><td>予約日時</td><td>先生の名前を予約する</td><td>先生の邮箱</td><td>先生のWeChat</td><td>先生のSkypeID</td><td>老师评价</td></tr>
+                            <%if(data.isTeacher){%>
+                             <tr><td>予約日</td><td>学生の名前</td><td>学生WeChatID</td><td>学生SkypeID</td><td>学生を評価する</td></tr>
+                            <%}else{%>
+                            <tr><td>予約日</td><td>先生の名前</td><td>先生WeChatID</td><td>先生SkypeID</td><td>先生を評価する</td></tr>
+                            <%}%>    
                             </thead>
                           
                              <tbody id='userTale'>
@@ -363,10 +367,10 @@
                    </div>
             </div>
         </div>
-         <h3 style="text-align: center;">消息查看</h3>
+         <h3 style="text-align: center;">メッセージの表示</h3>
     <div class="form-data">
       <div class="border shadow-sm ">
-          <p>学生留言评价查看</p>
+          <p>学生メッセージ評価</p>
          <div class="Stu-list overflow-auto border">
 
          </div>
@@ -387,7 +391,7 @@
                 <div class="mrb-10"><a href="#" class="text-light-gray"><i
                       class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
                 <div class="mrb-10"><a href="#" class="text-light-gray"><i
-                      class="fas fa-envelope mrr-10"></i>haominajiaoyu@126.com</a></div>
+                      class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
                 <div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
                       class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
               </address>
