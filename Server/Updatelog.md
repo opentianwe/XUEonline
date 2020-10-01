@@ -69,4 +69,5 @@
 ### 翻译 jp-userTable.js  jp-getMoeny.js 提示
 ### 翻译 jp-server.js  jp-paypal.js 提示
 ### 修复 jp-userTable.js  teacherEvaluation APi 接口 ../问题
+### 修改 中日双 css 里面的 getMoeny.css 的部分样式
 ### 中日 jp-getMoeny.js  jp-PayPal 购买积分提示 修改为 积分 付款金额 税后实际付款金额 税率
