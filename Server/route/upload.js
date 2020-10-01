@@ -7,19 +7,19 @@ const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
 const fs = require('fs')
 router.use(cookieParser("wcasd2398123asd12aasd"))
-router.use(function (req, res, next) {
-    if(req.signedCookies.malli == undefined || req.signedCookies.malli == '')
-    {
-        res.send({
-            state: 0,
-            msg: "Cookies校验失败!,请跳转到登录页"
-        })
-        return;
-    }else
-    {
-        next();
-    }  
-});
+// router.use(function (req, res, next) {
+//     if(req.signedCookies.malli == undefined || req.signedCookies.malli == '')
+//     {
+//         res.send({
+//             state: 0,
+//             msg: "Cookies校验失败!,请跳转到登录页"
+//         })
+//         return;
+//     }else
+//     {
+//         next();
+//     }  
+// });
 
 
 
