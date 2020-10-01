@@ -65,7 +65,7 @@
 
 # 2020/10/01 14:16
 ### 修复 jp—personal  jp-logoin  两个页面导航条 跳转到 personal 的问题
-### 修改 中日双版本 index.html 多加一个 加号
+### 修改 中日双版本 index.html 多加一个 加号 修改 style2.css 中日双版本  
 ### 翻译 jp-userTable.js  jp-getMoeny.js 提示
 ### 翻译 jp-server.js  jp-paypal.js 提示
 ### 修复 jp-userTable.js  teacherEvaluation APi 接口 ../问题

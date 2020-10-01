@@ -3228,10 +3228,32 @@ select {
   color: #0c59db;
 }
 .funfact .counter {
+  
   font-size: 48px;
   margin-bottom: 20px;
   z-index: 1;
+  display: inline;
   position: relative;
+}
+.funfact .counter::after{
+  content: "";
+  position: absolute;
+  display: block;
+  width:20px;
+  height: 3px;
+  background:#0c59db;
+  right:-20px;
+  top:10px;
+}
+.funfact .counter::before{
+  content: "";
+  position: absolute;
+  display: block;
+  width:3px;
+  height:20px;
+  background: #0c59db;
+  right:-11px;
+  top:2px;
 }
 .funfact .title {
   color: #747b87;
