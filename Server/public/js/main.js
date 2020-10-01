@@ -37,7 +37,18 @@
 --------- [JS_INDEXING_END] --------------
 ==========================================
 */
-
+function clearCookie() {
+	var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+	if (keys) {
+		for (var i = keys.length; i--;) {
+			document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
+			document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
+			document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
+		}
+	}
+	// $("#divcookie").html(document.cookie);
+	window.location.href = './logoin.html'
+}
 (function ($) {
 
 	"use strict";
@@ -124,6 +135,10 @@
 		$('.header-top-left-part').hide()
 	}
 
+	$('#qiut-s').attr('href', 'javascript:;')
+	$('#qiut-s').attr('onclick', 'clearCookie()')
+
+	console.log()
 	//console.log(.attr('href', ''))
 	$('.side-panel-element').eq(1).append(str)
 	$('.right-view>li').eq(0).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
@@ -144,10 +159,6 @@
 		window.location.href = './logoin.html'
 
 	}
-	$('#qiut-s').on('click', function () {
-
-		clearCookie()
-	})
 
 	jQuery(document).on('ready', function () {
 		/*=============================================*/

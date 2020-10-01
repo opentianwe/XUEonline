@@ -62,7 +62,6 @@
 # 2020/10/01 11:00
 ### 修改了jp-paypal.js  提示翻译 
 ### 修改了jp-table.js 的翻译
-
 # 2020/10/01 14:16
 ### 修复 jp—personal  jp-logoin  两个页面导航条 跳转到 personal 的问题
 ### 修改 中日双版本 index.html 多加一个 加号 修改 style2.css 中日双版本  
@@ -71,3 +70,6 @@
 ### 修复 jp-userTable.js  teacherEvaluation APi 接口 ../问题
 ### 修改 中日双 css 里面的 getMoeny.css 的部分样式
 ### 中日 jp-getMoeny.js  jp-PayPal 购买积分提示 修改为 积分 付款金额 税后实际付款金额 税率
+# 2020/10/01 22:11
+### 解决退出按钮 点击事件bug 竟然触发不了 我吐了
+### 修改了 支付页面 cookie 未登录 

@@ -92,6 +92,8 @@ $(function () {
         }
 
       } else if (d == "PayPal支付") {
+        if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.status == 0) return window.location.href = './logoin.html'
+        if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
         var comstr = {
           CommodityID: b,
         }
