@@ -30,9 +30,11 @@ router.use(cookieParser("wcasd2398123asd12aasd"))
 router.get('/alipay', function (req, res) {
 	if (req.query.CommodityID == undefined || req.signedCookies.malli == undefined) {
 		res.send({
-			state: 0,
-			msg: "Cookies校验失败!,请跳转到登录页"
+			status: 0,
+			msg: "Cookies校验失败!,请跳转到登录页",
+			Url:'./logoin.html'
 		})
+		return
 	}
 	const order = new ord(req.query.CommodityID, req.signedCookies.malli)
 	order.Creat(function (params) {
