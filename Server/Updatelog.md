@@ -1,48 +1,36 @@
 # 2020/9/28 20:00 
 ## 1.0 修复 学生 25分钟后评论现在问题  
 ## 1.0.1 userTable2.js 日语版修改说明 
-
 // 一天以增加
 # 1.1.0 2020/9/29 1：42
 ### 1.1.0  braintree_route.js  修复了服务器cookie校验失败导致崩溃的bug 
 ### 1.1.1 翻译日语版  ter.js userTable.js   main.js 退出按钮 退出跳转到登录页面 ./login.html  
 ### 1.1.2 img 文件新增图片   老师一览下拉 变成 预约老师 和 老师入口   index.html 页面 首页加上图片  中日都修改了
 ### 1.1.3  双语版 页面可以通过 头部按钮互相跳转 
-
-
 # 2020/9/29 8:29
 ### sendEmal.js 邮箱发送接口开启测试
 ### infop.js    付款接口增加了发送邮件通知
 ### infop.js    /checkout接口修改了错误的对象命名
 ### tview.js    修复了学生也能进入教师资料填写页面的bug
 ### 中日Paypal.js 修改 Error 判断为 status == 1   解决报错
-
 #           14:18
 ## personal.art  修改了显示邮箱和手机号改为显示微信号 
 ## personal.art  使用模板语法判断是否为老师登录从而做出不同的响应
 ## tview.js      修改了渲染老师信息相关的关键字
-
 ###  页面添加logo 修改 main.js  修改css  修改了 header 背景颜色 1455行  
 #### <strong>手机端logo位置有瑕疵 问题暂存</strong>
-
-
 # 2020/9/30 9:41
 ### main.js 修改翻译  解决手机端不显示切换语言版本按钮问题   
 ###   getmoengy.html jp getMoney.html 翻译  中日翻译
 ###   terTable 翻译   login.html 翻译  table.js 修改部分奇怪的问题
-
-
-
 # 2020/9/30 11:42 ---Tian
 ### /ja_JP/js/table.js 翻译内容修改
 ### public/.html       修改了错误的邮箱
 ### public/.html       删除了底部导航的公司条款和新闻
 ###  public/.html       删除了底部导航的公司条款和新闻
-
 # 2020/9/30 19:21 
 ### ./main.js 去掉了下面电话号码 
 ### userTable2.js  中日双版 增加当天显示颜色功能     
-
 # 2020/9/30 19:28 ---Tian             
 ### ja_JP_ter.art      修复了不显示图片和视频的问题
 ### style2.css         修改了表格宽度为95px
@@ -50,15 +38,12 @@
 ### main.js            应要求将日语版切换按钮改成英文
 ### style2.css         注释掉了语言切换按钮旁边的after伪类
 ### /ja_JP/style2.css  注释掉了语言切换按钮旁边的after伪类
-
-
 # 2020/9/30 22:56 
 ### jp-index.html     解决部分业务介绍卡片塌陷高度不一问题
 ### 修改了 日语版 personal.art 的翻译 
 ### 增加 personal.art 双语版 超出高度显示滚动条
 ### 修改了部分style.css 解决老师按钮点击不够宽问题
 # <strong> personal.art  中日版本表格操作注意事项 表格的时间 和表格的名姓 谨慎操作 userTable 和提交按钮的值 有经过这两个值判断的</strong>
-
 # 2020/10/01 11:00
 ### 修改了jp-paypal.js  提示翻译 
 ### 修改了jp-table.js 的翻译
@@ -74,3 +59,6 @@
 ### 解决退出按钮 点击事件bug 竟然触发不了 我吐了
 ### 修改了 支付页面 cookie 未登录 
 ### 新增 404页面 有的请求不到的页面可以到404.html 中日都有
+### 新增 初学者指南页面 snewtit.html 
+### 修改main.js
+### 修复 120 一个➕问题

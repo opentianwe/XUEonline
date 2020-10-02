@@ -150,7 +150,7 @@ function clearCookie() {
 	$('#qiut-s').attr('href', 'javascript:;')
 	$('#qiut-s').attr('onclick', 'clearCookie()')
 
-
+	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">よくある質問</a>')
 	jQuery(document).on('ready', function () {
 		/*=============================================*/
 		/*----------- [_Side_Panel_Start] -------------*/

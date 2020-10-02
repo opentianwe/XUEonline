@@ -146,20 +146,8 @@ function clearCookie() {
 	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">老师修改个人信息</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
 
-	function clearCookie() {
-		var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-		if (keys) {
-			for (var i = keys.length; i--;) {
-				document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
-				document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
-				document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
-			}
-		}
-		// $("#divcookie").html(document.cookie);
-		window.location.href = './logoin.html'
 
-	}
-
+	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">初学者指南</a>')
 	jQuery(document).on('ready', function () {
 		/*=============================================*/
 		/*----------- [_Side_Panel_Start] -------------*/

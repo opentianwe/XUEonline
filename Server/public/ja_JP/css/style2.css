@@ -3235,7 +3235,7 @@ select {
   display: inline;
   position: relative;
 }
-.funfact .counter::after{
+.mrt-100>div:nth-child(1) .counter::after{
   content: "";
   position: absolute;
   display: block;
@@ -3245,7 +3245,7 @@ select {
   right:-20px;
   top:10px;
 }
-.funfact .counter::before{
+.mrt-100>div:nth-child(1) .counter::before{
   content: "";
   position: absolute;
   display: block;
