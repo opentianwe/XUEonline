@@ -313,8 +313,11 @@ body{
     
 }
 .Stu-list{
-    height:200px;
+    height:888px;
     
+}
+.Stu-list>div{
+    border-bottom: 1px solid #f1f1f1;
 }
 .carousel-item{
     position: relative;
@@ -454,6 +457,15 @@ color:#303133;
 }
 #userTale>tr>td{
     
+}
+.t-tit{
+    padding:5px 10px;
+    font-size:13px;
+    color:#2d8cf0;
+}
+.t-rigth{
+    text-align: right;
+    padding:5px 10px;
 }
 .yuyue span{
     width:66px;

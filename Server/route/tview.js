@@ -395,18 +395,39 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
         if (ret == false) {
             Evaluation = "暂无评价"
         } else {
+
             for (var i = 0; i < ret.length; i++) {
-                Evaluation += '学生姓名:' + ret[i].UserName + '  学生评价:' + ret[i].Pmsg + '<br>'
+                Evaluation += `
+                <div>
+                <p class='t-tit'>
+                ${ret[i].Pmsg} 
+                </p>
+                    <div class='t-rigth'>对${ret[i].UserName}学生的评价 
+                    <br>
+                    评价时间:<strong>2020-10-1</strong></div>
+                 </div>
+                `
+
+
             }
         }
-    }else
-    {
+    } else {
         var ret = await mysql.queryTeacherEvaluationByEmal(Emal)
         if (ret == false) {
             Evaluation = "暂无评价"
         } else {
             for (var i = 0; i < ret.length; i++) {
-                Evaluation += '老师姓名:' + ret[i].TeacherName + '  老师评价:' + ret[i].Tmsg + '<br>'
+                Evaluation += `
+                <div>
+                <p class='t-tit'>
+               ${ret[i].Tmsg} 
+                </p>
+                    <div class='t-rigth'>对${ret[i].TeacherName}老师的评价 
+                    <br>
+                    评价时间:<strong>2020-10-1</strong></div>
+                 </div>
+                `
+
             }
         }
     }
