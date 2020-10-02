@@ -372,9 +372,9 @@
          <h3 style="text-align: center;">消息查看</h3>
     <div class="form-data">
       <div class="border shadow-sm ">
-          <p>学生留言评价查看</p>
+          <p><%if(data.isTeacher){%>学生评价查看<%}else{%>老师评价查看<%}%></p>
          <div class="Stu-list overflow-auto border">
-
+          {{evaluate}}
          </div>
       </div>
     </div>

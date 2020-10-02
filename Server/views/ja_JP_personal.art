@@ -370,7 +370,7 @@
          <h3 style="text-align: center;">メッセージの表示</h3>
     <div class="form-data">
       <div class="border shadow-sm ">
-          <p>学生メッセージ評価</p>
+          <p><%if(data.isTeacher){%>学生の評価<%}else{%>先生の評価<%}%></p>
          <div class="Stu-list overflow-auto border">
 
          </div>
