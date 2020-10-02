@@ -387,6 +387,45 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 }
 
 
+//渲染personal.html
+async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
+    var Evaluation = ''
+    if (isTeacher) {
+        var ret = await mysql.queryStudentEvaluationByEmal(Emal)
+        if (ret == false) {
+            Evaluation = "暂无评价"
+        } else {
+            for (var i = 0; i < ret.length; i++) {
+                Evaluation += '学生姓名:' + ret[i].UserName + '  学生评价:' + ret[i].Pmsg + '<br>'
+            }
+        }
+    }else
+    {
+        var ret = await mysql.queryTeacherEvaluationByEmal(Emal)
+        if (ret == false) {
+            Evaluation = "暂无评价"
+        } else {
+            for (var i = 0; i < ret.length; i++) {
+                Evaluation += '老师姓名:' + ret[i].TeacherName + '  老师评价:' + ret[i].Tmsg + '<br>'
+            }
+        }
+    }
+
+    console.log(ret)
+    res.render('personal.art', {
+        data: {
+            money: mem,
+            UserName: oAName,
+            UserEmal: oAEmail,
+            UserSex: oAsex,
+            Userskype: oAskype,
+            aif: Str,
+            isTeacher: isTeacher,
+            Evaluation: Evaluation
+        }
+    })
+}
+
 router.get('/personal.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '' || req.signedCookies.malli == null) {
         res.redirect('/')
@@ -430,39 +469,15 @@ router.get('/personal.html', function (req, res) {
                                     }
                                 }
                                 for (var i = datas.length - 1; i >= 0; i--) {
-                                    if (datas[i].UserTelephone == 'undefined') {
-                                        datas[i].UserTelephone = "未填写"
+                                    if (datas[i].UserWeChat == null) {
+                                        datas[i].UserWeChat = "无"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName +  '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
                                 }
-
-                                res.render('personal.art', {
-                                    data: {
-                                        money: mem,
-                                        UserName: data[0].oAName,
-                                        UserEmal: data[0].oAEmail,
-                                        UserSex: data[0].oAsex,
-                                        Userskype: data[0].oAskype,
-                                        aif: Str,
-                                        isTeacher:true
-                                    }
-
-                                })
-
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             }, function (err) {
                                 var Str = "暂无预约信息!"
-                                res.render('personal.art', {
-                                    data: {
-                                        money: mem,
-                                        UserName: data[0].oAName,
-                                        UserEmal: data[0].oAEmail,
-                                        UserSex: data[0].oAsex,
-                                        Userskype: data[0].oAskype,
-                                        aif: Str,
-                                        isTeacher:true
-                                    }
-
-                                })
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             })
 
 
@@ -475,37 +490,15 @@ router.get('/personal.html', function (req, res) {
                     .then(function (datas) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
-                           
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName  + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
-                            
-                        }
-                        res.render('personal.art', {
-                            data: {
-                                money: mem,
-                                UserName: data[0].oAName,
-                                UserEmal: data[0].oAEmail,
-                                UserSex: data[0].oAsex,
-                                Userskype: data[0].oAskype,
-                                aif: Str,
-                                isTeacher:false
-                            }
 
-                        })
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
+
+                        }
+                        ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)
 
                     }, function (err) {
                         var Str = "暂无预约信息!"
-                        res.render('personal.art', {
-                            data: {
-                                money: mem,
-                                UserName: data[0].oAName,
-                                UserEmal: data[0].oAEmail,
-                                UserSex: data[0].oAsex,
-                                Userskype: data[0].oAskype,
-                                aif: Str,
-                                isTeacher:false
-                            }
-
-                        })
+                        ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)
                     })
 
 
@@ -586,17 +579,16 @@ router.get('/teacherdata.html', function (req, res) {
         res.redirect('/logoin.html')
         return;
     }
-    async function index(Emal){
+    async function index(Emal) {
         return await mysql.isTeacher(Emal)
     }
     index(req.signedCookies.malli)
-    .then((data)=>{
-        if(!data)
-        {
-            res.redirect('/')
-            return
-        }
-    })
+        .then((data) => {
+            if (!data) {
+                res.redirect('/')
+                return
+            }
+        })
     var parseObj = url.parse(req.url, true)
     req.query = parseObj.query
     TRenderTable(req.signedCookies.malli, req.query.yyyy, req.query.mm, req.query.dd, function (data) {
@@ -713,7 +705,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "なし"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName +  '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">評価</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">評価</button></td></tr>'
                                 }
 
                                 res.render('ja_JP_personal.art', {
@@ -724,7 +716,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                         UserSex: data[0].oAsex,
                                         Userskype: data[0].oAskype,
                                         aif: Str,
-                                        isTeacher:true
+                                        isTeacher: true
                                     }
 
                                 })
@@ -739,7 +731,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                         UserSex: data[0].oAsex,
                                         Userskype: data[0].oAskype,
                                         aif: Str,
-                                        isTeacher:true
+                                        isTeacher: true
                                     }
 
                                 })
@@ -755,7 +747,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                     .then(function (datas) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName  + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td></tr>' 
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td></tr>'
                         }
                         res.render('ja_JP_personal.art', {
                             data: {
@@ -765,7 +757,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                 UserSex: data[0].oAsex,
                                 Userskype: data[0].oAskype,
                                 aif: Str,
-                                isTeacher:false
+                                isTeacher: false
                             }
 
                         })
@@ -780,7 +772,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                 UserSex: data[0].oAsex,
                                 Userskype: data[0].oAskype,
                                 aif: Str,
-                                isTeacher:false
+                                isTeacher: false
                             }
 
                         })

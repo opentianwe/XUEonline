@@ -374,7 +374,7 @@
       <div class="border shadow-sm ">
           <p><%if(data.isTeacher){%>学生评价查看<%}else{%>老师评价查看<%}%></p>
          <div class="Stu-list overflow-auto border">
-          {{evaluate}}
+          {{data.Evaluation}}
          </div>
       </div>
     </div>
