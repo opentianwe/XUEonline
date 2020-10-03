@@ -530,7 +530,7 @@ function CreatPoint(UserEmal, ID, num) {
 
 //修改老师积分
 function nodifyPoint(num, emal) {
-    var queryStr = "UPDATE `OfficialWebsiteData`.`money` SET  `integral` = " + Number(num) + ", `Rechargetime` = '2020-09-08 23:42:51' WHERE `UserEmal` = '" + emal + "'"
+    var queryStr = "UPDATE `OfficialWebsiteData`.`money` SET  `integral` = " + Number(num) + ", `Rechargetime` = CURRENT_TIMESTAMP WHERE `UserEmal` = '" + emal + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -651,7 +651,7 @@ function queryMsgBytime(time) {
 
 //设置学生评价老师
 function setMsgBytime(time, text) {
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET  `Pstatus` = 1, `Pmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET  `Pstatus` = 1, `Ptime` = CURRENT_TIMESTAMP, `Pmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -690,7 +690,7 @@ function getMsgBytime(time) {
 
 //设置老师评价学生
 function setTMsgBytime(time, text, classhour) {
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Tmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Ttime` = CURRENT_TIMESTAMP ,`Tmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -887,7 +887,7 @@ async function isTeacher(Temal) {
 //通过老师邮箱查询学生评价信息
 async function queryStudentEvaluationByEmal(Emal)
 {
-    var querystr = "SELECT `Pmsg`,`UserName` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '"+ Emal +"'"
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '"+ Emal +"'"
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if(err)
@@ -912,7 +912,7 @@ async function queryStudentEvaluationByEmal(Emal)
 //通过学生邮箱查询评价信息
 async function queryTeacherEvaluationByEmal(Emal)
 {
-    var querystr = "SELECT `Tmsg`,`TeacherName` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '"+ Emal +"'"
+    var querystr = "SELECT `Tmsg`,`TeacherName`,`Ttime` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '"+ Emal +"'"
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if(err)

@@ -395,7 +395,8 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
         if (ret == false) {
             Evaluation = "暂无评价"
         } else {
-
+            var date = new Date(ret[i].Ptime);
+            var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
             for (var i = 0; i < ret.length; i++) {
                 Evaluation += `
                 <div>
@@ -404,7 +405,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                 </p>
                     <div class='t-rigth'>来自学生${ret[i].UserName}的评价 
                     <br>
-                    评价时间:<strong>2020-10-1</strong></div>
+                    评价时间:<strong>${datetime}</strong></div>
                  </div>
                 `
 
@@ -412,11 +413,14 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
             }
         }
     } else {
+
         var ret = await mysql.queryTeacherEvaluationByEmal(Emal)
         if (ret == false) {
             Evaluation = "暂无评价"
         } else {
             for (var i = 0; i < ret.length; i++) {
+                var date = new Date(ret[i].Ttime);
+                var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
                 Evaluation += `
                 <div>
                 <p class='t-tit'>
@@ -424,7 +428,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                 </p>
                     <div class='t-rigth'>来自老师${ret[i].TeacherName}的评价 
                     <br>
-                    评价时间:<strong>2020-10-1</strong></div>
+                    评价时间:<strong>${datetime}</strong></div>
                  </div>
                 `
 
