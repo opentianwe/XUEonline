@@ -402,7 +402,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                 <p class='t-tit'>
                 ${ret[i].Pmsg} 
                 </p>
-                    <div class='t-rigth'>对${ret[i].UserName}学生的评价 
+                    <div class='t-rigth'>来自学生${ret[i].UserName}的评价 
                     <br>
                     评价时间:<strong>2020-10-1</strong></div>
                  </div>
@@ -422,7 +422,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                 <p class='t-tit'>
                ${ret[i].Tmsg} 
                 </p>
-                    <div class='t-rigth'>对${ret[i].TeacherName}老师的评价 
+                    <div class='t-rigth'>来自老师${ret[i].TeacherName}的评价 
                     <br>
                     评价时间:<strong>2020-10-1</strong></div>
                  </div>
