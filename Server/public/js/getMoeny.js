@@ -41,9 +41,9 @@ $(function () {
       var b = $("#getMoeny-val").data("idmoney");
       console.log(b)
       var temp = IsPC()
-      if (d == "微信支付") {
+      if (d == "WeChat") {
         layer.msg('微信支付还未开通....', { time: 3000, icon: 7 });
-      } else if (d == '支付宝支付') {
+      } else if (d == 'Alipay') {
         if (temp) {
           $.ajax({
             url: "./alipay?CommodityID=" + b,
@@ -91,7 +91,7 @@ $(function () {
 
         }
 
-      } else if (d == "PayPal支付") {
+      } else if (d == "PayPal") {
         if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.status == 0) return window.location.href = './logoin.html'
         if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
         var comstr = {

@@ -110,3 +110,7 @@
 ### msOp.js              评价提交时自动提交当前时间
 ### tview.js             增加渲染了评价时间
 ### 设定了git邮箱通知
+# 2020/10/3 23:34 
+### getMoeny  jpgetMoeny  把日语版的牵制到 中文版 
+### 修改了 中文版 的 getMoengy 的css 链接 直接链接到 ./jp/css/getMoeny.css
+### 修改中文支付判断方式提示
