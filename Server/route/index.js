@@ -14,4 +14,7 @@ module.exports = app =>{
 	app.use(alip)
 	app.use(brain)
 	app.use(upload)  
+	app.get('*',function(req,res){
+		res.redirect('./404.html')
+	}) 
 }
