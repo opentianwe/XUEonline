@@ -71,6 +71,7 @@ router.post('/upload', imageUploader, function(req, res) {
             state:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
+        return
     }else
     {
         mysql.queryUserinformbyEmal(req.signedCookies.malli,function(data,err){
@@ -104,6 +105,7 @@ router.post('/upload', imageUploader, function(req, res) {
                         state:1,
                         msg:req.files[0].filename
                     })
+                    return
                 })
             }
             
@@ -128,6 +130,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
             state:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
+        return
     }else
     {
         mysql.queryUserinformbyEmal(req.signedCookies.malli,function(data,err){
@@ -162,6 +165,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
                         state:1,
                         msg:req.files[0].filename
                     })
+                    return
                 })
             }
             
@@ -169,5 +173,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
     
     }
 })
-
+router.get('*',function(req,res){
+    res.redirect('./404.html')
+}) 
 module.exports = router
