@@ -9,7 +9,6 @@ app.use(express.static("public"))
 route(app)
 
 
-
 app.listen(port,function(){ 
     console.log("app is running!")
  })
