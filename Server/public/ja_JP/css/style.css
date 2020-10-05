@@ -313,8 +313,11 @@ body{
     
 }
 .Stu-list{
-    height:200px;
+    height:888px;
     
+}
+.Stu-list>div{
+    border-bottom: 1px solid #f1f1f1;
 }
 .carousel-item{
     position: relative;
@@ -450,18 +453,27 @@ color:#303133;
 }
 .list-n{
     display: none;
+    
 }
 #userTale>tr>td{
     
 }
+.t-tit{
+    padding:5px 10px;
+    font-size:13px;
+    color:#2d8cf0;
+}
+.t-rigth{
+    text-align: right;
+    padding:5px 10px;
+}
 .yuyue span{
-    width:130px;
+    width:66px;
     padding: 5px;
     text-align: center;
     color: #ffffff;
     background: #4d6789;
     margin: 10px;
-    font-size: 13px;
     border-radius: 5px ;
     -webkit-border-radius: 5px ;
     -moz-border-radius: 5px ;
