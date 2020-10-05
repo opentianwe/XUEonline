@@ -122,15 +122,39 @@ $(function () {
               , anim: 3
             }, function () {
               layer.closeAll()
-              layer.open({
-                type: 2,
-                title: 'PayPal 付款页面',
-                shadeClose: true,
-                shade: 0.8,
-                area: ['70%', '90%'],
-                content: '1.html?Moeny=' + b //iframe的url
+              $.ajax({
+                // beforeSend: function () {
+                //     ShowDiv();
+                // },
+                // complete: function () {
+                //     HiddenDiv()
+                // },
+                url: './checkout'
+                , type: "post",
+                data: {CommodityID:1},
+                success: function (data) {
+                    if (data.status == 1) {
+                        // layer.closeAll('iframe')
+                        // layer.confirm('付款成功', {
+                        //     btn: ['前往个人页面', '停留在本页面'] //按钮
+                        // }, function () {
 
-              });
+                        //     layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
+                        //         console.log('执行跳转操作')
+                        //         window.location.href = './personal.html'
+                        //     })
+                        // }, function () {
+                        //     layer.msg('查看积分可从个人界面查看')
+                        // });
+                        // //layer.msg(data.msg, { icon: 1 })
+                        // //付款成功
+                        // //重定向到个人资料页面
+                        window.location.href = data.Url
+                    } else {
+                        // layer.msg(data.msg, { icon: 2 })
+                    }
+                }
+            })
             }
               , function () {
 

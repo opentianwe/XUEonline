@@ -97,7 +97,7 @@ router.post('/checkout', (req, res) => {
                     resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
                 }
                 //生成Url
-                creatPaypal(data.number, ActualPayment)
+                creatPaypal(String(data.number), String(ActualPayment))
                     .then((data) => {
                         if (!data) {
                             resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
@@ -109,6 +109,7 @@ router.post('/checkout', (req, res) => {
     }
     checkout(req.signedCookies.malli, 1)
         .then((data) => {
+            console.log(data)
             res.send(data)
         })
 })

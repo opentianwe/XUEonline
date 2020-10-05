@@ -120,15 +120,15 @@
 # 2020/10/5 12:45 
 ###  修改 header 头部 skype id  增加打开skype软件
 ### 修改index.html 页面小瑕疵
-<<<<<<< HEAD
 
 
 
 # 2020/10/5 21：09 ---Tian
 ### braintree_route.js 废弃了付款接口
-### paypal.js          新增了checkout接口用来代替之前的接口    
-=======
+### paypal.js          新增git了checkout接口用来代替之前的接口    
+
+
+
 ### 修改peronal.att 修改style.css 修改按钮样式
 ### 修改中日 ter.art 问题
 ### getMoeny.js 里面的登录
->>>>>>> eb1eb3de564e1b8cb1acfa7b11051f57288328f0

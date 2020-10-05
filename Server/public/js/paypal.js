@@ -17,38 +17,7 @@ braintree.dropin.create({
         instance.requestPaymentMethod(function (err, payload) {
             payload.CommodityID = payNum2
             if (payload.nonce != undefined && payload.nonce != '') {
-                $.ajax({
-                    beforeSend: function () {
-                        ShowDiv();
-                    },
-                    complete: function () {
-                        HiddenDiv()
-                    },
-                    url: './checkout'
-                    , type: "post",
-                    data: payload,
-                    success: function (data) {
-                        if (data.status == 1) {
-                            layer.closeAll('iframe')
-                            layer.confirm('付款成功', {
-                                btn: ['前往个人页面', '停留在本页面'] //按钮
-                            }, function () {
-
-                                layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
-                                    console.log('执行跳转操作')
-                                    window.location.href = './personal.html'
-                                })
-                            }, function () {
-                                layer.msg('查看积分可从个人界面查看')
-                            });
-                            //layer.msg(data.msg, { icon: 1 })
-                            //付款成功
-                            //重定向到个人资料页面
-                        } else {
-                            layer.msg(data.msg, { icon: 2 })
-                        }
-                    }
-                })
+           
 
             }
 
