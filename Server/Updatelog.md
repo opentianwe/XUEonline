@@ -114,3 +114,7 @@
 ### getMoeny  jpgetMoeny  把日语版的牵制到 中文版 
 ### 修改了 中文版 的 getMoengy 的css 链接 直接链接到 ./jp/css/getMoeny.css
 ### 修改中文支付判断方式提示
+
+
+# 2020/10/5 12:19 ---Tian
+### 修复了所有请求都会跳转到404的bug

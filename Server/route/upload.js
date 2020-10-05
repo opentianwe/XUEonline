@@ -173,7 +173,5 @@ router.post('/uploadImg', imageUploader, function(req, res) {
     
     }
 })
-router.get('*',function(req,res){
-    res.redirect('./404.html')
-}) 
+
 module.exports = router
