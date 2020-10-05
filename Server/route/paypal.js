@@ -107,7 +107,7 @@ router.post('/checkout', (req, res) => {
             })
         })
     }
-    checkout(req.signedCookies.malli, 1)
+    checkout(req.signedCookies.malli, req.body.CommodityID)
         .then((data) => {
             console.log(data)
             res.send(data)
