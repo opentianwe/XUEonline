@@ -124,3 +124,4 @@
 ###  修改 header 头部 skype id  增加打开skype软件
 ### 修改index.html 页面小瑕疵
 ### 修改peronal.att 修改style.css 修改按钮样式
+### 修改中日 ter.art 问题
