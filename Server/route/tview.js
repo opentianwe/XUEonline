@@ -459,7 +459,7 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
     if (isTeacher) {
         var ret = await mysql.queryStudentEvaluationByEmal(Emal)
         if (ret == false) {
-            Evaluation = "暂无评价"
+            Evaluation = "評価なし"
         } else {
             for (var i = 0; i < ret.length; i++) {
                 var date = new Date(ret[i].Ptime);
@@ -469,9 +469,9 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
                 <p class='t-tit'>
                 ${ret[i].Pmsg} 
                 </p>
-                    <div class='t-rigth'>来自学生${ret[i].UserName}的评价 
+                    <div class='t-rigth'>学生${ret[i].UserName}からの評価 
                     <br>
-                    评价时间:<strong>${datetime}</strong></div>
+                    評価時間:<strong>${datetime}</strong></div>
                  </div>
                 `
                 Price += Number(ret[i].Price)
@@ -481,7 +481,7 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
 
         var ret = await mysql.queryTeacherEvaluationByEmal(Emal)
         if (ret == false) {
-            Evaluation = "暂无评价"
+            Evaluation = "評価なし"
         } else {
             for (var i = 0; i < ret.length; i++) {
                 var date = new Date(ret[i].Ttime);
@@ -491,9 +491,9 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
                 <p class='t-tit'>
                ${ret[i].Tmsg} 
                 </p>
-                    <div class='t-rigth'>来自老师${ret[i].TeacherName}的评价 
+                    <div class='t-rigth'>先生${ret[i].TeacherName}からの評価 
                     <br>
-                    评价时间:<strong>${datetime}</strong></div>
+                    評価時間:<strong>${datetime}</strong></div>
                  </div>
                 `
 
