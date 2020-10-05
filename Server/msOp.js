@@ -887,7 +887,7 @@ async function isTeacher(Temal) {
 //通过老师邮箱查询学生评价信息
 async function queryStudentEvaluationByEmal(Emal)
 {
-    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '"+ Emal +"'"
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`Price` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '"+ Emal +"'"
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if(err)

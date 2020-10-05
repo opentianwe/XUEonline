@@ -388,16 +388,17 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 
 
 //渲染personal.html
-async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
+async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher, ZPrice) {
     var Evaluation = ''
+    var Price = 0
     if (isTeacher) {
         var ret = await mysql.queryStudentEvaluationByEmal(Emal)
         if (ret == false) {
             Evaluation = "暂无评价"
         } else {
-            var date = new Date(ret[i].Ptime);
-            var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
             for (var i = 0; i < ret.length; i++) {
+                var date = new Date(ret[i].Ptime);
+                var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
                 Evaluation += `
                 <div>
                 <p class='t-tit'>
@@ -408,8 +409,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                     评价时间:<strong>${datetime}</strong></div>
                  </div>
                 `
-
-
+                Price += Number(ret[i].Price)
             }
         }
     } else {
@@ -436,7 +436,6 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
         }
     }
 
-    console.log(ret)
     res.render('personal.art', {
         data: {
             money: mem,
@@ -446,7 +445,74 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
             Userskype: oAskype,
             aif: Str,
             isTeacher: isTeacher,
-            Evaluation: Evaluation
+            Evaluation: Evaluation,
+            Price: Price,
+            ZPrice: ZPrice
+        }
+    })
+}
+
+//渲染jppersonal.html
+async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher, ZPrice) {
+    var Evaluation = ''
+    var Price = 0
+    if (isTeacher) {
+        var ret = await mysql.queryStudentEvaluationByEmal(Emal)
+        if (ret == false) {
+            Evaluation = "暂无评价"
+        } else {
+            for (var i = 0; i < ret.length; i++) {
+                var date = new Date(ret[i].Ptime);
+                var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+                Evaluation += `
+                <div>
+                <p class='t-tit'>
+                ${ret[i].Pmsg} 
+                </p>
+                    <div class='t-rigth'>来自学生${ret[i].UserName}的评价 
+                    <br>
+                    评价时间:<strong>${datetime}</strong></div>
+                 </div>
+                `
+                Price += Number(ret[i].Price)
+            }
+        }
+    } else {
+
+        var ret = await mysql.queryTeacherEvaluationByEmal(Emal)
+        if (ret == false) {
+            Evaluation = "暂无评价"
+        } else {
+            for (var i = 0; i < ret.length; i++) {
+                var date = new Date(ret[i].Ttime);
+                var datetime = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+                Evaluation += `
+                <div>
+                <p class='t-tit'>
+               ${ret[i].Tmsg} 
+                </p>
+                    <div class='t-rigth'>来自老师${ret[i].TeacherName}的评价 
+                    <br>
+                    评价时间:<strong>${datetime}</strong></div>
+                 </div>
+                `
+
+            }
+        }
+    }
+
+    res.render('ja_JP_personal.art', {
+        data: {
+            money: mem,
+            UserName: oAName,
+            UserEmal: oAEmail,
+            UserSex: oAsex,
+            Userskype: oAskype,
+            aif: Str,
+            isTeacher: isTeacher,
+            Evaluation: Evaluation,
+            Price: Price,
+            ZPrice: ZPrice
         }
     })
 }
@@ -457,6 +523,7 @@ router.get('/personal.html', function (req, res) {
         return
     }
     var mem
+    var ZPrice = 0
     console.log(req.signedCookies.malli)
     mysql.queryPointsbyemal(req.signedCookies.malli, function (data, err) {
         if (data == undefined || data.length == 0 || data == null || err) {
@@ -480,6 +547,7 @@ router.get('/personal.html', function (req, res) {
                                 var temp = []
                                 var temparr = []
                                 var isExist = false;
+                               
                                 for (var i = 0; i < datas.length; i++) {
                                     isExist = false;
                                     temp = datas[i];
@@ -497,12 +565,13 @@ router.get('/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "无"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
+                                    ZPrice += Number(datas[i].Price)
                                 }
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
                             }, function (err) {
                                 var Str = "暂无预约信息!"
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
                             })
 
 
@@ -516,7 +585,7 @@ router.get('/personal.html', function (req, res) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
 
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
 
                         }
                         ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)
@@ -687,6 +756,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
         return
     }
     var mem
+    var ZPrice = 0
 
     mysql.queryPointsbyemal(req.signedCookies.malli, function (data, err) {
         if (data == undefined || data.length == 0 || data == null || err) {
@@ -709,7 +779,8 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                 var Str = ''
                                 var temp = []
                                 var temparr = []
-                                var isExist = false;
+                                var isExist = false
+                                
                                 for (var i = 0; i < datas.length; i++) {
                                     isExist = false;
                                     temp = datas[i];
@@ -730,36 +801,15 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "なし"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td><td> <button type="button" class="layui-btn Studtit">評価</button></td></tr>'
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID">' + datas[i].UserSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
+                                    ZPrice+=Number(datas[i].Price)
                                 }
 
-                                res.render('ja_JP_personal.art', {
-                                    data: {
-                                        money: mem,
-                                        UserName: data[0].oAName,
-                                        UserEmal: data[0].oAEmail,
-                                        UserSex: data[0].oAsex,
-                                        Userskype: data[0].oAskype,
-                                        aif: Str,
-                                        isTeacher: true
-                                    }
-
-                                })
+                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
 
                             }, function (err) {
                                 var Str = "予約情報はまだありません"
-                                res.render('ja_JP_personal.art', {
-                                    data: {
-                                        money: mem,
-                                        UserName: data[0].oAName,
-                                        UserEmal: data[0].oAEmail,
-                                        UserSex: data[0].oAsex,
-                                        Userskype: data[0].oAskype,
-                                        aif: Str,
-                                        isTeacher: true
-                                    }
-
-                                })
+                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
                             })
 
 
@@ -772,35 +822,13 @@ router.get('/ja_JP/personal.html', function (req, res) {
                     .then(function (datas) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td></tr>'
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td></tr>'
                         }
-                        res.render('ja_JP_personal.art', {
-                            data: {
-                                money: mem,
-                                UserName: data[0].oAName,
-                                UserEmal: data[0].oAEmail,
-                                UserSex: data[0].oAsex,
-                                Userskype: data[0].oAskype,
-                                aif: Str,
-                                isTeacher: false
-                            }
-
-                        })
+                        JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false, ZPrice)
 
                     }, function (err) {
                         var Str = "予約情報はまだありません"
-                        res.render('ja_JP_personal.art', {
-                            data: {
-                                money: mem,
-                                UserName: data[0].oAName,
-                                UserEmal: data[0].oAEmail,
-                                UserSex: data[0].oAsex,
-                                Userskype: data[0].oAskype,
-                                aif: Str,
-                                isTeacher: false
-                            }
-
-                        })
+                        JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false, ZPrice)
                     })
 
 

@@ -348,16 +348,21 @@
            
             <div class="user-content">
                   <div class="user-content-header">
+                   
                     <h3 class="color-bu">预约信息查看</h3>
+                    <%if(data.isTeacher){%>
+                     <p>已入账积分:{{data.Price}}<br>
+                     预计总收入积分:{{data.ZPrice}}</p>
+                    <%}%>
                     <div class='yuyue'><span class='isAdd active' >查看全部</span><span class='isnotAdd' >未上课</span> <span class='isAddter'>已上课</span> </div>
                    <div class="table-responsive">
-                          
+                         
                         <table class='table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
                             <thead>
                             <%if(data.isTeacher){%>
-                             <tr><td>预约日期</td><td>学生姓名</td><td>学生微信</td><td>学生SkypeID</td><td>评价学生</td></tr>
+                             <tr><td>预约日期</td><td>学生姓名</td><td>学生微信</td><td>学生SkypeID</td><td>收入积分</td><td>评价学生</td></tr>
                             <%}else{%>
-                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师微信</td><td>老师SkypeID</td><td>评价老师</td></tr>
+                            <tr><td>预约日期</td><td>预约老师姓名</td><td>老师微信</td><td>老师SkypeID</td><td>支出积分</td><td>评价老师</td></tr>
                             <%}%>    
                             </thead>
                              <tbody id='userTale'>

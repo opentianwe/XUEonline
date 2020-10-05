@@ -345,16 +345,20 @@
            
             <div class="user-content">
                   <div class="user-content-header">
-                    <h3 class="color-bu">予約情報閲覧</h3>
+                    <h3 class="color-bu">予約情報一覧</h3>
+                    <%if(data.isTeacher){%>
+                     <p>入金済みポイント:{{data.Price}}<br>
+                     総収入ポイント予想:{{data.ZPrice}}</p>
+                    <%}%>
                     <div class='yuyue'><span class='isAdd active' >全部を見る</span><span class='isnotAdd' >未授業</span> <span class='isAddter'>授業が始まった</span> </div>
                    <div class="table-responsive">
                           
                         <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
-                            <thead>
+                            <thead> 
                             <%if(data.isTeacher){%>
-                             <tr><td>予約日</td><td>学生の名前</td><td>学生WeChatID</td><td>学生SkypeID</td><td>学生を評価する</td></tr>
+                             <tr><td>予約日</td><td>学生の名前</td><td>学生WeChatID</td><td>学生SkypeID</td><td>積み立てポイント</td><td>学生を評価する</td></tr>
                             <%}else{%>
-                            <tr><td>予約日</td><td>先生の名前</td><td>先生WeChatID</td><td>先生SkypeID</td><td>先生を評価する</td></tr>
+                            <tr><td>予約日</td><td>先生の名前</td><td>先生WeChatID</td><td>先生SkypeID</td><td>支出ポイント</td><td>先生を評価する</td></tr>
                             <%}%>    
                             </thead>
                           
@@ -372,7 +376,7 @@
       <div class="border shadow-sm ">
           <p><%if(data.isTeacher){%>学生の評価<%}else{%>先生の評価<%}%></p>
          <div class="Stu-list overflow-auto border">
-
+ {{#data.Evaluation}}
          </div>
       </div>
     </div>
