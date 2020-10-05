@@ -235,20 +235,21 @@ $(function () {
                             layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
                         })
                     } else if (d.status == 1) {
-                        layer.confirm(str, {
-                            area: ['55vw', '400px'],
-                            btn: ['確認します', '後で確認します'],
-                            title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
-                            closeBtn: false
-                            , shade: 0.8
-                        }, function () {
-                            layer.msg('この先生に気になったら、続けてご予約をお願いします', { icon: 6, });
-                            //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-                        }, function () {
-                            layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
-                        })
-                        $('#terText').attr("disabled", "disabled")
-                        $('#terText').val(msg + '\nリマインド:(先生に評価をしました、二度目の評価はできません）')
+                        layer.msg('已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看', { icon: 6, });
+                        // layer.confirm(str, {
+                        //     area: ['55vw', '400px'],
+                        //     btn: ['確認します', '後で確認します'],
+                        //     title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
+                        //     closeBtn: false
+                        //     , shade: 0.8
+                        // }, function () {
+                        //     layer.msg('この先生に気になったら、続けてご予約をお願いします', { icon: 6, });
+                        //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+                        // }, function () {
+                        //     layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
+                        // })
+                        // $('#terText').attr("disabled", "disabled")
+                        // $('#terText').val(msg + '\nリマインド:(先生に評価をしました、二度目の評価はできません）')
                     }
                 }, error: (error) => {
                     layer.msg(error, { icon: 2 })
@@ -325,7 +326,7 @@ $(function () {
                                     layer.msg(arr[1].innerHTML + 'コメントを送っていません', { icon: 2, })
                                 })
 
-                            //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+                        
                         }, function () {
                             layer.msg('リマインド：生徒さんへのコメントをしないと、ポイントを加算できません', { icon: 8, });
                         })
@@ -348,23 +349,30 @@ $(function () {
                             }
                         })
                     } else if (response.status == 3) {
-                        layer.confirm(str, {
-                            area: ['55vw', 'aout'],
-                            btn: ['確認します', '後で確認します'],
-                            title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
-                            closeBtn: false
-                            , shade: 0.8
-                        }, function () {
-                            if ($('#terText').val() == '') {
-                                return layer.msg('評価必須(レッスン内容)', { icon: 3, });
-                            }
-                            layer.msg(arr[1].innerHTML + '情報を確認する', { icon: 1, })
-                            //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-                        }, function () {
-                            layer.msg('ログアウトしました', { icon: 8, });
-                        })
-                        $('#terText').val(response.Evaluation)
-                        $('#terText2').val(response.onEvaluation)
+                        layer.msg('已经评价过,本次积分结算完毕', {
+                            closeBtn: 0
+                            , anim: 5 //动画类型
+                            , icon: 1
+
+                        });
+                       //layer.msg('已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看', { icon: 6, });
+                        // layer.confirm(str, {
+                        //     area: ['55vw', 'aout'],
+                        //     btn: ['確認します', '後で確認します'],
+                        //     title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
+                        //     closeBtn: false
+                        //     , shade: 0.8
+                        // }, function () {
+                        //     if ($('#terText').val() == '') {
+                        //         return layer.msg('評価必須(レッスン内容)', { icon: 3, });
+                        //     }
+                        //     layer.msg(arr[1].innerHTML + '情報を確認する', { icon: 1, })
+                        //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+                        // }, function () {
+                        //     layer.msg('ログアウトしました', { icon: 8, });
+                        // })
+                        // $('#terText').val(response.Evaluation)
+                        // $('#terText2').val(response.onEvaluation)
                     }
                 }
             });
