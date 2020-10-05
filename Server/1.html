@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+    <title>Document</title>
+</head>
+
+<body>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AWI_cW-qi2aPfkIseTCsgYAKOrOqwFz_UD7vB6UMC4GO0tpCqRYYtN5OmtQ9u8cYsZJ6FnUNHP3TsM97&currency=JPY"></script>
+    <div id="paypal-button-container"></div>
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '1'
+                        }
+                    }]
+                })
+            },
+            onApprove: function (data, actions) {
+                // This function captures the funds from the transaction.
+                return actions.order.capture().then(function (details) {
+                    // This function shows a transaction success message to your buyer.
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    console.log(details)
+                });
+            }
+       
+        }).render('#paypal-button-container');
+    </script>
+
+</body>
+
+</html>

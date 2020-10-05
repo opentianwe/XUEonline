@@ -123,3 +123,9 @@
 # 2020/10/5 12:45 
 ###  修改 header 头部 skype id  增加打开skype软件
 ### 修改index.html 页面小瑕疵
+
+
+
+# 2020/10/5 21：09 ---Tian
+### braintree_route.js 废弃了付款接口
+### paypal.js          新增了checkout接口用来代替之前的接口    

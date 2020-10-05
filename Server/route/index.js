@@ -5,6 +5,7 @@ const infop = require('./infop')
 const pub = require('./Publicaccess')
 const tvi = require('./tview')
 const brain = require('./braintree_route')
+const paypal = require('./paypal')
 module.exports = app =>{
 	app.engine('art', require('express-art-template'));
 	app.use(pub)
@@ -14,6 +15,7 @@ module.exports = app =>{
 	app.use(alip)
 	app.use(brain)
 	app.use(upload)  
+	app.use(paypal)
 	app.use((req,res) => {
 		res.redirect('/404.html')
 	})
