@@ -316,8 +316,14 @@ body{
     height:888px;
     
 }
+.Studtit,.Teachertit{
+    padding: 0 40px !important;
+}
 .Stu-list>div{
     border-bottom: 1px solid #f1f1f1;
+}
+.mon{
+    padding: 10px 0;
 }
 .carousel-item{
     position: relative;

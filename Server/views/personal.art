@@ -229,7 +229,7 @@
             align-items: center;
             flex-wrap: wrap;
           }
-         
+        
            .user-content-header{
             width: 100%;
             overflow-y: scroll;
@@ -351,8 +351,8 @@
                    
                     <h3 class="color-bu">预约信息查看</h3>
                     <%if(data.isTeacher){%>
-                     <p>已入账积分:{{data.Price}}<br>
-                     预计总收入积分:{{data.ZPrice}}</p>
+                     <div class='mon'>已入账积分:<strong>{{data.Price}}</strong></div>
+                     <div class='mon'> 预计总收入积分:<strong>{{data.ZPrice}}</strong></div>
                     <%}%>
                     <div class='yuyue'><span class='isAdd active' >查看全部</span><span class='isnotAdd' >未上课</span> <span class='isAddter'>已上课</span> </div>
                    <div class="table-responsive">

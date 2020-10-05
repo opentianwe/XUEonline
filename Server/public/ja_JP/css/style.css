@@ -411,6 +411,9 @@ color:#303133;
     font-weight:500;
     color: #67C23A;
 }
+.mon{
+    padding: 10px 0;
+}
 .table-bordered tr td:nth-child(4){
     background: #2d8cf0;
     color:#e9f9fb;
@@ -468,7 +471,7 @@ color:#303133;
     padding:5px 10px;
 }
 .yuyue span{
-    width:66px;
+ /* width:66px; */
     padding: 5px;
     text-align: center;
     color: #ffffff;
@@ -483,6 +486,9 @@ color:#303133;
 }
 .yuyue span.active{
     background:#2d8cf0;
+}
+.Studtit,.Teachertit{
+    padding: 0 40px !important;
 }
 /* .yuyue span:nth-child(1){
     background: #4d6789;
