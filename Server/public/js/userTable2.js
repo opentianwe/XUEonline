@@ -241,21 +241,22 @@ $(function () {
                             layer.msg('记得给你喜欢的老师留下最美的评价', { icon: 6, });
                         })
                     } else if (d.status == 1) {
-                        layer.confirm(str, {
-                            area: ['55vw', '400px'],
-                            btn: ['确认查看', '取消查看'],
-                            title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
-                            closeBtn: false
-                            , shade: 0.8
-                        }, function () {
-                            layer.msg('如果喜欢该老师可以继续联系老师', { icon: 6, });
-                            //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-                        }, function () {
+                        layer.msg('已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看', { icon: 6, });
+                        // layer.confirm(str, {
+                        //     area: ['55vw', '400px'],
+                        //     btn: ['确认查看', '取消查看'],
+                        //     title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
+                        //     closeBtn: false
+                        //     , shade: 0.8
+                        // }, function () {
+                        //     layer.msg('如果喜欢该老师可以继续联系老师', { icon: 6, });
+                        //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+                        // }, function () {
 
-                            layer.msg('记得给你喜欢的老师留下最美的评价', { icon: 6, });
-                        })
-                        $('#terText').attr("disabled", "disabled")
-                        $('#terText').val(msg + '\n系统提示:(你已经评论过这个老师了无法进行二次评论)')
+                        //     layer.msg('记得给你喜欢的老师留下最美的评价', { icon: 6, });
+                        // })
+                        // $('#terText').attr("disabled", "disabled")
+                        // $('#terText').val(msg + '\n系统提示:(你已经评论过这个老师了无法进行二次评论)')
                     }
                 }, error: (error) => {
                     layer.msg(error, { icon: 2 })
@@ -358,23 +359,29 @@ $(function () {
                             }
                         })
                     } else if (response.status == 3) {
-                        layer.confirm(str, {
-                            area: ['55vw', 'aout'],
-                            btn: ['确认查看', '退出查看'],
-                            title: "对 " + arr[1].innerHTML + '学生的评价', //按钮
-                            closeBtn: false
-                            , shade: 0.8
-                        }, function () {
-                            if ($('#terText').val() == '') {
-                                return layer.msg('评价不能为空', { icon: 3, });
-                            }
-                            layer.msg(arr[1].innerHTML + '确认信息', { icon: 1, })
-                            //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-                        }, function () {
-                            layer.msg('退出完毕', { icon: 8, });
-                        })
-                        $('#terText').val(response.Evaluation)
-                        $('#terText2').val(response.onEvaluation)
+                        layer.msg('已经评价过,本次积分结算完毕', {
+                            closeBtn: 0
+                            , anim: 5 //动画类型
+                            , icon: 1
+
+                        });
+                        // layer.confirm(str, {
+                        //     area: ['55vw', 'aout'],
+                        //     btn: ['确认查看', '退出查看'],
+                        //     title: "对 " + arr[1].innerHTML + '学生的评价', //按钮
+                        //     closeBtn: false
+                        //     , shade: 0.8
+                        // }, function () {
+                        //     if ($('#terText').val() == '') {
+                        //         return layer.msg('评价不能为空', { icon: 3, });
+                        //     }
+                        //     layer.msg(arr[1].innerHTML + '确认信息', { icon: 1, })
+                        //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+                        // }, function () {
+                        //     layer.msg('退出完毕', { icon: 8, });
+                        // })
+                        // $('#terText').val(response.Evaluation)
+                        // $('#terText2').val(response.onEvaluation)
                     }
                 }
             });
