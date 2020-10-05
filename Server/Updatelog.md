@@ -135,3 +135,5 @@
 
 
 ### 账号 sb-9tgm63379560@personal.example.com 密码 X(saW3.d
+
+### Temp 中文 true 日文 false 

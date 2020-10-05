@@ -43,7 +43,7 @@ $(function () {
       console.log(b)
       var temp = IsPC()
       if (d == "WeChat") {
-        layer.msg('微信支付还未开通....', { time: 3000, icon: 7 });
+        layer.msg('WeChat支付还未开通....', { time: 3000, icon: 7 });
       } else if (d == 'Alipay') {
         if (temp) {
           $.ajax({
@@ -95,6 +95,7 @@ $(function () {
       } else if (d == "PayPal") {
         var comstr = {
           CommodityID: b,
+          Temp: false,
         }
         $.ajax({
           url: "../tocheckout",
@@ -123,15 +124,26 @@ $(function () {
               , shade: 0.8
               , anim: 3
             }, function () {
-              layer.closeAll()
-              layer.open({
-                type: 2,
-                title: 'PayPal',
-                shadeClose: true,
-                shade: 0.8,
-                area: ['70%', '90%'],
-                content: '../1.html?Moeny=' + b //iframe的url
-              });
+              $.ajax({
+                beforeSend: function () {
+                  ShowDiv();
+                },
+                complete: function () {
+                  console.log('加载成功');
+                  //layer.msg("进入成功", { icon: 1 })
+                },
+                url: '../checkout'
+                , type: "post",
+                data: comstr,
+                success: function (data) {
+                  if (data.status == 1) {
+                    window.location.href = data.Url
+                  } else {
+                    // layer.msg(data.msg, { icon: 2 })
+                  }
+                }
+              })
+
             }
               , function () {
 
@@ -142,12 +154,25 @@ $(function () {
           }
         })
       } else {
-        layer.msg('支付出现问题', { time: 3000, icon: 5 });
+        layer.msg('支払いに問題がある', { time: 3000, icon: 5 });
       }
     } else {
-      layer.msg('你未通过用户支付协议无法进行购买积分操作', { time: 3000, icon: 5 });
+      layer.msg('あなたはユーザー決済プロトコルを利用しないと購入ポイントの操作ができません', { time: 3000, icon: 5 });
     }
 
 
   })
 })
+function ShowDiv() {
+  //0代表加载的风格，支持0-2
+  //loading层
+  console.log('执行中')
+  layer.msg('支払いページに入っていますので、お待ちください...', {
+    icon: 16,
+    shade: 0.7,
+    time: 100 * 100000
+  });
+}
+function HiddenDiv() {
+  console.log('执行完毕')
+}

@@ -90,10 +90,11 @@ $(function () {
         }
 
       } else if (d == "PayPal") {
-
         var comstr = {
           CommodityID: b,
+          Temp: true,
         }
+
         $.ajax({
           url: "./tocheckout",
           data: comstr,
@@ -104,6 +105,7 @@ $(function () {
           type: "post",
           dataType: "json",
           success: function (d) {
+
             if (d.msg == 'Cookies校验失败!,请跳转到登录页') return window.location.href = './logoin.html'
             if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
             if (d.state == 0) return layer.msg(d.msg, { icon: 2 })
@@ -121,40 +123,27 @@ $(function () {
               , shade: 0.8
               , anim: 3
             }, function () {
-              layer.closeAll()
+
+              // console.log(comstr)
               $.ajax({
-                // beforeSend: function () {
-                //     ShowDiv();
-                // },
-                // complete: function () {
-                //     HiddenDiv()
-                // },
+                beforeSend: function () {
+                  ShowDiv();
+                },
+                complete: function () {
+                  console.log('加载成功');
+                  //layer.msg("进入成功", { icon: 1 })
+                },
                 url: './checkout'
                 , type: "post",
-                data: {CommodityID:1},
+                data: comstr,
                 success: function (data) {
-                    if (data.status == 1) {
-                        // layer.closeAll('iframe')
-                        // layer.confirm('付款成功', {
-                        //     btn: ['前往个人页面', '停留在本页面'] //按钮
-                        // }, function () {
-
-                        //     layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
-                        //         console.log('执行跳转操作')
-                        //         window.location.href = './personal.html'
-                        //     })
-                        // }, function () {
-                        //     layer.msg('查看积分可从个人界面查看')
-                        // });
-                        // //layer.msg(data.msg, { icon: 1 })
-                        // //付款成功
-                        // //重定向到个人资料页面
-                        window.location.href = data.Url
-                    } else {
-                        // layer.msg(data.msg, { icon: 2 })
-                    }
+                  if (data.status == 1) {
+                    window.location.href = data.Url
+                  } else {
+                    // layer.msg(data.msg, { icon: 2 })
+                  }
                 }
-            })
+              })
             }
               , function () {
 
@@ -176,3 +165,17 @@ $(function () {
 
   })
 })
+function ShowDiv() {
+  //0代表加载的风格，支持0-2
+  //loading层
+  console.log('执行中')
+  layer.msg('正在进入付款页面，请耐心等候...', {
+    icon: 16,
+    shade: 0.7,
+    time: 100 * 100000
+  });
+
+}
+function HiddenDiv() {
+  console.log('执行完毕')
+}
