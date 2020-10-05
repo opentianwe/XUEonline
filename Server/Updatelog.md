@@ -125,3 +125,4 @@
 ### 修改index.html 页面小瑕疵
 ### 修改peronal.att 修改style.css 修改按钮样式
 ### 修改中日 ter.art 问题
+### getMoeny.js 里面的登录
