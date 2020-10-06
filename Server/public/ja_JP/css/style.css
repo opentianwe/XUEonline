@@ -493,10 +493,14 @@ color:#303133;
 /* .yuyue span:nth-child(1){
     background: #4d6789;
 }
+
 .yuyue span:nth-child(3){
     background: #909399;
 
 } */
+.TeacherSkypeID a{
+    color: #fff !important;
+}
 @media screen and (max-width:1180px) {
     .box-titmoeny{
         width: 100% !important;
