@@ -5,6 +5,7 @@ const router = express.Router()
 const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
 const ord = require('../controller/order')
+const toos = require('../Toos')
 const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))
 paypal.configure({
@@ -131,7 +132,6 @@ router.post('/tocheckout', (req, res) => {
         if (data) {
             if (data != null && data[0].Yen != undefined && data[0].Yen != '' && data[0].Yen != null && data[0].Yen != 0) {
                 var $ = Number(data[0].Yen) + (Number(data[0].Yen) * 0.1)
-                console.log($)
                 res.send({
                     money: Number(data[0].Yen),
                     Amountactuallypaid: $,
@@ -155,10 +155,27 @@ router.get('/process', function (req, res) {
             console.error(JSON.stringify(error));
         } else {
             if (payment.state == 'approved') {
-                console.log(payment)
-                console.log('payment completed successfully');
+                async function process(OrderNumber) {
+                    var ret = await mysql.queryOrderinformation(OrderNumber)
+                    if (ret.OrderStatus == 1) {
+                        ret = await toos.aUpdatePoints(ret.integral, ret.Useremail, ret.UserID)
+                        if (ret) {
+                            ret = await mysql.setOrderstatus(OrderNumber, 2)
+                            if (ret) {
+                                res.redirect("./personal.html")
+                            } else {
+                                res.redirect("./getmoeny.html")
+                            }
+                        } else {
+                            res.redirect("./getmoeny.html")
+                        }
+                    } else {
+                        res.redirect("./getmoeny.html")
+                    }
+                }
+                process(payment.transactions[0].description)
             } else {
-                console.log('payment not successful');
+                res.redirect("./getmoeny.html")
             }
         }
     });
