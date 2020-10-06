@@ -9,20 +9,26 @@ const toos = require('../Toos')
 const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))
 paypal.configure({
-    mode: 'sandbox',
-    client_id: 'AVw7MslWx1G_4s0vO5Ao1kITw9M1YAZEOCbIzVFoUjtH_pQ4P_rzgCk-tA1iKlUGsCKtNcPsJfHq3jHs',
-    client_secret: 'EMUyaKs-TSk4kxJ5X2jUoYvnsuoDkm8pqt8jONQ6clSUVhnLBqjPNskAW2OapQFzlDN6OaAmycYElV27'
+    mode: 'live',
+    client_id: 'AWI_cW-qi2aPfkIseTCsgYAKOrOqwFz_UD7vB6UMC4GO0tpCqRYYtN5OmtQ9u8cYsZJ6FnUNHP3TsM97',
+    client_secret: 'EBBbu5VO4lgJwXymqznPIfRyC1iYZUWaL1YO6xcOhdQlc_9WBUv8wzLLHytpkiKURyPTjyxitkIR_Tnx'
 })
 
-async function creatPaypal(OrderNumber, OrderAmount) {
+const return_url = 'http://www.haominjiaoyu.com/process/zh_Cn'
+const cancel_url = 'http://www.haominjiaoyu.com/cancel/zh_Cn'
+
+const ja_JPreturn_url = 'http://www.haominjiaoyu.com/process/ja_JP'
+const ja_JPcancel_url = 'http://www.haominjiaoyu.com/cancel/ja_JP'
+
+async function creatPaypal(OrderNumber, OrderAmount, return_url, cancel_url) {
     var payReq = JSON.stringify({
         intent: 'sale',
         payer: {
             payment_method: 'paypal'
         },
         redirect_urls: {
-            return_url: 'http://127.0.0.1/process',
-            cancel_url: 'http://localhost:3000/cancel'
+            return_url: return_url,
+            cancel_url: cancel_url
         },
         transactions: [{
             amount: {
@@ -54,10 +60,6 @@ async function creatPaypal(OrderNumber, OrderAmount) {
     })
 }
 
-
-
-
-
 /*
 * 2020/10/05 --Tian
 * paypal付款接口
@@ -80,8 +82,9 @@ router.post('/checkout', (req, res) => {
             })
         return
     }
-
-    async function checkout(Emal, CommodityID) {
+   // req.body = JSON.parse(req.body)
+    console.log(req.body)
+    async function checkout(Emal, CommodityID, return_url, cancel_url) {
         var ret = await mysql.asyncqueryCommodityInfoByID(CommodityID)
         if (ret == null) {
             resove({ status: 0, msg: "商品信息异常!" })
@@ -98,7 +101,7 @@ router.post('/checkout', (req, res) => {
                     resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
                 }
                 //生成Url
-                creatPaypal(String(data.number), String(ActualPayment))
+                creatPaypal(String(data.number), String(ActualPayment), return_url, cancel_url)
                     .then((data) => {
                         if (!data) {
                             resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
@@ -108,11 +111,19 @@ router.post('/checkout', (req, res) => {
             })
         })
     }
-    checkout(req.signedCookies.malli, req.body.CommodityID)
-        .then((data) => {
-            console.log(data)
-            res.send(data)
-        })
+    if (req.body.Temp == 'true') {
+        checkout(req.signedCookies.malli, req.body.CommodityID, return_url, cancel_url)
+            .then((data) => {
+                console.log(data)
+                res.send(data)
+            })
+    } else {
+        checkout(req.signedCookies.malli, req.body.CommodityID, ja_JPreturn_url, ja_JPcancel_url)
+            .then((data) => {
+                console.log(data)
+                res.send(data)
+            })
+    }
 })
 
 router.post('/tocheckout', (req, res) => {
@@ -147,7 +158,17 @@ router.post('/tocheckout', (req, res) => {
     })
 })
 
-router.get('/process', function (req, res) {
+
+
+router.get(/^\/process\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
+    var retUrl = '../personal.html'
+    var errorUrl = '../getmoeny.html'
+    if(toos.isJap(req.url))
+    {
+        retUrl = '../ja_JP/personal.html'
+        errorUrl = '../ja_JP/getmoeny.html'
+    }
+
     var paymentId = req.query.paymentId;
     var payerId = { payer_id: req.query.PayerID };
     paypal.payment.execute(paymentId, payerId, function (error, payment) {
@@ -162,22 +183,72 @@ router.get('/process', function (req, res) {
                         if (ret) {
                             ret = await mysql.setOrderstatus(OrderNumber, 2)
                             if (ret) {
-                                res.redirect("./personal.html")
+                                res.redirect(retUrl)
                             } else {
-                                res.redirect("./getmoeny.html")
+                                res.redirect(errorUrl)
                             }
                         } else {
-                            res.redirect("./getmoeny.html")
+                            res.redirect(errorUrl)
                         }
                     } else {
-                        res.redirect("./getmoeny.html")
+                        res.redirect(errorUrl)
                     }
                 }
                 process(payment.transactions[0].description)
             } else {
-                res.redirect("./getmoeny.html")
+                res.redirect(errorUrl)
             }
         }
     });
 })
+
+
+
+router.get(/^\/process\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
+    var errorUrl = '../getmoeny.html'
+    if(toos.isJap(req.url))
+    {
+        errorUrl = '../ja_JP/getmoeny.html'
+    }   
+    res.redirect(errorUrl)       
+})
+
+
+
+
+// router.get('/ja_JP/process', function (req, res) {
+//     var paymentId = req.query.paymentId;
+//     var payerId = { payer_id: req.query.PayerID };
+//     paypal.payment.execute(paymentId, payerId, function (error, payment) {
+//         if (error) {
+//             console.error(JSON.stringify(error));
+//         } else {
+//             if (payment.state == 'approved') {
+//                 async function process(OrderNumber) {
+//                     var ret = await mysql.queryOrderinformation(OrderNumber)
+//                     if (ret.OrderStatus == 1) {
+//                         ret = await toos.aUpdatePoints(ret.integral, ret.Useremail, ret.UserID)
+//                         if (ret) {
+//                             ret = await mysql.setOrderstatus(OrderNumber, 2)
+//                             if (ret) {
+//                                 res.redirect("./personal.html")
+//                             } else {
+//                                 res.redirect("./getmoeny.html")
+//                             }
+//                         } else {
+//                             res.redirect("./getmoeny.html")
+//                         }
+//                     } else {
+//                         res.redirect("./getmoeny.html")
+//                     }
+//                 }
+//                 process(payment.transactions[0].description)
+//             } else {
+//                 res.redirect("./getmoeny.html")
+//             }
+//         }
+//     });
+// })
+
+
 module.exports = router

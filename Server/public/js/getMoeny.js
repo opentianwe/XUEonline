@@ -135,7 +135,7 @@ $(function () {
                 },
                 url: './checkout'
                 , type: "post",
-                data: comstr,
+                data:  comstr,
                 success: function (data) {
                   if (data.status == 1) {
                     window.location.href = data.Url
