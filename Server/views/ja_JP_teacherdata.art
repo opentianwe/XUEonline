@@ -229,6 +229,17 @@
       </div>
     </div>
   </header>
+  <style>
+       #demoText{
+         width: 150px;
+         height: 150px;
+         border: 1px solid  #ccc;
+       }
+       #demoText img{
+         width: 100%;
+         height:100%;
+       }
+     </style>
     <h2 style="text-align: center;">教师资料填写页面</h2>
     <p style="text-align: center;"><a href="./teachernews.html" target="_blank"  >问题解答页面</a></p>
     <div class="form-data">

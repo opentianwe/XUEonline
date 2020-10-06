@@ -127,13 +127,11 @@
 ### braintree_route.js 废弃了付款接口
 ### paypal.js          新增git了checkout接口用来代替之前的接口    
 
-
-
 ### 修改peronal.att 修改style.css 修改按钮样式
 ### 修改中日 ter.art 问题
 ### getMoeny.js 里面的登录
-
-
 ### 账号 sb-9tgm63379560@personal.example.com 密码 X(saW3.d
-
 ### Temp 中文 true 日文 false 
+
+# 2020/10-6 8:03 
+### jaJP 修复teacherdata img 太大问题
