@@ -97,7 +97,7 @@ function clearCookie() {
 	
 	`
 	$('.phone').html('<i class="webexflaticon flaticon-send"></i><a style="display:inline" href="skype:live:.cid.95a072e4c57d6976?add">live:.cid.95a072e4c57d6976</a>')
-	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i>Japaneseに翻訳する')
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i>Japaneseに翻訳')
 	$('.language-btn').on('click', function () {
 		window.location.href = '../ja_JP/index.html'
 	})

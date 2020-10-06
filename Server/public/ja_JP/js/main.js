@@ -131,7 +131,7 @@ function clearCookie() {
 	</div>
 	
 	`
-	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> Chineseに翻訳する')
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> Chineseに翻訳')
 	console.log($('.language-btn>a').html())
 	$('.language>ul').hide()
 	$('.language-btn').on('click', function () {
