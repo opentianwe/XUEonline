@@ -1884,7 +1884,7 @@ section.anim-object {
 .header-top-area .header-top-right-part .language .language-btn {
   position: relative;
   text-decoration: none;
-  width: 85px;
+  
   text-align: left;
   -webkit-transition: .5s;
   transition: .5s;

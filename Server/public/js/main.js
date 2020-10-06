@@ -97,10 +97,11 @@ function clearCookie() {
 	
 	`
 	$('.phone').html('<i class="webexflaticon flaticon-send"></i><a style="display:inline" href="skype:live:.cid.95a072e4c57d6976?add">live:.cid.95a072e4c57d6976</a>')
-	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i>Japanese')
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i>Japaneseに翻訳する')
 	$('.language-btn').on('click', function () {
 		window.location.href = '../ja_JP/index.html'
 	})
+	//console.log($('.social-list>li').eq(0).children().att('href',''))
 	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
 
 	$('.mrb-25>.mrb-10').eq(1).hide()
@@ -147,7 +148,7 @@ function clearCookie() {
 	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">老师修改个人信息</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
 
-
+	$('.footer-widget-list>li').eq(5).html('<a href="./zp.html" target="_blank">成为老师</a>')
 	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">初学者指南</a>')
 	jQuery(document).on('ready', function () {
 		/*=============================================*/

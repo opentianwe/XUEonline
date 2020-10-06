@@ -17,7 +17,7 @@ new Vue({
     },
     methods: {
         getsearch: function (index) {
-           
+
             this.temp = true
             this.pageNO = index || this.pageNO
             console.log(this.pageNO)
@@ -46,18 +46,18 @@ new Vue({
                             "3": c,
                             "4": d,
                             "5": f
-                        }                              
-                       for (let i = 0; i < this.list.length; i++) {
+                        }
+                        for (let i = 0; i < this.list.length; i++) {
                             var str = this.list[i].Lesson.split(',')
-                            this.list[i].Lesson=[]
+                            this.list[i].Lesson = []
                             str.forEach(element => {
-                                 this.list[i].Lesson.push(obj[element])
+                                this.list[i].Lesson.push(obj[element])
                             });
                             a = this.list[i].Lesson.toString()
                             this.list[i].Lesson = a
                         }
                         console.log(this.list[0])
-                      
+
                     })
                     .catch(function (error) {
                         console.log(error)
@@ -65,10 +65,10 @@ new Vue({
             }
 
         },
-        searchEnterFun(e){
+        searchEnterFun(e) {
             var keyCode = window.event ? e.keyCode : e.which;
             if (keyCode == 13) {
-              this.getsearch();
+                this.getsearch();
             }
         }
         ,
@@ -86,7 +86,7 @@ new Vue({
                 url: "./Atinfo?index=" + this.pageNO + "&np=12&type=" + this.type,
             })
                 .then(res => {
-                 
+
                     this.list = res.data.lists;
                     this.Singlepage = res.data.Singlepage;
                     this.Totalpage = res.data.Totalpage;
@@ -106,18 +106,18 @@ new Vue({
                     // for (let i = 0; i < this.list.length; i++) {
                     //    this.list[i].Lesson 
                     // }
-                  
+
                     for (let i = 0; i < this.list.length; i++) {
                         var str = this.list[i].Lesson.split(',')
-                        this.list[i].Lesson=[]
+                        this.list[i].Lesson = []
                         str.forEach(element => {
-                             this.list[i].Lesson.push(obj[element])
+                            this.list[i].Lesson.push(obj[element])
                         });
                         a = this.list[i].Lesson.toString()
                         this.list[i].Lesson = a
                     }
                     console.log(this.list[0])
-                   
+
                 })
                 .catch(function (error) {
                     console.log(error)
@@ -130,9 +130,9 @@ new Vue({
             this.getList(1)
         },
         curPage: function (index) {
-            
+
             this.pageNO = index;
-           
+
             if (this.temp == false) {
                 this.isTure()
                 this.getList(index)
@@ -141,13 +141,13 @@ new Vue({
                 console.log(index)
                 this.getsearch(index)
             }
-           
+
         },
-        isTure(){
-            $('#ifwarp').css('opacity',"0")
-            setTimeout(function(){
-                $('#ifwarp').css('opacity',"1")
-            },250)
+        isTure() {
+            $('#ifwarp').css('opacity', "0")
+            setTimeout(function () {
+                $('#ifwarp').css('opacity', "1")
+            }, 250)
         }
         ,
         prePage: function () {
@@ -163,7 +163,7 @@ new Vue({
                     return
                 }
             }
-            layer.msg('已经是第一页了',{icon:5})
+            layer.msg('已经是第一页了', { icon: 5 })
         },
         nextPage: function () {
             if (this.pageNO < this.Totalpage) {
@@ -178,10 +178,11 @@ new Vue({
                     return
                 }
             }
-            layer.msg('已经到最后一页了',{icon:5})
-        }
+            layer.msg('已经到最后一页了', { icon: 5 })
+        },
 
     },
+
     mounted: function () {
         this.getList()
     },

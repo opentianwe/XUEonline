@@ -131,12 +131,13 @@ function clearCookie() {
 	</div>
 	
 	`
-	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> Chinese')
+	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> Chineseに翻訳する')
 	console.log($('.language-btn>a').html())
 	$('.language>ul').hide()
 	$('.language-btn').on('click', function () {
 		window.location.href = '../index.html'
 	})
+	$('.footer-widget-list>li').eq(5).html('<a href="../zp.html" target="_blank">先生になる</a>')
 	$('.navbar-brand').html('<img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> ')
 	$('.mrb-25>.mrb-10').eq(1).hide()
 	$('.mrb-25>.mrb-10>a').eq(2).html('www.haominjiaoyu.com')
