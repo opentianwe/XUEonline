@@ -92,21 +92,26 @@ router.post('/checkout', (req, res) => {
         var Yen = Number(ret.Yen)    //商品价格 日元
 
         var ActualPayment = Yen + (Yen * ServiceCharge) //加上手续费的实际价格
-
+        ActualPayment = ActualPayment.toFixed(0)
         //开始创建订单
         return new Promise((resove, reject) => {
             var order = new ord(CommodityID, Emal, 2, false)
             order.Creat(function (data) {
                 if (!data) {
                     resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
+                    return
                 }
                 //生成Url
                 creatPaypal(String(data.number), String(ActualPayment), return_url, cancel_url)
                     .then((data) => {
                         if (!data) {
                             resove({ status: 0, msg: "订单信息异常,请刷新页面重试!" })
+                            return
+                        }else
+                        {
+                            resove({ status: 1, Url: data })
                         }
-                        resove({ status: 1, Url: data })
+                        
                     })
             })
         })
@@ -145,7 +150,7 @@ router.post('/tocheckout', (req, res) => {
                 var $ = Number(data[0].Yen) + (Number(data[0].Yen) * 0.1)
                 res.send({
                     money: Number(data[0].Yen),
-                    Amountactuallypaid: $,
+                    Amountactuallypaid: $.toFixed(0),
                     taxRate: "10%",
                     integral: data[0].integral
                 })
@@ -204,7 +209,7 @@ router.get(/^\/process\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
 
 
 
-router.get(/^\/process\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
+router.get(/^\/cancel\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
     var errorUrl = '../getmoeny.html'
     if(toos.isJap(req.url))
     {
