@@ -147,9 +147,8 @@ function clearCookie() {
 	$('.right-view>li').eq(1).html('<a href="./teacherdata.html">教师资料填写入口</a>').hide()
 	$('.sub-menu>.has-sub-child').html('<li><a href="./teacherdata.html">老师修改个人信息</a></li>')
 	$('.sub-menu>li').eq(5).html('<a href="./logoin.html">登录</a>')
-
 	$('.footer-widget-list>li').eq(5).html('<a href="./zp.html" target="_blank">成为老师</a>')
-	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">初学者指南</a>')
+	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">公司条款(学生)</a>')
 	jQuery(document).on('ready', function () {
 		/*=============================================*/
 		/*----------- [_Side_Panel_Start] -------------*/
