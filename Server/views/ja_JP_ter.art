@@ -422,7 +422,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 性别</span>男
+              <span id="user-ter">性別</span>男
             </p>
             <p>
               <i>
@@ -442,7 +442,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 专攻： </span>
+              <span id="user-ter">専攻:</span>
             </p>
             <p>
               <i>
@@ -540,7 +540,7 @@
                   />
                 </svg>
               </i>
-              体验价格:<span id="user-moeny1"> {{ data.moeny1 }}円</span>
+              体験授業料:<span id="user-moeny1"> {{ data.moeny1 }}円</span>
             </p>
             <p>
               <i>
@@ -565,7 +565,7 @@
                   />
                 </svg>
               </i>
-              正常价格:<span id="user-moeny2">{{ data.moeny2 }}円</span>
+              通常授業料:<span id="user-moeny2">{{ data.moeny2 }}円</span>
             </p>
             <p>
               <i>
@@ -583,7 +583,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 年龄</span>18
+              <span id="user-ter"> 年齢</span>18
             </p>
             <p>
               <i>
@@ -605,7 +605,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 现在职业</span>
+              <span id="user-ter"> 現在の職業</span>
             </p>
           </div>
         </div>
