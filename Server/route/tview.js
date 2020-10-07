@@ -388,7 +388,7 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 
 
 //渲染personal.html
-async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher, ZPrice) {
+async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
     var Evaluation = ''
     var Price = 0
     if (isTeacher) {
@@ -409,7 +409,17 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                     评价时间:<strong>${datetime}</strong></div>
                  </div>
                 `
-                Price += Number(ret[i].Price)
+                
+            }
+
+            ret = await mysql.queryTStudentEvaluationByEmal(Emal)
+            if (ret == false) {
+                Price = 0
+            } else {
+                for (var i = 0; i < ret.length; i++) {
+                    console.log(Price)
+                    Price += Number(ret[i].Price)
+                }
             }
         }
     } else {
@@ -446,8 +456,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
             aif: Str,
             isTeacher: isTeacher,
             Evaluation: Evaluation,
-            Price: Price,
-            ZPrice: ZPrice
+            Price: Price
         }
     })
 }
@@ -523,7 +532,6 @@ router.get('/personal.html', function (req, res) {
         return
     }
     var mem
-    var ZPrice = 0
     console.log(req.signedCookies.malli)
     mysql.queryPointsbyemal(req.signedCookies.malli, function (data, err) {
         if (data == undefined || data.length == 0 || data == null || err) {
@@ -566,12 +574,12 @@ router.get('/personal.html', function (req, res) {
                                         datas[i].UserWeChat = "无"
                                     }
                                     Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
-                                    ZPrice += Number(datas[i].Price)
+                                    //ZPrice += Number(datas[i].Price)
                                 }
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             }, function (err) {
                                 var Str = "暂无预约信息!"
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             })
 
 

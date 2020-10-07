@@ -364,6 +364,7 @@
                           
                              <tbody id='userTale'>
                              {{#data.aif}}
+                             
                              </tbody>
                          
                         </table>
