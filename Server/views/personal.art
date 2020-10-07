@@ -576,9 +576,6 @@
           <div class="mon">
             已入账积分:<strong>{{ data.Price }}</strong>
           </div>
-          <div class="mon">
-            预计总收入积分:<strong>{{ data.ZPrice }}</strong>
-          </div>
           <%}%>
           <div class="yuyue">
             <span class="isAdd active">查看全部</span

@@ -348,7 +348,6 @@
                     <h3 class="color-bu">予約情報一覧</h3>
                     <%if(data.isTeacher){%>
                      <div class='mon'>入金済みポイント:{{data.Price}}</div>
-                    <div class='mon'>総収入ポイント予想:{{data.ZPrice}}</div>
                     <%}%>
                     <div class='yuyue'><span class='isAdd active' >全部を見る</span><span class='isnotAdd' >未授業</span> <span class='isAddter'>授業が始まった</span> </div>
                    <div class="table-responsive">
