@@ -227,9 +227,7 @@
           width: 70%;
          
       }
-      .user-top>div:nth-child(2){
-          border: 1px solid  #f1f1f1;
-      }
+     
       .user-div{
         display: flex;
         flex-wrap: wrap;
