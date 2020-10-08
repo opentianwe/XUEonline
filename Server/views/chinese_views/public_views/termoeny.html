@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教师工资页面</title>
+  <script src="./js/vue.2.6.11.js"></script>
+  <script src="./js/jq.min.js"></script>
+  <link rel="stylesheet" href="./css/footer.css">
+  <style>
+    tbody {
+      margin: 20px 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta name="keywords" content="中国语Xueonline" />
+  <!--网页关键字-->
+  <meta name="description" content="一个在线1v1教育平台" />
+  <!--网页描述-->
+  <meta name="author" content="XUE" />
+  <!--网页作者-->
+
+</head>
+
+<body>
+
+  <header>
+    <div id="addbtn"
+      style="cursor: pointer;;position: fixed;right:0%;top:40%;z-index:9;width:30px;background:#458fd2;text-align: center;color: #fff;padding: 3px ;">
+      快速访问
+    </div>
+    <div class="add">
+      <img src="./images/ew2.png" alt="" style="width: 100%;height: auto;">
+      <p><strong>保存二维码扫码进入网站</strong></p>
+    </div>
+    <script>
+      var addbtn = document.getElementById("addbtn")
+      var add = document.querySelector(".add")
+      addbtn.addEventListener("click", () => {
+        add.classList.toggle("open")
+        var a = addbtn.innerHTML
+        if (a != '点击关闭') {
+          a = "点击关闭"
+          addbtn.innerHTML = a
+        } else {
+          a = "快速访问"
+          addbtn.innerHTML = a
+        }
+      })
+    </script>
+    <nav class="navbar navbar-expand-md navbar-light shadow  bg-transparent fixed-top  nva-width adds">
+      <a class="navbar-brand" href="#" style="color:green;font-weight: 600;"><img style="width:80px;height:auto;"
+          src="./images/ebd655855b5250a58a80fbea83e57c7.jpg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                <path
+                  d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary" href="index.html">
+              首页<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary " href="personal.html">个人资料</a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-headset" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 1a5 5 0 0 0-5 5v4.5H2V6a6 6 0 1 1 12 0v4.5h-1V6a5 5 0 0 0-5-5z" />
+                <path
+                  d="M11 8a1 1 0 0 1 1-1h2v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8zM5 8a1 1 0 0 0-1-1H2v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8z" />
+                <path fill-rule="evenodd"
+                  d="M13.5 8.5a.5.5 0 0 1 .5.5v3a2.5 2.5 0 0 1-2.5 2.5H8a.5.5 0 0 1 0-1h3.5A1.5 1.5 0 0 0 13 12V9a.5.5 0 0 1 .5-.5z" />
+                <path d="M6.5 14a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary" href="terTbale.html">预约课程</a>
+          </li>
+
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-book-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.261 13.666c.345.14.739-.105.739-.477V2.5a.472.472 0 0 0-.277-.437c-1.126-.503-5.42-2.19-7.723.129C5.696-.125 1.403 1.56.277 2.063A.472.472 0 0 0 0 2.502V13.19c0 .372.394.618.739.477C2.738 12.852 6.125 12.113 8 14c1.875-1.887 5.262-1.148 7.261-.334z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary " href="terTbale.html">老师一览表</a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary " href="getmoeny.html">积分购买</a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path
+                  d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+              </svg>
+
+            </div>
+            <a class="nav-link text-secondary " href="stunews.html">常见问题FAQ</a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-globe2" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M1.018 7.5h2.49c.037-1.07.189-2.087.437-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5zM3.05 3.049c.362.184.763.349 1.198.49.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05zM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm-.5 1.077c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.473.257 2.282.287V1.077zm0 4.014c-.91-.03-1.783-.145-2.591-.332a12.344 12.344 0 0 0-.4 2.741H7.5V5.091zm1 2.409V5.091c.91-.03 1.783-.145 2.591-.332.223.827.364 1.754.4 2.741H8.5zm-1 1H4.51c.035.987.176 1.914.399 2.741A13.596 13.596 0 0 1 7.5 10.91V8.5zm1 2.409V8.5h2.99a12.343 12.343 0 0 1-.399 2.741A13.596 13.596 0 0 0 8.5 10.91zm-1 1c-.81.03-1.577.13-2.282.287.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91zm-2.173 2.563a6.695 6.695 0 0 1-.597-.933 8.857 8.857 0 0 1-.481-1.078 8.356 8.356 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.52zM2.38 12.175c.47-.258.995-.482 1.565-.667A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.964 6.964 0 0 0 1.362 3.675zm8.293 2.297a7.01 7.01 0 0 0 2.275-1.521 8.353 8.353 0 0 0-1.197-.49 8.859 8.859 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zm.11-2.276A12.63 12.63 0 0 0 8.5 11.91v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872zm1.272-.688c.57.185 1.095.409 1.565.667A6.964 6.964 0 0 0 14.982 8.5h-2.49a13.355 13.355 0 0 1-.437 3.008zm.437-4.008h2.49a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008zm-.74-3.96a8.854 8.854 0 0 0-.482-1.079 6.692 6.692 0 0 0-.597-.933c.857.355 1.63.875 2.275 1.521a8.368 8.368 0 0 1-1.197.49zm-.97.264c-.705.157-1.473.257-2.282.287V1.077c.67.204 1.335.82 1.887 1.855.143.268.276.56.395.872z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary " href="logoin.html">登陆</a>
+          </li>
+          <li class="nav-item">
+            <div style="text-align: center;color:#458fd2;">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z" />
+                <path fill-rule="evenodd"
+                  d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z" />
+                <path d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z" />
+              </svg>
+            </div>
+            <a class="nav-link text-secondary " href="register.html">注册</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div style="margin-top:98px">
+
+  </div>
+  <h3 style="text-align: center;">教师课时结算明细</h3>
+  <div style="width: 70%;margin: 0 auto;">
+    <div>
+      <table class="table table-striped">
+        <thead style="font-size: 14px;">
+          <tr>
+            <td class="heade"></td>
+            <td class="heade"></td>
+            <td class="heade"></td>
+            <td class="heade"></td>
+            <td class="heade"></td>
+            <td class="heade"></td>
+          </tr>
+        </thead>
+        <tbody class="tobody1" style="font-size: 14px;">
+        </tbody>
+
+
+      </table>
+      <p>
+        日元结算※SUN先生は自分で価格決定
+      </p>
+    </div>
+    <div>
+      <table class="table table-striped">
+        <tbody class="tobody2" style="font-size: 14px;"></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+
+    //    方便后期静态修改 table 价目
+    window.onload = function () {
+      function fordata(data, Aclass) {
+        for (let index = 0; index < Aclass.length; index++) {
+          Aclass[index].innerHTML = data[index]
+        }
+      }
+      // 表头
+      var theadData = ["料金表", "50分（先生取り分）", "25分（先生取り分）", "50分（生徒支払い）", "25分（生徒支払い）", "利益（50min）", "利益（25min）",]
+      var a = document.querySelectorAll(".heade")
+      fordata(theadData, a)
+      console.log(a)
+      var starTer = ["STAR老师", "320円くらい", "160円くらい", " 1196円 ", "598円", "856円", "428円"]
+      var MoonTer = ["MOON老师", "900円", "450円", "1696円", "848円", "848円", "398円"]
+      var SunTer = ["SUN老师", "※", "※", "※", "※", "40%", "40%"]
+      var json = [starTer, MoonTer, SunTer]
+      // 日语版
+      // 中文版
+
+      var tobody = document.querySelector(".tobody1")
+      var tobody2 = document.querySelector(".tobody2")
+      console.log(tobody2)
+      console.log(tobody)
+
+      function creatTable(tbody, jsondata) {
+        for (let i = 0; i < 3; i++) {
+          var tr = document.createElement("tr")
+          tbody.appendChild(tr)
+          for (let index = 0; index < 6; index++) {
+            var td = document.createElement("td")
+            tr.appendChild(td)
+            td.innerHTML = jsondata[i][index]
+          }
+        }
+      }
+      creatTable(tobody, json)
+      creatTable(tobody2, json)
+    }
+
+
+  </script>
+  <div id="top-home" style="position: fixed;z-index:9999;top:80%;right:20px;transition: 0.5s ease-in-out;">
+    <svg style="color:#fff;background: royalblue;padding: 10px;" width="3em" height="3em" viewBox="0 0 16 16"
+      class="bi bi-chevron-double-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd"
+        d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z" />
+      <path fill-rule="evenodd"
+        d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+    </svg>
+  </div>
+  <div class="product-number-info" id="productNumber">
+    <div class="product-number-inner">
+      <ul class="q">
+        <li class="li-1"><b><i id="productNumber_1" data-sum="200"></i><sup>+</sup></b>
+          <p>教师资源</p>
+        </li>
+        <li class="li-2"><b><i id="productNumber_2" data-sum="60">0</i><em>天</em></b>
+          <p>安全运行</p>
+        </li>
+        <li class="li-3"><b><i id="productNumber_3" data-sum="150">4</i><sup>+</sup></b>
+          <p>教育课程和类目</p>
+        </li>
+        <li class="li-4"><b><i id="productNumber_4" data-sum="1429">0</i><em>本</em></b>
+          <p>在线图书</p>
+        </li>
+        <li class="li-5"><b><i id="productNumber_5" data-sum="60990">0</i><sup>+</sup></b>
+          <p>累计培训</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <div class="copyright_c">
+      <div class="copyright_head">
+        <div class="copyright_L">
+          <p><img src="./images/logo.png" /></p>
+          <span>
+            <em>服务时间：</em>
+            <em>周一至周日 9:00-18:00</em>
+          </span>
+          <span>
+            <em>客服的skypeID:&nbsp;</em>
+            <strong>&nbsp;XUEサポート管理員</strong>
+          </span>
+          <span>
+            <em></em>
+            <a href="#">在线交谈</a>
+          </span>
+        </div>
+        <div class="copyright_C">
+          <div class="copyright_C_list">
+            <p>关于我们</p>
+            <div class="about">
+              <a href="about.html">公司简介</a>
+            </div>
+            <div class="about">
+              <a href="notice.html">规章制度</a>
+            </div>
+            <div class="about">
+              <a href="terTbale.html">教师资源</a>
+            </div>
+            <div class="about">
+              <a href="#">联系我们</a>
+            </div>
+
+          </div>
+          <div class="copyright_C_list">
+            <p>产品服务</p>
+            <div class="about">
+              <a href="#">汉语在线培训</a>
+
+            </div>
+            <div class="about">
+              <a href="#">英语在线培训</a>
+
+            </div>
+            <div class="about">
+              <a href="#">日语在线培训</a>
+
+            </div>
+            <div class="about">
+              <a href="#">韩语在线培训</a>
+
+            </div>
+          </div>
+          <div class="copyright_C_list">
+            <p>问题咨询</p>
+            <div class="about">
+              <a href="#">成为老师</a>
+              <a href="#"></a>
+            </div>
+            <div class="about">
+              <a href="#">支付问题</a>
+            </div>
+            <div class="about">
+              <a href="#">投诉热线</a>
+            </div>
+          </div>
+        </div>
+        <div class="copyright_R">
+          <span><img src="./images/ewm1.jpg" /></span>
+          <p>扫描添加Skype客服</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="width: 70%;margin: 0 auto;">
+      <div class="copyright_bottom">
+        <span>©2020 haomingjiaoyu.com<a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?spm=a2c4g.11186623.7y9jhqsfz.114.40d17dc6k4D7qx"
+            target="_black">辽ICP备20008656号</a></span>
+        <p>赠人玫瑰 手有余香</p>
+      </div>
+    </div>
+  </div>
+
+  <!--数字滚动插件countUp-->
+  <script src="./js/count.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    productNumber = function () {
+      var arr = [];
+      $('#productNumber li').each(function (i, dom) {
+        var iDom = $(dom).find('i'),
+          decimals = 0,
+          sum = iDom.data('sum');
+        //初始化传参，参数为上面注释中的参数    
+        arr.push(new CountUp(iDom.attr('id'), 0, sum, decimals, 4, {
+          useEasing: true,//效果
+          separator: ''//数字分隔符
+        }));
+        arr[i].start();
+      });
+    }();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/kefu.js"></script>
+</body>
+
+</html>

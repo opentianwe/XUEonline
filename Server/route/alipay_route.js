@@ -1,11 +1,11 @@
-const alipay = require('../controller/alipay')
+const alipay = require('../helpers/alipay')
 const express = require('express')
 const router = express.Router()
-const ord = require('../controller/order')
+const ord = require('../helpers/order')
 
 const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
-const checkSign = require('../controller/checkSign')
+const checkSign = require('../helpers/checkSign')
 const toos = require('../Toos')
 router.all("*", function (req, res, next) {
 	//设置允许跨域的域名，*代表允许任意域名跨域

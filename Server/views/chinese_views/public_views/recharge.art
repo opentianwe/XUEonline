@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购买积分</title>
+  <script src="./js/vue.2.6.11.js"></script>
+  <script src="./js/jq.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="./css/xuan.css"> -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- <link rel="stylesheet" href="../css/getMoeny.css"> -->
+  <link rel="stylesheet" href="./css/getMoeny.css">
+  <link rel="stylesheet/less" type="text/css" href="./ceshi.less" />
+ // <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <meta name="keywords" content="中国语Xueonline" />
+  <!--网页关键字-->
+  <meta name="description" content="一个在线1v1教育平台" />
+  <!--网页描述-->
+  <meta name="author" content="XUE" />
+  <!--网页作者-->
+  <script src="./layer/layer.js"></script>
+</head>
+
+<body>
+  <!-- Preloader Start -->
+  <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  {{include {{include '../public_components/header.art'}}
+  <!-- header End -->
+  <!-- Home Slider Start -->
+  <div class="vipSecondBanner">
+    <div class="vipSecondBannerText">
+      <p>体験授業料198円</p>
+      <p>多様化の教育モデルをお楽しみください</p>
+
+    </div>
+  </div>
+  <div class="vip-content-title">
+    <strong>VIP</strong>套餐任意选择
+
+  </div>
+  <p style="width: 70%;margin: 0 auto;"><strong>すべて税抜きで表示しております。消費税１０％。</strong></p>
+  <div class="vip-content-moenycar">
+    <div data-IDmoney="1">
+      <div class="vip-top">
+        <span class="jifen">1000</span> Point
+
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">0</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+
+        <p><span class="moeny">1000</span>円
+        </p>
+
+      </div>
+    </div>
+    <!-- 1 -->
+    <div data-IDmoney="2">
+      <div class="vip-top">
+
+        <span class="jifen">2000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">0</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+
+        <p><span class="moeny">2000</span>円</p>
+      </div>
+    </div>
+    <!-- 2 -->
+    <div class="acitve" id="getMoeny-val" data-IDmoney="3">
+      <div class="vip-top">
+        <span class="jifen">3000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">50</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+
+        <p><span class="moeny">2950</span>円</p>
+      </div>
+    </div>
+    <!-- 1 -->
+
+    <div data-IDmoney="4">
+      <div class="vip-top">
+        <span class="jifen">5000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">100</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">4900</span> 円</p>
+      </div>
+    </div>
+    <!-- 2 -->
+    <div data-IDmoney="5">
+      <div class="vip-top">
+        <span class="jifen">8000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">200</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">7800</span>円</p>
+      </div>
+    </div>
+    <div data-IDmoney="6">
+      <div class="vip-top">
+        <span class="jifen">10000</span>Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">500</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">9500</span>円</p>
+      </div>
+    </div>
+    <div data-IDmoney="7">
+      <div class="vip-top">
+        <span class="jifen">20000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">1000</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">19000</span>円</p>
+      </div>
+    </div>
+    <!-- 第二排 -->
+
+    <div data-IDmoney="8">
+      <div class="vip-top">
+        <span class="jifen">30000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">2000</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">28000</span>円</p>
+      </div>
+    </div>
+    <div data-IDmoney="9">
+      <div class="vip-top">
+        <span class="jifen">50000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">4000</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">46000</span>円</p>
+      </div>
+    </div>
+    <div data-IDmoney="10">
+      <div class="vip-top">
+        <span class="jifen">100000</span> Point
+      </div>
+      <div class="vip-mo">
+        <p><span class="jianmian">9000</span>円引き</p>
+      </div>
+      <div class="vip-moeny">
+        <p><span class="moeny">91000</span>円</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="vip-box">
+    <div style="margin: 30px 0;">
+      <h5>日本円チャージ方法</h5>
+      <p>1. 1ポイント＝ 1円、いつでもチャージできます。</p>
+      <p>2.日本円決済の場合、上記表示は全て税抜きで、ご購入時に消費税10％が加算されます。</p>
+      <p style="width:350px;">3.
+        3000ポイント以下は有効期限がありますので、期限内にご利用ください。有効期限を過ぎてもチャージされない場合は、自動的にリセットされますが、事前にチャージした場合、残りの部分も自動的に翌月まで期限が延長されます。</p>
+      <p style="position: relative;"><span style="position: absolute;left: -20px;;color: red;">※</span>4.
+        5000ポイントを超える場合、割引が多く、有効期限がないため、強くお勧めします。</p>
+      <p>ご不明な点がございましたら、XUEonlineのカスタマーサービスにお問い合わせください。</p>
+    </div>
+    <div class="VIPNewPayTop">
+      <a class="VIPNewPaypal addss" id="checked">
+        <span style="margin-left:95px;font-size:14px;">PayPal</span>
+        <i></i>
+      </a>
+
+    </div>
+    <div>
+      <span id="moenys-left"></span>円
+    </div>
+    <label for="aaa">
+      <input type="checkbox" name="userTit" checked id=""><a href="titMoeny.html" target="_black">ユーザー支払い契約</a>
+    </label>
+    <br>
+    <button id="moneyBtn"
+      style="width:250px;padding: 10px 0;border: none;background: #458fd2;color: #fff;font-size:14px;font-weight: 700;margin: 10px 0;">購入する</button>
+    <p>人民元で購入する場合は<a href="jpgetmoeny.html">(WeChatPay、Alipay)に対応しています</a></p>
+
+  </div>
+  <script src="./js/getMoeny.js"></script>
+  <!-- Testimonials Section End -->
+  <!-- Footer Area Start -->
+ {{include '../public_components/footer.art'}}
+  <!-- Footer Area End -->
+  <!-- BACK TO TOP SECTION -->
+  <div class="back-to-top bg-gradient-color">
+    <i class="fab fa-angle-up"></i>
+  </div>
+  <div class="back-to-top bg-gradient-color">
+    <i class="fab fa-angle-up"></i>
+  </div>
+  <script src="./js/consloe.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/jquery.v1.12.4.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/jquery-core-plugins.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script src="./js/kefu.js"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const mysql = require('../msOp')
 const Tool = require('../Toos')
-const sendemal = require('../controller/sendEmal')
+const sendemal = require('../helpers/sendEmal')
 router.use(cookieParser("wcasd2398123asd12aasd"))
 
 router.post('/dataUpload', function (req, res) {

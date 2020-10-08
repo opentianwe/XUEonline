@@ -1,0 +1,73 @@
+<footer class="footer">
+		<div class="footer-main-area" data-background="images/footer-bg.png" style="background-image: url(&quot;images/footer-bg.png&quot;);">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<!-- 可以放logo -->
+							<!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+							<address class="mrb-25">
+								<p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+								<div class="mrb-10" style="display: none;"><a href="#" class="text-light-gray"><i class="fas fa-phone-alt mrr-10"></i>+90-4179-6014</a></div>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
+								<div class="mrb-0"><a href="/index.html" class="text-light-gray"><i class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+							</address>
+							<ul class="social-list">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">关于我们</h5>
+							<ul class="footer-widget-list">
+								<li><a href="/zh-cn">首页</a></li>
+								<li><a href="./about.html">公司简介</a></li>
+								<li><a href="./terTbale.html">教师资源</a></li>
+								<li><a href="./stunews.html">寻求帮助</a></li>
+								<li><a href="./titMoeny.html" target="_blank">支付条款</a></li>
+								<li><a href="./zp.html" target="_blank">成为老师</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">产品服务</h5>
+							<ul class="footer-widget-list">
+								<li><a href="terTbale.html">汉语在线培训</a></li>
+								<li><a href="terTbale.html">日语在线培训</a></li>
+								<li><a href="terTbale.html">英语在线培训</a></li>
+								<li><a href="terTbale.html">韩语在线培训</a></li>
+								<li><a href="terTbale.html">支付问题</a></li>
+								<li><a href="./snewtit.html" target="_blank">公司条款(学生)</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">扫码添加客服Skype</h5>
+							<p class="text-light-gray">如果你有一些问题或者建议你都可以通过微软官方的一款联系软件Skype扫码联系我们的官方客服</p>
+							<img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+							<br>
+							<a href="http://skype.gmw.cn/" target="_blank" class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i class="webexflaticon flaticon-send"></i>下载 Skype</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="text-center">
+							<span class="text-light-gray">Copyright <a href="">© 2020 haominjiaoyu.com
+									辽ICP备20008656号</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>

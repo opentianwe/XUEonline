@@ -20,8 +20,6 @@
 	<meta name="author" content="XUE" />
 	<!--网页作者-->
 
-
-
 </head>
 
 <body>
@@ -29,7 +27,170 @@
 	<div class="preloader"></div>
 	<!-- Preloader End -->
 	<!-- header Start -->
-	{{include './assemblyView/header.art'}}
+	<header class="header-style-two">
+		<div class="header-wrapper">
+			<div class="header-top-area bg-gradient-color d-none d-lg-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 header-top-left-part">
+							<span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+							<span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+						</div>
+						<div class="col-lg-6 header-top-right-part text-right">
+							<ul class="social-links">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+							<div class="language">
+								<a class="language-btn" href="#"><i
+										class="webexflaticon flaticon-internet"></i>Japanese</a>
+								<ul class="language-dropdown">
+									<li> <a href="#">Chinese</a></li>
+									<!-- <li><a href="#">English</a></li> -->
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-navigation-area two-layers-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+								<!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+							</a>
+							<div class="mobile-menu-right"></div>
+							<div class="header-searchbox-style-two d-none d-xl-block">
+								<div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+									<span class="bar1"></span>
+									<span class="bar2"></span>
+									<span class="bar3"></span>
+								</div>
+								<!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+								<div class="toggle-searchbox">
+									<form action="#" id="searchform-all" method="get">
+										<div>
+											<input type="text" id="s" class="form-control" placeholder="Search...">
+											<div class="input-box">
+												<input type="submit" value="" id="searchsubmit"><i
+													class="fas fa-search"></i>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="side-panel-content">
+								<div class="close-icon">
+									<button><i class="webex-icon-cross"></i></button>
+								</div>
+								<div class="side-panel-logo mrb-30">
+									XUEonline
+								</div>
+								<div class="side-info mrb-30">
+									<div class="side-panel-element mrb-25">
+										<h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+										<ul class="list-items">
+											<li><span class="fa fa-map-marker-alt mrr-10 text-primary-color">
+													遼寧省大連市西岗区更新街</span></li>
+											<li><span
+													class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com
+											</li>
+											<li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00)
+												2500-123-4567</li>
+										</ul>
+									</div>
+									<div class="side-panel-element mrb-30">
+										<h4 class="mrb-15">公司状态</h4>
+										<ul class="pintarest-list">
+											<li><a href="#"><img class="img-full" src="images/side-panel/1.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/2.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/3.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/4.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/5.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/6.jpg"
+														alt=""></a></li>
+										</ul>
+									</div>
+								</div>
+								<h4 class="mrb-15">可靠联系方式</h4>
+								<ul class="social-list">
+									<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+							<div class="main-menu f-right">
+								<nav id="mobile-menu-right">
+									<ul>
+										<li>
+											<!-- class="has-sub" -->
+											<a href="./index.html">HOME</a>
+											<!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</li>
+										<li><a href="./getmoeny.html">Point購入</a></li>
+										<li class="has-sub">
+											<a href="./terTbale.html">講師一覧</a>
+											<ul class="sub-menu">
+												<li><a href="./terTbale.html">先生の予約</a></li>
+												<li class="has-sub-child">
+													<a href="./logoin.html">ログイン</a>
+													<ul class="sub-menu right-view">
+														<li><a href="./logoin.html">登録</a></li>
+														<li><a href="./teacherdata.html">先生入力してください</a></li>
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<a href="./stunews.html">よくある質問</a>
+
+										</li>
+										<li class=" right-view">
+											<a href="./logoin.html">ログイン/新規登録</a>
+
+										</li>
+										<li class="has-sub right-view">
+											<a href="#">MY PAGE</a>
+											<ul class="sub-menu">
+												<li><a href="personal.html">MY PAGE</a></li>
+												<li><a href="./logoin.html">ログイン</a></li>
+												<li><a id="qiut-s">サインアウト</a></li>
+
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 	<!-- header End -->
 	<!-- Home Slider Start -->
 	<section class="banner-section">
@@ -40,8 +201,8 @@
 					<div class="row clearfix">
 						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
 							<div class="content-box">
-								<h1>体验课 & <br>198日元</h1>
-								<p>结算方式 <br>信用卡 银行卡 微信支付宝 PayPal
+								<h1>体験授業料 & <br>198円</h1>
+								<p>決済方法（入会金・年会費は0円！）<br>クレジットカード　キャシューカード　WeChat 　Alipay 　Paypal
 									<br>
 								<div style="display: flex;">
 									<img src="../img/d.png" alt="" style="width: 40px;height:40px;">
@@ -56,9 +217,8 @@
 
 								</div>
 								</p>
-
 								<div class="btn-box">
-									<a href="getmoeny.html" class="cs-btn-one btn-gradient-color">了解详情</a>
+									<a href="getmoeny.html" class="cs-btn-one btn-gradient-color">プラン案内</a>
 								</div>
 							</div>
 						</div>
@@ -71,10 +231,10 @@
 					<div class="row clearfix">
 						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
 							<div class="content-box">
-								<h1>学习专业知识& <br>开拓你的视野</h1>
-								<p>师资力量雄厚业界精英聚集 <br>多元化教学 快乐教学 成功教学</p>
+								<h1>専門知識を学ぶ<br>視野を広げる</h1>
+								<p>名門大学、各業界エリートの教師陣<br>多様化の教育、Happy教育、成功教育</p>
 								<div class="btn-box">
-									<a href="terTbale.html" class="cs-btn-one btn-gradient-color">老师一览</a>
+									<a href="terTbale.html" class="cs-btn-one btn-gradient-color">教師一覧表</a>
 								</div>
 							</div>
 						</div>
@@ -87,10 +247,10 @@
 					<div class="row clearfix">
 						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
 							<div class="content-box">
-								<h1>打造高品质& <br> 教学质量</h1>
-								<p>公司有专业的知识，高品质，高性价比的培训课程<br>1 V 1 多元化教学</p>
+								<h1>上質なオンライン授業<br></h1>
+								<p>当社は専門的な知識、高品質教育を提供しています<br>1 V 1多様な教育モデル</p>
 								<div class="btn-box">
-									<a href="about.html" class="cs-btn-one btn-gradient-color">关于我们</a>
+									<a href="about.html" class="cs-btn-one btn-gradient-color">会社案内</a>
 								</div>
 							</div>
 						</div>
@@ -105,7 +265,7 @@
 	<section class="feature-section pdt-110 pdb-130 bg-silver-light bg-no-repeat"
 		data-background="images/bg/abs-bg5.png">
 		<div>
-			<h2 style="text-align: center;padding:20px 0;">公司所有课程</h2>
+			<h2 style="text-align: center;padding:20px 0;">私たちがご用意しているクラスは</h2>
 
 		</div>
 		<div class="container">
@@ -117,10 +277,14 @@
 						</div>
 						<div class="feature-content">
 							<div class="title">
-								<h3>中文</h3>
+								<h3>中国語</h3>
 							</div>
 							<div class="para">
-								<p>汉语，是指中华人民共和国范围内各个民族所使用的语言。 汉族有自己的语言和文字。<br><br></p>
+								<p>中国語とは、中華人民共和国の範囲内のすべての民族グループが使用する言語を指します。漢民族には独自の言語と文字があります。<br><br></p>
+								<br>
+								<br>
+								<br>
+								<br>
 							</div>
 							<div class="link">
 								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
@@ -135,10 +299,14 @@
 						</div>
 						<div class="feature-content">
 							<div class="title">
-								<h3>日文</h3>
+								<h3>日本語</h3>
 							</div>
 							<div class="para">
-								<p>日语（Japanese）又称日本语（にほんご），母语人数有1亿2500万人，使用日语的人数占世界人口的1.6%。 </p>
+								<p>日本語とは、日本列島において１億2000万の住民によって話されている言語。日本の他にも韓国や台湾などで一部通用することがあります。オーストラリアなどでは外国語教育として取り入れられています。
+								</p>
+								<br>
+								<br>
+
 							</div>
 							<div class="link">
 								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
@@ -153,10 +321,13 @@
 						</div>
 						<div class="feature-content">
 							<div class="title">
-								<h3>英文</h3>
+								<h3>英語</h3>
 							</div>
 							<div class="para">
-								<p>英语是一种西日耳曼语，在中世纪早期的英国最早被使用，并因其广阔的殖民地而成为世界使用面积最广的语言。</p>
+								<p>英語とは、今日世界で最も多数の人々によって話される言語の一つ。地域による変異が少なく，高度の統一性をもつ相互理解可能な言語としては，英語が最大であり，地域的にも最も広く行われる言語である。
+								</p>
+								<br>
+								<br>
 							</div>
 							<div class="link">
 								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
@@ -171,10 +342,12 @@
 						</div>
 						<div class="feature-content">
 							<div class="title">
-								<h3>韩文</h3>
+								<h3>韓国語</h3>
 							</div>
 							<div class="para">
-								<p>韩语（又称韩国语）是朝鲜半岛的原生语言,全球约8000万人使用。<br><br></p>
+								<p>ハングルとは、15世紀半ば、朝鮮王朝第４代王の世宗大王(セジョンテワン)によって作られた文字のこと。韓国語(朝鮮語)はすべてこのハングルで表現でき、ハングルさえ知っていれば、意味は分からなくても読むことはできるという、非常に便利な文字なのです
+								</p>
+
 							</div>
 							<div class="link">
 								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
@@ -196,9 +369,9 @@
 					</div>
 				</div>
 				<div class="col-md-12 col-xl-6">
-					<h2 class="title-under-line mrb-70">教师团队 <span class="f-weight-400"></span></h2>
-					<h5 class="mrb-30 text-primary-color">值得信赖的专业教师团队</h5>
-					<p class="mrb-40">XUEonline 官方平台上展示的老师,全都都是通过官方审核,并具有相应的教学资质或者是教学经验丰富的名校老师。</p>
+					<h2 class="title-under-line mrb-70">教師陣 <span class="f-weight-400"></span></h2>
+					<h5 class="mrb-30 text-primary-color">高品質な専門の教師陣</h5>
+					<p class="mrb-40">Xueonlineのサイトに表示されるのすべての教師は、北京大学などを卒業した名門教師や豊富な教育経験を持つ各業界のエリートの教師です。</p>
 					<div class="signature mrb-30">
 						<!-- <img src="images/about/signature.png" alt=""> -->
 						<!-- <h5>------ 姜美月</h5> -->
@@ -222,7 +395,7 @@
 							<span class="webexflaticon flaticon-like-3"></span>
 						</div>
 						<h2 class="counter">164</h2>
-						<h5 class="title">昨日上课数量</h5>
+						<h5 class="title">昨日実施した授業数</h5>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6 col-xl-3">
@@ -231,7 +404,7 @@
 							<span class="webexflaticon flaticon-trophy-1"></span>
 						</div>
 						<h2 class="counter">455</h2>
-						<h5 class="title">本周可预约课时</h5>
+						<h5 class="title">今週予約可能授業数</h5>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6 col-xl-3">
@@ -257,12 +430,12 @@
 							<div class="section-left-sub-title mb-20">
 								<h5 class="sub-title text-primary-color">XUEonline</h5>
 							</div>
-							<h2 class="title">在线学习的优点</h2>
+							<h2 class="title">XUEonlineのメリット</h2>
 						</div>
 					</div>
 					<div class="offset-lg-1 col-lg-6">
 						<div class="section-title-right-part">
-							<p>世界各民族的文化价值观有很多相似之处。但是，不同的社会制度、不同的经济条件、不同的历史发展阶段将产生不同的文化现象。不论是相同的价值观还是不同的价值观，其文化特色自然会在语言中留下烙印。语言和文化是紧密相连的。了解语言背后深层而丰富的文化，可以帮助学生提高对语言文化价值观的认识、尊重异域文化的差异。
+							<p>グローバル化が叫ばれる昨今、現在のビジネスシーンにおいて、中国語や英語や日本語、韓国語をはじめ、“外国語”を活用してコミュニケーションを図ることは決して珍しい話ではありません。まさにそうした状況で求められるのが「コミュニケーションの多言語化」です。国際化の進展に伴って,諸外国との交流が広範な分野にわたって日常化し,様々な場面での異文化接触が多くの国民にとっても次第に一般的なものとなりつつある。
 							</p>
 						</div>
 					</div>
@@ -280,11 +453,11 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>个人知识提升</h3>
+										<h3>個人知識の向上</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>知识是人类对物质世界以及精神世界探索的结果总和。</p>
+									<p>知識は物質的な世界および精神的な世界の探査の結果の合計です。</p>
 								</div>
 							</div>
 						</div>
@@ -297,11 +470,13 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>放假时</h3>
+										<h3>休　日</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>放假时间不长只想学习一段时间？随时预约帮你解决</p>
+									<p>勉強したい場合は、いつでも予約可能です。</p>
+									<br>
+
 								</div>
 							</div>
 						</div>
@@ -314,11 +489,11 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>在家时</h3>
+										<h3>在宅</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>不方便出门<br>线上教学帮你解决</p>
+									<p>出かける必要なし<br>XUEonlineで中、日、英，韓の言語スタディ可能です</p>
 								</div>
 							</div>
 						</div>
@@ -331,11 +506,12 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>时间问题 弹性时间</h3>
+										<h3>フレックス時間制</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>弹性时间预约,随时随地都可预约老师</p>
+									<p>時間、場所を問わず先生を予約することはできる。</p>
+									<br>
 								</div>
 							</div>
 						</div>
@@ -348,11 +524,11 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>进步</h3>
+										<h3>ステップ　アップ</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>不断的学习新的知识,新的理解,才能使人进步。</p>
+									<p>新たな知識の学習を絶えず、進歩させます。</p>
 								</div>
 							</div>
 						</div>
@@ -365,11 +541,11 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>视野</h3>
+										<h3>視　野</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>你对语言了解的多,你会了解一个国家,一种文化</p>
+									<p>語学を身につけば、外国文化への理解を深めます。</p>
 								</div>
 							</div>
 						</div>
@@ -382,11 +558,12 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>收入上的提升</h3>
+										<h3>所得の増加</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>对你个人履历上的资料又可以多填写一门语言</p>
+									<p>経験を豊かになります。</p>
+									<br>
 								</div>
 							</div>
 						</div>
@@ -399,11 +576,11 @@
 							<div class="service-content">
 								<div class="title">
 									<a href="#">
-										<h3>金牌教学</h3>
+										<h3>高品質の教育</h3>
 									</a>
 								</div>
 								<div class="para">
-									<p>WeChat、Skype线上一对一真人辅导
+									<p>WeChat、Skypeなどで1 V　1　オンライン授業
 										<br>
 
 									</p>
@@ -424,8 +601,8 @@
 					<div class="col"></div>
 					<div class="col-lg-8 col-xl-6">
 						<div class="section-title-block">
-							<h5 class="text-primary-color anim-box-objects line-both-side mrb-15">认识我们的教师</h5>
-							<h2>优秀老师</h2>
+							<h5 class="text-primary-color anim-box-objects line-both-side mrb-15">先生のご紹介</h5>
+							<h2>人気教師 </h2>
 						</div>
 					</div>
 					<div class="col"></div>
@@ -517,13 +694,13 @@
 
 				<div class="row align-items-center pdt-80">
 					<div class="col-md-12 col-xl-6">
-						<h5 class="mrb-15 text-primary-color sub-title-side-line">教育辅导</h5>
-						<h2 class="mrb-30">帮助你快速成长<br><span class="f-weight-400">线上1v1</span>教学</h2>
-						<p class="mrb-30">采取多元化方式以获得直观的效果。使得你轻松进入学习状态，而不是枯燥无聊的学习。</p>
+						<h5 class="mrb-15 text-primary-color sub-title-side-line">個別指導</h5>
+						<h2 class="mrb-30">早く上達になれます<br><span class="f-weight-400">1v1</span>教育モデル</h2>
+						<p class="mrb-30">多様化の教育モデルで、役に立ちます。初心者でも、気楽に学べる。</p>
 						<div class="skills mrb-lg-60">
 							<div class="skill-item">
 								<div class="skill-header">
-									<h6 class="skill-title">英语</h6>
+									<h6 class="skill-title">英語</h6>
 									<div class="skill-percentage">
 										<div class="count-box"><span class="count-text" data-speed="2100"
 												data-stop="95">0</span>%</div>
@@ -537,7 +714,7 @@
 							</div>
 							<div class="skill-item">
 								<div class="skill-header">
-									<h6 class="skill-title">汉语</h6>
+									<h6 class="skill-title">中国語</h6>
 									<div class="skill-percentage">
 										<div class="count-box"><span class="count-text" data-speed="2000"
 												data-stop="96">0</span>%</div>
@@ -551,7 +728,7 @@
 							</div>
 							<div class="skill-item">
 								<div class="skill-header">
-									<h6 class="skill-title">日语</h6>
+									<h6 class="skill-title">日本語</h6>
 									<div class="skill-percentage">
 										<div class="count-box"><span class="count-text" data-speed="1900"
 												data-stop="90">0</span>%</div>
@@ -565,7 +742,7 @@
 							</div>
 							<div class="skill-item">
 								<div class="skill-header">
-									<h6 class="skill-title">韩语</h6>
+									<h6 class="skill-title">韓国語</h6>
 									<div class="skill-percentage">
 										<div class="count-box"><span class="count-text" data-speed="1800"
 												data-stop="88">0</span>%</div>
@@ -601,8 +778,8 @@
 					<div class="col-lg-8">
 						<div class="title-box-center">
 							<h5 class="shadow-text"></h5>
-							<h5 class="sub-title-center text-primary-color line-top-center mrb-30">感言</h5>
-							<h2 class="title">学员和客户对我们有什么看法</h2>
+							<h5 class="sub-title-center text-primary-color line-top-center mrb-30">コメント</h5>
+							<h2 class="title">生徒さんの声を聴きたいです</h2>
 						</div>
 					</div>
 					<div class="col"></div>
@@ -702,7 +879,84 @@
 	</section>
 	<!-- Testimonials Section End -->
 	<!-- Footer Area Start -->
-	{{include './assemblyView/footer.art'}}
+	<footer class="footer">
+		<div class="footer-main-area" data-background="images/footer-bg.png">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<!-- 可以放logo -->
+							<!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+							<address class="mrb-25">
+								<p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
+								<div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+											class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+							</address>
+							<ul class="social-list">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">会社案内</h5>
+							<ul class="footer-widget-list">
+								<li><a href="./index.html">HOME</a></li>
+								<li><a href="./about.html">会社概要</a></li>
+								<li><a href="./terTbale.html">教師のリソース</a></li>
+								<li><a href="./stunews.html">お問い合わせ</a></li>
+								<li><a href="./titMoeny.html" target="_blank">支払い条件</a></li>
+								<li><a href="./logoin.html">先生になる</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">サビース</h5>
+							<ul class="footer-widget-list">
+								<li><a href="terTbale.html">中国語　オンライン</a></li>
+								<li><a href="terTbale.html">日本語　オンライン</a></li>
+								<li><a href="terTbale.html">英　語　オンライン</a></li>
+								<li><a href="terTbale.html">韓国語　オンライン</a></li>
+								<li><a href="terTbale.html">お支払い</a></li>
+								<li><a href="stunews.html">よくある質問</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">QRコードを読み取り、サポート管理員を追加します。</h5>
+							<p class="text-light-gray">ご質問やご提案がある場合は、Skypeで当社のサポート管理員までにお問い合わせください。</p>
+							<img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+							<br>
+							<a href="http://skype.gmw.cn/" target="_blank"
+								class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+									class="webexflaticon flaticon-send"></i>下载 Skype</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="text-center">
+							<span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com
+									辽ICP备20008656号</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 	<!-- Footer Area End -->
 	<!-- BACK TO TOP SECTION -->
 	<div class="back-to-top bg-gradient-color">
@@ -712,8 +966,7 @@
 	<script src="./js/jquery.v1.12.4.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/jquery-core-plugins.js"></script>
-	<script src="./js/maincopy.js"></script>
-	<script src="./js/kefu.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>购买积分</title>
+	<script src="./js/vue.2.6.11.js"></script>
+	<script src="./js/jq.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/style2.css">
+	<link rel="stylesheet" href="./css/responsive.css">
+	<!-- <link rel="stylesheet" href="./css/xuan.css"> -->
+	<!-- xuancss 影响 -->
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/getMoeny.css">
+	<link rel="stylesheet/less" type="text/css" href="./ceshi.less" />
+	<meta name="keywords" content="中国语Xueonline" />
+	<!--网页关键字-->
+	<meta name="description" content="一个在线1v1教育平台" />
+	<!--网页描述-->
+	<meta name="author" content="XUE" />
+	<!--网页作者-->
+	<script src="./layer/layer.js"></script>
+</head>
+
+<body>
+	<!-- Preloader Start -->
+	<div class="preloader"></div>
+	<!-- Preloader End -->
+	<!-- header Start -->
+	<header class="header-style-two">
+		<div class="header-wrapper">
+			<div class="header-top-area bg-gradient-color d-none d-lg-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 header-top-left-part">
+							<span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+							<span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+						</div>
+						<div class="col-lg-6 header-top-right-part text-right">
+							<ul class="social-links">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+							<div class="language">
+								<a class="language-btn" href="#"><i
+										class="webexflaticon flaticon-internet"></i>Japanese</a>
+								<ul class="language-dropdown">
+									<li> <a href="#">Chinese</a></li>
+									<!-- <li><a href="#">English</a></li> -->
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-navigation-area two-layers-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+								<!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+							</a>
+							<div class="mobile-menu-right"></div>
+							<div class="header-searchbox-style-two d-none d-xl-block">
+								<div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+									<span class="bar1"></span>
+									<span class="bar2"></span>
+									<span class="bar3"></span>
+								</div>
+								<!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+								<div class="toggle-searchbox">
+									<form action="#" id="searchform-all" method="get">
+										<div>
+											<input type="text" id="s" class="form-control" placeholder="Search...">
+											<div class="input-box">
+												<input type="submit" value="" id="searchsubmit"><i
+													class="fas fa-search"></i>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="side-panel-content">
+								<div class="close-icon">
+									<button><i class="webex-icon-cross"></i></button>
+								</div>
+								<div class="side-panel-logo mrb-30">
+									XUEonline
+								</div>
+								<div class="side-info mrb-30">
+									<div class="side-panel-element mrb-25">
+										<h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+										<ul class="list-items">
+											<li><span class="fa fa-map-marker-alt mrr-10 text-primary-color">
+													遼寧省大連市西岗区更新街</span></li>
+											<li><span
+													class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com
+											</li>
+											<li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00)
+												2500-123-4567</li>
+										</ul>
+									</div>
+									<div class="side-panel-element mrb-30">
+										<h4 class="mrb-15">公司状态</h4>
+										<ul class="pintarest-list">
+											<li><a href="#"><img class="img-full" src="images/side-panel/1.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/2.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/3.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/4.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/5.jpg"
+														alt=""></a></li>
+											<li><a href="#"><img class="img-full" src="images/side-panel/6.jpg"
+														alt=""></a></li>
+										</ul>
+									</div>
+								</div>
+								<h4 class="mrb-15">可靠联系方式</h4>
+								<ul class="social-list">
+									<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+							<div class="main-menu f-right">
+								<nav id="mobile-menu-right">
+									<ul>
+										<li>
+											<!-- class="has-sub" -->
+											<a href="./index.html">HOME</a>
+											<!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</li>
+										<li><a href="./getmoeny.html">Point購入</a></li>
+										<li class="has-sub">
+											<a href="./terTbale.html">講師一覧</a>
+											<ul class="sub-menu">
+												<li><a href="./terTbale.html">先生の予約</a></li>
+												<li class="has-sub-child">
+													<a href="./logoin.html">ログイン</a>
+													<ul class="sub-menu right-view">
+														<li><a href="./logoin.html">登録</a></li>
+														<li><a href="./teacherdata.html">先生入力してください</a></li>
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li>
+											<a href="./stunews.html">よくある質問</a>
+
+										</li>
+										<li class=" right-view">
+											<a href="./logoin.html">ログイン/新規登録</a>
+
+										</li>
+										<li class="has-sub right-view">
+											<a href="#">MY PAGE</a>
+											<ul class="sub-menu">
+												<li><a href="personal.html">MY PAGE</a></li>
+												<li><a href="./logoin.html">ログイン</a></li>
+												<li><a id="qiut-s">サインアウト</a></li>
+
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header End -->
+	<!-- Home Slider Start -->
+	<div class="vipSecondBanner">
+		<div class="vipSecondBannerText">
+			<p>体験授業料198円</p>
+			<p>多様化の教育モデルをお楽しみください</p>
+		</div>
+	</div>
+	<div class="vip-content-title">
+		<strong>VIP</strong>套餐任意选择
+	</div>
+	<div class="vip-content-moenycar">
+		<div data-IDmoney="1">
+			<div class="vip-top">
+				<span class="jifen">1000</span> Point
+
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">0</span>元</p>
+			</div>
+			<div class="vip-moeny">
+
+				<p><span class="moeny">70</span>元</p>
+			</div>
+		</div>
+		<!-- 1 -->
+		<div data-IDmoney="2">
+			<div class="vip-top">
+				<span class="jifen">2000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">0</span>元</p>
+			</div>
+			<div class="vip-moeny">
+
+				<p><span class="moeny">140</span>元</p>
+			</div>
+		</div>
+		<!-- 2 -->
+		<div class="acitve" id="getMoeny-val" data-IDmoney="3">
+			<div class="vip-top">
+				<span class="jifen">3000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">5</span>元</p>
+			</div>
+			<div class="vip-moeny">
+
+				<p><span class="moeny">205</span>元</p>
+			</div>
+		</div>
+		<!-- 1 -->
+
+		<div data-IDmoney="4">
+			<div class="vip-top">
+				<span class="jifen">5000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">11</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">339</span>元</p>
+			</div>
+		</div>
+		<!-- 2 -->
+		<div data-IDmoney="5">
+			<div class="vip-top">
+				<span class="jifen">8000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">32</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">528</span>元</p>
+			</div>
+		</div>
+		<div data-IDmoney="6">
+			<div class="vip-top">
+				<span class="jifen">10000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">71</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">639</span>元</p>
+			</div>
+		</div>
+		<div data-IDmoney="7">
+			<div class="vip-top">
+				<span class="jifen">20000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">160</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">1240</span>元</p>
+			</div>
+		</div>
+		<!-- 第二排 -->
+
+		<div data-IDmoney="8">
+			<div class="vip-top">
+				<span class="jifen">30000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">265</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">1835</span>元</p>
+			</div>
+		</div>
+		<div data-IDmoney="9">
+			<div class="vip-top">
+				<span class="jifen">50000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">500</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">3000</span>元</p>
+			</div>
+		</div>
+		<div data-IDmoney="10">
+			<div class="vip-top">
+				<span class="jifen">100000</span> Point
+			</div>
+			<div class="vip-mo">
+				<p>立减<span class="jianmian">1400</span>元</p>
+			</div>
+			<div class="vip-moeny">
+				<p><span class="moeny">5600</span>元</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="vip-box">
+		<div style="margin: 30px 0;">
+			<h5>人民元のチャージ方法</h5>
+			<p>1. 1000ポイント= 70元、いつでもチャー ジできます。</p>
+			<p>2.人民元払いの場合、税金はかかりません。</p>
+			<p style="width:350px;">3.
+				3000ポイント以下の場合、有効期限がありますので、期限内にご利用ください。有効期限を過ぎてもチャージされない場合は、自動的にリセットされますが、事前にチャージした場合、残りの部分の期限も自動的に翌月に延長されます。
+			</p>
+			<p style="position: relative;"><span style="position: absolute;left: -20px;;color: red;">※</span>4.
+				5000ポイントを超える場合、割引が多く、有効期限がないため、強くお勧めします。</p>
+			<p>5. ご不明な点がございましたら、XUEonlineのカスタマーサービスにお問い合わせください。ありがとうございます。</p>
+		</div>
+		<div class="VIPNewPayTop">
+			<a class="VIPNewPayWx addss" id="checked">
+				<span style="margin-left:60px;font-size: 14px;">WeChat</span>
+				<i></i>
+			</a>
+			<a class="VIPNewPayZfb addss">
+				<span style="margin-left:55px;font-size:14px;">Alipay</span>
+				<i></i>
+			</a>
+		</div>
+		<div>
+			<span id="moenys-left"></span>元
+		</div>
+		<label for="aaa">
+			<input type="checkbox" name="userTit" checked id=""><a href="titMoeny.html" target="_black"> 用户支付协议</a>
+		</label>
+		<br>
+		<button id="moneyBtn"
+			style="width:250px;padding: 10px 0;border: none;background: #458fd2;color: #fff;font-size:14px;font-weight: 700;margin: 10px 0;">購入する</button>
+		<p>円で購入する場合は<a href="getmoeny.html">(Paypai)に対応しています</a></p>
+
+	</div>
+	<script src="./js/getMoeny.js"></script>
+	<!-- Testimonials Section End -->
+	<!-- Footer Area Start -->
+	<footer class="footer">
+		<div class="footer-main-area" data-background="images/footer-bg.png">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<!-- 可以放logo -->
+							<!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+							<address class="mrb-25">
+								<p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
+								<div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+											class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+							</address>
+							<ul class="social-list">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">会社案内</h5>
+							<ul class="footer-widget-list">
+								<li><a href="./index.html">HOME</a></li>
+								<li><a href="./about.html">会社概要</a></li>
+								<li><a href="./terTbale.html">教師のリソース</a></li>
+								<li><a href="./stunews.html">お問い合わせ</a></li>
+								<li><a href="./titMoeny.html" target="_blank">支払い条件</a></li>
+								<li><a href="./logoin.html">先生になる</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">サビース</h5>
+							<ul class="footer-widget-list">
+								<li><a href="terTbale.html">中国語　オンライン</a></li>
+								<li><a href="terTbale.html">日本語　オンライン</a></li>
+								<li><a href="terTbale.html">英　語　オンライン</a></li>
+								<li><a href="terTbale.html">韓国語　オンライン</a></li>
+								<li><a href="terTbale.html">お支払い</a></li>
+								<li><a href="stunews.html">よくある質問</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">QRコードを読み取り、サポート管理員を追加します。</h5>
+							<p class="text-light-gray">ご質問やご提案がある場合は、Skypeで当社のサポート管理員までにお問い合わせください。</p>
+							<img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+							<br>
+							<a href="http://skype.gmw.cn/" target="_blank"
+								class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+									class="webexflaticon flaticon-send"></i>下载 Skype</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="text-center">
+							<span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com
+									辽ICP备20008656号</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Area End -->
+	<!-- BACK TO TOP SECTION -->
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+	</div>
+	<!-- <script src="./js/count.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">  
+  productNumber=function (){
+    var arr = [];
+    $('#productNumber li').each(function(i, dom) {
+      var iDom = $(dom).find('i'),
+        decimals = 0,
+        sum = iDom.data('sum');
+      //初始化传参，参数为上面注释中的参数    
+      arr.push(new CountUp(iDom.attr('id'), 0, sum, decimals, 4, {
+        useEasing: true,//效果
+        separator: ''//数字分隔符
+      }));
+      arr[i].start();
+    });
+  }();
+  </script> -->
+	<script src="./layui/layui.js"></script>
+	<script src="./js/jquery.v1.12.4.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-core-plugins.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/consloe.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
+	<script src="./js/kefu.js"></script>
+</body>
+
+</html>

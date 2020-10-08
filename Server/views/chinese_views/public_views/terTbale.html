@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教师展示页面</title>
+  <script src="./js/vue.2.6.11.js"></script>
+  <script src="./js/jq.min.js"></script>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/add.css">
+  <meta name="keywords" content="中国语Xueonline" />
+  <!--网页关键字-->
+  <meta name="description" content="一个在线1v1教育平台" />
+  <!--网页描述-->
+  <meta name="author" content="XUE" />
+  <!--网页作者-->
+  <script src="./layer/layer.js"></script>
+</head>
+
+<body style="background:#F0F0F0;">
+
+
+  <!-- Preloader Start -->
+  <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  <header class="header-style-two">
+    <div class="header-wrapper">
+      <div class="header-top-area bg-gradient-color d-none d-lg-block">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 header-top-left-part">
+              <span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+              <span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+            </div>
+            <div class="col-lg-6 header-top-right-part text-right">
+              <ul class="social-links">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+              <div class="language">
+                <a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>中文</a>
+                <!-- <ul class="language-dropdown">
+                <li> <a href="#">Chinese</a></li>
+                <li><a href="#">English</a></li>
+                <li><a href="#">Bangla</a></li>
+                <li><a href="#">French</a></li>
+                <li><a href="#">Spanish</a></li>
+                <li><a href="#">Arabic</a></li>
+              </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-navigation-area two-layers-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+                <!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+              </a>
+              <div class="mobile-menu-right"></div>
+              <div class="header-searchbox-style-two d-none d-xl-block">
+                <div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+                  <span class="bar1"></span>
+                  <span class="bar2"></span>
+                  <span class="bar3"></span>
+                </div>
+                <!-- <div class="show-searchbox">
+                <a href="#"><i class="webex-icon-Search"></i></a>
+              </div> -->
+                <div class="toggle-searchbox">
+                  <form action="#" id="searchform-all" method="get">
+                    <div>
+                      <input type="text" id="s" class="form-control" placeholder="Search...">
+                      <div class="input-box">
+                        <input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="side-panel-content">
+                <div class="close-icon">
+                  <button><i class="webex-icon-cross"></i></button>
+                </div>
+                <div class="side-panel-logo mrb-30">
+                  XUEonline
+                </div>
+                <div class="side-info mrb-30">
+                  <div class="side-panel-element mrb-25">
+                    <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+                    <ul class="list-items">
+                      <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color"> 遼寧省大連市西岗区更新街</span></li>
+                      <li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com</li>
+                      <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00) 2500-123-4567</li>
+                    </ul>
+                  </div>
+                  <div class="side-panel-element mrb-30">
+                    <h4 class="mrb-15">公司状态</h4>
+                    <ul class="pintarest-list">
+                      <li><a href="#"><img class="img-full" src="images/side-panel/1.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/2.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/3.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/4.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/5.jpg" alt=""></a></li>
+                      <li><a href="#"><img class="img-full" src="images/side-panel/6.jpg" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <h4 class="mrb-15">可靠联系方式</h4>
+                <ul class="social-list">
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                </ul>
+              </div>
+              <div class="main-menu f-right">
+                <nav id="mobile-menu-right">
+                  <ul>
+                    <li>
+                      <!-- class="has-sub" -->
+                      <a href="./index.html">首页</a>
+                      <!-- <ul class="sub-menu">
+                      <li><a href="index.html">Layout 1</a></li>
+                      <li><a href="index2.html">Layout 2</a></li>
+                      <li class="has-sub-child">
+                        <a href="#">Header Styles</a>
+                        <ul class="sub-menu">
+                          <li><a href="page-header-style-one.html">Header Style One</a></li>
+                          <li><a href="page-header-style-two.html">Header Style Two</a></li>
+                        </ul>
+                      </li>
+                    </ul> -->
+                    </li>
+                    <li><a href="./getmoeny.html">购买积分</a></li>
+                    <li class="has-sub">
+                      <a href="./terTbale.html">老师一览</a>
+                      <ul class="sub-menu">
+                        <li><a href="./terTbale.html">预约老师</a></li>
+                        <li class="has-sub-child">
+                          <a href="./logoin.html">教师登入</a>
+                          <ul class="sub-menu right-view">
+                            <li><a href="./logoin.html">教师注册</a></li>
+                            <li><a href="./teacherdata.html">教师资料填写入入口</a></li>
+                          </ul>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="./stunews.html">问题解答</a>
+
+                    </li>
+                    <li class=" right-view">
+                      <a href="./logoin.html">登录/注册</a>
+
+                    </li>
+                    <li class="has-sub right-view">
+                      <a href="#">个人中心</a>
+                      <ul class="sub-menu">
+                        <li><a href="personal.html">个人资料</a></li>
+                        <li><a href="./logoin.html">登入</a></li>
+                        <li><a id="qiut-s">退出</a></li>
+
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header End -->
+  <!-- Home Slider Start -->
+  <style>
+    .tel {
+      width: 18rem;
+      display: flex;
+    }
+
+    .tel>span {
+      flex: 1;
+      text-align: center;
+      color: #458fd2;
+
+    }
+
+    .card img {
+      width: 130px;
+      margin: 0 auto;
+      border-radius: 50%;
+    }
+
+    .tel2 {
+      width: 100%;
+    }
+
+    .card-body p {
+      margin-bottom: 0;
+      padding: 5px 0;
+
+    }
+
+    .card-body {
+      padding: 0;
+
+    }
+
+    .card-body h6 {
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .app-top {
+      width: 70%;
+      margin: 0 auto;
+      padding: 20px;
+
+    }
+
+    .app-btn {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .app-btn button {
+      width: 130px;
+      margin: 5px 10px;
+    }
+
+    .app-search {
+      margin: 10px;
+      text-align: center;
+    }
+
+    .app-search input {
+      width: 300px;
+      padding: 4px;
+    }
+
+    #se {
+      color: #999;
+      border: 1px solid #D0D0D0;
+      height: 33px;
+      line-height: 33px;
+      margin-right: 5px;
+      padding: 0 10px;
+      width: 268px;
+
+    }
+
+    .btn {
+      background: none repeat scroll 0 0 #1E9FFF;
+
+      border: 0 none;
+      border-radius: 0;
+      color: #FFFFFF;
+      cursor: pointer;
+      height: 35px;
+      line-height: 33px;
+      padding: 0;
+      vertical-align: baseline !important;
+      width: 76px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      margin-bottom: 0;
+      font-weight: normal;
+      font-size: 14px;
+      display: inline-block;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    .btn.bgcolor {
+      background: linear-gradient(45deg, #0078ff 20%, #8138db 80%) !important;
+    }
+
+    .btn:hover {
+      font-weight: 600;
+      transform: scale(1.1);
+      transition: .5s;
+      color: #FFFFFF;
+    }
+  </style>
+  <div id="app">
+    <div class="app-top">
+      <h4 style="text-align: center;">输入检索</h4>
+      <div class="app-search">
+        <input type="text" id="se" placeholder="请输入老师姓名" style="border: 1px solid #ccc;" v-model="search"
+          @keyup.enter="searchEnterFun($event)"> <button class="btn btn-outline-primary"
+          @click='getsearch()'>检索老师</button>
+      </div>
+      <h4 style="text-align: center;">条件检索<br><span style="font-size:16px;">①レッスン当日のご予約は、 日本時間6:00-24:00の間は授業予約可能です
+          <br>
+          ②テキストは全部無料です。ご自由にお使いください。
+          <br>
+          ③通常3時間前まで可能でございます。当天预约课程的话，请提前三个小时预约，谢谢。</span></h4>
+      <div class="app-btn">
+        <div class='title-btn' v-for="(arry, i) in arry " :key="i">
+          <!-- //"==index?'page-item  active':'page-item'" -->
+          <button type="button" :class="type==i+1?' btn bgcolor':'btn'" @click="goType(i+1)">{{arry}}</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 60px;">
+
+    </div>
+    <div class="container" id="ifwarp" style="transition: 0.3s ease-in-out;">
+      <div class="row">
+        <div class="  col-xs-6 col-sm-4 col-xl-3 col-6 " v-for="(list, index) in list" :key="index"
+          style="position: relative;;margin:10px 0px;padding:0 !important;">
+          <div class="team-members" style="margin: 0 5px;">
+            <div class="single-member effect-1">
+              <div class="member-image">
+                <img :src="getimgurl(ttps,list.ImgUrl)" style="width: 145px;height: 150px;">
+                <!-- <img  style="width: 145px;height: 150px;" alt="Member"> -->
+              </div>
+              <div class="member-info">
+                <h3>{{list.Name}}</h3>
+                <h5>{{list.School}}</h5>
+                <p style="display: flex;justify-content: space-around;flex-wrap: wrap;height: 70px;">
+                  <span>国籍:{{list.Home}}</span><span>教学:{{list.Lesson}}</span></p>
+                <div class="tel tel2">
+                  <span><a :href="ht+list.ID">特价课时费:{{list.moeny1}}</a></span>
+                </div>
+                <div class="tel tel2">
+                  <span><a :href="ht+list.ID">正常课时费:{{list.moeny2}}</a></span>
+                </div>
+                <button style="width:90%;display: block;padding:7px 0;margin: 5px auto;background: #1E9FFF;"><a
+                    :href="ht+list.ID" style="color: #fff;">发信息联系</a></button>
+                <button style="width:90%;display: block;padding:7px 0;margin: 5px auto;background: #1E9FFF;"><a
+                    :href="ht+list.ID" style="color: #fff;">查看详情</a></button>
+                <div>
+                  <p style="text-align: center;">今天可以预约课时？</p>
+                  <p style="text-align: center;">本周可以预约课时？</p>
+                </div>
+                <div class="social-touch">
+                  <a href="#" style="color: #fff;"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" style="color: #fff;"><i class="fab fa-twitter"></i></a>
+                  <a href="#" style="color: #fff;"><i class="fab fa-instagram"></i></a>
+                  <a href="#" style="color: #fff;"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <nav aria-label="..." style="width: 100%;">
+          <ul class="pagination" style="display: flex;flex-wrap: wrap;">
+            <li class="page-item">
+              <a class="page-link" @click="prePage()">上一页</a>
+            </li>
+            <li :class="pageNO==index?'page-item  active':'page-item'" v-for="index in Totalpage "
+              @click="curPage(index)"><a class="page-link">{{index}}</a></li>
+
+            <li class="page-item">
+              <a class="page-link" @click="nextPage()">下一页</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- <div class="flexs"> 
+      <div class="Ter-Box" v-for="(list, index) in list" :key="index">
+        <div class="Ter-Content">
+            <div class="card" style="width:18rem;background:#e9f9fb;">
+              <div class="tel"><span @click="getName(list.ID)"><a >WeChat</a></span><span @click="getName(list.ID)"><a >Skype</a></span></div>
+              <div class="tel"><span><a href="123">{{list.Name}}</a></span><span><a href="">{{list.School}}</a></span></div>
+                <img :src="getimgurl(ttps,list.ImgUrl)" class="card-img-top" alt="..." style="height:200px;width: 200px;">
+                <div class="card-body">
+                  <h6 class="btns"><a :href="ht+list.ID">老师视频介绍</a></h6>
+                  <div class="tel tel2">
+                    <span><a href="#">{{list.Home}}</a></span>
+                    <span><a href="#">{{list.Lesson}}</a></span>
+                  </div>
+                  <div class="tel tel2">
+                    <span><a :href="ht+list.ID">特价课时费:{{list.moeny1}}</a></span>
+                  </div>
+                  <div class="tel tel2">
+                    <span><a :href="ht+list.ID">正常课时费:{{list.moeny2}}</a></span>
+
+                  </div>
+                    <p  style="width: 200px;margin: 5px auto;padding:10px 0;background:#5CAC60;color: #fff;border-radius: 5px;text-align: center;"><a :href="ht+list.ID" style="color: #fff;">发信息联系</a></p>
+                    <p style="width: 200px;margin: 5px auto;padding:10px 0;background:#5CAC60;color: #fff;border-radius: 5px;text-align: center;"><a  :href="ht+list.ID" style="color: #fff;">电话联系</a></p>
+                  <p style="text-align: center;">今天可以预约课时？</p>
+                  <p style="text-align: center;">本周可以预约课时？</p>
+                </div>
+              </div>
+        </div>
+    </div> -->
+    </div>
+
+  </div>
+
+
+
+  <!-- Testimonials Section End -->
+  <!-- Footer Area Start -->
+  <footer class="footer">
+    <div class="footer-main-area" data-background="images/footer-bg.png">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <!-- 可以放logo -->
+              <!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+              <address class="mrb-25">
+                <p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+                <div class="mrb-10"><a href="#" class="text-light-gray"><i
+                      class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
+                <div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+                      class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+              </address>
+              <ul class="social-list">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">关于我们</h5>
+              <ul class="footer-widget-list">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./about.html">公司简介</a></li>
+                <li><a href="./terTbale.html">教师资源</a></li>
+                <li><a href="./stunews.html">寻求帮助</a></li>
+                <li><a href="./titMoeny.html" target="_blank">支付条款</a></li>
+                <li><a href="./logoin.html">成为老师</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-2 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">产品服务</h5>
+              <ul class="footer-widget-list">
+                <li><a href="terTbale.html">汉语在线培训</a></li>
+                <li><a href="terTbale.html">日语在线培训</a></li>
+                <li><a href="terTbale.html">英语在线培训</a></li>
+                <li><a href="terTbale.html">韩语在线培训</a></li>
+                <li><a href="terTbale.html">支付问题</a></li>
+                <li><a href="terTbale.html">初学者指南</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6">
+            <div class="widget footer-widget">
+              <h5 class="widget-title text-white mrb-30">扫码添加客服Skype</h5>
+              <p class="text-light-gray">如果你有一些问题或者建议你都可以通过微软官方的一款联系软件Skype扫码联系我们的官方客服</p>
+              <img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+              <br>
+              <a href="http://skype.gmw.cn/" target="_blank"
+                class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+                  class="webexflaticon flaticon-send"></i>下载 Skype</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="text-center">
+              <span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com 辽ICP备20008656号</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer Area End -->
+  <!-- BACK TO TOP SECTION -->
+  <div class="back-to-top bg-gradient-color">
+    <i class="fab fa-angle-up"></i>
+  </div>
+
+  <script src="./js/jquery.v1.12.4.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/jquery-core-plugins.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/table.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/kefu.js"></script>
+</body>
+
+</html>

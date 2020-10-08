@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
-const ord = require('../controller/order')
+const ord = require('../helpers/order')
 const toos = require('../Toos')
 const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))

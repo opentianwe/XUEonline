@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问题解答</title>
+  <script src="./js/vue.2.6.11.js"></script>
+  <script src="./js/jq.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/jquery.horizontalmenu.css">
+  <meta name="keywords" content="中国语Xueonline" />
+  <!--网页关键字-->
+  <meta name="description" content="一个在线1v1教育平台" />
+  <!--网页描述-->
+  <meta name="author" content="XUE" />
+  <!--网页作者-->
+
+</head>
+
+<body>
+  <!-- Preloader Start -->
+  <div class="preloader"></div>
+  <!-- Preloader End -->
+  <!-- header Start -->
+  {{include '../public_components/header.art'}}
+  <!-- header End -->
+  <!-- Home Slider Start -->
+  <style>
+    .ah-tab-overflow-menu {
+      background-image: url(./images/000.png) !important;
+    }
+  </style>
+  <div style="margin-top:98px">
+  </div>
+  <div class="ah-tab-wrapper" style="width: 70%;margin: 0 auto;">
+    <div class="ah-tab">
+      <a class="ah-tab-item" data-ah-tab-active="true">第一页</a>
+      <a class="ah-tab-item">第二页</a>
+      <a class="ah-tab-item">第三页</a>
+      <a class="ah-tab-item">第四页</a>
+      <a class="ah-tab-item">第五页</a>
+    </div>
+  </div>
+  <style>
+    .ah-tab-content {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    .ah-tab-content p {
+      border-bottom: 1px solid #000;
+    }
+  </style>
+  <div class="ah-tab-content-wrapper">
+    <div class="ah-tab-content" data-ah-tab-active="true">
+      <h4>オンラインスクールXUEとは、どのようなサービスですか?</h4>
+      <p>オンラインスクールX U Eでは無料通話ソフトのスカイプ(Skype )やウィチャット(微信)を使って、ご自宅で
+        中国語、日本語、英語、韓国語のオンラインレッスンを受けることができるサービスです。</p>
+      <h4>講師について</h4>
+      <p>
+        XUEでは世界中から厳しい試験に合格した優秀な講師が在籍しています。講師は大学在学中或いは学士以上の講師、様々な職業の講師がいます。各分野の専門家が在籍していますので、専門用語も学べます。授業料は講師の経験や条件よって異なります。
+      </p>
+      <h4>レッスン開始までの方法</h4>
+      <p>レッスン開始までの流れ
+        ①スカイプ、ウィチャットのダウンロードをします。
+        ②ヘッドセットなどの準備をします。スマートフォンでも受講可能です。
+        ③無料会員登録
+        ④レッスンの予約
+        ⑤スカイプ、ウィチャットで先生と電話を繋いで体験レッスンを行います。</p>
+      <h4>初心者でも大丈夫ですか?</h4>
+      <p>はい。オンラインレッスンXUEでは多くの日本語検定2級以上、会話能力も一定以上の講師を採用しています。ご予約時は日本語ができる講師を選択してくださるとより安心して受講して頂けます。。</p>
+      <h4>体験レッスンは1回だけですか?</h4>
+      <p>いいえ。講師ごとに1回ずつ体験が可能となっております。
+        幣社のサービスでは、生徒様が初めて予約される講師なら最初は必ず体験レッスンが可能となっております</p>
+    </div>
+    <div class="ah-tab-content">
+      <h4>体験レッスンは何を準備したらいいですか?テキストは必要ですか?</h4>
+      <p>体験レッスン、通常レッスンどちらでも、テキストとして弊社でご用意させて頂いてます200冊以上ある電子図書から選んでいただけます。
+        体験レッスンの場では今後の学習プランのご提案もさせて頂いております。</p>
+      <h4>どの先生が自分に向いているかわかりません。</h4>
+      <p>語学学習は講師の教授テクニックも大切ですが、生徒様と講師との相性が今後の学習に影響してきます。お勧めするのは
+        ①年齢の近い講師②趣味が同じ講師など共通点をの多い講師を選んで頂きますと相性の良い講師に巡り合うことができると思います。</p>
+      <h4>1レッスンの長さ(時間)を教えてください。</h4>
+      <p>
+        1レッスンは25分です。もし50分のレッスンをご希望の場合には2コマ連続して予約して頂けます。</p>
+      <h4>海外からもレッスンを受けることができますか? </h4>
+      <p>はい。もちろん海外にいる場合でもレッスン可能です。実際に海外(アメリカ・シンガポール・タイ・マ
+        レーシア・上海・台湾・香港など)に住まれている生徒さんもいらっしやいますが、特に大きな問題なく
+        継続できております。</p>
+      <h4>海外からもレッスンを受けることができますか?</h4>
+      <p>はい。弊社は世界に向けて授業を提供しています。インターネット環境さえ整っていればどちらからでも受講して頂けます。</p>
+    </div>
+    <div class="ah-tab-content">
+      <h4>予約をキャンセルするとキャンセル料はかかりますか?</h4>
+      <p>
+        いいえ。三時間前以前にキャンセルをする場合はキャンセル料はかかりません。但しレッスン開始直前にキャンセルする場合や、NO-SHOWなど悪質なキャンセルが数回続く場合にはキャンセル料がかかります。3時間前までにキャンセルをお願いします。)
+      </p>
+      <h4>予約はどれぐらい先までできますか?</h4>
+      <p>
+        レッスンのご予約は本日より21日間以内で承っております。22日後以上先のご予約は受け付けかねます。(法人様向けのご予約では特定の条件下において一部受付をしている場合がございます。法人様契約をされているお客様はサポートまでお問い合わせください。)
+      </p>
+      <h4>時間になっても先生から連絡がありません。振替レッスンはありますか?</h4>
+      <p>
+        まれに停電や講師側のインターネットの不調などのトラブルによって、講師からご連絡できなくなったり、レッスンが中断したり場合があります。
+        このような場合には、速やかにサポートにご連絡をお願いします。サポートより「振替レッスンの提供」または「振替レッスン用のポイント付与」をさせていただきます。振替レッスン用のポイントは、通常のレッスンの延長や、他のどの講師とのレッスンにもお使いいただけます。振替レッスンの申請は、サポートまでご連絡いただくか、またはマイページからも申請が可能です。
+      </p>
+      <h4>レッスンの進捗や悩みを相談したいです。カウンセリングはできますか?</h4>
+      <p>体験レッスン以外にもカウンセラーをご用意しています。まずはサポートまでご遠慮なくご相談ください。</p>
+      <h4>講師の国の祝日にもレッスンを受講できますか？</h4>
+      <p>
+        年中無休で営業しております。例えば中国のお正月の爆竹の音など環境状況が悪い場合には、振替レッスンなどの準備をいたしますのでサポートまでお知らせください。
+      </p>
+
+    </div>
+    <div class="ah-tab-content">
+      <h4>違う言語のレッスンを受けてもよいのですか?</h4>
+      <p>はい。どのレッスンを受けていただいても結構です。色々な言語に挑戦して頂けます。</p>
+      <h4>銀行振込で購入することはできますか?</h4>
+      <p>はい。銀行振込も可能でございます。それ以外にもPAYPALやクレジットカードでの支払いにも対応しております。</p>
+      <h4>銀行振込で購入することはできますか?</h4>
+      <p>はい。銀行振込も可能でございます。銀行振込の場合は3か月分の受講料一括支払いとなります。振込先
+        などはこちらをご参照ください。</p>
+      <h4>通話ソフトのスカイプ(SKYPE )とWeChat (微信)について</h4>
+      <p>スカイプ(SKYPE )とは、インターネットを通じて無料で通話ができるソフトウェアです。Webカメラがあれば、インタ
+        ーネットテレビ電話サービスとしてもご利用いただけます。
+        こちらから無料でダウンロードして頂けます。</p>
+      <h4>通話ソフトのスカイプ(SKYPE )とWeChat (微信)について
+        スカイプ(SKYPE )とは何ですか?</h4>
+      <p>スカイプ(SKYPE )とは、インターネットを通じて無料で通話ができるソフトウェアです。一般的によく
+        使われている、無料で音声チャットができるYahoo !!やMSNなどのメッセンジャーと比べ、より高音質で動
+        作が軽いというのがスカイプ(SKYPE )の大きな特長です。また、Webカメラがあれば、高画質なインタ
+        ーネットテレビ電話サービスも無料でご利用いただけます。(先生が許可すればテレビ電話によるレッス
+        ンも可能です)
+        まだスカイプを使ったことがない方は、こちらから無料でダウンロードできます。</p>
+
+    </div>
+    <div class="ah-tab-content">
+      <h4>登録料、入会金は必要ですか?</h4>
+      <p>いいえ。生徒さんの登録料や入会金は一切掛かりません。</p>
+      <h4>WeChat (微信)とは何ですか?</h4>
+      <p>WeChatl は、いま中国で最もよく使われているコミュニケーションアプリのことです。WeChat (ウィチャ
+        ット)または、微信(wei xin )と読みます。基本的な機能は、LINEやSKYPE と同で、チャットができ
+        たり通話ができたり、写真などのシェアができるようになっています。
+        WeChatl は、XUEonlineでも使うことができます。(Skypel はすべての先生が対応していますが、
+        WeChatl :は一部の先生が対応しています。)先生のプロフィールにのアイコンが表示されている先
+        生がWeChatl に対応しています。Skype .よりも音声・動画は安定していると思いますが、WeChatl は主にス
+        マホで利用することになってしまうため、教材を参照したり、キーボードを使って入力するといった動作
+        が少し遅くなってしまう場合もあります。
+        使い方やインストールの方法については、WeChat の使用方法をご参照ください</p>
+    </div>
+  </div>
+  <!-- Testimonials Section End -->
+  <!-- Footer Area Start -->
+ {{include '../public_components/footer.art'}}
+  <!-- Footer Area End -->
+  <!-- BACK TO TOP SECTION -->
+  <div class="back-to-top bg-gradient-color">
+    <i class="fab fa-angle-up"></i>
+  </div>
+
+  <script src="./js/jquery.v1.12.4.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/jquery-core-plugins.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./js/jquery.horizontalmenu.js"></script>
+  <script>
+    $(function () {
+      $('.ah-tab-wrapper').horizontalmenu({
+        itemClick: function (item) {
+          $('.ah-tab-content-wrapper .ah-tab-content').removeAttr('data-ah-tab-active');
+          $('.ah-tab-content-wrapper .ah-tab-content:eq(' + $(item).index() + ')').attr('data-ah-tab-active', 'true');
+          return false; //if this finction return true then will be executed http request
+        }
+      });
+    });
+  </script>
+</body>
+<script src="./js/kefu.js"></script>
+
+</html>

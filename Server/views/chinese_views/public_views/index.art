@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Novaly">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Novaly Business Consulting HTML5 Template">
+	<meta name="keywords" content=" Business, Consulting, Marketing, Agency, Creative, multipage, template" />
+	<title>XUEonline</title>
+	<link href="images/favicon.png" rel="shortcut icon" type="image/png">
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="./css/style2.css">
+	<link rel="stylesheet" href="./css/responsive.css">
+	<meta name="keywords" content="中国语Xueonline" />
+	<!--网页关键字-->
+	<meta name="description" content="一个在线1v1教育平台" />
+	<!--网页描述-->
+	<meta name="author" content="XUE" />
+	<!--网页作者-->
+
+
+
+</head>
+
+<body>
+	<!-- Preloader Start -->
+	<div class="preloader"></div>
+	<!-- Preloader End -->
+	<!-- header Start -->
+	{{include {{include '../public_components/header.art'}}
+	<!-- header End -->
+	<!-- Home Slider Start -->
+	<section class="banner-section">
+		<div class="home-carousel owl-theme owl-carousel">
+			<div class="slide-item">
+				<div class="image-layer" data-background="images/bg/b2.jpg"></div>
+				<div class="auto-container">
+					<div class="row clearfix">
+						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
+							<div class="content-box">
+								<h1>体验课 & <br>198日元</h1>
+								<p>结算方式 <br>信用卡 银行卡 微信支付宝 PayPal
+									<br>
+								<div style="display: flex;">
+									<img src="../img/d.png" alt="" style="width: 40px;height:40px;">
+									<img src="../img/s.png" alt="" style="width: 40px;height:40px;">
+									<img src="../img/c.png" alt="" style="width: 40px;height:40px;">
+
+									<img src="../img/b.png" alt="" style="width: 40px;height:40px;">
+									<img src="../img/a.png" alt="" style="width: 40px;height:40px;">
+
+
+									<img src="../img/f.png" alt="" style="width: 40px;height:40px;">
+
+								</div>
+								</p>
+
+								<div class="btn-box">
+									<a href="getmoeny.html" class="cs-btn-one btn-gradient-color">了解详情</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slide-item">
+				<div class="image-layer" data-background="images/bg/b3.jpg"></div>
+				<div class="auto-container">
+					<div class="row clearfix">
+						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
+							<div class="content-box">
+								<h1>学习专业知识& <br>开拓你的视野</h1>
+								<p>师资力量雄厚业界精英聚集 <br>多元化教学 快乐教学 成功教学</p>
+								<div class="btn-box">
+									<a href="terTbale.html" class="cs-btn-one btn-gradient-color">老师一览</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slide-item">
+				<div class="image-layer" data-background="images/bg/3.jpg"></div>
+				<div class="auto-container">
+					<div class="row clearfix">
+						<div class="col-xl-8 col-lg-12 col-md-12 content-column">
+							<div class="content-box">
+								<h1>打造高品质& <br> 教学质量</h1>
+								<p>公司有专业的知识，高品质，高性价比的培训课程<br>1 V 1 多元化教学</p>
+								<div class="btn-box">
+									<a href="about.html" class="cs-btn-one btn-gradient-color">关于我们</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Home Slider End -->
+	<!-- Feature Section Start -->
+
+	<section class="feature-section pdt-110 pdb-130 bg-silver-light bg-no-repeat"
+		data-background="images/bg/abs-bg5.png">
+		<div>
+			<h2 style="text-align: center;padding:20px 0;">公司所有课程</h2>
+
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-xl-3">
+					<div class="feature-box mrb-lg-60">
+						<div class="feature-thumb">
+							<img class="img-full" src="images/bg/b07.jpg" alt="">
+						</div>
+						<div class="feature-content">
+							<div class="title">
+								<h3>中文</h3>
+							</div>
+							<div class="para">
+								<p>汉语，是指中华人民共和国范围内各个民族所使用的语言。 汉族有自己的语言和文字。<br><br></p>
+							</div>
+							<div class="link">
+								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xl-3">
+					<div class="feature-box mrb-lg-60">
+						<div class="feature-thumb">
+							<img class="img-full" src="images/bg/b04.jpg" alt="">
+						</div>
+						<div class="feature-content">
+							<div class="title">
+								<h3>日文</h3>
+							</div>
+							<div class="para">
+								<p>日语（Japanese）又称日本语（にほんご），母语人数有1亿2500万人，使用日语的人数占世界人口的1.6%。 </p>
+							</div>
+							<div class="link">
+								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xl-3">
+					<div class="feature-box mrb-lg-60">
+						<div class="feature-thumb">
+							<img class="img-full" src="images/bg/bg05.jpg" style="height:180px;" alt="">
+						</div>
+						<div class="feature-content">
+							<div class="title">
+								<h3>英文</h3>
+							</div>
+							<div class="para">
+								<p>英语是一种西日耳曼语，在中世纪早期的英国最早被使用，并因其广阔的殖民地而成为世界使用面积最广的语言。</p>
+							</div>
+							<div class="link">
+								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xl-3">
+					<div class="feature-box">
+						<div class="feature-thumb">
+							<img class="img-full" src="images/bg/b06.jpg" alt="">
+						</div>
+						<div class="feature-content">
+							<div class="title">
+								<h3>韩文</h3>
+							</div>
+							<div class="para">
+								<p>韩语（又称韩国语）是朝鲜半岛的原生语言,全球约8000万人使用。<br><br></p>
+							</div>
+							<div class="link">
+								<a href="terTbale.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Feature Section End -->
+	<!-- About Section Start -->
+	<section class="about-section anim-object pdt-110 pdb-50 pdb-lg-80">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-12 col-xl-6">
+					<div class="about-image-block mrb-lg-60">
+						<img class="img-full" src="images/about/2.png" alt="">
+					</div>
+				</div>
+				<div class="col-md-12 col-xl-6">
+					<h2 class="title-under-line mrb-70">教师团队 <span class="f-weight-400"></span></h2>
+					<h5 class="mrb-30 text-primary-color">值得信赖的专业教师团队</h5>
+					<p class="mrb-40">XUEonline 官方平台上展示的老师,全都都是通过官方审核,并具有相应的教学资质或者是教学经验丰富的名校老师。</p>
+					<div class="signature mrb-30">
+						<!-- <img src="images/about/signature.png" alt=""> -->
+						<!-- <h5>------ 姜美月</h5> -->
+					</div>
+					<a href="terTbale.html" class="cs-btn-one btn-gradient-color btn-lg">Read More</a>
+				</div>
+			</div>
+			<div class="row mrt-100 mrt-lg-90">
+				<div class="col-md-6 col-lg-6 col-xl-3">
+					<div class="funfact mrb-lg-30 mrb-60">
+						<div class="icon">
+							<span class="webexflaticon flaticon-man-2"></span>
+						</div>
+						<h2 class="counter">120</h2>
+						<h5 class="title">教师资源</h5>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-xl-3">
+					<div class="funfact mrb-lg-30 mrb-60">
+						<div class="icon">
+							<span class="webexflaticon flaticon-like-3"></span>
+						</div>
+						<h2 class="counter">164</h2>
+						<h5 class="title">昨日上课数量</h5>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-xl-3">
+					<div class="funfact mrb-lg-30 mrb-60">
+						<div class="icon">
+							<span class="webexflaticon flaticon-trophy-1"></span>
+						</div>
+						<h2 class="counter">455</h2>
+						<h5 class="title">本周可预约课时</h5>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-6 col-xl-3">
+					<div class="funfact mrb-lg-30 mrb-60">
+						<div class="icon">
+							<span class="webexflaticon flaticon-briefcase-1"></span>
+						</div>
+						<h2 class="counter">32</h2>
+						<h5 class="title">Experiences</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About Section End -->
+	<!-- Service Section Start -->
+	<section class="serivce-section bg-silver-light pdt-105 pdb-80" data-background="images/bg/abs-bg7.png">
+		<div class="section-title">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="section-title-left-part mrb-sm-30">
+							<div class="section-left-sub-title mb-20">
+								<h5 class="sub-title text-primary-color">XUEonline</h5>
+							</div>
+							<h2 class="title">在线学习的优点</h2>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-6">
+						<div class="section-title-right-part">
+							<p>世界各民族的文化价值观有很多相似之处。但是，不同的社会制度、不同的经济条件、不同的历史发展阶段将产生不同的文化现象。不论是相同的价值观还是不同的价值观，其文化特色自然会在语言中留下烙印。语言和文化是紧密相连的。了解语言背后深层而丰富的文化，可以帮助学生提高对语言文化价值观的认识、尊重异域文化的差异。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-plan"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>个人知识提升</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>知识是人类对物质世界以及精神世界探索的结果总和。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-meeting"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>放假时</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>放假时间不长只想学习一段时间？随时预约帮你解决</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-growth"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>在家时</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>不方便出门<br>线上教学帮你解决</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-benchmark"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>时间问题 弹性时间</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>弹性时间预约,随时随地都可预约老师</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-search-1"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>进步</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>不断的学习新的知识,新的理解,才能使人进步。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-wallet"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>视野</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>你对语言了解的多,你会了解一个国家,一种文化</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-profits"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>收入上的提升</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>对你个人履历上的资料又可以多填写一门语言</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-xl-3">
+						<div class="service-box">
+							<div class="service-icon">
+								<span class="webexflaticon flaticon-medal-1"></span>
+							</div>
+							<div class="service-content">
+								<div class="title">
+									<a href="#">
+										<h3>金牌教学</h3>
+									</a>
+								</div>
+								<div class="para">
+									<p>WeChat、Skype线上一对一真人辅导
+										<br>
+
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Service Section End -->
+	<!-- Team Section Titile Start -->
+	<section class="pdt-110 pdb-150 section-white-typo" data-background="images/bg/5.jpg" data-overlay-dark="8">
+		<div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+			<div class="container">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-lg-8 col-xl-6">
+						<div class="section-title-block">
+							<h5 class="text-primary-color anim-box-objects line-both-side mrb-15">认识我们的教师</h5>
+							<h2>优秀老师</h2>
+						</div>
+					</div>
+					<div class="col"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Team Section Titile End -->
+	<!-- Team Section Start -->
+	<section class="pdt-0 pdb-210 pdb-md-110 minus-mrt-130 bg-pos-center-bottom"
+		data-background="images/bg/abs-bg1.png">
+		<div class="section-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="team-block mrb-30">
+							<div class="team-upper-part">
+								<img class="img-full" src="images/team/team01.jpg" alt="">
+							</div>
+							<div class="team-bottom-part">
+								<h4 class="team-title mrb-5"><a href="page-single-team.html">胡晓寒</a></h4>
+								<h5>School:新潟大学</h5>
+								<h6 class="designation">优秀教师</h6>
+								<ul class="social-list vertical-style list-sm">
+									<li><a href="#"><i class="fab   fa fa-home fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa fa-book fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="team-block mrb-30">
+							<div class="team-upper-part">
+								<img class="img-full" src="images/team/team02.jpg" alt="">
+							</div>
+							<div class="team-bottom-part">
+								<h4 class="team-title mrb-5"><a href="page-single-team.html">王然</a></h4>
+								<h5>School:北京大学</h5>
+								<h6 class="designation">优秀教师</h6>
+
+								<ul class="social-list vertical-style list-sm">
+									<li><a href="#"><i class="fab   fa fa-home fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa fa-book fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="team-block mrb-30">
+							<div class="team-upper-part">
+								<img class="img-full" src="images/team/team03.jpg" alt="">
+							</div>
+							<div class="team-bottom-part">
+								<h4 class="team-title mrb-5"><a href="page-single-team.html">蔡景伦</a></h4>
+								<h5>School:台湾省立嘉义大学</h5>
+								<h6 class="designation">优秀教师</h6>
+								<ul class="social-list vertical-style list-sm">
+									<li><a href="#"><i class="fab   fa fa-home fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa fa-book fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-xl-3">
+						<div class="team-block mrb-30">
+							<div class="team-upper-part">
+								<img class="img-full" src="images/team/team04.jpg" alt="">
+							</div>
+							<div class="team-bottom-part">
+								<h4 class="team-title mrb-5"><a href="page-single-team.html">许若瑾</a></h4>
+								<h5>School:英国伯明翰城市大学</h5>
+								<h6 class="designation">优秀教师</h6>
+								<ul class="social-list vertical-style list-sm">
+									<li><a href="#"><i class="fab   fa fa-home fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa fa-book fa-fw"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row align-items-center pdt-80">
+					<div class="col-md-12 col-xl-6">
+						<h5 class="mrb-15 text-primary-color sub-title-side-line">教育辅导</h5>
+						<h2 class="mrb-30">帮助你快速成长<br><span class="f-weight-400">线上1v1</span>教学</h2>
+						<p class="mrb-30">采取多元化方式以获得直观的效果。使得你轻松进入学习状态，而不是枯燥无聊的学习。</p>
+						<div class="skills mrb-lg-60">
+							<div class="skill-item">
+								<div class="skill-header">
+									<h6 class="skill-title">英语</h6>
+									<div class="skill-percentage">
+										<div class="count-box"><span class="count-text" data-speed="2100"
+												data-stop="95">0</span>%</div>
+									</div>
+								</div>
+								<div class="skill-bar">
+									<div class="bar-inner">
+										<div class="bar progress-line" data-width="90"></div>
+									</div>
+								</div>
+							</div>
+							<div class="skill-item">
+								<div class="skill-header">
+									<h6 class="skill-title">汉语</h6>
+									<div class="skill-percentage">
+										<div class="count-box"><span class="count-text" data-speed="2000"
+												data-stop="96">0</span>%</div>
+									</div>
+								</div>
+								<div class="skill-bar">
+									<div class="bar-inner">
+										<div class="bar progress-line" data-width="96"></div>
+									</div>
+								</div>
+							</div>
+							<div class="skill-item">
+								<div class="skill-header">
+									<h6 class="skill-title">日语</h6>
+									<div class="skill-percentage">
+										<div class="count-box"><span class="count-text" data-speed="1900"
+												data-stop="90">0</span>%</div>
+									</div>
+								</div>
+								<div class="skill-bar">
+									<div class="bar-inner">
+										<div class="bar progress-line" data-width="90"></div>
+									</div>
+								</div>
+							</div>
+							<div class="skill-item">
+								<div class="skill-header">
+									<h6 class="skill-title">韩语</h6>
+									<div class="skill-percentage">
+										<div class="count-box"><span class="count-text" data-speed="1800"
+												data-stop="88">0</span>%</div>
+									</div>
+								</div>
+								<div class="skill-bar">
+									<div class="bar-inner">
+										<div class="bar progress-line" data-width="88"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 col-xl-6">
+						<div class="about-image-block">
+							<img class="img-full" src="images/about/sss.jpg" alt="">
+							<div class="call-us-now">
+								<p class="call-us-title mrb-5 text-white">Skype</p>
+								<h3 class="number mrt-0 text-white">+XUEサポート管理員</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="request-a-call-back pdt-80 pdb-110 pdb-lg-70" data-background="images/bg/abs-bg7.png">
+		<div class="section-title text-center wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+			<div class="container">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-lg-8">
+						<div class="title-box-center">
+							<h5 class="shadow-text"></h5>
+							<h5 class="sub-title-center text-primary-color line-top-center mrb-30">感言</h5>
+							<h2 class="title">学员和客户对我们有什么看法</h2>
+						</div>
+					</div>
+					<div class="col"></div>
+				</div>
+			</div>
+		</div>
+		<div class="section-content">
+			<div class="container">
+				<div class="row">
+					<div class="owl-carousel testimonial-items-2col mrb-lg-40">
+						<div class="testimonial-item">
+							<span class="quote-icon fas fa-quote-right"></span>
+							<div class="testimonial-thumb">
+								<img src="images/testimonials/000.jpg" alt="" style="width: 80px;height: 80px;">
+							</div>
+							<h4 class="client-name">日文学员</h4>
+							<h6 class="client-designation">Skype 1v1 教学</h6>
+							<div class="testimonial-content">
+								<p class="comments">
+									这是我与尤卡先生的第一堂课，但是这很有趣，我很高兴听到有关横手的消息。我是一位非常接近我的老师，时间已经过去了_（^^;）ゞ请多多告诉我。是的，即使我错了，我也会尽力说中文！Shimoji
+								</p>
+								<ul class="star-rating">
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+								</ul>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<span class="quote-icon fas fa-quote-right"></span>
+							<div class="testimonial-thumb">
+								<img src="images/testimonials/001.jpg" style="width: 80px;height: 80px;" alt="">
+							</div>
+							<h4 class="client-name">中文学员</h4>
+							<h6 class="client-designation">Skype 1V1 教学</h6>
+							<div class="testimonial-content">
+								<p class="comments">
+									感谢您今天的课程。（^○^）365天〜太好了!!中国故事的插曲很有趣！Japan日本的价格比中国高。麻烦了！谢谢你的关心。为了安全起见，它在家里关闭。我期待着下一堂课😆🎵🎵Shimojiji（*
+									^ω^）ﾉ</p>
+								<ul class="star-rating">
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-half text-primary-color"></i></li>
+								</ul>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<span class="quote-icon fas fa-quote-right"></span>
+							<div class="testimonial-thumb">
+								<img src="images/testimonials/testimonial-img1.jpg" style="width: 80px;height: 80px;"
+									alt="">
+							</div>
+							<h4 class="client-name">中文学员</h4>
+							<h6 class="client-designation">Skype 1V1教学</h6>
+							<div class="testimonial-content">
+								<p class="comments">
+									感谢您今天的课程。（^○^）365天〜太好了!!中国故事的插曲很有趣！Japan日本的价格比中国高。麻烦了！谢谢你的关心。为了安全起见，它在家里关闭。我期待着下一堂课😆🎵🎵Shimojiji（*
+									^ω^）ﾉ</p>
+								<ul class="star-rating">
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-empty text-primary-color"></i></li>
+								</ul>
+							</div>
+						</div>
+						<div class="testimonial-item">
+							<span class="quote-icon fas fa-quote-right"></span>
+							<div class="testimonial-thumb">
+								<img src="images/testimonials/testimonial-img2.jpg" style="width: 80px;height: 80px;"
+									alt="">
+							</div>
+							<h4 class="client-name">英语学员</h4>
+							<h6 class="client-designation">Skype 1V1教学</h6>
+							<div class="testimonial-content">
+								<p class="comments">
+									感谢您今天的课程。（^○^）365天〜太好了!!中国故事的插曲很有趣！Japan日本的价格比中国高。麻烦了！谢谢你的关心。为了安全起见，它在家里关闭。我期待着下一堂课😆🎵🎵Shimojiji（*
+									^ω^）ﾉ</p>
+								<ul class="star-rating">
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-full text-primary-color"></i></li>
+									<li><i class="webex-icon-star-empty text-primary-color"></i></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Testimonials Section End -->
+	<!-- Footer Area Start -->
+	{{include '../public_components/footer.art'}}
+	<!-- Footer Area End -->
+	<!-- BACK TO TOP SECTION -->
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+	</div>
+	<!-- Integrated important scripts here -->
+	<script src="./js/jquery.v1.12.4.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-core-plugins.js"></script>
+	<script src="./js/maincopy.js"></script>
+	<script src="./js/kefu.js"></script>
+</body>
+
+</html>

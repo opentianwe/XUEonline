@@ -1,0 +1,140 @@
+<header class="header-style-two">
+		<div class="header-wrapper">
+			<div class="header-top-area bg-gradient-color d-lg-block">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 header-top-left-part">
+							<span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理員skype ID</span>
+							<span class="phone"><i class="webexflaticon flaticon-send"></i><a style="display:inline" href="skype:live:.cid.95a072e4c57d6976?add">live:.cid.95a072e4c57d6976</a></span>
+						</div>
+						<div class="col-lg-6 header-top-right-part text-right">
+							<ul class="social-links">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+							<div class="language">
+								<a class="language-btn" href="#"><i class="webexflaticon flaticon-internet"></i>Japaneseに翻訳</a>
+								<!-- <ul class="language-dropdown">
+									<li> <a href="#">Chinese</a></li>
+									<li><a href="#">English</a></li>
+									<li><a href="#">Bangla</a></li>
+									<li><a href="#">French</a></li>
+									<li><a href="#">Spanish</a></li>
+									<li><a href="#">Arabic</a></li>
+								</ul> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header-navigation-area two-layers-header">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html"><img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> </a>
+							<div class="mobile-menu-right"></div>
+							<div class="header-searchbox-style-two d-none d-xl-block">
+								<div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+									<span class="bar1"></span>
+									<span class="bar2"></span>
+									<span class="bar3"></span>
+								</div>
+								<!-- <div class="show-searchbox">
+									<a href="#"><i class="webex-icon-Search"></i></a>
+								</div> -->
+								<div class="toggle-searchbox">
+									<form action="#" id="searchform-all" method="get">
+										<div>
+											<input type="text" id="s" class="form-control" placeholder="Search...">
+											<div class="input-box">
+												<input type="submit" value="" id="searchsubmit"><i class="fas fa-search"></i>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="side-panel-content">
+								<div class="close-icon">
+									<button><i class="webex-icon-cross"></i></button>
+								</div>
+								<div class="side-panel-logo mrb-30">
+									XUEonline
+								</div>
+								<div class="side-info mrb-30">
+									<div class="side-panel-element mrb-25">
+										<h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+										<ul class="list-items">
+											<li></li>
+											<li><span class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com
+											</li>
+											<li><span class="fas fa-phone-alt mrr-10 text-primary-color">090-4179-6014</span></li>
+										</ul>
+									</div>
+									<div class="side-panel-element mrb-30">
+										<h4 class="mrb-15">公司状态</h4>		
+	                        <div>XUEonline</div>
+	                        </div>
+								</div>
+								<h4 class="mrb-15">可靠联系方式</h4>
+								<ul class="social-list">
+									<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+								</ul>
+							</div>
+							<div class="main-menu f-right">
+								<nav id="mobile-menu-right" style="display: block;">
+									<ul>
+										<li>
+											<!-- class="has-sub" -->
+											<a href="/zh-cn">首页</a>
+											<!-- <ul class="sub-menu">
+												<li><a href="index.html">Layout 1</a></li>
+												<li><a href="index2.html">Layout 2</a></li>
+												<li class="has-sub-child">
+													<a href="#">Header Styles</a>
+													<ul class="sub-menu">
+														<li><a href="page-header-style-one.html">Header Style One</a></li>
+														<li><a href="page-header-style-two.html">Header Style Two</a></li>
+													</ul>
+												</li>
+											</ul> -->
+										</li>
+										<li><a href="/zh-cn/recharge">购买积分</a></li>
+										<li class="has-sub">
+											<a href="/zh-cn/tshow">老师一览</a>
+											<ul class="sub-menu">
+												<li><a href="/zh-cn/tshow">预约老师</a></li>
+												<li class="has-sub-child"><li><a href="/zh-cn/iputinfo">老师修改个人信息</a></li></li>
+
+											</ul>
+										</li>
+										<li>
+											<a href="/zh-cn/stunews">问题解答</a>
+
+										</li>
+										<li class=" right-view">
+											<a href="/zh-cn/login">登录/注册</a>
+
+										</li>
+										<li class="has-sub right-view">
+											<a href="#">个人中心</a>
+											<ul class="sub-menu">
+												<li><a href="/zh-cn/perdata">个人资料</a></li>
+												<li><a href="/zh-cn/login">登入</a></li>
+												<li><a id="qiut-s" href="javascript:;" onclick="clearCookie()">退出</a></li>
+
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
