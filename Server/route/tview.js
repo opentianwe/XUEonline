@@ -601,7 +601,7 @@ router.get('/personal.html', function (req, res) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
 
-                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
+                            Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button><button type="button" class="layui-btn Teachertit">评价</button></td></tr>'
 
                         }
                         ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)

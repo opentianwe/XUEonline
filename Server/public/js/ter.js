@@ -438,7 +438,6 @@ $(() => {
                                 break
                             default:
                                 $("#zheng1").val(data.moeny2)
-
                                 $("#zheng2").val(data.moeny1)
                         }
                     }

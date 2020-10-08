@@ -384,25 +384,9 @@
       });
     </script> -->
     {{#data.Timp}}
-    <h3 style="text-align: center;">消息查看</h3>
-    <div class="form-data">
-      <div class="border shadow-sm ">
-          <p>学生留言评价查看</p>
-         <div class="Stu-list overflow-auto border">
-
-         </div>
-      </div>
-    </div>
-    <div class="form-data" >
-      <div class="border shadow-sm " >
-          <p>预约课程信息查看</p>
-         <div class="Stu-list overflow-auto border">
-            
-         </div>
-      </div>
-    </div>
+   
     	<!-- Footer Area Start -->
-<footer class="footer">
+ <footer class="footer">
     <div class="footer-main-area" data-background="images/footer-bg.png">
       <div class="container">
         <div class="row">
@@ -450,7 +434,6 @@
                 <li><a href="terTbale.html">韓国語　オンライン</a></li>
                 <li><a href="terTbale.html">お支払い</a></li>
                 <li><a href="stunews.html">よくある質問</a></li>
-                <li><a href="terTbale.html">公司条款</a></li>
               </ul>
             </div>
           </div>

@@ -9,7 +9,6 @@ $(function () {
     var Dateminut = newDate.getMinutes();
     Datehouse >= 10 ? (Datehouse = Datehouse) : (Datehouse = "0" + Datehouse);
     Dateminut >= 10 ? (Dateminut = Dateminut) : (Dateminut = "0" + Dateminut);
-
     if (t) {
       return (str =
         Datefull +
