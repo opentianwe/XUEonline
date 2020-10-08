@@ -1,6 +1,6 @@
 function yuyanfun(a) {
     if (a == '') {
-        swal("Sorry!",'教学科目必须选择', "error")
+        swal("Sorry!", '教学科目必须选择', "error")
         return false
     } else {
         return true
@@ -9,7 +9,7 @@ function yuyanfun(a) {
 function getName() {
     let a = $("#Name").val()
     if (a == "") {
-        swal("Sorry!",'姓名必须填写', "error")
+        swal("Sorry!", '姓名必须填写', "error")
         return false
     }
     return true
@@ -17,7 +17,7 @@ function getName() {
 function getUserID() {
     let a = $("#UserID").val()
     if (a == "") {
-        swal("Sorry!",'日文名称必须填写', "error")
+        swal("Sorry!", '日文名称必须填写', "error")
         return false
     }
     return true
@@ -25,7 +25,7 @@ function getUserID() {
 function getEngName() {
     let a = $("#EngName").val()
     if (a == "") {
-        swal("Sorry!",'英文名称必须填写', "error")
+        swal("Sorry!", '英文名称必须填写', "error")
         return false
     }
     return true
@@ -33,7 +33,7 @@ function getEngName() {
 function getJapenName() {
     let a = $("#JapenName").val()
     if (a == "") {
-        swal("Sorry!",'出生地不能为空', "error")
+        swal("Sorry!", '出生地不能为空', "error")
         return false
     }
     return true
@@ -41,8 +41,8 @@ function getJapenName() {
 function getYear() {
     let a = $("#getYear").val()
     if (a == "") {
-        swal("Sorry!",'出生日期不能为空', "error")
-        
+        swal("Sorry!", '出生日期不能为空', "error")
+
         return false
     }
     return true
@@ -50,7 +50,7 @@ function getYear() {
 function getSkyepID() {
     let a = $("#SkyepID").val()
     if (a == "") {
-        swal("Sorry!",'Skype ID不能为空 如果没有请即时注册！！！', "error")
+        swal("Sorry!", 'Skype ID不能为空 如果没有请即时注册！！！', "error")
         return false
 
     }
@@ -59,7 +59,7 @@ function getSkyepID() {
 function getSchool() {
     let a = $("#School").val()
     if (a == "") {
-        swal("Sorry!",'学校不能为空', "error")
+        swal("Sorry!", '学校不能为空', "error")
         return false
     }
     return true
@@ -67,7 +67,7 @@ function getSchool() {
 function getYearNuber() {
     let a = $("#yearHome").val()
     if (a == "") {
-        swal("Sorry!",'日本居住年限不能为空', "error")
+        swal("Sorry!", '日本居住年限不能为空', "error")
         return false
     }
     return true
@@ -75,7 +75,7 @@ function getYearNuber() {
 function getHome() {
     let a = $("#Home").val()
     if (a == "") {
-        swal("Sorry!",'地址不能为空', "error")
+        swal("Sorry!", '地址不能为空', "error")
         return false
     }
     return true
@@ -83,8 +83,8 @@ function getHome() {
 function getterData() {
     let a = $("#terData").val()
     if (a == "") {
-        swal("Sorry!",'兴趣爱好介绍不能为空', "error")
-    
+        swal("Sorry!", '兴趣爱好介绍不能为空', "error")
+
         return false
     }
     return true
@@ -92,7 +92,7 @@ function getterData() {
 function getterDatatow() {
     let a = $("#terData2").val()
     if (a == "") {
-        swal("Sorry!",'教学经验不能为空', "error")
+        swal("Sorry!", '教学经验不能为空', "error")
         return false
     }
     return true
@@ -100,7 +100,7 @@ function getterDatatow() {
 function getNum1() {
     let a = $("#Blank-num1").val();
     if (a == '') {
-        swal("Sorry!",'收款账户不能为空', "error")
+        swal("Sorry!", '收款账户不能为空', "error")
         return false
     }
     return true
@@ -108,7 +108,7 @@ function getNum1() {
 function getNum2() {
     let a = $("#Blank-num2").val();
     if (a == '') {
-        swal("Sorry!",'收款账户开户人姓名不能为空', "error")
+        swal("Sorry!", '收款账户开户人姓名不能为空', "error")
         return false
     }
     return true
@@ -116,7 +116,7 @@ function getNum2() {
 function zheng1() {
     let a = $("#zheng1").val();
     if (a == '') {
-        swal("Sorry!",'老师课程价格不能为空', "error")
+        swal("Sorry!", '老师课程价格不能为空', "error")
 
         return false
     }
@@ -125,8 +125,8 @@ function zheng1() {
 function zheng2() {
     let a = $("#zheng2").val();
     if (a == '') {
-        swal("Sorry!",'老师课程价格不能为空', "error")
-        
+        swal("Sorry!", '老师课程价格不能为空', "error")
+
         return false
     }
     return true
@@ -141,7 +141,7 @@ function getimg() {
         //限制大小，照片大小不能超过3M
         var size = choose_file.size / 1024 / 1024;
         if (size > 3) {
-            swal("Sorry!",'头像不能大于3M', "error")
+            swal("Sorry!", '头像不能大于3M', "error")
             return false;
         }
         var reader = new FileReader();
@@ -157,7 +157,7 @@ function getimg() {
         // 读取文件的路径，没有返回值,结果在reader.result里  
         // 读取需要时间，读完后再修改图片路径          
     } else {
-        swal("Sorry!",'头像格式不正确', "error")
+        swal("Sorry!", '头像格式不正确', "error")
         return false;
     }
 }
@@ -180,81 +180,81 @@ $("#avatar").change(function () {
         processData: false,
         success: (d) => {
             if (d.state == 1) {
-                swal("Yes!",'上传成功', "success")
+                swal("Yes!", '上传成功', "success")
             } else {
-                swal("Sorry!",'上传失败', "error")
+                swal("Sorry!", '上传失败', "error")
             }
         }
     })
 
 });
-layui.use('upload', function(){
+layui.use('upload', function () {
     var $ = layui.jquery
-    ,upload = layui.upload;
-    
+        , upload = layui.upload;
+
     //普通图片上传
     var uploadInst = upload.render({
-      elem: '#test1'
-      ,url: './uploadImg' //改成您自己的上传接口
-      ,before: function(obj){
-        //预读本地文件示例，不支持ie8
-        obj.preview(function(index, file, result){
-          $('#demo1').attr('src', result); //图片链接（base64）
-        });
-      }
-      ,done: function(res){
-        //如果上传失败
-        console.log(res)
-        if(res.state==1){
-            return layer.msg('上传成功')    
+        elem: '#test1'
+        , url: './uploadImg' //改成您自己的上传接口
+        , before: function (obj) {
+            //预读本地文件示例，不支持ie8
+            obj.preview(function (index, file, result) {
+                $('#demo1').attr('src', result); //图片链接（base64）
+            });
         }
-       layer.msg(res.msg) 
-      }
-      ,error: function(){
-        //演示失败状态，并实现重传
-        var demoText = $('#demoText');
-        demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-        demoText.find('.demo-reload').on('click', function(){
-          uploadInst.upload();
-        });
-      }
+        , done: function (res) {
+            //如果上传失败
+            console.log(res)
+            if (res.state == 1) {
+                return layer.msg('上传成功')
+            }
+            layer.msg(res.msg)
+        }
+        , error: function () {
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+            demoText.find('.demo-reload').on('click', function () {
+                uploadInst.upload();
+            });
+        }
     })
 })
-layui.use(['upload','element'], function(){
+layui.use(['upload', 'element'], function () {
     var $ = layui.jquery
-    ,upload = layui.upload
-    //通过 layui .element 属性 调用这个属性 通过 progress 对象 返回的 n 然后来控制doem 元素 给他加上长度百分比
-    ,element = layui.element
-      upload.render({
-      elem: '#test5'
-      ,url: './upload' //改成您自己的上传接口
-      ,accept: 'video'
-      ,size:1024*150
-      ,data: {path:$("#path").val()}
-      ,progress: function(n, elem){
-        var percent = n + '%' //获取进度百分比
-        element.progress('demo', percent); //可配合 layui 进度条元素使用
+        , upload = layui.upload
+        //通过 layui .element 属性 调用这个属性 通过 progress 对象 返回的 n 然后来控制doem 元素 给他加上长度百分比
+        , element = layui.element
+    upload.render({
+        elem: '#test5'
+        , url: './upload' //改成您自己的上传接口
+        , accept: 'video'
+        , size: 1024 * 150
+        , data: { path: $("#path").val() }
+        , progress: function (n, elem) {
+            var percent = n + '%' //获取进度百分比
+            element.progress('demo', percent); //可配合 layui 进度条元素使用
 
-        //以下系 layui 2.5.6 新增
-       // console.log(elem); //得到当前触发的元素 DOM 对象。可通过该元素定义的属性值匹配到对应的进度条。
-      }
-      ,done: function(res){
-        console.log(res)
-        layer.msg('上传成功');
-       
-      },error:function(error){
-        layer.msg(error)
-      }
+            //以下系 layui 2.5.6 新增
+            // console.log(elem); //得到当前触发的元素 DOM 对象。可通过该元素定义的属性值匹配到对应的进度条。
+        }
+        , done: function (res) {
+            console.log(res)
+            layer.msg('上传成功');
+
+        }, error: function (error) {
+            layer.msg(error)
+        }
     });
-    
-    })
+
+})
 $("#sub").on("click", () => {
 
 
     var sex = $('input[name="gender"]:checked').val();
     function getSex() {
         if (sex == undefined || sex == '' || sex == null) {
-            swal("Sorry!",'性别未填写无法提交', "error")
+            swal("Sorry!", '性别未填写无法提交', "error")
             return false
         }
         return true
@@ -263,7 +263,7 @@ $("#sub").on("click", () => {
     var data = $('input:checkbox[name="yuyan"]:checked').map(function () {
         return $(this).val();
     }).get().join(",");
-    if (getName() && getUserID() && getEngName() && getJapenName() && getNum1() && getNum2() && getSchool() && getHome() && getYearNuber() && getSkyepID() && getYear() && yuyanfun(data) && zheng1() && zheng2() && getSex()  && getterData() && getterDatatow()) {
+    if (getName() && getUserID() && getEngName() && getJapenName() && getNum1() && getNum2() && getSchool() && getHome() && getYearNuber() && getSkyepID() && getYear() && yuyanfun(data) && zheng1() && zheng2() && getSex() && getterData() && getterDatatow()) {
         var sss = $("#BlANkID option:selected")
 
         var terdata = {
@@ -287,14 +287,14 @@ $("#sub").on("click", () => {
             terData: $("#terData").val(),
             terData2: $("#terData2").val(),
             moeny1: $("#zheng2").val(),
-            moeny2: $("#zheng1").val(),  
+            moeny2: $("#zheng1").val(),
             xianzaizhiye: $("#xianzaizhiye").val(),
             chushengdi: $("#chushengdi").val(),
             kouzuofanhao: $("#kouzuofanhao").val(),
             renID: $("#renID").val(),
             telID: $("#telID").val(),
             kouzuomin: $("#kouzuomin").val(),
-            zhidian:$("#zhidian").val()
+            zhidian: $("#zhidian").val()
         }
         console.log(terdata)
         $.ajax({
@@ -308,10 +308,10 @@ $("#sub").on("click", () => {
             success: ((d) => {
                 console.log(d)
                 if (d.stats == 1) {
-                    swal("你好"+$("#Name").val(),'资料提交成功', "success")
-                    
+                    swal("你好" + $("#Name").val(), '资料提交成功', "success")
+
                 } else {
-                    swal("Error!",'服务器在紧急处理', "error")
+                    swal("Error!", '服务器在紧急处理', "error")
 
                 }
             })
@@ -437,8 +437,9 @@ $(() => {
                                 $("#zheng2").attr("disabled", "true")
                                 break
                             default:
-                                $("#zheng1").val(data.moeny1)
-                                $("#zheng2").val(data.moeny2)
+                                $("#zheng1").val(data.moeny2)
+
+                                $("#zheng2").val(data.moeny1)
                         }
                     }
                 })
