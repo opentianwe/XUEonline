@@ -56,6 +56,7 @@ exports.querytAinformationByEmal = querytAinformationByEmal
 exports.isTeacher = isTeacher
 exports.queryStudentEvaluationByEmal = queryStudentEvaluationByEmal
 exports.queryTeacherEvaluationByEmal = queryTeacherEvaluationByEmal
+exports.queryTStudentEvaluationByEmal = queryTStudentEvaluationByEmal
 var pool = mysql.createPool({
     host: '39.106.89.79',
     user: 'Tian',
@@ -909,10 +910,38 @@ async function queryStudentEvaluationByEmal(Emal)
         })
     })
 }
+
+//通过老师邮箱查询老师对学生评价信息
+async function queryTStudentEvaluationByEmal(Emal)
+{
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`Price` FROM `Appointment` WHERE `Tstatus` = 1 AND `TeacherEmal` = '"+ Emal +"'"
+    return new Promise((resove, reject) => {
+        woreData(querystr, (data, err) => {
+            if(err)
+            {
+                resove(false)
+            }else if(data instanceof Array)
+            {
+                if(data.length == 0)
+                {
+                    resove(false)
+                }else
+                {
+                    resove(data)
+                }
+            }else
+            {
+                resove(false)
+            }
+        })
+    })
+}
+
+
 //通过学生邮箱查询评价信息
 async function queryTeacherEvaluationByEmal(Emal)
 {
-    var querystr = "SELECT `Tmsg`,`TeacherName`,`Ttime` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '"+ Emal +"'"
+    var querystr = "SELECT `Tmsg`,`TeacherName`,`Ttime`,`Price` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '"+ Emal +"'"
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if(err)

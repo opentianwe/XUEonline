@@ -388,7 +388,7 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 
 
 //渲染personal.html
-async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher, ZPrice) {
+async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
     var Evaluation = ''
     var Price = 0
     if (isTeacher) {
@@ -409,7 +409,17 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
                     评价时间:<strong>${datetime}</strong></div>
                  </div>
                 `
-                Price += Number(ret[i].Price)
+
+            }
+
+            ret = await mysql.queryTStudentEvaluationByEmal(Emal)
+            if (ret == false) {
+                Price = 0
+            } else {
+                for (var i = 0; i < ret.length; i++) {
+                    console.log(Price)
+                    Price += Number(ret[i].Price)
+                }
             }
         }
     } else {
@@ -446,8 +456,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
             aif: Str,
             isTeacher: isTeacher,
             Evaluation: Evaluation,
-            Price: Price,
-            ZPrice: ZPrice
+            Price: Price
         }
     })
 }
@@ -474,6 +483,15 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
                     評価時間:<strong>${datetime}</strong></div>
                  </div>
                 `
+            }
+        }
+
+        ret = await mysql.queryTStudentEvaluationByEmal(Emal)
+        if (ret == false) {
+            Price = 0
+        } else {
+            for (var i = 0; i < ret.length; i++) {
+                console.log(Price)
                 Price += Number(ret[i].Price)
             }
         }
@@ -511,8 +529,7 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
             aif: Str,
             isTeacher: isTeacher,
             Evaluation: Evaluation,
-            Price: Price,
-            ZPrice: ZPrice
+            Price: Price
         }
     })
 }
@@ -523,7 +540,6 @@ router.get('/personal.html', function (req, res) {
         return
     }
     var mem
-    var ZPrice = 0
     console.log(req.signedCookies.malli)
     mysql.queryPointsbyemal(req.signedCookies.malli, function (data, err) {
         if (data == undefined || data.length == 0 || data == null || err) {
@@ -566,12 +582,12 @@ router.get('/personal.html', function (req, res) {
                                         datas[i].UserWeChat = "无"
                                     }
                                     Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
-                                    ZPrice += Number(datas[i].Price)
+                                    //ZPrice += Number(datas[i].Price)
                                 }
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             }, function (err) {
                                 var Str = "暂无预约信息!"
-                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             })
 
 
@@ -657,17 +673,23 @@ router.get('/ter.html', function (req, res) {
                 data[0].Lesson = lit
                 var list = data
                 URenderTable(ID, req.query.id, data[0].Email, req.query.yyyy, req.query.mm, req.query.dd, function (data) {
+                    console.log(list)
+                    try {
+                        var date = new Date()
+                        var age = Number(date.getFullYear()) - Number(list[0].yearData.split('-')[0])
+                        list[0].age = age
+                    } catch (e) {
+                        list[0].age = '秘密にする'
+                    }
                     res.render('ter.art', { data: list[0], html: data })
                 })
             })
         }, function (err) {
             res.redirect('/')
         })
-
-
-
-
 })
+
+
 router.get('/teacherdata.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.redirect('/logoin.html')
@@ -738,16 +760,20 @@ router.get('/ja_JP/ter.html', function (req, res) {
                 data[0].Lesson = lit
                 var list = data
                 URenderTable(ID, req.query.id, data[0].Email, req.query.yyyy, req.query.mm, req.query.dd, function (data) {
-                    res.render('ja_JP_ter.art', { data: list[0], html: data })
+                    console.log(list)
+                    try {
+                        var date = new Date()
+                        var age = Number(date.getFullYear()) - Number(list[0].yearData.split('-')[0])
+                        list[0].age = age
+                    } catch (e) {
+                        list[0].age = '秘密にする'
+                    }
+                    res.render('ter.art', { data: list[0], html: data })
                 })
             })
         }, function (err) {
             res.redirect('/')
         })
-
-
-
-
 })
 
 router.get('/ja_JP/personal.html', function (req, res) {
@@ -802,14 +828,14 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                         datas[i].UserWeChat = "なし"
                                     }
                                     Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
-                                    ZPrice += Number(datas[i].Price)
+                                    //ZPrice += Number(datas[i].Price)
                                 }
 
-                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
 
                             }, function (err) {
                                 var Str = "予約情報はまだありません"
-                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true, ZPrice)
+                                JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             })
 
 
