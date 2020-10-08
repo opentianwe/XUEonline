@@ -16,7 +16,7 @@ function Kefu(Obj) {
       '                        <img src="' +
       Obj.wechatPerson.imgURL +
       '" alt="">' +
-      "                        <p>微信客服</p>" +
+      "                        <p>WeCate</p>" +
       "                    </div>" +
       "                </div>" +
       "            </div>";
@@ -34,7 +34,7 @@ function Kefu(Obj) {
       '                        <img src="' +
       Obj.wechatofficial.imgURL +
       '" alt="">' +
-      "                        <p>微信公众号</p>" +
+      "                        <p>管理員skype ID</p>" +
       "                    </div></div>";
   } else {
     var wechatofficial = "";
@@ -54,18 +54,6 @@ function Kefu(Obj) {
     "                    </a></div>" +
     "                </div>" +
     "            </div>" +
-    '            <div class="floor tel">' +
-    '                <a href="' +
-    "tel:" +
-    Obj.tel +
-    '" class="tellink cursor_default" >' +
-    "                </a>" +
-    '                <div class="absbox">' +
-    '                    <div class="kftel">' +
-    Obj.tel +
-    "</div>" +
-    "                </div>" +
-    "            </div>" +
     '            <div class="floor">' +
     '                <a href="' +
     "http://wpa.qq.com/msgrd?v=3&amp;uin=" +
@@ -74,7 +62,7 @@ function Kefu(Obj) {
     '"  class="qqlink" target="_blank">' +
     "                </a>" +
     '                <div class="absbox">' +
-    '                    <div class="qq">QQ客服</div>' +
+    '                    <div class="erweima"><img src="../img/dasda.jpg"></div>' +
     "                </div>" +
     "            </div>" +
     wechatPerson +
@@ -90,7 +78,6 @@ function Kefu(Obj) {
 var kefu = new Kefu({
   index: "./index.html",
   tel: "暂无", //电话号码
-  qq: "888888", //在线QQ
   wechatPerson: {
     state: true, // true是开启个人微信二维码, false不开启
     imgURL: "./img/569d7f542977ce4256135abe23f6dc3.jpg",

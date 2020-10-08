@@ -402,8 +402,9 @@ $(() => {
                                 $("#zheng2").attr("disabled", "true")
                                 break
                             default:
-                                $("#zheng1").val(data.moeny1)
-                                $("#zheng2").val(data.moeny2)
+                                $("#zheng1").val(data.moeny2)
+
+                                $("#zheng2").val(data.moeny1)
                         }
                         if (data.Sex == '男') {
                             $("#nan").attr("checked", 'checked')
