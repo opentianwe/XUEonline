@@ -8,13 +8,13 @@ app.use(express.static("public"))
 index(app)
 // main(app)
 route(app)
-app.get('/',function(req,res){
+app.get('/', function (req, res) {
     // if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
     // {
     //     res.redirect('/zh-cn')
     // }else
     // {
-        res.redirect('/ja-jp')
+    res.redirect('/ja-jp')
     // }
 })
 

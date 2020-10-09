@@ -577,8 +577,7 @@ router.get('/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "无"
                                     }
-                                    if(datas[i].Textval == null)
-                                    {
+                                    if (datas[i].Textval == null) {
                                         datas[i].Textval = "无"
                                     }
                                     Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + '<td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
@@ -821,8 +820,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "なし"
                                     }
-                                    if(datas[i].Textval == null)
-                                    {
+                                    if (datas[i].Textval == null) {
                                         datas[i].Textval = "なし"
                                     }
                                     Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td><td  class="Rmb">' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td  class="time">剩余时间</td><td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
