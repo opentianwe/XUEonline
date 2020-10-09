@@ -438,8 +438,10 @@ router.post('/pay', function (req, res) {
                             }
                             break
                         case 3:
-                            tUserdata.RMB = Number(tUserdata.moeny) * 0.06 - 0
-                            tUserdata.Yen = Number(tUserdata.moeny) * 0.6  - 0
+                            tUserdata.RMB = Number(tUserdata.moeny) * 0.06 
+                            tUserdata.Yen = Number(tUserdata.moeny) * 0.6  
+                            tUserdata.RMB = tUserdata.RMB * 0.6                            
+
                             tUserdata.Yen = tUserdata.Yen.toFixed(0)
                             tUserdata.RMB = tUserdata.RMB.toFixed(0)
                             break
