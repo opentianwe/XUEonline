@@ -15,7 +15,7 @@
   <!-- <link rel="stylesheet" href="../css/getMoeny.css"> -->
   <link rel="stylesheet" href="./css/getMoeny.css">
   <link rel="stylesheet/less" type="text/css" href="./ceshi.less" />
- // <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+  <!-- <link href="images/favicon.png" rel="shortcut icon" type="image/png"> -->
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./layui/css/layui.css">
   <link rel="stylesheet" href="./css/style2.css">

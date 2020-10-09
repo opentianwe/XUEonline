@@ -16,8 +16,8 @@ module.exports = app =>{
 	app.use(brain)
 	app.use(upload)  
 	app.use(paypal)
-	app.use((req,res) => {
-		res.redirect('/404.html')
-	})
+	// app.use((req,res) => {
+	// 	res.redirect('/404.html')
+	// })
 
 }

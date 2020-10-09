@@ -103,7 +103,6 @@ var Timearray = [
     '00:30',
 ]
 
-
 function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
     mysql.queryTimedatabyemal(emal, function (data, err) {
         if (err) {
@@ -386,7 +385,6 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 
 }
 
-
 //渲染personal.html
 async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
     var Evaluation = ''
@@ -618,14 +616,11 @@ router.get('/personal.html', function (req, res) {
     })
 })
 
-
-
 router.get('/text.html', function (req, res) {
     var parseObj = url.parse(req.url, true)
     req.query = parseObj.query
     res.render('text.art', { data: { Timp: RenderTable(req.query.yyyy, req.query.mm, req.query.dd) } })
 })
-
 
 router.get('/ter.html', function (req, res) {
     var parseObj = url.parse(req.url, true)
@@ -689,7 +684,6 @@ router.get('/ter.html', function (req, res) {
         })
 })
 
-
 router.get('/teacherdata.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.redirect('/logoin.html')
@@ -711,8 +705,6 @@ router.get('/teacherdata.html', function (req, res) {
         res.render('teacherdata.art', { data: { Timp: data } })
     })
 })
-
-
 
 router.get('/ja_JP/ter.html', function (req, res) {
     var parseObj = url.parse(req.url, true)

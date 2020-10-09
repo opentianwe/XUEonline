@@ -3,27 +3,12 @@ const path = require('path')
 const router = express.Router()
 const multer = require('multer')
 const UUID = require('uuid')
-const cookieParser = require('cookie-parser')
-const mysql = require('../msOp')
+const mysql = require('../../../msOp')
 const fs = require('fs')
-router.use(cookieParser("wcasd2398123asd12aasd"))
-router.use(function (req, res, next) {
-    if(req.signedCookies.malli == undefined || req.signedCookies.malli == '')
-    {
-        res.send({
-            state: 0,
-            msg: "Cookies校验失败!,请跳转到登录页"
-        })
-        return;
-    }else
-    {
-        next();
-    }  
-});
 
 
 
-const g_path = path.resolve(__dirname,"..","public","upload") 
+const g_path = path.resolve(__dirname,"../../../","public","upload") 
 console.log(g_path)
 //设置保存规则
 var storage = multer.diskStorage({

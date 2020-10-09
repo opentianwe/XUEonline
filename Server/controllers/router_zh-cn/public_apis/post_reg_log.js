@@ -1,12 +1,12 @@
 const express = require('express')
-const router = express.Router()
-const mysql = require('../../msOp')
+const route = express.Router()
+const mysql = require('../../../msOp')
 
 
 
 
 //注册接口
-router.post("/register", function (req, res) {
+route.post("/register", function (req, res) {
     var Userdata = '';
     req.on('data', function (data) {
         Userdata += data;
@@ -166,7 +166,7 @@ router.post("/register", function (req, res) {
 })
 
 //登录接口
-router.post("/login", function (req, res) {
+route.post("/login", function (req, res) {
     var Userdata = '';
     req.on('data', function (data) {
         Userdata += data;
@@ -255,4 +255,4 @@ router.post("/login", function (req, res) {
     })
 })
 
-module.exports = router
+module.exports = route

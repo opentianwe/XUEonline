@@ -222,9 +222,9 @@
           console.log(d)
           if (d.stats == "0") {
             if (d.type == "1") {
-              window.location.href = "./teacherdata.html"
+              window.location.href = "./iputinfo"
             } else if (d.type == "0") {
-              window.location.href = "./index.html"
+              window.location.href = "./"
             } else {
               swal("Sorry!", d.msg, "error");
             }

@@ -8,7 +8,6 @@ app.use(express.static("public"))
 index(app)
 // main(app)
 route(app)
-
 // app.get('/',function(req,res){
 //     if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
 //     {
@@ -19,12 +18,7 @@ route(app)
 //     }
 // })
 
-
-
-
-
 //挂载子路由
-
 app.listen(port, function () {
     console.log("app is running!")
 })

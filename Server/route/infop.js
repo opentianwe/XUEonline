@@ -6,7 +6,7 @@ const mysql = require('../msOp')
 const Tool = require('../Toos')
 const sendemal = require('../helpers/sendEmal')
 router.use(cookieParser("wcasd2398123asd12aasd"))
-
+const model_inf = require('../models/Userinformation')
 router.post('/dataUpload', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.redirect('/logoin.html')
@@ -327,6 +327,8 @@ router.post('/pay', function (req, res) {
     }
 
 
+
+
     var pUserdata = {};
     var tUserdata = {};
     var isSpecialOffer = false
@@ -410,7 +412,42 @@ router.post('/pay', function (req, res) {
                 })
                 return new Promise(() => { });
             } else {
-                return mysql.creatAppointmentinformation(tUserdata, pUserdata)
+                var Grend = 0
+                async function all() {
+                    Grend = await model_inf.appraisal_authority(tUserdata.Email) 
+                    if (Grend > 4 || Grend == 0) {
+                        Grend = 1
+                    }
+                    tUserdata.RMB = 0
+                    tUserdata.Yen = 0
+                    switch (Grend) {
+                        case 1:
+                            tUserdata.RMB = 10
+                            tUserdata.Yen = 150
+                            break
+                        case 2:
+                            if (isSpecialOffer) {
+                                tUserdata.Yen = 150
+                                tUserdata.RMB = 10
+                            } else {
+                                tUserdata.Yen = 450
+                                tUserdata.RMB = 25
+                            }
+                            break
+                        case 3:
+                            tUserdata.RMB = Number(tUserdata.moeny) * 0.06 - 0
+                            tUserdata.Yen = Number(tUserdata.moeny) * 0.6  - 0
+                            tUserdata.Yen = tUserdata.Yen.toFixed(0)
+                            tUserdata.RMB = tUserdata.RMB.toFixed(0)
+                            break
+                    }  
+                    console.log(tUserdata.RMB)
+                    console.log(tUserdata.Yen)
+                    return mysql.creatAppointmentinformation(tUserdata, pUserdata)
+                }
+               return all()
+       
+                
             }
         })
         .then(function (data) {
@@ -427,13 +464,12 @@ router.post('/pay', function (req, res) {
         })
         .then(function (data) {
             if (data != undefined) {
-                sendemal.sendEmalTeacher(pUserdata.UserEmal,pUserdata.oAName,tUserdata.Name,tUserdata.Time,false)
-                sendemal.sendEmalTeacher(tUserdata.Email,tUserdata.Name,pUserdata.oAName,tUserdata.Time,true)
+                sendemal.sendEmalTeacher(pUserdata.UserEmal, pUserdata.oAName, tUserdata.Name, tUserdata.Time, false)
+                sendemal.sendEmalTeacher(tUserdata.Email, tUserdata.Name, pUserdata.oAName, tUserdata.Time, true)
                 res.send({
                     status: 0,
                     msg: "预约成功,请稍后在个人资料预约界面查看老师联系方式."
                 })
-                
             } else {
                 Tool.UpdatePoints(Number(tUserdata.moeny), pUserdata.UserEmal, pUserdata.UserID)
                 res.send({
@@ -482,15 +518,14 @@ router.post('/studentEvaluation', function (req, res) {
             } else {
                 var timestamp1 = new Date(data.Time)
                 var min = timestamp1.getMinutes()
-                timestamp1.setMinutes(min + 25); 
+                timestamp1.setMinutes(min + 25);
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
 
                 var timestamp2 = Date.parse(new Date())
                 timestamp2 = timestamp2 / 1000
 
-                if(timestamp2 < timestamp1)
-                {
+                if (timestamp2 < timestamp1) {
                     res.send({
                         status: 1,
                         msg: "请耐心等待老师上完课之后再来评价老师哦!"
@@ -602,15 +637,14 @@ router.post('/teacherEvaluation', function (req, res) {
             } else {
                 var timestamp1 = new Date(data.Time)
                 var min = timestamp1.getMinutes()
-                timestamp1.setMinutes(min + 25); 
+                timestamp1.setMinutes(min + 25);
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
 
                 var timestamp2 = Date.parse(new Date())
                 timestamp2 = timestamp2 / 1000
 
-                if(timestamp2 < timestamp1)
-                {
+                if (timestamp2 < timestamp1) {
                     res.send({
                         status: 1,
                         msg: "请给学生上完课之后再来评价学生哦!"

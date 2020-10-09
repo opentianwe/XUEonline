@@ -550,12 +550,9 @@ function nodifyPoint(num, emal) {
 
 //创建预约信息
 function creatAppointmentinformation(tUserdata, pUserdata) {
-
-    //TeacherID, TeacherEmal, TeacherTelephone, TeacherWeChat, TeacherSkypeID, TeacherName, UserEmal, UserTelephone, UserSkypeID, UserName, timeApp, Price
-    var queryStr = "INSERT INTO `OfficialWebsiteData`.`Appointment`(`TeacherID`, `TeacherEmal`, `TeacherTelephone`, `TeacherWeChat`, `TeacherSkypeID`, `TeacherName`, `UserID`, `UserEmal`, `UserTelephone`, `UserSkypeID`, `UserName`, `timeApp`, `Price`) VALUES (" + tUserdata.ID + ", '" + tUserdata.Email + "', '" + tUserdata.Phpne + "', '" + tUserdata.WeixinID + "', '" + tUserdata.SkypeID + "', '" + tUserdata.Name + "', " + pUserdata.UserID + ", '" + pUserdata.UserEmal + "', '" + pUserdata.oAPaonee + "', '" + pUserdata.oAskype + "', '" + pUserdata.oAName + "', '" + tUserdata.Time + "', '" + tUserdata.moeny + "');"
+    var queryStr = "INSERT INTO `OfficialWebsiteData`.`Appointment`(`TeacherID`, `TeacherEmal`, `TeacherTelephone`, `TeacherWeChat`, `TeacherSkypeID`, `TeacherName`, `UserID`, `UserEmal`, `UserTelephone`, `UserSkypeID`, `UserName`, `timeApp`, `Price`,`RMB`,`Yen`) VALUES (" + tUserdata.ID + ", '" + tUserdata.Email + "', '" + tUserdata.Phpne + "', '" + tUserdata.WeixinID + "', '" + tUserdata.SkypeID + "', '" + tUserdata.Name + "', " + pUserdata.UserID + ", '" + pUserdata.UserEmal + "', '" + pUserdata.oAPaonee + "', '" + pUserdata.oAskype + "', '" + pUserdata.oAName + "', '" + tUserdata.Time + "', '" + tUserdata.moeny + "' ,"+ tUserdata.RMB +" ,"+ tUserdata.Yen +");"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
-
             if (error) {
                 data = {}
                 resolve(data.fieldCount)

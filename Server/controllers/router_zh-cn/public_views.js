@@ -1,6 +1,11 @@
 const express = require('express')
 const route = express.Router()
 const views_path = 'chinese_views/public_views/'
+const fs = require('fs')
+const path = require('path')
+
+
+
 
 /**
  * @@ Index渲染
@@ -27,15 +32,21 @@ route.get("/", (req, res) => {
  
  route.get('/tshow',(req,res)=>
  {
-    res.sendFile('F:\\XUEonlineGit\\Server\\views\\chinese_views\\public_views\\terTbale.html')
+    fs.readFile('F:\\XUEonlineGit\\Server\\views\\chinese_views\\public_views\\terTbale.html','utf-8',(err,data)=>{
+      var str_array = data.match(/{{{(\w+\s)\'([^\']*)\'}}}/g)
+      var html = data
+      var reg = RegExp(/\'([^\"]*)\'/)
+      var views_path = path.join(__dirname,"../../views/chinese_views")
+         for(var i = 0; i < str_array.length; i++)
+         {
+            var view_path = views_path + reg.exec(str_array[i])[1].replace('/','\\')
+            var data = fs.readFileSync(view_path,'utf-8')
+            html = html.replace(str_array[i],data)
+         }
+         res.send(html)
+    })
  })
 
-
-//  <a href="/zh-cn/stunews">问题解答</a>
-
-// 										</li>
-// 										<li class=" right-view">
-// 											<a href="/zh-cn/login">登录/注册</a>
 
 
 
@@ -45,6 +56,8 @@ route.get("/", (req, res) => {
 route.get('/stunews',(req,res)=>{
    res.render(views_path + 'stunews.art')
 })
+
+
 
 
 /**
