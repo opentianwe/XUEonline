@@ -365,7 +365,12 @@
           </div>
          
     </div>
- 
+    <div style=" text-align: center;">
+     <p> 1  点击空格一次、会变成OPEN，这样学生就可以预约你的课。 </p>      
+      <p> 2  点击空格两次，会变成CLOSE，做成有人气的假象(请适当)，是很有力地宣传。</p>
+        <p>3  老师一次开放课程，最少两周以上，可以增加课时量。</p>                
+
+    </div>
     <!-- <script type="text/javascript">
       $(document).ready(function () {
         $(".fancybox").fancybox({

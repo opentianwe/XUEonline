@@ -91,7 +91,7 @@ function makeAnapp(ID, time, bID) {
                         complete: function () {
                             HiddenDiv();
                         },
-                        data: JSON.stringify({ ID: ID, Time: time }),
+                        data: JSON.stringify({ ID: ID, Time: time, Leseon: Leseon, Textval: Textval }),
                         dataType: 'json',
                         success: function (res) {
                             layer.close(index)
