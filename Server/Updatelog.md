@@ -237,3 +237,9 @@
 > > > > > > > dac5edecc3d97dd562d9f9b83d0863517b3e8695
 
 # 2020/10/7 解决 userTable 显示问题
+
+
+
+# 2020/10/9 ---Tian
+### 教师资料页面渲染增加学习内容 学生留言 实际收入 中日双版 都已处理
+### 相关文件 personal.art  ja_JP_personal.art tview.js

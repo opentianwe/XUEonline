@@ -327,6 +327,9 @@ router.post('/pay', function (req, res) {
     }
 
 
+    
+
+
 
 
     var pUserdata = {};
@@ -441,13 +444,9 @@ router.post('/pay', function (req, res) {
                             tUserdata.RMB = tUserdata.RMB.toFixed(0)
                             break
                     }  
-                    console.log(tUserdata.RMB)
-                    console.log(tUserdata.Yen)
                     return mysql.creatAppointmentinformation(tUserdata, pUserdata)
                 }
-               return all()
-       
-                
+               return all()   
             }
         })
         .then(function (data) {

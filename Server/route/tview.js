@@ -388,7 +388,7 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 //渲染personal.html
 async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
     var Evaluation = ''
-    var Price = 0
+    var RMB = 0
     if (isTeacher) {
         var ret = await mysql.queryStudentEvaluationByEmal(Emal)
         if (ret == false) {
@@ -412,11 +412,10 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
 
             ret = await mysql.queryTStudentEvaluationByEmal(Emal)
             if (ret == false) {
-                Price = 0
+                RMB = 0
             } else {
                 for (var i = 0; i < ret.length; i++) {
-                    console.log(Price)
-                    Price += Number(ret[i].Price)
+                    RMB += Number(ret[i].RMB)
                 }
             }
         }
@@ -454,7 +453,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
             aif: Str,
             isTeacher: isTeacher,
             Evaluation: Evaluation,
-            Price: Price
+            Price: RMB
         }
     })
 }
@@ -462,7 +461,7 @@ async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype,
 //渲染jppersonal.html
 async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher, ZPrice) {
     var Evaluation = ''
-    var Price = 0
+    var RMB = 0
     if (isTeacher) {
         var ret = await mysql.queryStudentEvaluationByEmal(Emal)
         if (ret == false) {
@@ -486,11 +485,10 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
 
         ret = await mysql.queryTStudentEvaluationByEmal(Emal)
         if (ret == false) {
-            Price = 0
+            RMB = 0
         } else {
             for (var i = 0; i < ret.length; i++) {
-                console.log(Price)
-                Price += Number(ret[i].Price)
+                RMB += Number(ret[i].RMB)
             }
         }
     } else {
@@ -527,7 +525,7 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
             aif: Str,
             isTeacher: isTeacher,
             Evaluation: Evaluation,
-            Price: Price
+            Price: RMB
         }
     })
 }
@@ -579,8 +577,12 @@ router.get('/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "无"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + ' <td> <button type="button" class="layui-btn Studtit">评价</button></td></tr>'
-                                    //ZPrice += Number(datas[i].Price)
+                                    if(datas[i].Textval == null)
+                                    {
+                                        datas[i].Textval = "无"
+                                    }
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + '<td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
+
                                 }
                                 ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
                             }, function (err) {
@@ -819,8 +821,11 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "なし"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + '<td  class="time">剩余时间</td><td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
-                                    //ZPrice += Number(datas[i].Price)
+                                    if(datas[i].Textval == null)
+                                    {
+                                        datas[i].Textval = "なし"
+                                    }
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td><td  class="Rmb">' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td  class="time">剩余时间</td><td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
                                 }
 
                                 JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
