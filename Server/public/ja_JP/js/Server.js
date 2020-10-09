@@ -50,6 +50,17 @@ function makeAnapp(ID, time, bID) {
                <div>予約した後、担当先生のSkype或はWeChatまでにご連絡お願い致します</div>
                <div>決済金額:<span>${res.moeny}ポイント</span></div>
                <div>${text}</div>
+               <div>
+               <strong>授業内容をご選択お願いします</strong>
+               <input type="radio" class="tval" name="t" value="汉语" >汉语
+               <input type="radio" class="tval" name="t" value="日语" >日语
+               <input type="radio" class="tval" name="t" value="英语" >英语
+               <input type="radio" class="tval" name="t" value="韩语" >韩语
+                
+               <br>
+               <h4>講師へメッセージ：例）XXテキスト第22課17ページ、日本語を使わないでください。</h4>
+               <textarea name="" id="textval" cols="90" rows="4" class="border"></textarea>
+               </div>
                <div>支払いについて疑問や不明な点がある場合<a href='./titMoeny.html' target="_blank">  支払い規則を確認してください</a></div>
                </div>
             `
@@ -66,6 +77,9 @@ function makeAnapp(ID, time, bID) {
                         layer.msg('ネットワークが接続されていません。確認して再試行してください', { time: 3000, icon: 5 });
                         return;
                     }
+                    var Leseon = $('input[name="t"]:checked').val()
+                    if (Leseon == undefined) return layer.msg('请选择要学习的课程', { time: 3000, icon: 2 });
+                    var Textval = $('#textval').val()
                     // 先发一个ajax 请求 然后在  根据ajax  
                     $.ajax({
                         type: "post",
