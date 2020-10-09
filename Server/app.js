@@ -8,15 +8,15 @@ app.use(express.static("public"))
 index(app)
 // main(app)
 route(app)
-// app.get('/',function(req,res){
-//     if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
-//     {
-//         res.redirect('/zh-cn')
-//     }else
-//     {
-//        res.redirect('/ja-jp')
-//     }
-// })
+app.get('/',function(req,res){
+    // if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
+    // {
+    //     res.redirect('/zh-cn')
+    // }else
+    // {
+        res.redirect('/ja-jp')
+    // }
+})
 
 //挂载子路由
 app.listen(port, function () {
