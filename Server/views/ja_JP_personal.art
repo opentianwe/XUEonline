@@ -356,9 +356,9 @@
                         <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
                             <thead> 
                             <%if(data.isTeacher){%>
-                             <tr><td>予約日</td><td>学生の名前</td><td>学生WeChatID</td><td>学生SkypeID</td><td>積み立てポイント</td><td>授業開始までの時間表示</td><td>学生を評価する</td></tr>
+                             <tr><td>予約日</td><td>生徒の名前</td><td>生徒WeChatID</td><td>生徒SkypeID</td><td>point</td><td>授業済み時間表示</td><td>生徒を評価する</td></tr>
                             <%}else{%>
-                            <tr><td>予約日</td><td>先生の名前</td><td>先生WeChatID</td><td>先生SkypeID</td><td>支出ポイント</td><td>授業開始までの時間表示</td><td>先生を評価する</td></tr>
+                            <tr><td>予約日</td><td>生徒の名前</td><td>生徒WeChatID</td><td>生徒SkypeID</td><td>支出ポイント</td><td>授業済み時間表示</td><td>生徒を評価する</td></tr>
                             <%}%>    
                             </thead>
                           
