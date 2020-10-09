@@ -124,14 +124,14 @@ $(function () {
     if (temp == true) {
       if (res > 0) {
         res = getDuration(res);
-        layer.msg("分後に授業開始" + res, { icon: 1 });
+        //layer.msg("分後に授業開始" + res, { icon: 1 });
         // console.log(res)
         return res;
       } else {
-        layer.msg(
-          "予約時間が過ぎました！先生と連絡をとれない場合， XUEサポート管理員に連絡してください",
-          { icon: 2 }
-        );
+        // layer.msg(
+        //   "予約時間が過ぎました！先生と連絡をとれない場合， XUEサポート管理員に連絡してください",
+        //   { icon: 2 }
+        // );
         return -1;
       }
     } else {
@@ -156,6 +156,14 @@ $(function () {
       $(this).css("font-weight", "600");
     }
   });
+  $("#userTale>tr>.time").each(function () {
+
+    var temp = isDate(userTimeStr(true), $(this).siblings()[0].innerHTML, true);
+    temp == -1 ? temp = "授業済み" : temp = temp
+
+    $(this).html("<strong>" + temp + "後</strong>（授業開始）")
+
+  })
   tobody.addEventListener("click", (e) => {
     var strTime;
     //console.log('1')
