@@ -685,6 +685,8 @@ router.get('/ter.html', function (req, res) {
         })
 })
 
+
+
 router.get('/teacherdata.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.redirect('/logoin.html')
@@ -761,7 +763,7 @@ router.get('/ja_JP/ter.html', function (req, res) {
                     } catch (e) {
                         list[0].age = '秘密にする'
                     }
-                    res.render('ter.art', { data: list[0], html: data })
+                    res.render('ja_JP_ter.art', { data: list[0], html: data })
                 })
             })
         }, function (err) {
@@ -861,9 +863,19 @@ router.get('/ja_JP/personal.html', function (req, res) {
 
 router.get('/ja_JP/teacherdata.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
-        res.redirect('./logoin.html')
+        res.redirect('/logoin.html')
         return;
     }
+    async function index(Emal) {
+        return await mysql.isTeacher(Emal)
+    }
+    index(req.signedCookies.malli)
+        .then((data) => {
+            if (!data) {
+                res.redirect('/')
+                return
+            }
+        })
     var parseObj = url.parse(req.url, true)
     req.query = parseObj.query
     TRenderTable(req.signedCookies.malli, req.query.yyyy, req.query.mm, req.query.dd, function (data) {
