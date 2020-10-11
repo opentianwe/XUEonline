@@ -17,7 +17,7 @@
 	<meta name="author" content="XUE"/><!--网页作者-->
 <script src="./layer/layer.js"></script>
 <link rel="stylesheet" href="./layui/css/layui.css">
-	<script src="../public/js/kefu.js"></script>
+
 <style>
 		.header-style-two .header-wrapper .header-navigation-area .main-menu ul li.has-sub > a::before{
 			top: 65%;
@@ -165,10 +165,13 @@
                       <a href="./stunews.html">よくある質問</a>
 
                     </li>
-                    <li class=" right-view">
-                      <a href="./logoin.html">ログイン/新規登録</a>
-
-                    </li>
+                  <li class="has-sub right-view">
+											<a href="#">新規登録 /ログイン</a>
+											<ul class="sub-menu right-view">
+												<li><a href="./register.html">新規登録</a></li>
+												<li><a href="./logoin.html">ログイン</a></li>
+											 </ul>
+										</li>
                     <li class="has-sub right-view">
                       <a href="#">MY PAGE</a>
                       <ul class="sub-menu">
@@ -354,7 +357,7 @@
                                 <td>生徒の名前</td>
                                 <td>生徒WeChatID</td>
                                 <td>生徒SkypeID</td>
-                                <td>point</td>
+                        
                                 <td>RMB</td>
                                 <td>語学</td>
                                 <td>生徒さんからのメッセージ</td>
@@ -480,6 +483,7 @@
 	<div class="back-to-top bg-gradient-color">
 		<i class="fab fa-angle-up"></i>
 	</div>
+  	<script src="./js/kefu.js"></script>
   <script src="./js/userTable2.js"></script>
    <!-- <script src="./js/userTable.js"></script> -->
    

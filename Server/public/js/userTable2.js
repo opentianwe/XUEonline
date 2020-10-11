@@ -163,10 +163,14 @@ $(function () {
 
   tobody.addEventListener("click", (e) => {
     var strTime;
-    console.log("1");
     if (e.target.className == "timeApp") {
       strTime = e.target.innerHTML;
       isDate(userTimeStr(true), e.target.innerHTML, true);
+    }
+    if (e.target.className == "layui-btn Studate") {
+      layer.msg("暂未开放取消预约功能如需请联系管理员", {
+        icon: 5
+      })
     }
     if (e.target.className == "layui-btn Teachertit") {
       //  var temp = isDate(userTimeStr(), $('Teachertit').html(), false)

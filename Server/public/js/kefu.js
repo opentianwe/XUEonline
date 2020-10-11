@@ -56,10 +56,10 @@ function Kefu(Obj) {
     "            </div>" +
     '            <div class="floor">' +
     '                <a href="' +
-    "http://wpa.qq.com/msgrd?v=3&amp;uin=" +
-    Obj.qq +
+    "#" +
+    +
     "&amp;site=qq&amp;menu=yes" +
-    '"  class="qqlink" target="_blank">' +
+    '"  class="qqlink" >' +
     "                </a>" +
     '                <div class="absbox">' +
     '                    <div class="erweima"><img src="../img/dasda.jpg"></div>' +

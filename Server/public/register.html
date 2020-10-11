@@ -63,22 +63,22 @@
     }
 
     .Register-box {
-      transform: translateX(200%);
+      transform: translateX(0%);
       transition: 0.7s ease-in-out;
     }
 
     .Register-box.acitve {
-      transform: translateX(0%);
+      transform: translateX(200%);
       transition: 0.7s ease-in-out;
     }
 
     .Logo-box.acitve {
-      transform: translateX(200%);
+      transform: translateX(0%);
 
     }
 
     .Logo-box {
-      transform: translateX(0%);
+      transform: translateX(200%);
       transition: 0.7s ease-in-out;
     }
 
@@ -291,13 +291,69 @@
 
         </div>
         <!-- <span><a href="#">忘记密码</a></span> -->
-        <p style="text-align: right;padding-right: 40px;"><a href="./register.html">注册账号</a></p>
+        <p style="text-align: right;padding-right: 40px;"><a id="getRegister">注册账号</a></p>
         <p style="text-align: center;color: #007bff;">请您保护好个人账户信息，谨防上当受骗！</p>
         <button id="LoginBtn" class="layui-btn  layui-btn-lg layui-btn-normal">登陆</button>
       </div>
 
 
-     
+      <div class="Logoin-wrap Register-box  shadow-lg" id="register">
+        <h3>注册账号</h3>
+        <input type="text" id="Name" placeholder="请输入姓名">
+        <div class="formtit0" style="text-align: center;">
+
+        </div>
+        <input type="text" id="userName" placeholder="请输入邮箱">
+        <div class="formtit" style="text-align: center;">
+
+        </div>
+        <input type="text" id="weixin" placeholder="微信ID(为空可以不填写)">
+        <input type="text" id="SkypeID" placeholder="请输入SKYPE">
+        <div class="formtit3" style="text-align: center;">
+
+        </div>
+        <p style="margin-left:45px;">
+          <strong>現在のレベル（生徒）</strong>
+           <select name="" id="Phone">
+             <option value="入門">入門</option>
+             <option value="初級">初級</option>
+             <option value="中級">中級</option>
+             <option value="上級">上級</option>
+           </select>
+           <br>
+         
+         </p>
+        <div class="formtit6" style="text-align: center;">
+
+        </div>
+        <input type="password" placeholder="请输入密码" id="passWord">
+        <div class="formtit2" style="text-align: center;">
+
+        </div>
+        <input type="password" placeholder="请确认输入密码" id="passWord2">
+        <div class="formtit4" style="text-align: center;">
+
+        </div>
+        <p style="margin-left:45px;">
+          <select name="" id="read">
+            <option value="中文">中文</option>
+            <option value="日语">日语</option>
+            <option value="英语">英语</option>
+            <option value="韩语">韩语</option>
+          </select>
+          <br>
+          <span style="font-size: 12px;">生徒さんのみ書きます</span>
+        </p>
+        <div style="margin-left: 45px;">
+          性别:
+          男<input style="display: inline-block;width: 50px;"  name="Fruit" type="radio" value="男" checked="checked" />
+          女<input style="display: inline-block;width: 50px;"  name="Fruit" type="radio" value="女" />
+        </div>
+        <input type="text" id="Codes" placeholder="教师邀请码(普通用户可不填写)">
+
+        <p style="text-align: right;padding-right: 40px;"><a href="./logoin.html">登录账号</a></p>
+        <button id="RegsBtn" class="layui-btn  layui-btn-lg layui-btn-normal">注册</button>
+      </div>
     </div>
   </div>
 
@@ -347,7 +403,35 @@
       })
 
     })
-    
+    $("#getRegister").on("click", function () {
+      $(".Logo-box").css("display", "none")
+      $('.Logoin-wrap >input').each(function () {
+        $(this).val('')
+        $('.formtit').html('')
+        $('.formtit0').html('')
+        $('.formtit3').html('')
+        $('.formtit6').html('')
+        $('.formtit2').html('')
+        $('.formtit4').html('')
+      })
+      $(".Logo-box").css('display', 'block')
+      $(".Logo-box").attr("class", 'Logoin-wrap Logo-box acitve shadow-lg')
+
+      $("#register").attr("class", 'Logoin-wrap Register-box acitve shadow-lg')
+    })
+    $("#getLogoin").on("click", function () {
+      $('.formtit').html('')
+
+      $('.formtit2').html('')
+
+      $('Logoin-wrap>input').each(function () {
+        $(this).val('')
+
+      })
+
+      $("#register").removeClass("acitve")
+      $(".Logo-box").removeClass("acitve")
+    })
 
 
 
@@ -417,21 +501,8 @@
     $('#passWord2').on('change', function () {
       getpassWord2()
     })
-    function getPhone() {
-      console.log($('#register>#Phone').val())
-      if ($('#register>#Phone').val() != '' && $('#register>#Phone').val().length >= 11) {
-        $('.formtit6').html('手机号格式正确')
-        $('.formtit6').css('color', 'green')
-        return true
-      } else {
-        $('.formtit6').html('手机号格式错误')
-        $('.formtit6').css('color', 'red')
-        return false
-      }
-    }
-    $('#Phone').on('change', function () {
-      getPhone();
-    })
+   
+    
     function getName() {
       if (($('#Name').val().length >= 1 && $('#Name').val().length <= 7) && $('#Name').val() != '') {
         $('.formtit0').html('姓名格式正确')
@@ -451,7 +522,7 @@
       var datas = {
         oAName: $("#Name").val(),
         oAEmail: $(".Register-box>#userName").val(),
-        oAPaonee: $("#Phone").val(),
+        oAPaonee: $("#Phone option:selected"),
         oApassword: $(".Register-box>#passWord2").val(),
         oAhobby: options.val(),
         oAsex: sex,
@@ -461,7 +532,7 @@
       }
       console.log(datas)
       console.log(getEmali())
-      if (getName() && getEmali('.Register-box>#userName') && getSkype() && getPhone() && getPassWord('.Register-box>#passWord') && getpassWord2()) {
+      if (getName() && getEmali('.Register-box>#userName') && getSkype() && getPassWord('.Register-box>#passWord') && getpassWord2()) {
         function goUrl(url) {
           $(".confirm").on("click", function () {
             window.location.href = url
@@ -474,8 +545,8 @@
           url: './register',
           success: function (e) {
             if (e.status == 0) {
-              swal("Sorry!", "请重新填写信息", "error");
-              console.log(e.msg)
+              swal("Sorry!", e.msg);
+              
               // 
             } else if (e.status == 1) {
               swal("Yes!", "注册成功确认登录", "success");

@@ -171,6 +171,12 @@ $(function () {
       strTime = e.target.innerHTML;
       isDate(userTimeStr(true), e.target.innerHTML, true);
     }
+    if (e.target.className == "layui-btn Studate") {
+      console.log('取消预约请求')
+      layer.msg("暂未开放取消预约功能如需请联系管理员", {
+        icon: 5
+      })
+    }
     if (e.target.className == "layui-btn Teachertit") {
       //  var temp = isDate(userTimeStr(), $('Teachertit').html(), false)
       let arr = [];

@@ -4,7 +4,7 @@
   position: relative;
   overflow: hidden;
   background: url(../images/bg_banner.jpg) center center;
-  color: #A29284;
+  color: #a29284;
   background-size: cover;
 }
 
@@ -15,7 +15,7 @@
   right: 5%;
   top: 100px;
   font-size: 30px;
-  color: #BFB1A5;
+  color: #bfb1a5;
   z-index: 2;
 }
 
@@ -37,7 +37,6 @@
   margin-right: 5px;
   font-size: 28px;
   font-family: "Microsoft YaHei", "微软雅黑", "黑体";
-  ;
 }
 
 .vip-content-moenycar {
@@ -46,25 +45,24 @@
   margin: 0 auto;
   flex-wrap: wrap;
   align-items: center;
-  
 }
 
 /* 
 } */
-.vip-content-moenycar>div {
-  width:240px;
+.vip-content-moenycar > div {
+  width: 240px;
   margin: 10px 5px;
   border: 1px solid #458fd2;
-  height: 260px;
+  height: 300px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border-radius:5px;
+  border-radius: 5px;
 }
 
-.vip-content-moenycar>div.acitve {
+.vip-content-moenycar > div.acitve {
   box-shadow: 0px 3px 10px 0px #458fd2;
-  border: 3px solid  #458fd2;
+  border: 3px solid #458fd2;
 }
 
 .vip-top {
@@ -90,7 +88,7 @@
 }
 
 .vip-top:before {
-  content: "没有使用期限";
+  content: "使用期限なし";
   position: absolute;
   left: -70px;
   top: 15px;
@@ -100,92 +98,97 @@
   background: #458fd2;
   color: #fff;
   width: 200px;
-
 }
-.vip-content-moenycar>div:nth-child(1)>.vip-top::before{
-  content: "使用期限一个月";
-  top:20px;
+.vip-content-moenycar > div:nth-child(1) > .vip-top::before {
+  content: "一週間";
+  top: 20px;
   left: -56px;
   font-size: 12px;
 }
-.vip-content-moenycar>div:nth-child(2)>.vip-top::before{
-  content: "使用期限一个半月";
-  top:20px;
+.vip-content-moenycar > div:nth-child(2) > .vip-top::before {
+  content: "一か月間";
+  top: 20px;
   left: -56px;
   font-size: 12px;
 }
-.vip-content-moenycar>div:nth-child(3)>.vip-top::before{
-  content: "使用期限两个月";
-  top:20px;
+.vip-content-moenycar > div:nth-child(3) > .vip-top::before {
+  content: "一か月間半";
+  top: 20px;
   left: -56px;
   font-size: 12px;
 }
-.VIPNewPayTop{
+.vip-content-moenycar > div:nth-child(4) > .vip-top::before {
+  content: "2か月間";
+  top: 20px;
+  left: -56px;
+  font-size: 12px;
+}
+.VIPNewPayTop {
   height: 80px;
   cursor: pointer;
-  width:100%;
+  width: 100%;
   margin: 0 auto;
-  
+
   display: flex;
 }
 .VIPNewPayTop a {
-width:220px;
-margin:10px;
-height: 50px;
-line-height: 50px;
-display: block;
-position: relative;
-border: 1px solid #a2a3a3;
-border-radius: 4px;
-font-weight: 700;
-
+  width: 220px;
+  margin: 10px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  position: relative;
+  border: 1px solid #a2a3a3;
+  border-radius: 4px;
+  font-weight: 700;
 }
 .VIPNewPayTop a.VIPNewPayWx {
--webkit-filter: grayscale(100%);
--moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
--o-filter: grayscale(100%);
-filter: grayscale(100%);
-filter: gray;
-background: url(../images/vxpay.png) no-repeat 10px center;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  background: url(../images/vxpay.png) no-repeat 10px center;
 }
-.VIPNewPayTop a.VIPNewPaypal{
--webkit-filter: grayscale(100%);
--moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
--o-filter: grayscale(100%);
-filter: grayscale(100%);
-background: url(../images/paypal_1210179_easyicon.net.svg) no-repeat 10px center;
+.VIPNewPayTop a.VIPNewPaypal {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background: url(../images/paypal_1210179_easyicon.net.svg) no-repeat 10px
+    center;
 }
 .VIPNewPayTop a.VIPNewPayZfb {
--webkit-filter: grayscale(100%);
--moz-filter: grayscale(100%);
--ms-filter: grayscale(100%);
--o-filter: grayscale(100%);
-filter: grayscale(100%);
-filter: gray;
-background: url(../images/alipay.png) no-repeat 10px center;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  background: url(../images/alipay.png) no-repeat 10px center;
 }
-#checked{
--webkit-filter: grayscale(0);
--moz-filter: grayscale(0);
--ms-filter: grayscale(0);
--o-filter: grayscale(0);
-/* filter: grayscale(0); */
-filter: gray;
-border: 1px solid #458fd2;
-color: #458fd2;
+#checked {
+  -webkit-filter: grayscale(0);
+  -moz-filter: grayscale(0);
+  -ms-filter: grayscale(0);
+  -o-filter: grayscale(0);
+  /* filter: grayscale(0); */
+  filter: gray;
+  border: 1px solid #458fd2;
+  color: #458fd2;
 }
 .VIPNewPayTop i {
-width: 56px;
-height: 56px;
-position: absolute;
-right: 0;
-top: 0;
-background: url(../images/checked.png) no-repeat top right;
-display: block;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(../images/checked.png) no-repeat top right;
+  display: block;
 }
-.vip-box{
-width: 70%;
-margin: 0 auto;
+.vip-box {
+  width: 70%;
+  margin: 0 auto;
 }
