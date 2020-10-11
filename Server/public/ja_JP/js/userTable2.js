@@ -161,7 +161,7 @@ $(function () {
     var temp = isDate(userTimeStr(true), $(this).siblings()[0].innerHTML, true);
     temp == -1 ? temp = "授業済み" : temp = temp
 
-    $(this).html("<strong>" + temp + "後</strong>（授業開始）")
+    $(this).html("<strong>" + temp + "</strong>")
 
   })
   tobody.addEventListener("click", (e) => {

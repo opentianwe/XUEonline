@@ -442,7 +442,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter">専攻:</span>
+              <span id="user-ter"> 日本在住歴:{{data.yearHome}} </span>
             </p>
             <p>
               <i>
@@ -583,7 +583,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 年齢</span>18
+              <span id="user-ter"> 年齢:</span>{{data.age}}
             </p>
             <p>
               <i>
@@ -605,7 +605,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter"> 現在の職業</span>
+              <span id="user-ter"> 現在の職業:{{data.xianzaizhiye}}</span>
             </p>
           </div>
         </div>
