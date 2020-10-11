@@ -426,7 +426,7 @@
                   />
                 </svg>
               </i>
-              <span id="user-ter">性別</span>男
+              <span id="user-ter">性別:</span>{{data.Sex}}
             </p>
             <p>
               <i>
