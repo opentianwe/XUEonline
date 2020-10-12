@@ -382,11 +382,11 @@
       var reg = /[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}@[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]\.<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}\.[^`~!@#$%\^&\*\(\)\+=\|\{\}\':;\',\\\[\]<>\/\?~！@#￥%……&\*（）——+\|\{\}【】‘；：”“’。，、？\s]{1,}/i;
       var userName = $(emstr).val()
       if (reg.test(userName) && userName != "") {
-        $('.formtit').html('邮箱格式正确')
+        $('.formtit').html('正確')
         $('.formtit').css('color', 'green')
         return true
       } else {
-        $('.formtit').html('邮箱格式错误')
+        $('.formtit').html('メールアドレスが不正です')
         $('.formtit').css('color', 'red')
         return false
       }
@@ -400,7 +400,7 @@
     })
     function getSkype() {
       if ($('#SkypeID').val() == '', $('#SkypeID').val().length > 6) {
-        $('.formtit3').html('SKYPEフォーマットエラー')
+        $('.formtit3').html('正確')
         $('.formtit3').css('color', 'green')
         return true
       }
@@ -415,7 +415,6 @@
     function getPassWord(psstr) {
       var reg = /^(\w){6,12}$/;
       var a = $(psstr).val()
-
       if (reg.test(a) && a != '') {
         $('.formtit2').html('正確')
         $('.formtit2').css('color', 'green')
@@ -433,7 +432,7 @@
         $('.formtit4').css('color', 'green')
         return true
       } else {
-        $('.formtit4').html('验证失败')
+        $('.formtit4').html('検証失敗')
         $('.formtit4').css('color', 'red')
         return false
       }
@@ -442,26 +441,15 @@
     $('#passWord2').on('change', function () {
       getpassWord2()
     })
-    function getPhone() {
-      console.log($('#register>#Phone').val())
-      if ($('#register>#Phone').val() != '' && $('#register>#Phone').val().length >= 11) {
-        $('.formtit6').html('手机号格式正确')
-        $('.formtit6').css('color', 'green')
-        return true
-      } else {
-        $('.formtit6').html('手机号格式错误')
-        $('.formtit6').css('color', 'red')
-        return false
-      }
-    }
+   
   
     function getName() {
       if (($('#Name').val().length >= 1 && $('#Name').val().length <= 7) && $('#Name').val() != '') {
-        $('.formtit0').html('姓名格式正确')
+        $('.formtit0').html('正確')
         $('.formtit0').css('color', 'green')
         return true
       }
-      $('.formtit0').html('姓名格式错误长度必须大于3小于7')
+      $('.formtit0').html('【名前３～７文字】')
       $('.formtit0').css('color', 'red')
       return false
     }
@@ -497,15 +485,15 @@
           url: '../register',
           success: function (e) {
             if (e.status == 0) {
-              swal("Sorry!", "请重新填写信息", "error");
+              swal("Sorry!", "再入力お願いします", "error");
               console.log(e.msg)
               // 
             } else if (e.status == 1) {
-              swal("Yes!", "注册成功确认登录", "success");
+              swal("Yes!", "新規登録しました", "success");
               goUrl("./index.html")
 
             } else if (e.status == 2) {
-              swal("Yes!", "注册成功确认登录", "success");
+              swal("Yes!", "新規登録しました", "success");
               goUrl("./teacherdata.html")
 
             }

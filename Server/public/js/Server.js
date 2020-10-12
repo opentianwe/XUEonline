@@ -65,7 +65,7 @@ function makeAnapp(ID, time, bID) {
             `
             if (res.status === 0) {
                 layer.confirm(str, {
-                    area: ['55vw', '500px'],
+                    area: ['55vw', '700px'],
                     btn: ['付款', '取消付款'],
                     title: "购买积分", //按钮
                     closeBtn: false
