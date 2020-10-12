@@ -580,7 +580,7 @@ router.get('/personal.html', function (req, res) {
                                     if (datas[i].Textval == null) {
                                         datas[i].Textval = "无"
                                     }
-                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td>' + '<td>' + datas[i].Price + '</td>' + '<td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
+                                    Str += '<tr><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td><td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
 
                                 }
                                 ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
