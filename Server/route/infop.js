@@ -7,6 +7,10 @@ const Tool = require('../Toos')
 const sendemal = require('../helpers/sendEmal')
 router.use(cookieParser("wcasd2398123asd12aasd"))
 const model_inf = require('../models/Userinformation')
+const model_Appint = require('../models/Appointment')
+const model_Ainfor = require('../models/tAinformation')
+
+
 router.post('/dataUpload', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.redirect('/logoin.html')
@@ -325,13 +329,6 @@ router.post('/pay', function (req, res) {
         })
         return;
     }
-
-
-    
-
-
-
-
     var pUserdata = {};
     var tUserdata = {};
     var isSpecialOffer = false
@@ -417,7 +414,7 @@ router.post('/pay', function (req, res) {
             } else {
                 var Grend = 0
                 async function all() {
-                    Grend = await model_inf.appraisal_authority(tUserdata.Email) 
+                    Grend = await model_inf.appraisal_authority(tUserdata.Email)
                     if (Grend > 4 || Grend == 0) {
                         Grend = 1
                     }
@@ -438,17 +435,17 @@ router.post('/pay', function (req, res) {
                             }
                             break
                         case 3:
-                            tUserdata.RMB = Number(tUserdata.moeny) * 0.06 
-                            tUserdata.Yen = Number(tUserdata.moeny) * 0.6  
-                            tUserdata.RMB = tUserdata.RMB * 0.6                            
+                            tUserdata.RMB = Number(tUserdata.moeny) * 0.06
+                            tUserdata.Yen = Number(tUserdata.moeny) * 0.6
+                            tUserdata.RMB = tUserdata.RMB * 0.6
 
                             tUserdata.Yen = tUserdata.Yen.toFixed(0)
                             tUserdata.RMB = tUserdata.RMB.toFixed(0)
                             break
-                    }  
+                    }
                     return mysql.creatAppointmentinformation(tUserdata, pUserdata)
                 }
-               return all()   
+                return all()
             }
         })
         .then(function (data) {
@@ -491,6 +488,64 @@ router.post('/pay', function (req, res) {
         });
 
 
+
+})
+
+
+//const model_inf = require('../models/Userinformation')
+
+router.post('/cancel', function (req, res) {
+    async function cancel(malli, Time) {
+        var ret = await model_inf.appraisal_authority(malli)
+        if (ret == null) {
+            ret = await model_Appint.queryAppointment_alldata_Byemail(malli, Time)
+            if (ret == false) {
+                res.send({ status: 1, msg: "暂无预约信息!" })
+                return
+            } else {
+                var data = ret
+                ret = await model_Appint.deleteAppointment_alldata_BytimeApp(Time, malli, data.TeacherEmal)
+                if (ret) {
+                    res.send({ status: 2, msg: "取消预约成功,积分会在1-2个小时内自动返回您的账户!" })
+                    //恢复预约信息
+                    model_Ainfor.modify_Makeanappointment(data.TeacherEmal, data.timeApp, 1)
+                    Tool.aUpdatePoints(Number(data.Price), data.UserEmal, data.UserID)
+                } else {
+                    res.send({ status: 1, msg: "暂无预约信息!" })
+                    return
+                }
+            }
+        } else {
+            res.send({ status: 0, msg: "用户权限不足!" })
+            return
+        }
+    }
+    readJsondata(req)
+        .then(function (data) {
+            if (data) {
+                if (data.Time == undefined) {
+                    res.send({ status: 0, msg: "错误" })
+                    return
+                }
+                var date = new Date()
+                date.setHours(date.getHours() - 2)
+                var current_date = new Date(date)
+                current_date = current_date.getTime(current_date)
+
+                var Time = new Date(data.Time)
+                Time = Time.getTime(Time)
+
+                if (Time < current_date) {
+                    cancel("147258369@qq.com", data.Time)
+                } else {
+                    res.send({ status: 3, msg: "请在课前两个小时之前取消预约，超时不能再取消预约!" })
+                    return
+                }
+            }
+        }, function (err) {
+            res.send({ status: 0, msg: "错误" })
+            return
+        })
 
 })
 
