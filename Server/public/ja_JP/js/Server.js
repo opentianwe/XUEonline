@@ -136,6 +136,7 @@ function makeAnapp(ID, time, bID) {
                 });
             } else if (res.status === 4) {
                 layer.msg(res.msg)
+                window.location.href = './logoin.html'
             } else if (res.status === 1) {
                 layer.msg(res.msg)
             } else if (res.status === 3) {

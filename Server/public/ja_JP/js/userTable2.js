@@ -106,9 +106,9 @@ $(function () {
       60 * minutesRound;
     if (daysRound > 0) {
       return (time =
-        daysRound + "日" + hoursRound + "時" + minutesRound + "分");
+        daysRound + "日" + (hoursRound) + "時" + minutesRound + "分");
     } else if (hoursRound > 0) {
-      return (time = hoursRound + "時" + minutesRound + "分");
+      return ((time = hoursRound) + "時" + minutesRound + "分");
     } else if (minutesRound > 0) {
       return (time = 00 + "時:" + minutesRound + "分");
     } else {
@@ -164,18 +164,69 @@ $(function () {
     $(this).html("<strong>" + temp + "</strong>")
 
   })
+  function isTerDate(timeOne, timeTow) {
+    let a, b, c, d
+    a = new Date(timeOne)
+    b = new Date(timeTow)
+    c = a - b
+    console.log(c)
+    if (c < 0) return false
+    if (c >= 7200000) return true
+    return false
+
+  }
   tobody.addEventListener("click", (e) => {
     var strTime;
     //console.log('1')
+
     if (e.target.className == "timeApp") {
       strTime = e.target.innerHTML;
       isDate(userTimeStr(true), e.target.innerHTML, true);
     }
     if (e.target.className == "layui-btn Studate") {
-      console.log('取消预约请求')
-      layer.msg("暂未开放取消预约功能如需请联系管理员", {
-        icon: 5
-      })
+      var eleMent = e.target.parentElement.parentElement.childNodes
+      var terstatus = e.target.getAttribute("data-status")
+      var terDate = eleMent[0].innerHTML
+      if (isTerDate(terDate, userTimeStr(true))) {
+        // 执行满足预约操作
+        $.ajax({
+          type: "post",
+          dataType: "json",
+          data: JSON.stringify({ Time: terDate, terstatus: terstatus }),
+          url: "../cancel",
+          success: function (d) {
+            if (d.status == 2) {
+              layer.msg(d.msg, {
+                icon: 1,
+              })
+            }
+            if (d.status == 1) {
+              layer.msg(d.msg, {
+                icon: 2,
+              })
+            }
+            if (d.status == 0) {
+              layer.msg(d.msg, {
+                icon: 2,
+              })
+            }
+            if (d.status == 3) {
+              layer.msg(d.msg, {
+                icon: 2,
+              })
+            }
+            console.log(d)
+          }, error: function (error) {
+            console.log(error)
+          }
+        })
+      } else {
+        layer.msg('订单已授课,无法在进行退款 如果对订单有任何疑问可以咨询学官网', {
+          icon: 2,
+        })
+        // 超过两小时 不可以取消预约
+      }
+
     }
     if (e.target.className == "layui-btn Teachertit") {
       //  var temp = isDate(userTimeStr(), $('Teachertit').html(), false)
