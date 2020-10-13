@@ -9,6 +9,7 @@ router.use(cookieParser("wcasd2398123asd12aasd"))
 const model_inf = require('../models/Userinformation')
 const model_Appint = require('../models/Appointment')
 const model_Ainfor = require('../models/tAinformation')
+const model_UserT = require('../models/UserT')
 
 
 router.post('/dataUpload', function (req, res) {
@@ -492,13 +493,20 @@ router.post('/pay', function (req, res) {
 })
 
 
-//const model_inf = require('../models/Userinformation')
+
 
 router.post('/cancel', function (req, res) {
-    async function cancel(malli, Time) {
-        var ret = await model_inf.appraisal_authority(malli)
+    async function cancel(malli, Time,id) {
+        ret = await model_inf.appraisal_authority(malli)
         if (ret == null) {
-            ret = await model_Appint.queryAppointment_alldata_Byemail(malli, Time)
+            var ret = await model_UserT.query_usert_Emal_byID(id)
+            if(!ret)
+            {
+                res.send({ status: 4, msg: "老师信息异常!" })
+                return
+            }
+            console.log(ret.oAEmail)
+            ret = await model_Appint.queryAppointment_alldata_Byemail(ret.oAEmail,malli, Time)
             if (ret == false) {
                 res.send({ status: 1, msg: "暂无预约信息!" })
                 return
@@ -523,20 +531,20 @@ router.post('/cancel', function (req, res) {
     readJsondata(req)
         .then(function (data) {
             if (data) {
-                if (data.Time == undefined) {
+                if (data.Time == undefined || data.id == undefined) {
                     res.send({ status: 0, msg: "错误" })
                     return
                 }
                 var date = new Date()
-                date.setHours(date.getHours() - 2)
+                date.setHours(date.getHours() - 3)
                 var current_date = new Date(date)
                 current_date = current_date.getTime(current_date)
 
                 var Time = new Date(data.Time)
                 Time = Time.getTime(Time)
 
-                if (Time < current_date) {
-                    cancel("147258369@qq.com", data.Time)
+                if (Time > current_date) {
+                    cancel("147258369@qq.com", data.Time,data.id)
                 } else {
                     res.send({ status: 3, msg: "请在课前两个小时之前取消预约，超时不能再取消预约!" })
                     return
@@ -814,5 +822,12 @@ router.post('/geteacherEvaluation', function (req, res) {
         })
 })
 
+
+
+router.get('/getime',function(req,res){
+    var date = new Date()
+    date.setHours(date.getHours() + 1)
+    res.send({Time:date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()})
+})
 module.exports = router
 

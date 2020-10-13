@@ -6,10 +6,10 @@ exports.queryAppointment_alldata_Byemail = queryAppointment_alldata_Byemail
 exports.queryAppointment_alldata_BytimeApp = queryAppointment_alldata_BytimeApp
 exports.deleteAppointment_alldata_BytimeApp = deleteAppointment_alldata_BytimeApp
 
-async function queryAppointment_alldata_Byemail(emal,time)
+async function queryAppointment_alldata_Byemail(TeacherEmal,emal,time)
 {
-    var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = ? AND timeApp = ?"
-    var value = [String(emal),String(time)]
+    var queryStr = "SELECT * FROM `Appointment` WHERE `UserEmal` = ? AND `timeApp` = ? AND `TeacherEmal` = ?"
+    var value = [String(emal),String(time),String(TeacherEmal)]
     var ret = await main.sqlquery(queryStr,value)
     if(ret instanceof Array)
     {
@@ -58,19 +58,3 @@ async function deleteAppointment_alldata_BytimeApp(timeApp,UserEmal,TeacherEmal)
     return false     
 }
 
-// function seleteAppointment(emal) {
-//     var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = '" + emal + "'"
-//     return new Promise(function (resolve, reject) {
-//         woreData(queryStr, function (data, error) {
-//             if (error) {
-//                 reject(null)
-//             }
-//             if (!data || data.length == 0) {
-//                 reject(null)
-//             }
-//             else {
-//                 resolve(data)
-//             }
-//         })
-//     })
-// }
