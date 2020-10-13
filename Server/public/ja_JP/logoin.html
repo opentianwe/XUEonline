@@ -329,12 +329,12 @@
             } else if (d.type == "0") {
               window.location.href = "./index.html"
             } else {
-              swal("Sorry!", d.msg, "error");
+              swal("Sorry!", 'メールアドレス」または「パスワード」が違います。', "error");
             }
           }
         },
         error: (err) => {
-          swal("Sorry!", '服务器错误', "error");
+          swal("Sorry!", 'xxxx', "error");
         }
       })
 
