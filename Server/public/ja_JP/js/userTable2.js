@@ -212,13 +212,13 @@ $(function () {
       var terDate = eleMent[0].innerHTML;
       var TerStr = `
       <div>订单信息</div>
-      <div>教师姓名:${eleMent[1].innerHTML}</div>
-      <div>预约时间: ${eleMent[0].innerHTML}</div>
-      <div>预计退还积分:${eleMent[4].innerHTML} <div>
+      <div>講師:${eleMent[1].innerHTML}</div>
+      <div>レッスン日時: ${eleMent[0].innerHTML}</div>
+      <div>返還Point:${eleMent[4].innerHTML} <div>
       <strong>退款机制只退还积分</strong>
       `
       layer.confirm(TerStr, {
-        btn: ['确认退款', '取消退款'],
+        btn: ['確認する', 'キャンセル'],
         title: "取消订单",
         closeBtn: false
         , shade: 0.8
@@ -260,7 +260,7 @@ $(function () {
             }
           })
         } else {
-          layer.msg('订单已授课,无法在进行退款 如果对订单有任何疑问可以咨询学官网', {
+          layer.msg('授業済みなので、キャンセルできません', {
             icon: 2,
           })
           // 超过两小时 不可以取消预约
@@ -298,9 +298,9 @@ $(function () {
         crossDomain: true,
         success: function (d) {
           var str = `
-                <h4 class='teruser'>${arr[1].innerHTML}老师的评价<h4>
+                <h4 class='teruser'>先生へのメッセージ<h4>
                 <div>
-                <textarea name="" id="terText" placeholder="限制输入200字" maxlength="200" cols="30" rows="5"></textarea>
+                <textarea name="" id="terText" placeholder="200字以内にご入力ください" maxlength="200" cols="30" rows="5"></textarea>
                 </div>
                `;
           var msg = d.msg;
@@ -309,8 +309,8 @@ $(function () {
               str,
               {
                 area: ["55vw", "400px"],
-                btn: ["コメントの確認", "コメントキャンセル"],
-                title: "对 " + arr[1].innerHTML + "老师的评价", //按钮
+                btn: ["確認する", "キャンセル"],
+                title: "", //按钮
                 closeBtn: false,
                 shade: 0.8,
               },

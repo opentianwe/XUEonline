@@ -346,7 +346,7 @@
                     <%if(data.isTeacher){%>
                      <div class='mon'>総収入(RMB):{{data.Price}}</div>
                     <%}%>
-                    <div class='yuyue'><span class='isAdd active' >全部を見る</span><span class='isnotAdd' >未授業</span> <span class='isAddter'>授業が始まった</span> </div>
+                    <div class='yuyue'><span class='isAdd active' >全部を見る</span><span class='isnotAdd' >未授業</span> <span class='isAddter'>授業済み</span> </div>
                    <div class="table-responsive">
                           
                         <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
