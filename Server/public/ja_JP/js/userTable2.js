@@ -164,6 +164,29 @@ $(function () {
     $(this).html("<strong>" + temp + "</strong>")
 
   })
+  function getjdTime() {
+    let time
+    $.ajax({
+      type: "get",
+      url: "/getime",
+      dataType: "json",
+      async: false,
+      //取消 异步  
+      success: function (response) {
+        if (response.Time == '' || response.Time == undefined) time = false
+        time = response.Time
+      }
+    });
+    return time
+  }
+
+  // var str = getjdTime()
+  // if (str.length == 20) {
+
+  // }
+  // //.substring(0, 17)
+  // console.log(str.length)
+  // console.log(str)
   function isTerDate(timeOne, timeTow) {
     let a, b, c, d
     a = new Date(timeOne)
@@ -185,47 +208,66 @@ $(function () {
     }
     if (e.target.className == "layui-btn Studate") {
       var eleMent = e.target.parentElement.parentElement.childNodes
-      var terstatus = e.target.getAttribute("data-status")
-      var terDate = eleMent[0].innerHTML
-      if (isTerDate(terDate, userTimeStr(true))) {
-        // 执行满足预约操作
-        $.ajax({
-          type: "post",
-          dataType: "json",
-          data: JSON.stringify({ Time: terDate, terstatus: terstatus }),
-          url: "../cancel",
-          success: function (d) {
-            if (d.status == 2) {
-              layer.msg(d.msg, {
-                icon: 1,
-              })
+      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+      var terDate = eleMent[0].innerHTML;
+      var TerStr = `
+      <div>订单信息</div>
+      <div>教师姓名:${eleMent[1].innerHTML}</div>
+      <div>预约时间: ${eleMent[0].innerHTML}</div>
+      <div>预计退还积分:${eleMent[4].innerHTML} <div>
+      <strong>退款机制只退还积分</strong>
+      `
+      layer.confirm(TerStr, {
+        btn: ['确认退款', '取消退款'],
+        title: "取消订单",
+        closeBtn: false
+        , shade: 0.8
+      }, function () {
+
+        if (isTerDate(terDate, userTimeStr(true))) {
+          // 执行满足预约操作
+          $.ajax({
+            type: "post",
+            dataType: "json",
+            data: JSON.stringify({ Time: terDate, id: terstatus }),
+            url: "../cancel",
+            success: function (d) {
+              if (d.status == 2) {
+
+                layer.msg(d.msg, {
+                  icon: 1,
+                })
+                e.target.parentElement.parentElement.remove();
+              }
+              if (d.status == 1) {
+                layer.msg(d.msg, {
+                  icon: 2,
+                })
+              }
+              if (d.status == 0) {
+                layer.msg(d.msg, {
+                  icon: 2,
+                })
+              }
+              if (d.status == 3) {
+                layer.msg(d.msg, {
+                  icon: 2,
+                })
+              }
+              console.log(d)
+            }, error: function (error) {
+              console.log(error)
             }
-            if (d.status == 1) {
-              layer.msg(d.msg, {
-                icon: 2,
-              })
-            }
-            if (d.status == 0) {
-              layer.msg(d.msg, {
-                icon: 2,
-              })
-            }
-            if (d.status == 3) {
-              layer.msg(d.msg, {
-                icon: 2,
-              })
-            }
-            console.log(d)
-          }, error: function (error) {
-            console.log(error)
-          }
-        })
-      } else {
-        layer.msg('订单已授课,无法在进行退款 如果对订单有任何疑问可以咨询学官网', {
-          icon: 2,
-        })
-        // 超过两小时 不可以取消预约
-      }
+          })
+        } else {
+          layer.msg('订单已授课,无法在进行退款 如果对订单有任何疑问可以咨询学官网', {
+            icon: 2,
+          })
+          // 超过两小时 不可以取消预约
+        }
+      }, function () {
+        console.log('退出退款操作')
+      });
 
     }
     if (e.target.className == "layui-btn Teachertit") {
