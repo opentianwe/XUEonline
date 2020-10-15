@@ -822,12 +822,14 @@ router.post('/geteacherEvaluation', function (req, res) {
         })
 })
 
-
+router.get('/getStudentreviews',function(req,res){
+    
+})
 
 router.get('/getime',function(req,res){
     var date = new Date()
     date.setHours(date.getHours() + 1)
-    res.send({Time:date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()})
+    res.send({Time:date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes()})
 })
 module.exports = router
 
