@@ -10,7 +10,7 @@ const model_inf = require('../models/Userinformation')
 const model_Appint = require('../models/Appointment')
 const model_Ainfor = require('../models/tAinformation')
 const model_UserT = require('../models/UserT')
-
+const model_UserP = require('../models/UserP')
 
 router.post('/dataUpload', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
@@ -218,9 +218,6 @@ router.post('/setData', function (req, res) {
     })
 })
 
-
-
-
 function readJsondata(req) {
     return new Promise(function (resolve, reject) {
         var UserData = ''
@@ -238,8 +235,6 @@ function readJsondata(req) {
         })
     })
 }
-
-
 router.post('/makeAnapp', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.send({
@@ -319,7 +314,6 @@ router.post('/makeAnapp', function (req, res) {
             })
         })
 })
-
 
 router.post('/pay', function (req, res) {
 
@@ -492,9 +486,6 @@ router.post('/pay', function (req, res) {
 
 })
 
-
-
-
 router.post('/cancel', function (req, res) {
     async function cancel(malli, Time,id) {
         ret = await model_inf.appraisal_authority(malli)
@@ -544,7 +535,7 @@ router.post('/cancel', function (req, res) {
                 Time = Time.getTime(Time)
 
                 if (Time > current_date) {
-                    cancel("147258369@qq.com", data.Time,data.id)
+                    cancel(req.signedCookies.malli, data.Time,data.id)
                 } else {
                     res.send({ status: 3, msg: "请在课前两个小时之前取消预约，超时不能再取消预约!" })
                     return
@@ -556,7 +547,6 @@ router.post('/cancel', function (req, res) {
         })
 
 })
-
 
 router.post('/studentEvaluation', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
@@ -822,8 +812,36 @@ router.post('/geteacherEvaluation', function (req, res) {
         })
 })
 
-router.get('/getStudentreviews',function(req,res){
-    
+router.post('/getStudentreviews',function(req,res){
+    async function getStudentreviews(malli,id) {
+        ret = await model_inf.appraisal_authority(malli)
+        if (ret != 404 && ret != null) {
+            var ret = await model_UserP.query_userp_Emal_byID(id)
+            if(!ret)
+            {
+                res.send({ status: 4, msg: "老师信息异常!" })
+                return
+            }
+            ret = await model_Appint.queryAppointment_Pmsg_Byemail(malli,ret.oAEmail,id)
+            res.send(ret)
+        } else {
+            res.send({ status: 0, msg: "用户权限不足!" })
+            return
+        }
+    }
+    readJsondata(req)
+    .then(function (data) {
+        if (data) {
+            if (data.id == undefined) {
+                res.send({ status: 0, msg: "错误" })
+                return
+            }
+            getStudentreviews(req.signedCookies.malli,data.id)
+        }
+    }, function (err) {
+        res.send({ status: 0, msg: "错误" })
+        return
+    })
 })
 
 router.get('/getime',function(req,res){
