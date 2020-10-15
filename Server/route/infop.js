@@ -822,7 +822,9 @@ router.post('/geteacherEvaluation', function (req, res) {
         })
 })
 
-
+router.get('/getStudentreviews',function(req,res){
+    
+})
 
 router.get('/getime',function(req,res){
     var date = new Date()
