@@ -487,17 +487,16 @@ router.post('/pay', function (req, res) {
 })
 
 router.post('/cancel', function (req, res) {
-    async function cancel(malli, Time,id) {
+    async function cancel(malli, Time, id) {
         ret = await model_inf.appraisal_authority(malli)
         if (ret == null) {
             var ret = await model_UserT.query_usert_Emal_byID(id)
-            if(!ret)
-            {
+            if (!ret) {
                 res.send({ status: 4, msg: "老师信息异常!" })
                 return
             }
             console.log(ret.oAEmail)
-            ret = await model_Appint.queryAppointment_alldata_Byemail(ret.oAEmail,malli, Time)
+            ret = await model_Appint.queryAppointment_alldata_Byemail(ret.oAEmail, malli, Time)
             if (ret == false) {
                 res.send({ status: 1, msg: "暂无预约信息!" })
                 return
@@ -535,7 +534,7 @@ router.post('/cancel', function (req, res) {
                 Time = Time.getTime(Time)
 
                 if (Time > current_date) {
-                    cancel(req.signedCookies.malli, data.Time,data.id)
+                    cancel(req.signedCookies.malli, data.Time, data.id)
                 } else {
                     res.send({ status: 3, msg: "请在课前两个小时之前取消预约，超时不能再取消预约!" })
                     return
@@ -812,17 +811,17 @@ router.post('/geteacherEvaluation', function (req, res) {
         })
 })
 
-router.post('/getStudentreviews',function(req,res){
-    async function getStudentreviews(malli,id) {
+router.post('/getStudentreviews', function (req, res) {
+    async function getStudentreviews(malli, id) {
+        console.log(id)
         ret = await model_inf.appraisal_authority(malli)
         if (ret != 404 && ret != null) {
             var ret = await model_UserP.query_userp_Emal_byID(id)
-            if(!ret)
-            {
+            if (!ret) {
                 res.send({ status: 4, msg: "老师信息异常!" })
                 return
             }
-            ret = await model_Appint.queryAppointment_Pmsg_Byemail(malli,ret.oAEmail,id)
+            ret = await model_Appint.queryAppointment_Pmsg_Byemail(malli, ret.oAEmail, id)
             res.send(ret)
         } else {
             res.send({ status: 0, msg: "用户权限不足!" })
@@ -830,24 +829,24 @@ router.post('/getStudentreviews',function(req,res){
         }
     }
     readJsondata(req)
-    .then(function (data) {
-        if (data) {
-            if (data.id == undefined) {
-                res.send({ status: 0, msg: "错误" })
-                return
+        .then(function (data) {
+            if (data) {
+                if (data.id == undefined) {
+                    res.send({ status: 0, msg: "错误" })
+                    return
+                }
+                getStudentreviews(req.signedCookies.malli, data.id)
             }
-            getStudentreviews(req.signedCookies.malli,data.id)
-        }
-    }, function (err) {
-        res.send({ status: 0, msg: "错误" })
-        return
-    })
+        }, function (err) {
+            res.send({ status: 0, msg: "错误" })
+            return
+        })
 })
 
-router.get('/getime',function(req,res){
+router.get('/getime', function (req, res) {
     var date = new Date()
     date.setHours(date.getHours() + 1)
-    res.send({Time:date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes()})
+    res.send({ Time: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes() })
 })
 module.exports = router
 

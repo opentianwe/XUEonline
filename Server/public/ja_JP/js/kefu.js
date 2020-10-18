@@ -50,7 +50,7 @@ function Kefu(Obj) {
     "                </a>" +
     '                <div class="absbox">' +
     "                    <div class=\"back\"><a href='./index.html'>" +
-    "                        返回首页" +
+    "                        GOHOME" +
     "                    </a></div>" +
     "                </div>" +
     "            </div>" +

@@ -131,6 +131,7 @@ function clearCookie() {
 	</div>
 	
 	`
+	$('.sub-menu:last').append('<li><a href="http://skype.gmw/">SKYPE</a><li>')
 	$('.language-btn').html('<i class="webexflaticon flaticon-internet"></i> Chineseに翻訳')
 	console.log($('.language-btn>a').html())
 	$('.language>ul').hide()

@@ -48,7 +48,7 @@ $(function () {
     //计算相差秒数
     var leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数
     var seconds = Math.round(leave3 / 1000);
-    console.log(" 剩余 " + days + "天 " + hours + "小时 " + minutes + " 分钟");
+    // console.log(" 剩余 " + days + "天 " + hours + "小时 " + minutes + " 分钟");
 
     if (days >= 0) {
       return false;
@@ -101,7 +101,7 @@ $(function () {
     } else if (hoursRound > 0) {
       return (time = hoursRound + "时" + minutesRound + "分");
     } else if (minutesRound > 0) {
-      return (time = 00 + "时:" + minutesRound + "分");
+      return (time = 00 + "时" + minutesRound + "分");
     } else {
       return (time = "0小时");
     }
@@ -125,13 +125,13 @@ $(function () {
     if (temp == true) {
       if (res > 0) {
         res = getDuration(res);
-        layer.msg("距离上课" + res, { icon: 1 });
+        //layer.msg("距离上课" + res, { icon: 1 });
         // console.log(res)
         return res;
       } else {
-        layer.msg("已经超过预约时间了!如果没联系到老师请联系XUE管理员", {
-          icon: 2,
-        });
+        // layer.msg("已经超过预约时间了!如果没联系到老师请联系XUE管理员", {
+        //   icon: 2,
+        // });
         return -1;
       }
     } else {
@@ -139,9 +139,34 @@ $(function () {
       return -1;
     }
   }
+  function getjdTime() {
+    let time
+    $.ajax({
+      type: "get",
+      url: "/getime",
+      dataType: "json",
+      async: false,
+      //取消 异步  
+      success: function (response) {
+        if (response.Time == '' || response.Time == undefined) time = false
+        time = response.Time
+      }
+    });
+    return time
+  }
+  $("#userTale>tr>.time").each(function () {
+    //console.log($(this).siblings()[0].innerHTML);
+    // console.log(getjdTime())
+    var temp = isDate(getjdTime(), $(this).siblings()[0].innerHTML, true);
+    temp == -1 ? temp = "授業済み" : temp = temp
+
+    $(this).html("<strong>" + temp + "</strong>")
+
+  })
+  // getjdTime 请求 多一个小时的时间 把 userDate 都替换掉
   var tobody = document.querySelector("#userTale");
   $("#userTale>tr> .timeApp").each(function () {
-    var temp = isDate(userTimeStr(true), $(this).html(), false);
+    var temp = isDate(getjdTime(), $(this).html(), false);
     if (temp != -1) {
       $(this).css("background", "#67C23A");
       $(this).css("color", "#fff");
@@ -153,8 +178,7 @@ $(function () {
     //console.log(isTisDay(userTimeStr(false), $(this).html()))
     // console.log($(this).html().substring(0, 10));
     //console.log(isTisDay(userTimeStr(false), $(this).html().substring(0, 10)));
-    console.log(userTimeStr(false));
-    if (isTisDay(userTimeStr(false), $(this).html().substring(0, 10))) {
+    if (isTisDay(getjdTime().substring(0, 10), $(this).html().substring(0, 10))) {
       $(this).css("background", "#2d8cf0");
       $(this).css("color", "#fff");
       $(this).css("font-weight", "600");
@@ -174,7 +198,51 @@ $(function () {
     var strTime;
     if (e.target.className == "timeApp") {
       strTime = e.target.innerHTML;
-      isDate(userTimeStr(true), e.target.innerHTML, true);
+      isDate(getjdTime(), e.target.innerHTML, true);
+    }
+    else if (e.target.className == "layui-btn Historyview") {
+      var eleMent = e.target.parentElement.parentElement.childNodes
+      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+      $.ajax({
+        url: "./getStudentreviews",
+        type: "post",
+        data: JSON.stringify({ id: terstatus }),
+        success: function (res) {
+          if (res.status == 0) {
+            return layer.msg(res.msg, { icon: 2 })
+          }
+          if (res == false) return layer.msg("学生暂无评价", { icon: 1, })
+          console.log(res)
+          var a = ``
+          res.reverse()
+          for (let i = 0; i < res.length; i++) {
+            a += `
+           <tr class="isTimes"><td>${res[i].Pmsg}</td><td>${res[i].UserName}</td></tr>
+           
+        `
+          }
+          let b = `
+          <table class="isTable" >
+            <thead><tr ><th>评论内容</th><th>学生姓名</th></tr></thead>
+            <tbody>${a}</tdody>
+           </table>
+          `
+          layer.confirm(b, {
+            area: ["55vw", "500px"],
+            btn: ["确认查看"],
+            closeBtn: false,
+            shade: 0.8,
+
+          }, function () {
+            layer.closeAll();
+
+          })
+        },
+        error: function (error) {
+
+        }
+      })
+
     }
     if (e.target.className == "layui-btn Studate") {
       var eleMent = e.target.parentElement.parentElement.childNodes
@@ -194,7 +262,7 @@ $(function () {
         , shade: 0.8
       }, function () {
 
-        if (isTerDate(terDate, userTimeStr(true))) {
+        if (isTerDate(terDate, getjdTime())) {
           // 执行满足预约操作
           $.ajax({
             type: "post",
@@ -203,7 +271,6 @@ $(function () {
             url: "./cancel",
             success: function (d) {
               if (d.status == 2) {
-
                 layer.msg(d.msg, {
                   icon: 1,
                 })
@@ -250,7 +317,7 @@ $(function () {
         Time: arr[0].innerHTML,
       };
       // console.log(!time_aa('2020-09-28  09:25', arr[0].innerHTML))
-      if (!time_aa(userTimeStr(true), arr[0].innerHTML)) {
+      if (!time_aa(getjdTime(), arr[0].innerHTML)) {
         return layer.msg("请在预约时间25分钟后进行评论", {
           closeBtn: 0,
           anim: 6, //动画类型
@@ -358,7 +425,7 @@ $(function () {
       var dt = {
         Time: arr[0].innerHTML,
       };
-      if (!time_aa(userTimeStr(true), arr[0].innerHTML)) {
+      if (!time_aa(getjdTime(), arr[0].innerHTML)) {
         return layer.msg("请在预约时间25分钟后进行评论", {
           closeBtn: 0,
           anim: 6, //动画类型
@@ -372,20 +439,25 @@ $(function () {
         jpstr
       );
       var str = `
-            <h4 class='teruser'>${arr[1].innerHTML}学生的评价<h4>
+            <h4 class='teruser'>レッスンの内容(上课内容)<h4>
             <div>预约时间${arr[0].innerHTML}(中国时间)</div>
             <div>预约时间${jptime}(日本时间)</div>
             <div>
-            <textarea name="" class='op1' disabled id="terText" placeholder="限制输入200字" maxlength="200" cols="10" rows="2"></textarea>
+            岑博豪生徒さんへのメッセージです
             <br>
-            <p>教师确认课时时间 选择 0 即代表 未给学生上课(0分钟是无法对学生评价的但是需要你确认课程信息谢谢) </p>
+             例：谢谢你预约我的课，希望下次见到你。
+            </div>
+            <div>
+            <textarea name="" class='op1' disabled id="terText" placeholder="200字以内にご入力ください" maxlength="200" cols="10" rows="2"></textarea>
+            <br>
+            <p>レッスン時間(请在上课26分钟以后进行评价，之前不可以评价，评价才可以得到积分)</p>
             <select name="" id="stusdata" >
             <option class='op' selected='selected' value="0">0分钟</option>
             <option class='op' value="25">25分钟</option>
             </select>
             <div>   
             <p><strong>以便分享和了解学生信息只有老师们看的到,学生看不到</strong></p>
-            <textarea name="" class='op1' disabled id="terText2"  placeholder="限制输入200字" maxlength="200" cols="10" rows="2"></textarea>
+            <textarea name="" class='op1' disabled id="terText2"  placeholder="200字以内にご入力ください" maxlength="200" cols="10" rows="2"></textarea>
             </div>
             </div>
            `;
@@ -400,7 +472,7 @@ $(function () {
               str,
               {
                 area: ["55vw", "aout"],
-                btn: ["确认评价", "取消评价"],
+                btn: ["確認する", "キャンセル(取消)"],
                 title: "对 " + arr[1].innerHTML + "学生的评价", //按钮
                 closeBtn: false,
                 shade: 0.8,
@@ -488,7 +560,21 @@ $(function () {
       //结束
     }
   });
-
+  // function getjdTime() {
+  //   let time
+  //   $.ajax({
+  //     type: "get",
+  //     url: "/getime",
+  //     dataType: "json",
+  //     async: false,
+  //     //取消 异步  
+  //     success: function (response) {
+  //       if (response.Time == '' || response.Time == undefined) time = false
+  //       time = response.Time
+  //     }
+  //   });
+  //   return time
+  // }
   /**
    *  ----表格操作-----
    *  isAdd 查看全部表格操作

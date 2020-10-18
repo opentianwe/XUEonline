@@ -29,6 +29,7 @@
       font-size:1.8em;
        font-weight: 600;
     }
+    
 	</style>
 </head>
 <body>
@@ -362,7 +363,9 @@
                                 <td>語学</td>
                                 <td>生徒さんからのメッセージ</td>
                                 <td>授業開始までの時間表示</td>
+                                 <td>历史查看</td>
                                 <td>生徒へのメッセージ</td>
+                               
                               </tr>
                             <%}else{%>
                             <tr>

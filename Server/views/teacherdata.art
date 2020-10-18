@@ -281,6 +281,8 @@
           <span class="form-text">出生地</span><input type="text" name="Name" id="JapenName" style="width: 300px;">
           <span class="form-text">銀行名</span><select name="" id="BlANkID" style="font-size: 12px;">
               <option selected = "selected" value="PayPal">PayPal（ペイパル）</option>
+               <option value="中国银行">中国银行</option>
+              <option value="微信(WeCate)">微信(WeCate)</option>
               <option value="楽天銀行">楽天銀行</option>
               <option value="三井住友銀行">三井住友銀行</option>
               <option value="三菱UFJ銀行">三菱UFJ銀行</option>
@@ -292,6 +294,7 @@
               <option value="中国工商银行">招商银行</option>
               <option value="中国农业银行">中国农业银行</option>
               <option value="交通银行">交通银行</option>
+             
           </select>
           <span class="form-text">收款账号</span><input type="text" id="Blank-num1" style="width: 300px;">
           <span class="form-text">收款银行信息</span><input type="text" id="Blank-num2"  placeholder="如果是支付宝请填写收款人姓名" style="width: 300px;">
