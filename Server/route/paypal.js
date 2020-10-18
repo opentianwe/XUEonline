@@ -10,8 +10,8 @@ const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))
 paypal.configure({
     mode: 'live',
-    client_id: 'ATw-S6i-o1T__Tj9HgrikXl5KVUeMewbuw2R3fGv1DjYM8bRGwoqu3cHWrqtGYEJRuCR0y14xxULjKhb',
-    client_secret: 'EEysJSW3RlLQGcx_XEdixDiDOdx6QpufSmwOUtS224MySUY_acwAsqQ4ZCZfkg4RzW2x4obqNASjjgeO'
+    client_id: 'AWI_cW-qi2aPfkIseTCsgYAKOrOqwFz_UD7vB6UMC4GO0tpCqRYYtN5OmtQ9u8cYsZJ6FnUNHP3TsM97',
+    client_secret: 'EBBbu5VO4lgJwXymqznPIfRyC1iYZUWaL1YO6xcOhdQlc_9WBUv8wzLLHytpkiKURyPTjyxitkIR_Tnx'
 })
 
 const return_url = 'http://www.haominjiaoyu.com/process/zh_Cn'
@@ -217,43 +217,6 @@ router.get(/^\/cancel\/(\w+)(?:\.\.(\w+))?$/, function (req, res) {
     }   
     res.redirect(errorUrl)       
 })
-
-
-
-
-// router.get('/ja_JP/process', function (req, res) {
-//     var paymentId = req.query.paymentId;
-//     var payerId = { payer_id: req.query.PayerID };
-//     paypal.payment.execute(paymentId, payerId, function (error, payment) {
-//         if (error) {
-//             console.error(JSON.stringify(error));
-//         } else {
-//             if (payment.state == 'approved') {
-//                 async function process(OrderNumber) {
-//                     var ret = await mysql.queryOrderinformation(OrderNumber)
-//                     if (ret.OrderStatus == 1) {
-//                         ret = await toos.aUpdatePoints(ret.integral, ret.Useremail, ret.UserID)
-//                         if (ret) {
-//                             ret = await mysql.setOrderstatus(OrderNumber, 2)
-//                             if (ret) {
-//                                 res.redirect("./personal.html")
-//                             } else {
-//                                 res.redirect("./getmoeny.html")
-//                             }
-//                         } else {
-//                             res.redirect("./getmoeny.html")
-//                         }
-//                     } else {
-//                         res.redirect("./getmoeny.html")
-//                     }
-//                 }
-//                 process(payment.transactions[0].description)
-//             } else {
-//                 res.redirect("./getmoeny.html")
-//             }
-//         }
-//     });
-// })
 
 
 module.exports = router

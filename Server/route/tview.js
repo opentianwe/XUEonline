@@ -171,7 +171,8 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
                         var timestamp1 = new Date(timestr)
                         var timestamp2 = new Date()
                         var min = timestamp2.getMinutes()
-                        timestamp2.setMinutes(min + 30)
+                        timestamp2.setHours(timestamp2.getHours() + 1)
+                        timestamp2.setMinutes(min + 60)
                         timestamp2 = Date.parse(timestamp2)
                         timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
                         timestamp2 = timestamp2 / 1000
@@ -222,7 +223,8 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
                         var timestamp1 = new Date(timestr)
                         var timestamp2 = new Date()
                         var min = timestamp2.getMinutes()
-                        timestamp2.setMinutes(min + 30)
+                        timestamp2.setHours(timestamp2.getHours() + 1)
+                        timestamp2.setMinutes(min + 60)
                         timestamp2 = Date.parse(timestamp2)
                         timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
                         timestamp2 = timestamp2 / 1000
@@ -307,7 +309,8 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
                     var timestamp1 = new Date(timestr)
                     var timestamp2 = new Date()
                     var min = timestamp2.getMinutes()
-                    timestamp2.setMinutes(min + 30)
+                    timestamp2.setHours(timestamp2.getHours() + 1)
+                    timestamp2.setMinutes(min + 60)
                     timestamp2 = Date.parse(timestamp2)
                     timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
                     timestamp2 = timestamp2 / 1000
@@ -352,7 +355,8 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
                     var timestamp1 = new Date(timestr)
                     var timestamp2 = new Date()
                     var min = timestamp2.getMinutes()
-                    timestamp2.setMinutes(min + 30)
+                    timestamp2.setHours(timestamp2.getHours() + 1)
+                    timestamp2.setMinutes(min + 60)
                     timestamp2 = Date.parse(timestamp2)
                     timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
                     timestamp2 = timestamp2 / 1000
