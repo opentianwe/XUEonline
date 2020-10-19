@@ -634,6 +634,25 @@ thead tr:nth-child(1) {
   color: #ffffff !important;
 }
 
+.isTable {
+  width: 100% !important;
+}
+.isTable tbody,
+thead {
+  width: 100% !important;
+  text-align: center;
+  border: 1px solid silver;
+}
+.isTimes {
+  width: 100%;
+
+  border-bottom: 1px solid silver;
+}
+.isTimes td {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
 @media screen and (max-width: 768px) {
   #studata {
     width: 100%;

@@ -584,7 +584,7 @@ router.get('/personal.html', function (req, res) {
                                     if (datas[i].Textval == null) {
                                         datas[i].Textval = "无"
                                     }
-                                    Str += '<tr ><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td><td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
+                                    Str += '<tr data-id="' + datas[i].UserID + '" ><td class="timeApp" >' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td><td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td><td  class="time">剩余时间</td><td><button class="layui-btn Historyview">历史查看</button></td><td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
 
                                 }
                                 ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
@@ -604,7 +604,7 @@ router.get('/personal.html', function (req, res) {
                         var Str = ''
                         for (var i = datas.length - 1; i >= 0; i--) {
 
-                            Str += '<tr data-id="'+ datas[i].TeacherID +'"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
+                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
 
                         }
                         ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)
@@ -829,7 +829,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
                                     if (datas[i].Textval == null) {
                                         datas[i].Textval = "なし"
                                     }
-                                    Str += '<tr data-id="'+ datas[i].UserID +'"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td><td  class="Rmb">' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td  class="time">剩余时间</td><td> <button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
+                                    Str += '<tr data-id="' + datas[i].UserID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td><td  class="Rmb">' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td  class="time">剩余时间</td><td><button type="button" class="layui-btn Historyview">历史查看</button></td><td><button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
                                 }
 
                                 JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, true)
@@ -848,10 +848,10 @@ router.get('/ja_JP/personal.html', function (req, res) {
                 mysql.seleteAppointment(req.signedCookies.malli)
                     .then(function (datas) {
                         var Str = ''
-                        
+
                         for (var i = datas.length - 1; i >= 0; i--) {
-                           
-                            Str += '<tr data-id="'+ datas[i].TeacherID +'"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].TeacherSkypeID + '">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="time">剩余时间</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
+
+                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].TeacherSkypeID + '">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="time">剩余时间</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
                         }
                         JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false, ZPrice)
 

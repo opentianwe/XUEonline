@@ -9,7 +9,7 @@ new Vue({
         Totalpage: 1,
         temp: true,
         type: 1,
-        arry: ["中国語先生", "日本語先生", "英語先生", "韓国語先生", '男性', '女性'],
+        arry: ["中国語講師", "日本語講師", "英語講師", "韓国語講師", '男性', '女性'],
         search: "",
         temp: true,
         ht: './ter.html?id=',
