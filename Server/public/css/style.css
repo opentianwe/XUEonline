@@ -511,7 +511,16 @@ thead tr:nth-child(1) {
 .kefubox .floor:nth-child(5) > .absbox {
   top: -155px !important;
 }
-@media screen and (max-width: 1180px) {
+.TLeseon td {
+  padding: 15px 0;
+  border: 1px solid #cccccc;
+}
+@media screen and (max-width: 1280px) {
+  .user-box {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1078px) {
   .box-titmoeny {
     width: 100% !important;
   }

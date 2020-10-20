@@ -417,7 +417,53 @@ $(function () {
           layer.msg(error, { icon: 2 });
         },
       });
-    } else if (e.target.className == "layui-btn Studtit") {
+    } else if (e.target.className == 'layui-btn privateEvaluation') {
+      var eleMent = e.target.parentElement.parentElement.childNodes
+      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+      $.ajax({
+        url: "../getprivateEvaluation",
+        type: "post",
+        data: JSON.stringify({ ID: terstatus }),
+        success: function (res) {
+          console.log(res)
+          var a = ``
+          for (let i = 0; i < res.length; i++) {
+            res[i].Text2 == null ? res[i].Text2 = '暂无评价' : res[i].Text2 = res[i].Text2
+            res[i].Leseon == "undefined" ? res[i].Leseon = "暂无课程信息" : res[i].Leseon = res[i].Leseon
+
+            a += `
+            
+           <tr class="TLeseon">
+           
+           <td>${res[i].TeacherName}</td>
+           <td>${res[i].Leseon}</td>
+           <td>${res[i].Text2}</td>
+           <td>${res[i].timeApp}</td>
+           </tr>
+          
+        `
+          }
+          let b = `
+          <table class="isTable" >
+            <thead><tr><th>教师姓名</th><th>课程信息</th><th>老师评价</th><th>课程时间</th></tr></thead>
+            <tbody>${a}</tdody>
+           </table>
+          `
+          layer.confirm(b, {
+            area: ["55vw", "aout"],
+            btn: ["确认查看"],
+            closeBtn: false,
+            shade: 0.8,
+
+          }, function () {
+            layer.closeAll();
+
+          })
+        }, error: function (error) {
+          console.log(error)
+        }
+      })
+    } if (e.target.className == "layui-btn Studtit") {
       let arr = [];
       let tdParent = e.target.parentElement.parentElement;
       let Nodelists = tdParent.childNodes;

@@ -647,7 +647,10 @@ thead {
 .layui-layer-btn a:nth-child(1) {
   color: #ffffff !important;
 }
-
+.TLeseon td {
+  padding: 15px 0;
+  border: 1px solid #cccccc;
+}
 @media screen and (max-width: 768px) {
   #studata {
     width: 100%;
