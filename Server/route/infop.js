@@ -719,7 +719,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 })
                 return new Promise(() => { })
             } else {
-                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour)
+                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour,UserData.TeacherEmal,UserData.Text2)
             }
 
         })
@@ -769,7 +769,27 @@ router.post('/geteacherEvaluation', function (req, res) {
         return;
     }
     var UserData;
-
+    async function geteacherEvaluation(emalli,UserData){
+        var data  = await model_Ainfor.query_MsgBytime(UserData.Time,emalli)
+        UserData.Price = data.Price
+        UserData.TeacherID = data.TeacherID
+        UserData.TeacherEmal = data.TeacherEmal
+        if (data.Tstatus == 1) {
+            res.send({
+                status: 3,
+                msg: "该老师已经评价过,并且积分已经增加",
+                Evaluation: data.Tmsg,
+                onEvaluation: data.Text2
+            })
+            return
+        } else {
+            res.send({
+                status: 1,
+                msg: "该老师未评价过",
+            })
+            return
+        }
+    }
     readJsondata(req)
         .then(function (data) {
             UserData = data
@@ -781,26 +801,8 @@ router.post('/geteacherEvaluation', function (req, res) {
                 })
                 return new Promise(() => { })
             } else {
-                return mysql.queryMsgBytime(UserData.Time)
-            }
-        })
-        .then(function (data) {
-            UserData.Price = data.Price
-            UserData.TeacherID = data.TeacherID
-            UserData.TeacherEmal = data.TeacherEmal
-            if (data.Tstatus == 1) {
-                res.send({
-                    status: 3,
-                    msg: "该老师已经评价过,并且积分已经增加",
-                    Evaluation: data.Tmsg,
-                    onEvaluation: '123'
-                })
+                geteacherEvaluation(req.signedCookies.malli,UserData)
                 return new Promise(() => { })
-            } else {
-                res.send({
-                    status: 1,
-                    msg: "该老师未评价过",
-                })
             }
         })
         .catch(function (err) {
@@ -809,6 +811,8 @@ router.post('/geteacherEvaluation', function (req, res) {
                 msg: "数据异常"
             })
         })
+        
+       
 })
 
 router.post('/getStudentreviews', function (req, res) {
@@ -842,6 +846,30 @@ router.post('/getStudentreviews', function (req, res) {
             return
         })
 })
+
+router.post('/getprivateEvaluation',function (req,res) {
+    async function getprivateEvaluation(ID) {  
+        var ret = await model_UserP.query_userp_Emal_byID(ID)
+        if(ret)
+        {
+            var ret = await model_Appint.queryAppointment_alldata_ByUserEmal(ret.oAEmail)
+
+            res.send(ret)
+        }else
+        {
+            res.send({
+                status: 0,
+                msg: "数据异常"
+            })
+            return
+        }
+    }
+    readJsondata(req)
+    .then(function(data){
+        getprivateEvaluation(data.ID)
+    })
+})
+
 
 router.get('/getime', function (req, res) {
     var date = new Date()

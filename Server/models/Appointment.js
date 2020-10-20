@@ -6,6 +6,7 @@ exports.queryAppointment_alldata_Byemail = queryAppointment_alldata_Byemail
 exports.queryAppointment_alldata_BytimeApp = queryAppointment_alldata_BytimeApp
 exports.deleteAppointment_alldata_BytimeApp = deleteAppointment_alldata_BytimeApp
 exports.queryAppointment_Pmsg_Byemail = queryAppointment_Pmsg_Byemail
+exports.queryAppointment_alldata_ByUserEmal = queryAppointment_alldata_ByUserEmal
 
 async function queryAppointment_alldata_Byemail(TeacherEmal,emal,time)
 {
@@ -59,6 +60,25 @@ async function deleteAppointment_alldata_BytimeApp(timeApp,UserEmal,TeacherEmal)
     return false     
 }
 
+async function queryAppointment_alldata_ByUserEmal(UserEmal)
+{
+    var queryStr = "SELECT `TeacherName`,`timeApp`,`Text2`,`Leseon` FROM `Appointment` WHERE  UserEmal = ?"
+    var value = [String(UserEmal)]
+        var ret = await main.sqlquery(queryStr,value)
+    if(ret instanceof Array)
+    {
+        if(ret.length == 0)
+        {
+            return false
+        }else
+        {
+            return ret
+        }
+    }else
+    {
+        return false
+    }
+}
 
 
 

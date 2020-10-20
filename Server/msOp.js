@@ -687,8 +687,8 @@ function getMsgBytime(time) {
 }
 
 //设置老师评价学生
-function setTMsgBytime(time, text, classhour) {
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Ttime` = CURRENT_TIMESTAMP ,`Tmsg` = '" + text + "' WHERE `timeApp` = '" + time + "'"
+function setTMsgBytime(time, text, classhour,TeacherEmal,Text2) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Ttime` = CURRENT_TIMESTAMP ,`Tmsg` = '" + text + "',`Text2` = '"+ Text2 +"' WHERE `timeApp` = '" + time + "' AND TeacherEmal = '"+ TeacherEmal +"'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
