@@ -1,30 +1,5 @@
 $(function () {
-  function userTimeStr(t) {
-    var newDate = new Date();
-    var Dateyear = newDate.getMonth() + 1;
-    var Datedata = newDate.getDate();
-    Dateyear >= 10 ? (Dateyear = Dateyear) : (Dateyear = "0" + Dateyear);
-    var Datefull = newDate.getFullYear();
-    var Datehouse = newDate.getHours();
-    var Dateminut = newDate.getMinutes();
-    Datehouse >= 10 ? (Datehouse = Datehouse) : (Datehouse = "0" + Datehouse);
-    Dateminut >= 10 ? (Dateminut = Dateminut) : (Dateminut = "0" + Dateminut);
-    if (t) {
-      return (str =
-        Datefull +
-        "-" +
-        Dateyear +
-        "-" +
-        Datedata +
-        "  " +
-        Datehouse +
-        ":" +
-        Dateminut);
-    } else {
-      Datedata < 10 ? (Datedata = "0" + Datedata) : (Datedata = Datedata);
-      return (str = Datefull + "-" + Dateyear + "-" + Datedata);
-    }
-  }
+
   function isTisDay(dayOne, dayTow) {
     let a, b, c, d;
     a = new Date(dayOne);

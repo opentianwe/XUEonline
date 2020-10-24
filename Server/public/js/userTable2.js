@@ -32,9 +32,6 @@ $(function () {
 
     var date3 = data2.getTime() - parseInt(data1.getTime() - 1500000); //时间差的毫秒数
     if (date3 == 0) return true;
-    console.log(date3);
-    console.log(data1.getTime());
-    console.log(data2.getTime());
     var subMinutes = Math.floor(date3 / (60 * 1000)); //获取总共的分钟差
 
     //计算出相差天数
