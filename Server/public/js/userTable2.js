@@ -447,7 +447,7 @@ $(function () {
            </table>
           `
           layer.confirm(b, {
-            area: ["55vw", "aout"],
+            area: ["55vw", "500px"],
             btn: ["确认查看"],
             closeBtn: false,
             shade: 0.8,

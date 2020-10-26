@@ -318,7 +318,7 @@ $(function () {
            </table>
           `
           layer.confirm(b, {
-            area: ["55vw", "aout"],
+            area: ["55vw", "600px"],
             btn: ["确认查看"],
             closeBtn: false,
             shade: 0.8,
@@ -421,7 +421,7 @@ $(function () {
               );
             } else if (d.status == 1) {
               layer.msg(
-                "已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看",
+                "すでに評価済みです。二度と送信できません",
                 { icon: 6 }
               );
               // layer.confirm(str, {
@@ -496,7 +496,7 @@ $(function () {
               layer.confirm(
                 str,
                 {
-                  area: ["55vw", "aout"],
+                  area: ["55vw", "500px"],
                   btn: ["確認する", "キャンセル(取消)"],
                   title: "对 " + arr[1].innerHTML + "生徒さんのコメント", //按钮
                   closeBtn: false,
