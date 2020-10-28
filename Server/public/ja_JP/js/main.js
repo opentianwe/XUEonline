@@ -152,6 +152,7 @@ function clearCookie() {
 	$('#qiut-s').attr('onclick', 'clearCookie()')
 	$('.phone').html('<i class="webexflaticon flaticon-send"></i><a style="display:inline" href="skype:live:.cid.95a072e4c57d6976?add">live:.cid.95a072e4c57d6976</a>')
 	$('.footer-widget-list>li').eq(11).html('<a href="./snewtit.html" target="_blank">ご利用規約</a>')
+	console.log($(".widget-title").eq(1).html("<h5 class='widget-title text-white mrb-30'>サービス</h5>"))
 	jQuery(document).on('ready', function () {
 		/*=============================================*/
 		/*----------- [_Side_Panel_Start] -------------*/

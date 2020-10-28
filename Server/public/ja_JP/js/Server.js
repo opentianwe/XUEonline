@@ -46,7 +46,7 @@ function makeAnapp(ID, time, bID) {
                <h4>支払い情報を確認する</h4>
                <div>担当先生の名前:<span>${res.Name}</span></div>
                <div>予約時間:<span>${res.Time}</span></div>
-               <div>リマインド：:<strong>(中国と日本の時差は一時間です。XUEonlineのシステムは日本時間を表示しています。たとえば日本時間7：00＝中国時間6：00)</strong></div>
+               <div><strong>(中国と日本の時差は一時間です。XUEonlineのシステムは日本時間を表示しています。たとえば日本時間7：00＝中国時間6：00)</strong></div>
                <div>予約した後、担当先生のSkype或はWeChatまでにご連絡お願い致します</div>
                <div>決済金額:<span>${res.moeny}ポイント</span></div>
                <div>${text}</div>
@@ -66,8 +66,8 @@ function makeAnapp(ID, time, bID) {
             if (res.status === 0) {
                 layer.confirm(str, {
                     area: ['55vw', '700px'],
-                    btn: ['付款', '取消付款'],
-                    title: "购买积分", //按钮
+                    btn: ['購入する', 'キャンセル'],
+                    title: "point購入", //按钮
                     closeBtn: false
                     , shade: 0.8
                 }, function () {

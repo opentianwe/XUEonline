@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+.drag_main{ position: absolute;width: 870px; height: 580px; background-color: #f5f5f5; opacity:1; left:50%; margin-left:-435px; top:50%; margin-top:-290px;  z-index: 1000; box-shadow: darkgrey 1px 1px 10px 1px; }
+    /* 已查验 */
+.already_big{ position: absolute; background-image: url(../images/shuiyin.png);background-repeat: no-repeat; width: 249px;height: 270px; top:50%; margin-top: -135px; left: 50%; margin-left: -124.5px;}
+.success_tip{ position: absolute; top:0px; color:#2883ff; font-size: 18px; width:135px; height:36px; background: #e9f2ff; text-align: center; line-height: 36px; left:50%; margin-left:-67.5px;}
+.error_tip{ position: absolute; top:-50px; color:#ff2a2a; font-size: 26px;} 
+ 
+/* 发票填充 */
+.invoice_box{ padding:35px 44px 20px 44px; color:#964300; line-height: 20px; font-weight: bold; background-color:#ffffff; font-size: 6px;}
+.invoice_box span{ color:#808080; font-size: 8px; }
+.drag_box td{ word-wrap:break-word; }
+.un_line{ width:100%; height:5px; border-top:2px solid #964300; border-bottom:1px solid #b88787;}
+.invoice_box div{ display: inline-block;}
+.top_left{ width:28%;}
+.top_middle{ width:40%; text-align: center; line-height: 30px; font-size: 12px;}
+.top_right{ width:30%; }
+.invoice_top{ width:100%;}
+.invoice_center{ width:100%;}
+.invoice_bottom{ width:100%;}
+.itable{ border-left:2px solid #b88787; border-top:2px solid #b88787;}
+.itable td,.ii_table td{ border-right:2px solid #b88787; }
+.ii_table{ border-left:2px solid #b88787; }
+.invoice_bottom p{ display:inline-block; width:168px; padding-left:14px;} 
+    </style>
+   
+</head>
+<body>
+ 
+        <div class="drag_main">
+            <div class="img_large">
+                <div class="only">
+                    <!-- 发票 -->
+                    <div class="invoice_box">
+                        <div class="invoice_top">
+                            <div class="top_left">机器编号：<span class="machine_num" style="color:#2e2e2e"> </span></div>
+                            <div  class="top_middle">
+                                <h1 class="i_title">福建增值税电子普通发票</h1>
+                                <div>
+                                     <p class="un_line"></p>
+                                     <p style="opacity: 0;">——————————————————————</p>
+                                </div>                         
+                            </div>
+                            <div  class="top_right">
+                                <p>发票代码：<span class="i_code" style="color:#2e2e2e"> </span></p>
+                                <p>发票号码：<span class="i_num" style="color:#2e2e2e"> </span></p>
+                                <p>开票日期：<span class="i_year"> </span>&nbsp;年&nbsp;<span class="i_month"> </span>&nbsp;月&nbsp;<span  class="i_date"> </span>&nbsp;日</p>
+                                <p>校&nbsp;验 &nbsp;码：<span class="i_checkout" style="color:#2e2e2e"> </span></p>
+                            </div>
+                        </div>
+                        <div class="invoice_center" >
+                             <table class="itable" cellspacing="0" cellpadding="0" width="787px" style="table-layout:fixed;">
+                                 <tr>
+                                     <td width="25px" style="padding-left:3px">购买方</td>
+                                     <td>
+                                         <p> &nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：<span class="i_buy_name"> </span></p>
+                                         <p> &nbsp;纳税人识别号：<span class="i_buy_distinguish" style="font-size:13px;letter-spacing:2px;"> </span></p>
+                                         <p> &nbsp;地&nbsp;址&nbsp;、电&nbsp;话：<span class="i_buy_contact"> </span></p>
+                                         <p> &nbsp;开户行及账号：<span class="i_buy_bank"> </span></p>
+                                     </td>
+                                 </tr>
+                             </table>
+                             <table class="itable itable_one" cellspacing="0" cellpadding="0" width="787px" height="157px" style="table-layout:fixed;">
+                                 <tr style="height:10px;" valign="top" align="center">
+                                     <td width="181px" height="10px">货物或应税劳务、服务名称</td>                               
+                                     <td width="60px" >规格型号</td>
+                                     <td width="50px" >单位</td>
+                                     <td width="80px" >数量</td>
+                                     <td width="90px" >单价</td>
+                                     <td width="90px" >金额</td>
+                                     <td width="40px" >税率</td>
+                                     <td width="80px" >税额</td>
+                                 </tr>
+                             </table>
+                             <table  class="ii_table" cellspacing="0" cellpadding="0" width="787px" style="table-layout:fixed;">
+                                 <tr align="center">
+                                     <td width="181px">合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</td>
+                                     <td width="60px"></td>
+                                     <td width="50px"></td>
+                                     <td width="80px"></td>
+                                     <td width="90px"></td>
+                                     <td width="90px" align="right"><span>￥</span><span class="i_mongey"> </span></td>
+                                     <td width="40px"></td>
+                                     <td width="80px" align="right"><span>￥</span><span class="i_paid"> </span></td>
+                                 </tr>
+                             </table>
+                             <table class="itable" cellspacing="0" cellpadding="0" width="787px" style="table-layout:fixed;">
+                                 <tr>
+                                     <td width="211px">&nbsp;价税合计（大写）</td>
+                                     <td width="363px" style="border-right:none; padding-left:3px;"><span class="i_big_num"> </span></td>
+                                     <td style="border-left:none;">（小写）<span>￥</span> <span class="i_small_num"> </span></td>
+                                 </tr>
+                             </table>
+                             <table class="itable" cellspacing="0" cellpadding="0" width="787px" style="table-layout:fixed; border-bottom:2px solid #b88787;">
+                                 <tr>
+                                     <td width="25px" style="padding-left:3px">销售方</td>
+                                     <td width="450px">
+                                         <p>&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：<span class="i_sell_name"> </span></p>
+                                         <p>&nbsp;纳税人识别号：<span class="i_sell_distinguish" style="font-size:13px; letter-spacing:2px;"> </span></p>
+                                         <p>&nbsp;地&nbsp;址&nbsp;、电&nbsp;话：<span class="i_sell_contact"> </span></p>
+                                         <p>&nbsp;开户行及账号：<span class="i_sell_bank"> </span></p>
+                                     </td>
+                                     <td width="20px" style="padding:0 3px">
+                                         备注
+                                     </td>
+                                     <td valign="top" style="padding-left:3px">
+                                         <span class="i_remarks" style="width:285px;word-break: break-all;"> </span>
+                                     </td>
+                                 </tr>
+                         </table>
+                        </div>
+                        <div class="invoice_bottom">
+                            <p>收款人：<span>张三</span></p>
+                            <p>复核：<span>张三</span></p>
+                            <p>开票人：<span>张三</span></p>
+                            <p>销售方：(章)<span></span></p>
+                        </div>
+                     </div>
+                </div>
+            </div>            
+        </div>
+</body>
+    <script src="./js/jq.min.js"></script>
+    <script>
+        $(function(){ 
+    // 发票信息
+    var json={
+        "发票校验码": "6229421614419351xxxx",
+        "发票号码": "40159xxx",
+        "销售方纳税人识别号": "9xxxxxxxxxxxxxxxxQ",
+        "发票机器码": "66161995xxxx",
+        "价格合计": "46.91",
+        "购方联系方式": "",
+        "价税合计": "52.47",
+        "销售方联系方式": "北京市石景山区鲁谷大街东侧010-5970xxxx",
+        "发票类型": "电子增值税普通发票",
+        "是否作废": "N",
+        "商品信息": "[{\"spec\":\"180ML\",\"amount\":\"5\",\"unit\":\"袋\",\"taxRate\":\"10\",\"name\":\"*乳制品*新希望天香透明袋纯牛奶180ML\",\"taxSum\":\"1.18\",\"priceUnit\":\"2.364\",\"priceSum\":\"11.82\"},{\"spec\":\"散装\",\"amount\":\"1.884\",\"unit\":\"KG\",\"taxRate\":\"10\",\"name\":\"*水果*三红蜜柚\",\"taxSum\":\"2.05\",\"priceUnit\":\"10.891\",\"priceSum\":\"20.52\"},{\"spec\":\"550ML*12\",\"amount\":\"1\",\"unit\":\"件\",\"taxRate\":\"16\",\"name\":\"*软饮料*农夫山泉天然水550ML*12（整件）\",\"taxSum\":\"2.33\",\"priceUnit\":\"14.569\",\"priceSum\":\"14.57\"}]",
+        "数量合计": "7.884",
+        "更新时间": "1545908940279",
+        "税额合计": "5.56",
+        "购方名称": "北京某某某科技有限公司",
+        "发票代码": "01100180xxxx",
+        "销售方开户行": "中国建设银行股份有限公司北京华贸支行110011334000525xxxxx",
+        "开票日期": "20181xxx",
+        "销售方名称": "北京永辉超市有限公司",
+        "备注": "YHKP201811290000xxxx(201811269098LL088014349659xxxxx)",
+        "购方开户行": "",
+        "购方纳税人识别号": "xxxxxxxxxxxxxxxxxU"
+    }
+    // console.log(json["商品信息"])
+    if(json){
+        $(".machine_num").text(json["发票机器码"])
+        $(".i_title").text(json["发票类型"])
+        $(".i_code").text(json["发票代码"])
+        $(".i_num").text(json["发票号码"])
+        $(".i_year").text(json["开票日期"].substring(0,4))
+        $(".i_month").text(json["开票日期"].substring(4,6))
+        $(".i_date").text(json["开票日期"].substring(6,8))
+        $(".i_checkout").text(json["发票校验码"].replace(/(.{5})/g, "$1 "))
+        $(".i_buy_name").text(json["购方名称"])
+        $(".i_buy_distinguish").text(json["购方纳税人识别号"])
+        $(".i_buy_contact").text(json["购方联系方式"])
+        $(".i_buy_bank").text(json["购方开户行"])
+        $(".i_mongey").text(json["价格合计"])
+        $(".i_paid").text(json["税额合计"])
+        $(".i_big_num").text(turnUpcase(json["价税合计"]))
+        $(".i_small_num").text(json["价税合计"])
+        $(".i_sell_name").text(json["销售方名称"])
+        $(".i_sell_distinguish").text(json["销售方纳税人识别号"])
+        $(".i_sell_contact").text(json["销售方联系方式"])
+        $(".i_sell_bank").text(json["销售方开户行"])
+        $(".i_remarks").text(json["备注"])  
+        var thingsArr=JSON.parse(json["商品信息"])
+        for(var i=0;i<thingsArr.length;i++){
+            var otr=$("<tr valign='top'></tr>")
+            otr.append("<td width='179px'><span>&nbsp;"+thingsArr[i].name+"</span></td>")
+            otr.append("<td width='58px'><span>&nbsp;"+thingsArr[i].spec+"</span></td>")
+            otr.append("<td width='50px' align='center'><span>"+thingsArr[i].unit+"</span></td>")
+            otr.append("<td width='80px' align='right'><span style='color:#2e2e2e'>"+thingsArr[i].amount+"&nbsp;</span></td>")
+            otr.append("<td width='90px' align='right'><span style='color:#2e2e2e'>"+thingsArr[i].priceUnit+"&nbsp;</span></td>")
+            otr.append("<td width='90px' align='right'><span style='color:#2e2e2e'>"+thingsArr[i].priceSum+"&nbsp;</span></td>")
+            otr.append("<td width='40px' align='right'><span style='color:#2e2e2e'>"+thingsArr[i].taxRate+"&nbsp;</span></td>")
+            otr.append("<td width='80px' align='right'><span style='color:#2e2e2e'>"+thingsArr[i].taxSum+"&nbsp;</span></td>")
+            $(".itable_one").append(otr)
+        }
+        for(var i=0;i<(7-thingsArr.length);i++){
+            var ot=$("<tr></tr>")
+            ot.append("<td width='179px'><span></span></td>")
+            ot.append("<td width='58px'><span></span></td>")
+            ot.append("<td width='50px'><span></span></td>")
+            ot.append("<td width='80px'><span></span></td>")
+            ot.append("<td width='90px'><span></span></td>")
+            ot.append("<td width='90px'><span></span></td>")
+            ot.append("<td width='40px'><span></span></td>")
+            ot.append("<td width='80px'><span></span></td>")
+            $(".itable_one").append(ot)
+        }       
+    }
+    //数字转换大写
+    function turnUpcase(n){
+        var fraction = ['角', '分'];
+        var digit = [
+            '零', '壹', '贰', '叁', '肆',
+            '伍', '陆', '柒', '捌', '玖'
+        ];
+        var unit = [
+            ['元', '万', '亿'],
+            ['', '拾', '佰', '仟']
+        ];
+        var head = n < 0 ? '欠' : '';
+        n = Math.abs(n);
+        var s = '';
+        for (var i = 0; i < fraction.length; i++) {
+            s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
+        }
+        s = s || '整';
+        n = Math.floor(n);
+        for (var i = 0; i < unit[0].length && n > 0; i++) {
+            var p = '';
+            for (var j = 0; j < unit[1].length && n > 0; j++) {
+                p = digit[n % 10] + unit[1][j] + p;
+                n = Math.floor(n / 10); 
+            }
+            s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+        }
+        return head + s.replace(/(零.)*零元/, '元')
+            .replace(/(零.)+/g, '零')
+            .replace(/^整$/, '');
+      }
+}); 
+    </script>
+</html>

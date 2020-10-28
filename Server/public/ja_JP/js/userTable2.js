@@ -1,30 +1,5 @@
 $(function () {
-  function userTimeStr(t) {
-    var newDate = new Date();
-    var Dateyear = newDate.getMonth() + 1;
-    var Datedata = newDate.getDate();
-    Dateyear >= 10 ? (Dateyear = Dateyear) : (Dateyear = "0" + Dateyear);
-    var Datefull = newDate.getFullYear();
-    var Datehouse = newDate.getHours();
-    var Dateminut = newDate.getMinutes();
-    Datehouse >= 10 ? (Datehouse = Datehouse) : (Datehouse = "0" + Datehouse);
-    Dateminut >= 10 ? (Dateminut = Dateminut) : (Dateminut = "0" + Dateminut);
-    if (t) {
-      return (str =
-        Datefull +
-        "-" +
-        Dateyear +
-        "-" +
-        Datedata +
-        "  " +
-        Datehouse +
-        ":" +
-        Dateminut);
-    } else {
-      Datedata < 10 ? (Datedata = "0" + Datedata) : (Datedata = Datedata);
-      return (str = Datefull + "-" + Dateyear + "-" + Datedata);
-    }
-  }
+
   function isTisDay(dayOne, dayTow) {
     let a, b, c, d;
     a = new Date(dayOne);
@@ -343,7 +318,7 @@ $(function () {
            </table>
           `
           layer.confirm(b, {
-            area: ["55vw", "aout"],
+            area: ["55vw", "600px"],
             btn: ["确认查看"],
             closeBtn: false,
             shade: 0.8,
@@ -446,7 +421,7 @@ $(function () {
               );
             } else if (d.status == 1) {
               layer.msg(
-                "已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看",
+                "すでに評価済みです。二度と送信できません",
                 { icon: 6 }
               );
               // layer.confirm(str, {
@@ -521,7 +496,7 @@ $(function () {
               layer.confirm(
                 str,
                 {
-                  area: ["55vw", "aout"],
+                  area: ["55vw", "500px"],
                   btn: ["確認する", "キャンセル(取消)"],
                   title: "对 " + arr[1].innerHTML + "生徒さんのコメント", //按钮
                   closeBtn: false,
