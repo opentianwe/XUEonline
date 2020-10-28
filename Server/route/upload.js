@@ -11,7 +11,7 @@ router.use(function (req, res, next) {
     if(req.signedCookies.malli == undefined || req.signedCookies.malli == '')
     {
         res.send({
-            state: 0,
+            status: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
         return;
@@ -60,7 +60,7 @@ router.post('/upload', imageUploader, function(req, res) {
     if(req.files == undefined)
     {
         res.send({
-            state:0,
+            status:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
         return
@@ -68,7 +68,7 @@ router.post('/upload', imageUploader, function(req, res) {
     if(req.files.length == 0)
     {
         res.send({
-            state:0,
+            status:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
         return
@@ -95,14 +95,14 @@ router.post('/upload', imageUploader, function(req, res) {
                     {
                         console.log(err)
                         res.send({
-                            state:0,
+                            status:0,
                             msg:"信息更新错误请稍后重新上传,或联系网站管理员!",
                             err:err
                         })
                         return;
                     }
                     res.send({
-                        state:1,
+                        status:1,
                         msg:req.files[0].filename
                     })
                     return
@@ -119,7 +119,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
     if(req.files == undefined)
     {
         res.send({
-            state:0,
+            status:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
         return
@@ -127,7 +127,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
     if(req.files.length == 0)
     {
         res.send({
-            state:0,
+            status:0,
             msg:"文件上传失败,检查文件格式或文件大小,支持的视频格式有: .wmv .avi .rmvb .mp4,支持的图片格式有: .jpeg .png .jpg .gif"
         })
         return
@@ -138,7 +138,7 @@ router.post('/uploadImg', imageUploader, function(req, res) {
             {
                 fs.unlink(g_path + '/' + req.files[0].filename,function(error){
                     res.send({
-                        state:0,
+                        status:0,
                         msg:"Cookies校验失败!,请跳转到登录页"
                     })
                     return;
@@ -155,14 +155,14 @@ router.post('/uploadImg', imageUploader, function(req, res) {
                     if(err)
                     {
                         res.send({
-                            state:0,
+                            status:0,
                             msg:"信息更新错误请稍后重新上传,或联系网站管理员!",
                             err:err
                         })
                         return;
                     }
                     res.send({
-                        state:1,
+                        status:1,
                         msg:req.files[0].filename
                     })
                     return

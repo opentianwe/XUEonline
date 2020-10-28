@@ -96,7 +96,7 @@ router.post('/dataUpload', function (req, res) {
 router.get('/userinfo', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.send({
-            state: 0,
+            status: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
         })
         return;
@@ -104,7 +104,7 @@ router.get('/userinfo', function (req, res) {
     mysql.queryUserinformbyEmal(req.signedCookies.malli, function (data, err) {
         if (err || data.length == 0) {
             res.send({
-                state: 0,
+                status: 0,
                 msg: "Cookies校验失败!,请跳转到登录页"
             })
             return;
@@ -115,7 +115,7 @@ router.get('/userinfo', function (req, res) {
 router.get('/isfirst', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.send({
-            state: 0,
+            status: 0,
             msg: "Cookies校验失败!,请跳转到登录页"
 
         })
@@ -124,7 +124,7 @@ router.get('/isfirst', function (req, res) {
     mysql.queryUserinformbyEmal(req.signedCookies.malli, function (data, err) {
         if (err || data.length == 0) {
             res.send({
-                state: 0,
+                status: 0,
                 msg: "Cookies校验失败!,请跳转到登录页"
 
             })

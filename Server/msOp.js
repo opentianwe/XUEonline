@@ -231,7 +231,7 @@ function queryTimedatabyID(ID, temp, callback) {
 }
 //通过老师邮箱查询这个老师所有时间段的数据
 function queryTimedatabyemal(emal, callback) {
-    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'"
+    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'" + 'order by `timeop` DESC'
     woreData(querystr, function (data, error) {
         callback(data, error)
     })

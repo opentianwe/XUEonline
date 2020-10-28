@@ -10,8 +10,8 @@ const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))
 paypal.configure({
     mode: 'live',
-    client_id: 'AWI_cW-qi2aPfkIseTCsgYAKOrOqwFz_UD7vB6UMC4GO0tpCqRYYtN5OmtQ9u8cYsZJ6FnUNHP3TsM97',
-    client_secret: 'EBBbu5VO4lgJwXymqznPIfRyC1iYZUWaL1YO6xcOhdQlc_9WBUv8wzLLHytpkiKURyPTjyxitkIR_Tnx'
+    client_id: 'ATmqkOavZmZaVSuVdmnpjktArj6awVZXiB-Usu9CyU4sQo9w_6WDcB1wR6ZrJYwcbzWaHFtZJ45S3lzn',
+    client_secret: 'EFhvaRbPl6z7j9fQ2q3CQQ8bxoYqO7-bxJOcqdfbYGfrh30uRr6UgPYBaLLVVbZcgtqHbZOwjnkZ9mr2'
 })
 
 const return_url = 'http://www.haominjiaoyu.com/process/zh_Cn'
