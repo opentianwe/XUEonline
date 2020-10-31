@@ -393,7 +393,7 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
 async function ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAskype, Str, isTeacher) {
     var Evaluation = ''
     var RMB = 0
-    if (isTeacher) {
+    if (isTeacher) { //
         var ret = await mysql.queryStudentEvaluationByEmal(Emal)
         if (ret == false) {
             Evaluation = "暂无评价"
@@ -534,6 +534,23 @@ async function JP_ProfileRendering(res, Emal, mem, oAName, oAEmail, oAsex, oAsky
     })
 }
 
+//当分秒不为两位 自动补0
+
+function crtTimeFtt(val) {
+    if (val != null) {
+      var date = new Date(val);
+      var year = date.getFullYear().toString().padStart(4, "0");
+      var month = (date.getMonth() + 1).toString().padStart(2, "0");
+      var day = date.getDate().toString().padStart(2, "0");
+  
+      var hour = date.getHours().toString().padStart(2, "0");
+      var minute = date.getMinutes().toString().padStart(2, "0");
+     // var second = date.getSeconds().toString().padStart(2, "0");
+  
+      return date.getFullYear() + '-' + month + '-' + day + ' '+hour+':'+minute;
+    }
+  }
+
 router.get('/personal.html', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '' || req.signedCookies.malli == null) {
         res.redirect('/')
@@ -560,30 +577,16 @@ router.get('/personal.html', function (req, res) {
                         mysql.seleteTAppointment(req.signedCookies.malli)
                             .then(function (datas) {
                                 var Str = ''
-                                var temp = []
-                                var temparr = []
-                                var isExist = false;
-
                                 for (var i = 0; i < datas.length; i++) {
-                                    isExist = false;
-                                    temp = datas[i];
-                                    for (var j = 0; j < temparr.length; j++) {
-                                        if (temp.timeApp.split('  ')[0] == temparr[j].timeApp.split('  ')[0]) {
-                                            isExist = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!isExist) {
-                                        temparr.push(temp)
-                                    }
-                                }
-                                for (var i = datas.length - 1; i >= 0; i--) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "无"
                                     }
                                     if (datas[i].Textval == null) {
                                         datas[i].Textval = "无"
                                     }
+                                    datas[i].timeApp = crtTimeFtt(datas[i].timeApp)
+                                  
+                                    
                                     Str += '<tr data-id="' + datas[i].UserID + '" ><td class="timeApp" >' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].UserSkypeID + '?add">' + datas[i].UserSkypeID + '</a></td><td>' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td><td  class="time">剩余时间</td><td><button class="layui-btn Historyview">历史查看</button></td><td><button type="button" class="layui-btn privateEvaluation">课程记录</button></td><td> <button type="button" class="layui-btn Studtit">评价</button></td ></tr > '
 
                                 }
@@ -602,8 +605,8 @@ router.get('/personal.html', function (req, res) {
                 mysql.seleteAppointment(req.signedCookies.malli)
                     .then(function (datas) {
                         var Str = ''
-                        for (var i = datas.length - 1; i >= 0; i--) {
-
+                        for (var i = 0; i < datas.length; i++) {
+                            datas[i].timeApp = crtTimeFtt(datas[i].timeApp) 
                             Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
 
                         }
@@ -802,33 +805,14 @@ router.get('/ja_JP/personal.html', function (req, res) {
                         mysql.seleteTAppointment(req.signedCookies.malli)
                             .then(function (datas) {
                                 var Str = ''
-                                var temp = []
-                                var temparr = []
-                                var isExist = false
-
                                 for (var i = 0; i < datas.length; i++) {
-                                    isExist = false;
-                                    temp = datas[i];
-                                    for (var j = 0; j < temparr.length; j++) {
-                                        if (temp.timeApp.split('  ')[0] == temparr[j].timeApp.split('  ')[0]) {
-                                            isExist = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!isExist) {
-                                        temparr.push(temp)
-                                    }
-                                }
-
-
-
-                                for (var i = datas.length - 1; i >= 0; i--) {
                                     if (datas[i].UserWeChat == null) {
                                         datas[i].UserWeChat = "なし"
                                     }
                                     if (datas[i].Textval == null) {
                                         datas[i].Textval = "なし"
                                     }
+                                    datas[i].timeApp = crtTimeFtt(datas[i].timeApp)
                                     Str += '<tr data-id="' + datas[i].UserID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].UserName + '</td><td class="TeacherWeChatID">' + datas[i].UserWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].UserSkypeID + '">' + datas[i].UserSkypeID + '</a></td><td  class="Rmb">' + datas[i].RMB + '</td><td  class="Leseon">' + datas[i].Leseon + '</td><td  class="Textval">' + datas[i].Textval + '</td>' + '<td  class="time">剩余时间</td><td><button type="button" class="layui-btn Historyview">历史查看</button></td><td><button type="button" class="layui-btn privateEvaluation">课程记录</button></td><td><button type="button" class="layui-btn Studtit"> 評価</button></td></tr>'
                                 }
 
@@ -849,8 +833,8 @@ router.get('/ja_JP/personal.html', function (req, res) {
                     .then(function (datas) {
                         var Str = ''
 
-                        for (var i = datas.length - 1; i >= 0; i--) {
-
+                        for (var i = 0; i < datas.length; i++) {
+                            datas[i].timeApp = crtTimeFtt(datas[i].timeApp)
                             Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].TeacherSkypeID + '">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="time">剩余时间</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
                         }
                         JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false, ZPrice)

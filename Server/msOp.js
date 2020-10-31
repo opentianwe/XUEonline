@@ -231,7 +231,7 @@ function queryTimedatabyID(ID, temp, callback) {
 }
 //通过老师邮箱查询这个老师所有时间段的数据
 function queryTimedatabyemal(emal, callback) {
-    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'" + 'order by `timeop` DESC'
+    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'" 
     woreData(querystr, function (data, error) {
         callback(data, error)
     })
@@ -593,7 +593,7 @@ function modifyMakeanappointment(ID, Emal, time, status) {
 //
 //查询预约信息
 function seleteAppointment(emal) {
-    var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = '" + emal + "'"
+    var queryStr = "SELECT * FROM `Appointment` WHERE UserEmal = '" + emal + "'" + 'order by `timeApp` asc'
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -610,7 +610,7 @@ function seleteAppointment(emal) {
 }
 //查询学生预约信息
 function seleteTAppointment(emal) {
-    var queryStr = "SELECT * FROM `Appointment` WHERE TeacherEmal = '" + emal + "'"
+    var queryStr = "SELECT * FROM `Appointment` WHERE TeacherEmal = '" + emal + "'" + 'order by `timeApp` asc'
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -806,7 +806,7 @@ async function asyncqueryCommodityInfoByID(ID) {
 
 //通过emal查询普通用户信息
 async function asyncqueryUserPbyEmalPromise(emal) {
-    var Querystr = "SELECT * FROM `UserP` WHERE oAEmail = '" + emal + "'"
+    var Querystr = "SELECT * FROM `UserP` WHERE oAEmail = '" + emal + "'" + 'order by `timeApp` DESC'
     return new Promise(function (resolve, reject) {
         woreData(Querystr, function (data, error) {
             if (error) {
@@ -899,7 +899,7 @@ async function queryStudentEvaluationByEmal(Emal) {
 
 //通过老师邮箱查询老师对学生评价信息
 async function queryTStudentEvaluationByEmal(Emal) {
-    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`RMB` FROM `Appointment` WHERE `Tstatus` = 1 AND `TeacherEmal` = '" + Emal + "'"
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`RMB` FROM `Appointment` WHERE `Tstatus` = 1 AND `TeacherEmal` = '" + Emal + "'" 
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if (err) {
