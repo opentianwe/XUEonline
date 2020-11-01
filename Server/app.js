@@ -2,7 +2,7 @@ const express = require("express")
 const route = require("./route/index")
 const main = require('./controllers/main')
 const index = require('./middlewares/index')
-const port = 9980
+const port = 9080
 var app = express()
 app.get('/', function (req, res) {
     // if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
     //     res.redirect('/zh-cn')
     // }else
     // {
-     res.redirect('./ja_JP/index.html')
+    res.redirect('./ja_JP/index.html')
     // }
 })
 app.use(express.static("public"))

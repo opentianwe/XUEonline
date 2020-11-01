@@ -3,146 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .print-container{
-            width: 870px;
-            height: 580px;
-            background:#f5f5f5;
-            margin: 0 auto;
-            box-shadow: darkgrey 1px 1px 10px 1px;
-        }
-        .invoice-box{
-            padding: 20px;
-            color: #964300;
-            line-height: 20px;
-            font-weight: bold;
-            background-color: #ffffff;
-            font-size: 6px;
-        }
-        .invoice-header{
-            display: flex;
-            /* align-items: center; */
-            justify-content: space-around;
-           
-        }
-        .invoice-header>div{
-            flex: 1;
-            height:80px;
-            color: #964300;
-          
-        }
-        .invoice-header>div:nth-child(2){
-            flex: 2;
-            text-align: center;
-            font-size:20px;
-           
-        }
-        .invoice-header>div:nth-child(1){
-            line-height:135px;
-        }
-       .inv-border{
-        border:1px solid #964300;
-        position: absolute;
-        top:30px;
-        left: 15%;
-        right:15%;
-       }
-     .invocie-content{
-         display: flex;
-         align-items: center;
-         border: 2px solid #b88787;
-     }
-     .invocie-content>div{
-        
-         padding:2px 0;
-         font-size: 12px;
-     }
-     .invocie-content>div:nth-child(1){
-         flex: 1;
-            text-align: center;
-     }
-     .invocie-content>div:nth-child(2){
-         flex: 11;
-         border-left: 2px solid #b88787;
-        
-     }
-     .invocie-content-center{
-         display: flex;
-         border: 2px solid#b88787;
-         border-top: none;
-     }
-     .invocie-content-center>div{
-         text-align: center;
-         border-right: 1px solid #b88787;
-         flex:1;
-     }
-     .invocie-content-center>div:nth-child(1){
-         flex:2;
-     }
-    .invocie-content-footer{
-        display:flex;
-        border-left: 2px solid  #b88787;
-        border-right: 2px solid  #b88787;
-        border-bottom: 2px solid #b88787;
-    }
-    .invocie-content-footer>div{
-        flex: 1;
-        border-right: 1px solid #b88787;
-        padding: 5px 0;
-    }
-    .invocie-content-footer>div:nth-child(2){
-        flex: 2;
-        padding:5px 40px;
-        text-align: right;
-    }
-    .invocie-right>ul>li{
-        padding-left:20px;
-        padding-top: 5px;
-    }
-    .invocie-xue{
-        display: flex;
-        border-top: none;
-        border: 2px solid #b88787;
-    }
-    .invocie-xue>div{
-        flex: 1;
-        border-left: 1px solid #b88787;
-        padding:20px 0;
-    }
-    .invocie-xue>div:nth-child(2){
-        flex: 6;
-    }
-    .invocie-xue>div:nth-child(4){
-        flex: 6;
-    }
-    </style>
+    <title>XUEonline</title>
+    <script src="./js/jq.min.js"></script>
+    <script src="./js/print.js"></script>
+    <link rel="stylesheet" href="./css/print.css">
 </head>
 <body>
-    <div class="print-container">
-        <div class="invoice-box">
+    <div id="print-box" class="print-container" >
+        <div class="invoice-box" style="position: relative;">
             <div class="invoice-header">
                 <div>
                     订单编号:<span id="invoice-serial" class="incoice-color"></span>
                 </div>
                 <div  class="invoice-header-center" >
                     <div style="position: relative;">
-                        <h5>电子增值税普通发票</h5>
+                        <h5>受講証明書</h5>
                         <p class="inv-border"></p>
                         
                     </div>
                 </div>
                 <div>
                     <div>
-                        发票代码:<span></span>
-                    </div>
-                    <div>
-                        发票号码:<span></span>
+                        发票号码:<span id="invoice-code"></span>
                     </div>
                     <div>
                         开票日期:<span id='invoice-date'></span>
@@ -158,60 +40,84 @@
                 </div>
                 <div class="invocie-right">
                     <ul>
-                        <li>姓   名:</li>
-                        <li>订单账号:</li>
-                        <li>充值业务:</li>
-                        <li>充值账户:</li>
+                        <li>姓   名:<span id="invoice-username"></span></li>
+                        <li>订单账号:<span id="invoice-id"></span></li>
+                        <li>充值业务:<span id="invoice-business"></span></li>
+                        <li>充值账户:<span id="invoice-name"></span></li>
                     </ul>
                 </div>
             </div>
             <div class="invocie-content-center">
                 <div>商品名称性质
                     <div>
-
+                        XUEonline官方授课
                     </div>
                 </div>
                 <div>购买数量
                     <div>
-
+                        2
                     </div>
                     
                 </div>
                 <div>付款方式
-                    <div>
-
+                    <div id="mode">
+                        
                     </div>
                 </div>
                 <div>购买金额
-                    <div>
-
+                    <div id="shop-money" >
+                    
                     </div>
                 </div>
                 <div>税率
-                    <div>
-
+                    <div id="taxrate">
+                        10%
                     </div>
                 </div>
                 <div>纳税
-                    <div>
-
+                    <div id="taxrate-moeny">
+                        
                     </div>
                 </div>
             </div>
             <div class="invocie-content-footer">
                 <div>价税合计(大写)</div>
-                <div>金额 </div>
+                <div>金额 <span class="At-moeny">5000</span> </div>
             </div>
             <div class="invocie-xue">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>商品状态</div>
+                <div>已通过审核</div>
+                <div>备注</div>
+                <div>XUE官方承认此订单有效</div>
             </div>  
             <div class="invocie-footer">
 
             </div>
+            <img src="./images/xue.png" style="width: 150px;height: 150px;position: absolute;right:20px;bottom:-10px;" alt="">
+            <div>
+                <strong>昊旻教育科技(大连)有限公司</strong>
+                <p>www.haominjiaoyu.com</p>
+                <p>XUEonline 2020年10月20日発行</p>
+            </div>
         </div>
+   
     </div>
+    <div class="print-container">
+        <button id="print-btn" style="width:200px ;">打印</button>
+    </div>
+    <script >
+        $('#print-btn').on("click",function(){
+            $.print("#print-box");
+        })
+        let invoice={
+            // 订单编号
+            invoice_serial:"133",
+            invoice_code:"4560",
+            invoice_date:"789456",
+            invoice_checkcode:"8484",
+
+        }
+    </script>
+    
 </body>
 </html>
