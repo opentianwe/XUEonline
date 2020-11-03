@@ -1,7 +1,4 @@
 
-
-
-
 		<div style="overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;width: 70%;margin: 0 auto;">
 		<table class="none cal">
 			<tbody>
@@ -147,13 +144,18 @@
 					<td>
 						<table class="suke_s">
 								<tbody>
-
 									<tr>
-										<th nowrap="" style="background-color:#79B330;height:40px;width:100px;"><a
-												href="?id=<%=data.ID%>&amp;yyyy=<%=data.dataTime[s].yyyy%>&amp;mm=<%=data.dataTime[s].mm%>&amp;dd=<%=data.dataTime[s].dd%>#booking"><%=data.Time[s]%></a> 
+									
+										<th nowrap=""  
+										<%if(data.dataTime[s].status == 1){%>
+										style="background-color:#B37930;height:40px;width:100px;"		
+										<%}else{%>
+											style="background-color:#79B330;height:40px;width:100px;"		
+										<%}%>
+										 					
+										><a href="?teacher_id=83718&amp;yyyy=<%=data.dataTime[s].yyyy%>&amp;mm=<%=data.dataTime[s].mm%>&amp;dd=<%=data.dataTime[s].dd%>#booking">{{#data.Time[s]}}</a> 
 										</th>
 									</tr>
-
 									<%for(var i = 0;i < 38 ; i++){%>
 										<tr >
 											<%if(s==0 && data.pet.on){%>

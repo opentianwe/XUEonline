@@ -248,8 +248,8 @@ router.post('/makeAnapp', function (req, res) {
     readJsondata(req)
         .then(function (data) {
             UserData = data
-            console.log(req.signedCookies.malli)
-            return mysql.queryEmalbyApp(req.signedCookies.malli)
+            return mysql.queryIDbyEmalUset(UserData.ID)
+           
         }, function (err) {
             res.send({
                 status: 1,
@@ -259,11 +259,19 @@ router.post('/makeAnapp', function (req, res) {
         })
         //是否享受特价
         .then(function (data) {
-
             if (data == null) {
-                isSpecialOffer = true
+                res.send({
+                    status: 1,
+                    error: err,
+                    msg: "数据错误"
+                })
+            } else {
+                UserData.Email = data.oAEmail
+                UserData.Name = data.oAName
+                UserData.ID = data.ID
             }
-            return mysql.queryIDbyEmalUset(UserData.ID)
+
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(UserData.Email,req.signedCookies.malli) 
         }, function (err) {
             res.end({
                 status: 1,
@@ -274,16 +282,9 @@ router.post('/makeAnapp', function (req, res) {
         })
         .then(function (data) {
             if (data == null) {
-                res.send({
-                    status: 1,
-                    error: err,
-                    msg: "数据错误"
-                })
-            } else {
-                UserData.Name = data.oAName
-                UserData.ID = data.ID
+                isSpecialOffer = true
             }
-            return mysql.queryCurriculumPrice(data.oAEmail, isSpecialOffer)
+            return mysql.queryCurriculumPrice(UserData.Email, isSpecialOffer)
         }, function (err) {
             res.send({
                 status: 1,
@@ -345,22 +346,20 @@ router.post('/pay', function (req, res) {
                 })
                 return new Promise(() => { });
             } else {
-
                 pUserdata.UserID = data.UserID
                 pUserdata.UserEmal = data.UserEmal
                 pUserdata.integral = data.integral
-                console.log(pUserdata)
-                return mysql.queryEmalbyApp(req.signedCookies.malli)
+                return mysql.queryIDbyEmalUset(tUserdata.ID)
             }
         })
-        .then(function (data) {         //判断用户查询用户历史预约信息,用来判断是否首次预约 
+        .then(function (data) {         //通过老师ID查询老师Emal
+            tUserdata.Email = data.oAEmail
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(tUserdata.Email,req.signedCookies.malli) 
+        })
+        .then(function (data) {        //判断用户查询用户历史预约信息,用来判断是否首次预约 
             if (data == null) {
                 isSpecialOffer = true
             }
-            return mysql.queryIDbyEmalUset(tUserdata.ID)
-        })
-        .then(function (data) {      //通过老师ID查询老师Emal
-            tUserdata.Email = data.oAEmail
             return mysql.queryCurriculumPrice(tUserdata.Email, isSpecialOffer)
         })
         .then(function (data) {        //查询老师课程预约价格
@@ -504,7 +503,7 @@ router.post('/cancel', function (req, res) {
                 var data = ret
                 ret = await model_Appint.deleteAppointment_alldata_BytimeApp(Time, malli, data.TeacherEmal)
                 if (ret) {
-                    res.send({ status: 2, msg: "取消预约成功,积分会在1-2个小时内自动返回您的账户!" })
+                    res.send({ status: 2, msg: "キャンセルしました。" })
                     //恢复预约信息
                     model_Ainfor.modify_Makeanappointment(data.TeacherEmal, data.timeApp, 1)
                     Tool.aUpdatePoints(Number(data.Price), data.UserEmal, data.UserID)
@@ -525,7 +524,7 @@ router.post('/cancel', function (req, res) {
                     res.send({ status: 0, msg: "错误" })
                     return
                 }
-                var date = new Date()
+                var date = new Date(Tool.getCurrentTime(9))
                 date.setHours(date.getHours() - 3)
                 var current_date = new Date(date)
                 current_date = current_date.getTime(current_date)
@@ -575,7 +574,7 @@ router.post('/studentEvaluation', function (req, res) {
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
 
-                var timestamp2 = Date.parse(new Date())
+                var timestamp2 = Date.parse(Tool.getCurrentTime(9))
                 timestamp2 = timestamp2 / 1000
 
                 if (timestamp2 < timestamp1) {
@@ -693,8 +692,8 @@ router.post('/teacherEvaluation', function (req, res) {
                 timestamp1.setMinutes(min + 25);
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-
-                var timestamp2 = Date.parse(new Date())
+                
+                var timestamp2 = Date.parse(Tool.getCurrentTime(9))
                 timestamp2 = timestamp2 / 1000
 
                 if (timestamp2 < timestamp1) {
@@ -872,9 +871,8 @@ router.post('/getprivateEvaluation',function (req,res) {
 
 
 router.get('/getime', function (req, res) {
-    var date = new Date()
-    date.setHours(date.getHours() + 1)
-    res.send({ Time: date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "  " + date.getHours() + ":" + date.getMinutes() })
+
+    res.send({ Time: Tool.getCurrentTime(9) })
 })
 module.exports = router
 
