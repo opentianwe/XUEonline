@@ -582,8 +582,8 @@
           </div>
           <%}%>
           <div class="yuyue">
-            <span class="isAdd active">查看全部</span
-            ><span class="isnotAdd">未上课</span>
+            <span class="isnotAdd active">未上课</span>
+            <span class="isAdd ">查看全部</span>
             <span class="isAddter">已上课</span>
           </div>
           <div class="table-responsive">
