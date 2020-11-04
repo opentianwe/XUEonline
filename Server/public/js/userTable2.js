@@ -657,6 +657,7 @@ $(function () {
       $(this).addClass("active").siblings().removeClass("active");
     });
   });
+  new ControlTable(Settr).SetAddRemoveTable();
   GetStaus.addEventListener("click", function (e) {
     let SetA = new ControlTable(Settr);
     switch (e.target.className) {

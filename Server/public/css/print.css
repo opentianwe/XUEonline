@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.print-container {
+  width: 870px;
+  background: #f5f5f5;
+  margin: 40px auto;
+  box-shadow: darkgrey 1px 1px 10px 1px;
+}
+.invoice-box {
+  padding: 20px;
+  color: #964300;
+  line-height: 20px;
+  font-weight: bold;
+  background-color: #ffffff;
+  font-size: 6px;
+}
+.invoice-header {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+.invoice-header > div {
+  flex: 1;
+  height: 80px;
+  color: #964300;
+}
+.invoice-header > div:nth-child(2) {
+  flex: 2;
+  text-align: center;
+  font-size: 20px;
+}
+.invoice-header > div:nth-child(1) {
+  line-height: 135px;
+}
+.inv-border {
+  border: 1px solid #964300;
+  position: absolute;
+  top: 30px;
+  left: 15%;
+  right: 15%;
+}
+.invocie-content {
+  display: flex;
+  align-items: center;
+  border: 2px solid #b88787;
+}
+.invocie-content > div {
+  padding: 2px 0;
+  font-size: 12px;
+}
+.invocie-content > div:nth-child(1) {
+  flex: 1;
+  text-align: center;
+}
+.invocie-content > div:nth-child(2) {
+  flex: 11;
+  border-left: 2px solid #b88787;
+}
+.invocie-content-center {
+  display: flex;
+  border: 2px solid#b88787;
+  border-top: none;
+}
+.invocie-content-center > div {
+  text-align: center;
+  border-right: 1px solid #b88787;
+  flex: 1;
+}
+.invocie-content-center > div:nth-child(1) {
+  flex: 2;
+}
+.invocie-content-footer {
+  display: flex;
+  border-left: 2px solid #b88787;
+  border-right: 2px solid #b88787;
+  border-bottom: 2px solid #b88787;
+}
+.invocie-content-footer > div {
+  flex: 1;
+  border-right: 1px solid #b88787;
+  padding: 5px 0;
+}
+.invocie-content-footer > div:nth-child(2) {
+  flex: 2;
+  padding: 5px 40px;
+  text-align: right;
+}
+.invocie-right > ul > li {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+.invocie-xue {
+  display: flex;
+  border-top: none;
+  border: 2px solid #b88787;
+}
+.invocie-xue > div {
+  flex: 1;
+  border-left: 1px solid #b88787;
+  padding: 20px 0;
+  text-align: center;
+}
+.invocie-xue > div:nth-child(2) {
+  flex: 6;
+}
+.invocie-xue > div:nth-child(4) {
+  flex: 6;
+}

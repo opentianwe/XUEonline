@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     //     res.redirect('/zh-cn')
     // }else
     // {
-     res.redirect('./ja_JP/index.html')
+    res.redirect('./ja_JP/index.html')
     // }
 })
 
