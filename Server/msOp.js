@@ -455,6 +455,8 @@ function queryCurriculumPrice(Emal, isCurr) {
 }
 
 
+
+
 //通过emal查询所有用户资料
 function queryUserinformbyEmalPromise(emal) {
     var strQuery = "select `Name`,`Phpne`,`SkypeID`,`WeixinID` FROM `Userinformation` WHERE `Email` = '" + emal + "'"

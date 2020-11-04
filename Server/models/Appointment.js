@@ -1,12 +1,11 @@
-
-
-
 const main = require('./main')
 exports.queryAppointment_alldata_Byemail = queryAppointment_alldata_Byemail
 exports.queryAppointment_alldata_BytimeApp = queryAppointment_alldata_BytimeApp
 exports.deleteAppointment_alldata_BytimeApp = deleteAppointment_alldata_BytimeApp
 exports.queryAppointment_Pmsg_Byemail = queryAppointment_Pmsg_Byemail
 exports.queryAppointment_alldata_ByUserEmal = queryAppointment_alldata_ByUserEmal
+exports.queryAppointment_isSpecialOffer_Byemail = queryAppointment_isSpecialOffer_Byemail
+
 
 async function queryAppointment_alldata_Byemail(TeacherEmal,emal,time)
 {
@@ -80,8 +79,6 @@ async function queryAppointment_alldata_ByUserEmal(UserEmal)
     }
 }
 
-
-
 async function queryAppointment_Pmsg_Byemail(TeacherEmal,emal,id)
 {
     var queryStr = "SELECT `Pmsg`,`UserName` FROM `Appointment` WHERE `UserEmal` = ? AND `Pstatus` = 1 AND `TeacherEmal` = ? AND `UserID` = ?"
@@ -101,3 +98,45 @@ async function queryAppointment_Pmsg_Byemail(TeacherEmal,emal,id)
         return false
     }
 }
+
+function queryAppointment_isSpecialOffer_Byemail(TeacherEmal,UserEmal)
+{
+    var querystr = "SELECT * FROM `Appointment` WHERE TeacherEmal = ? AND UserEmal = ?"
+    return new Promise(function (resolve, reject) {
+        var value = [String(TeacherEmal),String(UserEmal)]
+        main.sqlquery(querystr,value,(data,error)=>{
+            console.log(Boolean(error))
+            if(error == true) {
+                resolve(null)
+                return
+            }
+            if (!data || data.length == 0) {
+                resolve(null)
+                return
+            }
+            else {
+                resolve(data)
+            }
+        })
+    })
+}
+
+function queryIDbyEmalUset(ID) {
+    var querystr = "select * from `UserT` where  ID = '" + ID + "'"
+    return new Promise(function (resolve, reject) {
+        woreData(querystr, function (data, error) {
+            if (error) {
+                console.log(error)
+                reject(error)
+            }
+            if (!data || data.length == 0) {
+                reject(null)
+            }
+            else {
+                resolve(data[0])
+            }
+        })
+    })
+}
+
+//SELECT * FROM `Appointment` WHERE TeacherEmal = "XUEonline2020@gmail.com" AND UserEmal = "147258369@qq.com"

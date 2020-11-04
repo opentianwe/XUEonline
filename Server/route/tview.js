@@ -13,7 +13,7 @@ const { template } = require('express-art-template')
 
 const path = require('path')
 
-
+var dataarray = ["日","月",  "火" , "水" , "木",  "金" ,  "土"]
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -152,8 +152,14 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
             totime = totime.split("-")
             for (var i = 0; i < 7; i++) {
                 var angData = getNextDate(yyyy + "-" + mm + "-" + dd, i).split("-")
-                Time.push(angData[1] + "月" + angData[2] + "日")
-                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2] })
+                var Dates = new Date(angData.join("-"))
+                var status = 0
+                if(Dates.getDay() == 0 || Dates.getDay() == 6)
+                {
+                    status = 1
+                }
+                Time.push(angData[1] + "月" + angData[2] + "日" + "<br>("+ dataarray[Dates.getDay()] +")")
+                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2],status: status})
             }
             var yymmddff = new Array()
             for (var i = 0; i < 7; i++) {
@@ -204,8 +210,14 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
             var dTime = fun_date_to(0)
             for (var i = 0; i < 7; i++) {
                 var angData = getNextDate(dTime.yyyy + "-" + dTime.mm + "-" + dTime.dd, i).split("-")
-                Time.push(angData[1] + "月" + angData[2] + "日")
-                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2] })
+                var Dates = new Date(angData.join("-"))
+                var status = 0
+                if(Dates.getDay() == 0 || Dates.getDay() == 6)
+                {
+                    status = 1
+                }
+                Time.push(angData[1] + "月" + angData[2] + "日" + "<br>("+ dataarray[Dates.getDay()] +")")
+                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2],status: status})
             }
             var yymmddff = new Array()
             for (var i = 0; i < 7; i++) {
@@ -234,6 +246,8 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
                             status = 5
                         }
                     }
+
+                 
                     yymmddff[i][s] = { ID: usertId, time: timestr, status: status }
                 }
             }
@@ -290,8 +304,14 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
             totime = totime.split("-")
             for (var i = 0; i < 7; i++) {
                 var angData = getNextDate(yyyy + "-" + mm + "-" + dd, i).split("-")
-                Time.push(angData[1] + "月" + angData[2] + "日")
-                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2] })
+                var Dates = new Date(angData.join("-"))
+                var status = 0
+                if(Dates.getDay() == 0 || Dates.getDay() == 6)
+                {
+                    status = 1
+                }
+                Time.push(angData[1] + "月" + angData[2] + "日" + "<br>("+ dataarray[Dates.getDay()] +")")
+                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2],status: status})
             }
             var yymmddff = new Array()
             for (var i = 0; i < 7; i++) {
@@ -338,8 +358,14 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
             var dTime = fun_date_to(0)
             for (var i = 0; i < 7; i++) {
                 var angData = getNextDate(dTime.yyyy + "-" + dTime.mm + "-" + dTime.dd, i).split("-")
-                Time.push(angData[1] + "月" + angData[2] + "日")
-                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2] })
+                var Dates = new Date(angData.join("-"))
+                var status = 0
+                if(Dates.getDay() == 0 || Dates.getDay() == 6)
+                {
+                    status = 1
+                }
+                Time.push(angData[1] + "月" + angData[2] + "日" + "<br>("+ dataarray[Dates.getDay()] +")")
+                dataTIme.push({ yyyy: angData[0], mm: angData[1], dd: angData[2],status: status})
             }
             var yymmddff = new Array()
             for (var i = 0; i < 7; i++) {
@@ -607,7 +633,7 @@ router.get('/personal.html', function (req, res) {
                         var Str = ''
                         for (var i = 0; i < datas.length; i++) {
                             datas[i].timeApp = crtTimeFtt(datas[i].timeApp) 
-                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
+                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="skype:' + datas[i].TeacherSkypeID + '?add">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="button-user"> <button type="button" class="layui-btn Teachertit">评价</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button> </td> <button type="button" class="layui-btn newprint" data-status=0 >打印证明</button></td></tr>'
 
                         }
                         ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false)
@@ -835,7 +861,7 @@ router.get('/ja_JP/personal.html', function (req, res) {
 
                         for (var i = 0; i < datas.length; i++) {
                             datas[i].timeApp = crtTimeFtt(datas[i].timeApp)
-                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].TeacherSkypeID + '">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td>' + '<td class="time">剩余时间</td><td class="button-user"> <button type="button" class="layui-btn Teachertit">評価</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td></tr>'
+                            Str += '<tr data-id="' + datas[i].TeacherID + '"><td class="timeApp">' + datas[i].timeApp + '</td><td class="TeacherName">' + datas[i].TeacherName + '</td><td class="TeacherWeChatID">' + datas[i].TeacherWeChat + '</td><td class="TeacherSkypeID"><a href="#' + datas[i].TeacherSkypeID + '">' + datas[i].TeacherSkypeID + '</td>' + '<td>' + datas[i].Price + '</td> ' + '<td class="time">剩余时间</td><td class="button-user">  <button type="button" class="layui-btn Teachertit">評価</button></td><td> <button type="button" class="layui-btn Studate" data-status=0 >取消预约</button></td> <td> <button type="button" class="layui-btn newprint" data-status=0 >打印证明</button></td></tr>'
                         }
                         JP_ProfileRendering(res, req.signedCookies.malli, mem, data[0].oAName, data[0].oAEmail, data[0].oAsex, data[0].oAskype, Str, false, ZPrice)
 
