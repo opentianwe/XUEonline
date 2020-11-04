@@ -5,7 +5,7 @@ exports.deleteAppointment_alldata_BytimeApp = deleteAppointment_alldata_BytimeAp
 exports.queryAppointment_Pmsg_Byemail = queryAppointment_Pmsg_Byemail
 exports.queryAppointment_alldata_ByUserEmal = queryAppointment_alldata_ByUserEmal
 exports.queryAppointment_isSpecialOffer_Byemail = queryAppointment_isSpecialOffer_Byemail
-
+exports.queryAppointment_SingleData_Byemail = queryAppointment_SingleData_Byemail
 
 async function queryAppointment_alldata_Byemail(TeacherEmal,emal,time)
 {
@@ -139,4 +139,22 @@ function queryIDbyEmalUset(ID) {
     })
 }
 
-//SELECT * FROM `Appointment` WHERE TeacherEmal = "XUEonline2020@gmail.com" AND UserEmal = "147258369@qq.com"
+async function queryAppointment_SingleData_Byemail(timeApp,TeacherID,UserEmal)
+{
+    var queryStr = "SELECT * FROM `Appointment` WHERE `timeApp` = ? AND `TeacherID` = ? AND `UserEmal` = ?"
+    var value = [String(timeApp),String(TeacherID),String(UserEmal)]
+    var ret = await main.sqlquery(queryStr,value)
+    if(ret instanceof Array)
+    {
+        if(ret.length == 0)
+        {
+            return false
+        }else
+        {
+            return ret[0]
+        }
+    }else
+    {
+        return false
+    }
+}

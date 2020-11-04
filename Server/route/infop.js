@@ -249,7 +249,7 @@ router.post('/makeAnapp', function (req, res) {
         .then(function (data) {
             UserData = data
             return mysql.queryIDbyEmalUset(UserData.ID)
-           
+
         }, function (err) {
             res.send({
                 status: 1,
@@ -271,7 +271,7 @@ router.post('/makeAnapp', function (req, res) {
                 UserData.ID = data.ID
             }
 
-            return model_Appint.queryAppointment_isSpecialOffer_Byemail(UserData.Email,req.signedCookies.malli) 
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(UserData.Email, req.signedCookies.malli)
         }, function (err) {
             res.end({
                 status: 1,
@@ -354,7 +354,7 @@ router.post('/pay', function (req, res) {
         })
         .then(function (data) {         //通过老师ID查询老师Emal
             tUserdata.Email = data.oAEmail
-            return model_Appint.queryAppointment_isSpecialOffer_Byemail(tUserdata.Email,req.signedCookies.malli) 
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(tUserdata.Email, req.signedCookies.malli)
         })
         .then(function (data) {        //判断用户查询用户历史预约信息,用来判断是否首次预约 
             if (data == null) {
@@ -692,7 +692,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 timestamp1.setMinutes(min + 25);
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-                
+
                 var timestamp2 = Date.parse(Tool.getCurrentTime(9))
                 timestamp2 = timestamp2 / 1000
 
@@ -718,7 +718,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 })
                 return new Promise(() => { })
             } else {
-                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour,UserData.TeacherEmal,UserData.Text2)
+                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour, UserData.TeacherEmal, UserData.Text2)
             }
 
         })
@@ -768,8 +768,8 @@ router.post('/geteacherEvaluation', function (req, res) {
         return;
     }
     var UserData;
-    async function geteacherEvaluation(emalli,UserData){
-        var data  = await model_Ainfor.query_MsgBytime(UserData.Time,emalli)
+    async function geteacherEvaluation(emalli, UserData) {
+        var data = await model_Ainfor.query_MsgBytime(UserData.Time, emalli)
         UserData.Price = data.Price
         UserData.TeacherID = data.TeacherID
         UserData.TeacherEmal = data.TeacherEmal
@@ -800,7 +800,7 @@ router.post('/geteacherEvaluation', function (req, res) {
                 })
                 return new Promise(() => { })
             } else {
-                geteacherEvaluation(req.signedCookies.malli,UserData)
+                geteacherEvaluation(req.signedCookies.malli, UserData)
                 return new Promise(() => { })
             }
         })
@@ -810,8 +810,8 @@ router.post('/geteacherEvaluation', function (req, res) {
                 msg: "数据异常"
             })
         })
-        
-       
+
+
 })
 
 router.post('/getStudentreviews', function (req, res) {
@@ -846,16 +846,14 @@ router.post('/getStudentreviews', function (req, res) {
         })
 })
 
-router.post('/getprivateEvaluation',function (req,res) {
-    async function getprivateEvaluation(ID) {  
+router.post('/getprivateEvaluation', function (req, res) {
+    async function getprivateEvaluation(ID) {
         var ret = await model_UserP.query_userp_Emal_byID(ID)
-        if(ret)
-        {
+        if (ret) {
             var ret = await model_Appint.queryAppointment_alldata_ByUserEmal(ret.oAEmail)
 
             res.send(ret)
-        }else
-        {
+        } else {
             res.send({
                 status: 0,
                 msg: "数据异常"
@@ -864,15 +862,38 @@ router.post('/getprivateEvaluation',function (req,res) {
         }
     }
     readJsondata(req)
-    .then(function(data){
-        getprivateEvaluation(data.ID)
-    })
+        .then(function (data) {
+            getprivateEvaluation(data.ID)
+        })
 })
 
 
 router.get('/getime', function (req, res) {
 
     res.send({ Time: Tool.getCurrentTime(9) })
+})
+
+//获取课程凭证信息
+router.post('/GetVoucher', function (req, res) {
+    async function GetVoucher(req, res, data) {
+        if (model_inf.appraisal_authority(req.signedCookies.malli) != 404) {
+            var ret = await model_Appint.queryAppointment_SingleData_Byemail(data.Time, data.ID, req.signedCookies.malli)
+            if (ret) {
+                res.send({status:0,data:ret,msg:"ok"})
+            }else
+            {
+                res.send({status:1,data:null,msg:"no data"})
+            }
+        }else
+            {
+                res.send({status:1,data:null,msg:"no data"})
+            }
+    }
+
+    readJsondata(req)
+        .then(function (data) {
+            GetVoucher(req,res,data)
+        })
 })
 module.exports = router
 
