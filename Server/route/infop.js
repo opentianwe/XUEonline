@@ -27,7 +27,7 @@ router.post('/dataUpload', function (req, res) {
         } catch (e) {
             res.send({
                 stats: 0,
-                msg: '数据异常',
+                msg: 'エラー！',
                 error: e
             });
             return
@@ -249,12 +249,12 @@ router.post('/makeAnapp', function (req, res) {
         .then(function (data) {
             UserData = data
             return mysql.queryIDbyEmalUset(UserData.ID)
-           
+
         }, function (err) {
             res.send({
                 status: 1,
                 error: err,
-                msg: "数据错误"
+                msg: "エラー！"
             })
         })
         //是否享受特价
@@ -263,7 +263,7 @@ router.post('/makeAnapp', function (req, res) {
                 res.send({
                     status: 1,
                     error: err,
-                    msg: "数据错误"
+                    msg: "エラー！"
                 })
             } else {
                 UserData.Email = data.oAEmail
@@ -271,7 +271,7 @@ router.post('/makeAnapp', function (req, res) {
                 UserData.ID = data.ID
             }
 
-            return model_Appint.queryAppointment_isSpecialOffer_Byemail(UserData.Email,req.signedCookies.malli) 
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(UserData.Email, req.signedCookies.malli)
         }, function (err) {
             res.end({
                 status: 1,
@@ -289,7 +289,7 @@ router.post('/makeAnapp', function (req, res) {
             res.send({
                 status: 1,
                 error: err,
-                msg: "数据错误"
+                msg: "エラー！"
             })
         })
         .then(function (data) {
@@ -311,7 +311,7 @@ router.post('/makeAnapp', function (req, res) {
             res.send({
                 status: 1,
                 error: err,
-                msg: "数据错误"
+                msg: "エラー！"
             })
         })
 })
@@ -354,7 +354,7 @@ router.post('/pay', function (req, res) {
         })
         .then(function (data) {         //通过老师ID查询老师Emal
             tUserdata.Email = data.oAEmail
-            return model_Appint.queryAppointment_isSpecialOffer_Byemail(tUserdata.Email,req.signedCookies.malli) 
+            return model_Appint.queryAppointment_isSpecialOffer_Byemail(tUserdata.Email, req.signedCookies.malli)
         })
         .then(function (data) {        //判断用户查询用户历史预约信息,用来判断是否首次预约 
             if (data == null) {
@@ -387,7 +387,7 @@ router.post('/pay', function (req, res) {
             if (data == null) {
                 res.send({
                     status: 5,
-                    msg: "未找到自身用户资料,如果您登录的是老师账号,请更换普通用户账号后再来预约!"
+                    msg: "現在は講師のIDを登録していますので、ご予約できません。生徒さんのIDにご登録してお願いします"
                 })
                 return new Promise(() => { });
             } else {
@@ -491,13 +491,13 @@ router.post('/cancel', function (req, res) {
         if (ret == null) {
             var ret = await model_UserT.query_usert_Emal_byID(id)
             if (!ret) {
-                res.send({ status: 4, msg: "老师信息异常!" })
+                res.send({ status: 4, msg: "講師のデータエラー！" })
                 return
             }
             console.log(ret.oAEmail)
             ret = await model_Appint.queryAppointment_alldata_Byemail(ret.oAEmail, malli, Time)
             if (ret == false) {
-                res.send({ status: 1, msg: "暂无预约信息!" })
+                res.send({ status: 1, msg: "レッスンの予約はありません" })
                 return
             } else {
                 var data = ret
@@ -508,12 +508,12 @@ router.post('/cancel', function (req, res) {
                     model_Ainfor.modify_Makeanappointment(data.TeacherEmal, data.timeApp, 1)
                     Tool.aUpdatePoints(Number(data.Price), data.UserEmal, data.UserID)
                 } else {
-                    res.send({ status: 1, msg: "暂无预约信息!" })
+                    res.send({ status: 1, msg: "レッスンの予約はありません" })
                     return
                 }
             }
         } else {
-            res.send({ status: 0, msg: "用户权限不足!" })
+            res.send({ status: 0, msg: "訪問権限が足りません。" })
             return
         }
     }
@@ -521,7 +521,7 @@ router.post('/cancel', function (req, res) {
         .then(function (data) {
             if (data) {
                 if (data.Time == undefined || data.id == undefined) {
-                    res.send({ status: 0, msg: "错误" })
+                    res.send({ status: 0, msg: "エラー" })
                     return
                 }
                 var date = new Date(Tool.getCurrentTime(9))
@@ -535,12 +535,12 @@ router.post('/cancel', function (req, res) {
                 if (Time > current_date) {
                     cancel(req.signedCookies.malli, data.Time, data.id)
                 } else {
-                    res.send({ status: 3, msg: "请在课前两个小时之前取消预约，超时不能再取消预约!" })
+                    res.send({ status: 3, msg: "レッスン開始の一時間前までキャンセルができます" })
                     return
                 }
             }
         }, function (err) {
-            res.send({ status: 0, msg: "错误" })
+            res.send({ status: 0, msg: "エラー" })
             return
         })
 
@@ -564,7 +564,7 @@ router.post('/studentEvaluation', function (req, res) {
             if (data.Time == '' || data.Time == undefined || data.Time == null || data.text == '' || data.text == undefined || data.text == null) {
                 res.send({
                     status: 0,
-                    msg: "数据异常"
+                    msg: "エラー"
                 })
                 return new Promise(() => { })
             } else {
@@ -580,7 +580,7 @@ router.post('/studentEvaluation', function (req, res) {
                 if (timestamp2 < timestamp1) {
                     res.send({
                         status: 1,
-                        msg: "请耐心等待老师上完课之后再来评价老师哦!"
+                        msg: "未来の時間ですので、先生へのコメントを送信できません"
                     })
                     return new Promise(() => { })
                 }
@@ -612,7 +612,7 @@ router.post('/studentEvaluation', function (req, res) {
             res.send({
                 status: 0,
                 error: err,
-                msg: "数据错误"
+                msg: "エラー"
             })
         })
 })
@@ -621,7 +621,7 @@ router.post('/getstudentEvaluation', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.send({
             status: 0,
-            msg: "用户信息错误"
+            msg: "ユーザデータエラー！"
         })
         return;
     }
@@ -633,7 +633,7 @@ router.post('/getstudentEvaluation', function (req, res) {
             if (data.Time == '' || data.Time == undefined || data.Time == null) {
                 res.send({
                     status: 0,
-                    msg: "数据异常"
+                    msg: "エラー"
                 })
                 return new Promise(() => { })
             } else {
@@ -661,7 +661,7 @@ router.post('/getstudentEvaluation', function (req, res) {
             res.send({
                 status: 0,
                 error: err,
-                msg: "数据错误"
+                msg: "エラー"
             })
         })
 })
@@ -670,7 +670,7 @@ router.post('/teacherEvaluation', function (req, res) {
     if (req.signedCookies.malli == undefined || req.signedCookies.malli == '') {
         res.send({
             status: 0,
-            msg: "用户信息错误"
+            msg: "ユーザデータエラー！"
         })
         return;
     }
@@ -683,7 +683,7 @@ router.post('/teacherEvaluation', function (req, res) {
             if (data.Time == '' || data.Time == null || data.Time == undefined) {
                 res.send({
                     status: 0,
-                    msg: "数据异常"
+                    msg: "エラー！"
                 })
                 return new Promise(() => { })
             } else {
@@ -692,7 +692,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 timestamp1.setMinutes(min + 25);
                 timestamp1 = Date.parse(timestamp1)
                 timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-                
+
                 var timestamp2 = Date.parse(Tool.getCurrentTime(9))
                 timestamp2 = timestamp2 / 1000
 
@@ -718,7 +718,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 })
                 return new Promise(() => { })
             } else {
-                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour,UserData.TeacherEmal,UserData.Text2)
+                return mysql.setTMsgBytime(UserData.Time, UserData.Text, UserData.classhour, UserData.TeacherEmal, UserData.Text2)
             }
 
         })
@@ -730,7 +730,7 @@ router.post('/teacherEvaluation', function (req, res) {
                 else {
                     res.send({
                         status: 1,
-                        msg: "评价成功"
+                        msg: "送信しました"
                     })
                     return new Promise(() => { })
                 }
@@ -745,7 +745,7 @@ router.post('/teacherEvaluation', function (req, res) {
             if (data) {
                 res.send({
                     status: 1,
-                    msg: "评价成功"
+                    msg: "送信しました"
                 })
                 return new Promise(() => { })
             }
@@ -754,7 +754,7 @@ router.post('/teacherEvaluation', function (req, res) {
         .catch(function (err) {
             res.send({
                 status: 0,
-                msg: "数据异常"
+                msg: "エラー！"
             })
         })
 })
@@ -768,15 +768,15 @@ router.post('/geteacherEvaluation', function (req, res) {
         return;
     }
     var UserData;
-    async function geteacherEvaluation(emalli,UserData){
-        var data  = await model_Ainfor.query_MsgBytime(UserData.Time,emalli)
+    async function geteacherEvaluation(emalli, UserData) {
+        var data = await model_Ainfor.query_MsgBytime(UserData.Time, emalli)
         UserData.Price = data.Price
         UserData.TeacherID = data.TeacherID
         UserData.TeacherEmal = data.TeacherEmal
         if (data.Tstatus == 1) {
             res.send({
                 status: 3,
-                msg: "该老师已经评价过,并且积分已经增加",
+                msg: "コメントを送信済みです",
                 Evaluation: data.Tmsg,
                 onEvaluation: data.Text2
             })
@@ -796,22 +796,22 @@ router.post('/geteacherEvaluation', function (req, res) {
             if (data.Time == '' || data.Time == null || data.Time == undefined) {
                 res.send({
                     status: 0,
-                    msg: "数据异常"
+                    msg: "エラー！"
                 })
                 return new Promise(() => { })
             } else {
-                geteacherEvaluation(req.signedCookies.malli,UserData)
+                geteacherEvaluation(req.signedCookies.malli, UserData)
                 return new Promise(() => { })
             }
         })
         .catch(function (err) {
             res.send({
                 status: 0,
-                msg: "数据异常"
+                msg: "エラー！"
             })
         })
-        
-       
+
+
 })
 
 router.post('/getStudentreviews', function (req, res) {
@@ -835,38 +835,36 @@ router.post('/getStudentreviews', function (req, res) {
         .then(function (data) {
             if (data) {
                 if (data.id == undefined) {
-                    res.send({ status: 0, msg: "错误" })
+                    res.send({ status: 0, msg: "エラー" })
                     return
                 }
                 getStudentreviews(req.signedCookies.malli, data.id)
             }
         }, function (err) {
-            res.send({ status: 0, msg: "错误" })
+            res.send({ status: 0, msg: "エラー" })
             return
         })
 })
 
-router.post('/getprivateEvaluation',function (req,res) {
-    async function getprivateEvaluation(ID) {  
+router.post('/getprivateEvaluation', function (req, res) {
+    async function getprivateEvaluation(ID) {
         var ret = await model_UserP.query_userp_Emal_byID(ID)
-        if(ret)
-        {
+        if (ret) {
             var ret = await model_Appint.queryAppointment_alldata_ByUserEmal(ret.oAEmail)
 
             res.send(ret)
-        }else
-        {
+        } else {
             res.send({
                 status: 0,
-                msg: "数据异常"
+                msg: "エラー！"
             })
             return
         }
     }
     readJsondata(req)
-    .then(function(data){
-        getprivateEvaluation(data.ID)
-    })
+        .then(function (data) {
+            getprivateEvaluation(data.ID)
+        })
 })
 
 
