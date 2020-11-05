@@ -4,7 +4,7 @@ const url = require('url');
 const { connect } = require('http2');
 
 const router = express.Router()
-
+const model_Ainfor = require('../models/tAinformation')
 router.all("*", function (req, res, next) {
     //设置允许跨域的域名，*代表允许任意域名跨域
     res.header("Access-Control-Allow-Origin", "*");
@@ -96,25 +96,31 @@ router.get('/Atinfo', function (req, res) {
             return
         }
 
-
+       
         var database = new Array()
         var age = (numIndex - 1) * numNp
         var sin = 0
-        for (var i = age; i < age + numNp; i++) {
-            if (i >= Count) {
-                break;
+        async function pushweek(data,res)
+        {
+            for (var i = age; i < age + numNp; i++) {
+                if (i >= Count) {
+                    break;
+                }
+                data[i].ClassHoursThisWeek = await model_Ainfor.query_ClassHoursThisWeek_Byemal(data[i].Email)
+                data[i].ClassHoursOfTheDay = await model_Ainfor.query_ClassHoursOfTheDay(data[i].Email)  
+                database.push(datas[i])
+                sin++
             }
-            database.push(datas[i])
-            sin++
+            var da = {
+                PageCount: datas.length,
+                Totalpage: parseInt(PageCount),
+                Singlepage: sin,
+                lists: database
+            }
+            res.send(da)
         }
-        
-        var da = {
-            PageCount: datas.length,
-            Totalpage: parseInt(PageCount),
-            Singlepage: sin,
-            lists: database
-        }
-        res.send(da)
+        pushweek(data,res)
+    
     })
 })
 
@@ -162,6 +168,7 @@ router.get('/Tsearch', function (req, res) {
                 if (i >= Count) {
                     break;
                 }
+             
                 database.push(data[i])
                 sin++
             }

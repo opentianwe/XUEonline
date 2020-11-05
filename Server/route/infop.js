@@ -872,5 +872,28 @@ router.get('/getime', function (req, res) {
 
     res.send({ Time: Tool.getCurrentTime(9) })
 })
+
+//获取课程凭证信息
+router.post('/GetVoucher', function (req, res) {
+    async function GetVoucher(req, res, data) {
+        if (model_inf.appraisal_authority(req.signedCookies.malli) != 404) {
+            var ret = await model_Appint.queryAppointment_SingleData_Byemail(data.Time, data.ID, req.signedCookies.malli)
+            if (ret) {
+                res.send({status:0,data:ret,msg:"ok"})
+            }else
+            {
+                res.send({status:1,data:null,msg:"no data"})
+            }
+        }else
+            {
+                res.send({status:1,data:null,msg:"no data"})
+            }
+    }
+
+    readJsondata(req)
+        .then(function (data) {
+            GetVoucher(req,res,data)
+        })
+})
 module.exports = router
 
