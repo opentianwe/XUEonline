@@ -350,7 +350,7 @@
                     <div class='yuyue'><span class='isnotAdd active' >未授業</span> <span class='isAdd' >全部を見る</span><span class='isAddter'>授業済み</span> </div>
                    <div class="table-responsive">
                           
-                        <table class='ssss table-bordered table table-hover w-100 table-responsive' style=padding:5px 0;  >
+                        <table class='ssss table-bordered table table-hover  table-responsive' style=padding:5px 0;  >
                             <thead> 
                             <%if(data.isTeacher){%>
                              <tr>
@@ -377,13 +377,13 @@
                                 <td>支出ポイント</td>
                                 <td>授業開始までの時間表示</td>
                                 <td>先生へのメッセージ</td>
+                                <td>一時間前にキャンセル可能です</td>
                             </tr>
                             <%}%>    
                             </thead>
                           
                              <tbody id='userTale'>
                              {{#data.aif}}
-                             
                              </tbody>
                          
                         </table>

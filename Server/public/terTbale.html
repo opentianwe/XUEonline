@@ -336,7 +336,9 @@
           <div class="team-members" style="margin: 0 5px;">
             <div class="single-member effect-1">
               <div class="member-image">
-                <img :src="getimgurl(ttps,list.ImgUrl)" style="width: 145px;height: 150px;">
+                <a :href="ht+list.ID">
+                  <img :src="getimgurl(ttps,list.ImgUrl)" style="width: 145px;height: 150px;">
+                </a>
                 <!-- <img  style="width: 145px;height: 150px;" alt="Member"> -->
               </div>
               <div class="member-info">

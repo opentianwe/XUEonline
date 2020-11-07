@@ -1,5 +1,4 @@
 $(function () {
-
   function isTisDay(dayOne, dayTow) {
     let a, b, c, d;
     a = new Date(dayOne);
@@ -81,9 +80,9 @@ $(function () {
       60 * minutesRound;
     if (daysRound > 0) {
       return (time =
-        daysRound + "日" + (hoursRound) + "時" + minutesRound + "分");
+        daysRound + "日" + hoursRound + "時" + minutesRound + "分");
     } else if (hoursRound > 0) {
-      return ((time = hoursRound) + "時" + minutesRound + "分");
+      return (time = hoursRound) + "時" + minutesRound + "分";
     } else if (minutesRound > 0) {
       return (time = 00 + "時" + minutesRound + "分");
     } else {
@@ -96,7 +95,7 @@ $(function () {
     var tt1 = ti.getTime();
     var tt2 = t2.getTime();
     let res = tt2 - tt1;
-    console.log(res)
+    // console.log(res)
     if (temp == true) {
       if (res > 0) {
         res = getDuration(res);
@@ -126,8 +125,10 @@ $(function () {
       $(this).css("background", "#909399");
       $(this).parent().attr("data-temp", "1");
     }
-    console.log(getjdTime().substring(0, 10))
-    if (isTisDay(getjdTime().substring(0, 10), $(this).html().substring(0, 10))) {
+    console.log(getjdTime().substring(0, 10));
+    if (
+      isTisDay(getjdTime().substring(0, 10), $(this).html().substring(0, 10))
+    ) {
       $(this).css("background", "#2d8cf0");
       $(this).css("color", "#fff");
       $(this).css("font-weight", "600");
@@ -137,40 +138,38 @@ $(function () {
     //console.log($(this).siblings()[0].innerHTML);
     // console.log(getjdTime())
     var temp = isDate(getjdTime(), $(this).siblings()[0].innerHTML, true);
-    temp == -1 ? temp = "授業済み" : temp = temp
+    temp == -1 ? (temp = "授業済み") : (temp = temp);
 
-    $(this).html("<strong>" + temp + "</strong>")
-
-  })
+    $(this).html("<strong>" + temp + "</strong>");
+  });
   function getjdTime() {
-    let time
+    let time;
     $.ajax({
       type: "get",
       url: "/getime",
       dataType: "json",
       async: false,
-      //取消 异步  
+      //取消 异步
       success: function (response) {
-        if (response.Time == '' || response.Time == undefined) time = false
-        time = response.Time
-      }
+        if (response.Time == "" || response.Time == undefined) time = false;
+        time = response.Time;
+      },
     });
-    return time
+    return time;
   }
   //console.log(getjdTime())
 
   // console.log(str.length)
   // console.log(str)
   function isTerDate(timeOne, timeTow) {
-    let a, b, c, d
-    a = new Date(timeOne)
-    b = new Date(timeTow)
-    c = a - b
-    console.log(c)
-    if (c < 0) return false
-    if (c >= 7200000) return true
-    return false
-
+    let a, b, c, d;
+    a = new Date(timeOne);
+    b = new Date(timeTow);
+    c = a - b;
+    console.log(c);
+    if (c < 0) return false;
+    if (c >= 7200000) return true;
+    return false;
   }
   tobody.addEventListener("click", (e) => {
     var strTime;
@@ -179,10 +178,35 @@ $(function () {
     if (e.target.className == "timeApp") {
       strTime = e.target.innerHTML;
       isDate(getjdTime(), e.target.innerHTML, true);
+    } else if (e.target.className == "layui-btn newprint") {
+      var eleMent = e.target.parentElement.parentElement.childNodes;
+      //id
+
+      var terstatus = e.target.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
+      //时间
+      var terDate = eleMent[0].innerHTML;
+
+      terDate.trim();
+      console.log(terDate);
+      console.log(eleMent);
+      layer.open({
+        type: 2,
+        title: "print页",
+        shadeClose: true,
+        shade: 0.8,
+        area: ["100%", "90%"],
+        content: "./newprint.html?ID=" + terstatus + "&Time=" + terDate,
+        //iframe的url
+      });
+      console.log("154");
     }
     if (e.target.className == "layui-btn Studate") {
-      var eleMent = e.target.parentElement.parentElement.childNodes
-      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+      var eleMent = e.target.parentElement.parentElement.childNodes;
+      var terstatus = e.target.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
       var terDate = eleMent[0].innerHTML;
       var TerStr = `
       <div>订单信息</div>
@@ -190,117 +214,126 @@ $(function () {
       <div>レッスン日時: ${eleMent[0].innerHTML}</div>
       <div>返還Point:${eleMent[4].innerHTML} <div>
       <strong>退款机制只退还积分</strong>
-      `
-      layer.confirm(TerStr, {
-        btn: ['確認する', 'キャンセル'],
-        title: "取消订单",
-        closeBtn: false
-        , shade: 0.8
-      }, function () {
-
-        if (isTerDate(terDate, getjdTime())) {
-          // 执行满足预约操作
-          $.ajax({
-            type: "post",
-            dataType: "json",
-            data: JSON.stringify({ Time: terDate, id: terstatus }),
-            url: "../cancel",
-            success: function (d) {
-              if (d.status == 2) {
-
-                layer.msg(d.msg, {
-                  icon: 1,
-                })
-                e.target.parentElement.parentElement.remove();
-              }
-              if (d.status == 1) {
-                layer.msg(d.msg, {
-                  icon: 2,
-                })
-              }
-              if (d.status == 0) {
-                layer.msg(d.msg, {
-                  icon: 2,
-                })
-              }
-              if (d.status == 3) {
-                layer.msg(d.msg, {
-                  icon: 2,
-                })
-              }
-              console.log(d)
-            }, error: function (error) {
-              console.log(error)
-            }
-          })
-        } else {
-          layer.msg('授業済みなので、キャンセルできません', {
-            icon: 2,
-          })
-          // 超过两小时 不可以取消预约
+      `;
+      layer.confirm(
+        TerStr,
+        {
+          btn: ["確認する", "キャンセル"],
+          title: "取消订单",
+          closeBtn: false,
+          shade: 0.8,
+        },
+        function () {
+          if (isTerDate(terDate, getjdTime())) {
+            // 执行满足预约操作
+            $.ajax({
+              type: "post",
+              dataType: "json",
+              data: JSON.stringify({ Time: terDate, id: terstatus }),
+              url: "../cancel",
+              success: function (d) {
+                if (d.status == 2) {
+                  layer.msg(d.msg, {
+                    icon: 1,
+                  });
+                  e.target.parentElement.parentElement.remove();
+                }
+                if (d.status == 1) {
+                  layer.msg(d.msg, {
+                    icon: 2,
+                  });
+                }
+                if (d.status == 0) {
+                  layer.msg(d.msg, {
+                    icon: 2,
+                  });
+                }
+                if (d.status == 3) {
+                  layer.msg(d.msg, {
+                    icon: 2,
+                  });
+                }
+                console.log(d);
+              },
+              error: function (error) {
+                console.log(error);
+              },
+            });
+          } else {
+            layer.msg("授業済みなので、キャンセルできません", {
+              icon: 2,
+            });
+            // 超过两小时 不可以取消预约
+          }
+        },
+        function () {
+          console.log("退出退款操作");
         }
-      }, function () {
-        console.log('退出退款操作')
-      });
-
+      );
     } else if (e.target.className == "layui-btn Historyview") {
-      var eleMent = e.target.parentElement.parentElement.childNodes
-      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+      var eleMent = e.target.parentElement.parentElement.childNodes;
+      var terstatus = e.target.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
       $.ajax({
         url: "../getStudentreviews",
         type: "post",
         data: JSON.stringify({ id: terstatus }),
         success: function (res) {
           if (res.status == 0) {
-            return layer.msg(res.msg, { icon: 2 })
+            return layer.msg(res.msg, { icon: 2 });
           }
-          if (res == false) return layer.msg("学生暂无评价", { icon: 1, })
-          console.log(res)
-          var a = ``
+          if (res == false) return layer.msg("学生暂无评价", { icon: 1 });
+          console.log(res);
+          var a = ``;
           // 反转数组 最新评论在上面
-          res = res.reverse()
-          console.log(res)
+          res = res.reverse();
+          console.log(res);
           for (let i = 0; i < res.length; i++) {
             a += `
            <tr class="isTimes"><td>${res[i].Pmsg}</td><td>${res[i].UserName}</td></tr>
-        `
+        `;
           }
           let b = `
           <table class="isTable" >
             <thead><tr ><th>评论内容</th><th>学生姓名</th></tr></thead>
             <tbody>${a}</tdody>
            </table>
-          `
-          layer.confirm(b, {
-            area: ["55vw", "500px"],
-            btn: ["确认查看"],
-            closeBtn: false,
-            shade: 0.8,
-
-          }, function () {
-            layer.closeAll();
-
-          })
+          `;
+          layer.confirm(
+            b,
+            {
+              area: ["55vw", "500px"],
+              btn: ["确认查看"],
+              closeBtn: false,
+              shade: 0.8,
+            },
+            function () {
+              layer.closeAll();
+            }
+          );
         },
-        error: function (error) {
-
-        }
-      })
-
-
-    } else if (e.target.className == 'layui-btn privateEvaluation') {
-      var eleMent = e.target.parentElement.parentElement.childNodes
-      var terstatus = e.target.parentElement.parentElement.getAttribute("data-id")
+        error: function (error) {},
+      });
+    } else if (e.target.className == "layui-btn privateEvaluation") {
+      var eleMent = e.target.parentElement.parentElement.childNodes;
+      var terstatus = e.target.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
       $.ajax({
         url: "../getprivateEvaluation",
         type: "post",
         data: JSON.stringify({ ID: terstatus }),
         success: function (res) {
-          console.log(res)
-          var a = ``
+          console.log(res);
+          var a = ``;
           for (let i = 0; i < res.length; i++) {
-            res[i].Text2 == null ? res[i].Text2 = '暂无评价' : res[i].Text2 = res[i].Text2
-            res[i].Leseon == "undefined" ? res[i].Leseon = "暂无课程信息" : res[i].Leseon = res[i].Leseon
+            res[i].Text2 == null
+              ? (res[i].Text2 = "暂无评价")
+              : (res[i].Text2 = res[i].Text2);
+            res[i].Leseon == "undefined"
+              ? (res[i].Leseon = "暂无课程信息")
+              : (res[i].Leseon = res[i].Leseon);
 
             a += `
            <tr class="TLeseon" >
@@ -309,163 +342,162 @@ $(function () {
            <td>${res[i].Text2}</td>
            <td>${res[i].timeApp}</td>
            </tr>
-        `
+        `;
           }
           let b = `
           <table class="isTable" >
             <thead><tr><th>教师姓名</th><th>课程信息</th><th>老师评价</th><th>课程时间</th></tr></thead>
             <tbody>${a}</tdody>
            </table>
-          `
-          layer.confirm(b, {
-            area: ["55vw", "600px"],
-            btn: ["确认查看"],
-            closeBtn: false,
-            shade: 0.8,
-
-          }, function () {
-            layer.closeAll();
-
-          })
-        }, error: function (error) {
-          console.log(error)
-        }
-      })
-    } else
-      if (e.target.className == "layui-btn Teachertit") {
-        //  var temp = isDate(userTimeStr(), $('Teachertit').html(), false)
-        let arr = [];
-        let tdParent = e.target.parentElement.parentElement;
-        let Nodelists = tdParent.childNodes;
-        arr = [...arr, ...Nodelists];
-        var stu = {
-          Time: arr[0].innerHTML,
-        };
-        // console.log(!time_aa('2020-09-28  09:25', arr[0].innerHTML))
-        if (!time_aa(getjdTime(), arr[0].innerHTML)) {
-          return layer.msg("予約時間の25分後にコメントしてください", {
-            closeBtn: 0,
-            anim: 6, //动画类型
-            icon: 2,
-          });
-        }
-        $.ajax({
-          type: "post",
-          url: "../getstudentEvaluation",
-          datatype: "json",
-          data: JSON.stringify(stu),
-          xhrFields: {
-            withCredentials: true,
-          },
-          crossDomain: true,
-          success: function (d) {
-            var str = `
+          `;
+          layer.confirm(
+            b,
+            {
+              area: ["55vw", "600px"],
+              btn: ["确认查看"],
+              closeBtn: false,
+              shade: 0.8,
+            },
+            function () {
+              layer.closeAll();
+            }
+          );
+        },
+        error: function (error) {
+          console.log(error);
+        },
+      });
+    } else if (e.target.className == "layui-btn Teachertit") {
+      //  var temp = isDate(userTimeStr(), $('Teachertit').html(), false)
+      let arr = [];
+      let tdParent = e.target.parentElement.parentElement;
+      let Nodelists = tdParent.childNodes;
+      arr = [...arr, ...Nodelists];
+      var stu = {
+        Time: arr[0].innerHTML,
+      };
+      // console.log(!time_aa('2020-09-28  09:25', arr[0].innerHTML))
+      if (!time_aa(getjdTime(), arr[0].innerHTML)) {
+        return layer.msg("予約時間の25分後にコメントしてください", {
+          closeBtn: 0,
+          anim: 6, //动画类型
+          icon: 2,
+        });
+      }
+      $.ajax({
+        type: "post",
+        url: "../getstudentEvaluation",
+        datatype: "json",
+        data: JSON.stringify(stu),
+        xhrFields: {
+          withCredentials: true,
+        },
+        crossDomain: true,
+        success: function (d) {
+          var str = `
                 <h4 class='teruser'>先生へのメッセージ<h4>
                 <div>
                 <textarea name="" id="terText" placeholder="200字以内にご入力ください" maxlength="200" cols="30" rows="5"></textarea>
                 </div>
                `;
-            var msg = d.msg;
-            if (d.status == 0) {
-              layer.confirm(
-                str,
-                {
-                  area: ["55vw", "400px"],
-                  btn: ["確認する", "キャンセル"],
-                  title: "", //按钮
-                  closeBtn: false,
-                  shade: 0.8,
-                },
-                function () {
-                  if ($("#terText").val() == "") {
-                    return layer.msg("先生へのコメントをお願いします", {
-                      icon: 2,
-                    });
-                  }
-                  // layer.msg(arr[1] + '老师评价成功', { icon: 1, })
-                  var userData = {
-                    Time: arr[0].innerHTML,
-                    text: $("#terText").val(),
-                  };
-                  $.ajax({
-                    type: "post",
-                    datatype: "json",
-                    url: "../studentEvaluation",
-                    data: JSON.stringify(userData),
-                    xhrFields: {
-                      withCredentials: true,
-                    },
-                    crossDomain: true,
-                    success: (d) => {
-                      if (d.status == 0) {
-                        return layer.msg(d.msg, { icon: 2 });
-                      } else if (d.status == 1) {
-                        return layer.msg(d.msg, { icon: 1 });
-                      } else if (d.status == 164) {
-                        return layer.msg(d.msg, { icon: 2 });
-                      }
-                    },
-                    error: function (error) {
-                      layer.msg(error, { icon: 2 });
-                    },
-                  });
-                  return arr;
-                  //console.log(arr[2] + '\n' + $('#terText').val())
-                  //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-                },
-                function () {
-                  layer.msg("大好きな先生にメッセージを送ってください", {
-                    icon: 6,
+          var msg = d.msg;
+          if (d.status == 0) {
+            layer.confirm(
+              str,
+              {
+                area: ["55vw", "400px"],
+                btn: ["確認する", "キャンセル"],
+                title: "", //按钮
+                closeBtn: false,
+                shade: 0.8,
+              },
+              function () {
+                if ($("#terText").val() == "") {
+                  return layer.msg("先生へのコメントをお願いします", {
+                    icon: 2,
                   });
                 }
-              );
-            } else if (d.status == 1) {
-              layer.msg(
-                "すでに評価済みです。二度と送信できません",
-                { icon: 6 }
-              );
-              // layer.confirm(str, {
-              //     area: ['55vw', '400px'],
-              //     btn: ['確認します', '後で確認します'],
-              //     title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
-              //     closeBtn: false
-              //     , shade: 0.8
-              // }, function () {
-              //     layer.msg('この先生に気になったら、続けてご予約をお願いします', { icon: 6, });
-              //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-              // }, function () {
-              //     layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
-              // })
-              // $('#terText').attr("disabled", "disabled")
-              // $('#terText').val(msg + '\nリマインド:(先生に評価をしました、二度目の評価はできません）')
-            }
-          },
-          error: (error) => {
-            layer.msg(error, { icon: 2 });
-          },
+                // layer.msg(arr[1] + '老师评价成功', { icon: 1, })
+                var userData = {
+                  Time: arr[0].innerHTML,
+                  text: $("#terText").val(),
+                };
+                $.ajax({
+                  type: "post",
+                  datatype: "json",
+                  url: "../studentEvaluation",
+                  data: JSON.stringify(userData),
+                  xhrFields: {
+                    withCredentials: true,
+                  },
+                  crossDomain: true,
+                  success: (d) => {
+                    if (d.status == 0) {
+                      return layer.msg(d.msg, { icon: 2 });
+                    } else if (d.status == 1) {
+                      return layer.msg(d.msg, { icon: 1 });
+                    } else if (d.status == 164) {
+                      return layer.msg(d.msg, { icon: 2 });
+                    }
+                  },
+                  error: function (error) {
+                    layer.msg(error, { icon: 2 });
+                  },
+                });
+                return arr;
+                //console.log(arr[2] + '\n' + $('#terText').val())
+                //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+              },
+              function () {
+                layer.msg("大好きな先生にメッセージを送ってください", {
+                  icon: 6,
+                });
+              }
+            );
+          } else if (d.status == 1) {
+            layer.msg("すでに評価済みです。二度と送信できません", { icon: 6 });
+            // layer.confirm(str, {
+            //     area: ['55vw', '400px'],
+            //     btn: ['確認します', '後で確認します'],
+            //     title: "查看 " + arr[1].innerHTML + '老师的评价', //按钮
+            //     closeBtn: false
+            //     , shade: 0.8
+            // }, function () {
+            //     layer.msg('この先生に気になったら、続けてご予約をお願いします', { icon: 6, });
+            //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+            // }, function () {
+            //     layer.msg('大好きな先生にメッセージを送ってください', { icon: 6, });
+            // })
+            // $('#terText').attr("disabled", "disabled")
+            // $('#terText').val(msg + '\nリマインド:(先生に評価をしました、二度目の評価はできません）')
+          }
+        },
+        error: (error) => {
+          layer.msg(error, { icon: 2 });
+        },
+      });
+    } else if (e.target.className == "layui-btn Studtit") {
+      let arr = [];
+      let tdParent = e.target.parentElement.parentElement;
+      let Nodelists = tdParent.childNodes;
+      arr = [...arr, ...Nodelists];
+      var dt = {
+        Time: arr[0].innerHTML,
+      };
+      if (!time_aa(getjdTime(), arr[0].innerHTML)) {
+        return layer.msg("予約時間の25分後にコメントしてください", {
+          closeBtn: 0,
+          anim: 6, //动画类型
+          icon: 2,
         });
-      } else if (e.target.className == "layui-btn Studtit") {
-        let arr = [];
-        let tdParent = e.target.parentElement.parentElement;
-        let Nodelists = tdParent.childNodes;
-        arr = [...arr, ...Nodelists];
-        var dt = {
-          Time: arr[0].innerHTML,
-        };
-        if (!time_aa(getjdTime(), arr[0].innerHTML)) {
-          return layer.msg("予約時間の25分後にコメントしてください", {
-            closeBtn: 0,
-            anim: 6, //动画类型
-            icon: 2,
-          });
-        }
-        var jpstr = Number(arr[0].innerHTML.substring(12, 14)) + 1;
-        jpstr >= 10 ? (jpstr = jpstr) : (jpstr = "0" + jpstr);
-        var jptime = arr[0].innerHTML.replace(
-          arr[0].innerHTML.substring(12, 14),
-          jpstr
-        );
-        var str = `
+      }
+      var jpstr = Number(arr[0].innerHTML.substring(12, 14)) + 1;
+      jpstr >= 10 ? (jpstr = jpstr) : (jpstr = "0" + jpstr);
+      var jptime = arr[0].innerHTML.replace(
+        arr[0].innerHTML.substring(12, 14),
+        jpstr
+      );
+      var str = `
             <h4 class='teruser'>レッスンの内容(上课内容)<h4>
             <div>予約時間${arr[0].innerHTML}（中国時間）</div>
             <div>予約時間${jptime}（日本時間）</div>\
@@ -486,108 +518,108 @@ $(function () {
             </div>
             </div>
            `;
-        $.ajax({
-          type: "post",
-          url: "../geteacherEvaluation",
-          data: JSON.stringify(dt),
-          dataType: "json",
-          success: function (response) {
-            if (response.status == 1) {
-              layer.confirm(
-                str,
-                {
-                  area: ["55vw", "500px"],
-                  btn: ["確認する", "キャンセル(取消)"],
-                  title: "对 " + arr[1].innerHTML + "生徒さんのコメント", //按钮
-                  closeBtn: false,
-                  shade: 0.8,
-                },
-                function () {
-                  if ($("#terText").val() == "") {
-                    return layer.msg("評価必須(レッスン内容)", { icon: 3 });
-                  }
-
-                  var options = document.querySelectorAll(".op");
-                  let isval;
-                  for (let i = 0; i < options.length; i++) {
-                    if (options[i].selected) {
-                      isval = options[i].value;
-                    }
-                  }
-                  console.log(isval);
-                  isAjax(
-                    "../teacherEvaluation",
-                    arr[0].innerHTML,
-                    $("#terText").val(),
-                    $("#terText2").val(),
-                    isval
-                  ).then(
-                    function (val) {
-                      layer.msg(arr[1].innerHTML + "コメントを送りました", {
-                        icon: 1,
-                      });
-                    },
-                    function (er) {
-                      layer.msg(arr[1].innerHTML + "コメントを送っていません", {
-                        icon: 2,
-                      });
-                    }
-                  );
-                },
-                function () {
-                  layer.msg(
-                    "リマインド：生徒さんへのコメントをしないと、ポイントを加算できません",
-                    { icon: 8 }
-                  );
+      $.ajax({
+        type: "post",
+        url: "../geteacherEvaluation",
+        data: JSON.stringify(dt),
+        dataType: "json",
+        success: function (response) {
+          if (response.status == 1) {
+            layer.confirm(
+              str,
+              {
+                area: ["55vw", "500px"],
+                btn: ["確認する", "キャンセル(取消)"],
+                title: "对 " + arr[1].innerHTML + "生徒さんのコメント", //按钮
+                closeBtn: false,
+                shade: 0.8,
+              },
+              function () {
+                if ($("#terText").val() == "") {
+                  return layer.msg("評価必須(レッスン内容)", { icon: 3 });
                 }
-              );
 
-              var stusdata = document.getElementById("stusdata");
-              var op = document.querySelectorAll(".op");
-              stusdata.addEventListener("change", function () {
-                for (let index = 0; index < op.length; index++) {
-                  if (op[index].selected) {
-                    if (op[index].value == "0") {
-                      $(".op1").each(function () {
-                        $(this).attr("disabled", "disabled");
-                      });
-                    } else {
-                      $(".op1").each(function () {
-                        $(this).removeAttr("disabled");
-                      });
-                    }
+                var options = document.querySelectorAll(".op");
+                let isval;
+                for (let i = 0; i < options.length; i++) {
+                  if (options[i].selected) {
+                    isval = options[i].value;
                   }
                 }
-              });
-            } else if (response.status == 3) {
-              layer.msg("已经评价过,本次积分结算完毕", {
-                closeBtn: 0,
-                anim: 5, //动画类型
-                icon: 1,
-              });
-              //layer.msg('已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看', { icon: 6, });
-              // layer.confirm(str, {
-              //     area: ['55vw', 'aout'],
-              //     btn: ['確認します', '後で確認します'],
-              //     title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
-              //     closeBtn: false
-              //     , shade: 0.8
-              // }, function () {
-              //     if ($('#terText').val() == '') {
-              //         return layer.msg('評価必須(レッスン内容)', { icon: 3, });
-              //     }
-              //     layer.msg(arr[1].innerHTML + '情報を確認する', { icon: 1, })
-              //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
-              // }, function () {
-              //     layer.msg('ログアウトしました', { icon: 8, });
-              // })
-              // $('#terText').val(response.Evaluation)
-              // $('#terText2').val(response.onEvaluation)
-            }
-          },
-        });
-        //结束
-      }
+                console.log(isval);
+                isAjax(
+                  "../teacherEvaluation",
+                  arr[0].innerHTML,
+                  $("#terText").val(),
+                  $("#terText2").val(),
+                  isval
+                ).then(
+                  function (val) {
+                    layer.msg(arr[1].innerHTML + "コメントを送りました", {
+                      icon: 1,
+                    });
+                  },
+                  function (er) {
+                    layer.msg(arr[1].innerHTML + "コメントを送っていません", {
+                      icon: 2,
+                    });
+                  }
+                );
+              },
+              function () {
+                layer.msg(
+                  "リマインド：生徒さんへのコメントをしないと、ポイントを加算できません",
+                  { icon: 8 }
+                );
+              }
+            );
+
+            var stusdata = document.getElementById("stusdata");
+            var op = document.querySelectorAll(".op");
+            stusdata.addEventListener("change", function () {
+              for (let index = 0; index < op.length; index++) {
+                if (op[index].selected) {
+                  if (op[index].value == "0") {
+                    $(".op1").each(function () {
+                      $(this).attr("disabled", "disabled");
+                    });
+                  } else {
+                    $(".op1").each(function () {
+                      $(this).removeAttr("disabled");
+                    });
+                  }
+                }
+              }
+            });
+          } else if (response.status == 3) {
+            layer.msg("已经评价过,本次积分结算完毕", {
+              closeBtn: 0,
+              anim: 5, //动画类型
+              icon: 1,
+            });
+            //layer.msg('已经评价过了无法进行二次评价如果想查看评价请从查看评论模块查看', { icon: 6, });
+            // layer.confirm(str, {
+            //     area: ['55vw', 'aout'],
+            //     btn: ['確認します', '後で確認します'],
+            //     title: "对 " + arr[1].innerHTML + '生徒さんのコメント', //按钮
+            //     closeBtn: false
+            //     , shade: 0.8
+            // }, function () {
+            //     if ($('#terText').val() == '') {
+            //         return layer.msg('評価必須(レッスン内容)', { icon: 3, });
+            //     }
+            //     layer.msg(arr[1].innerHTML + '情報を確認する', { icon: 1, })
+            //     //这里清空数组因为他指向的是全局变量 arr上面的数组 for循环里面有push 方法通过push 方法每执行一次 就要清空数组
+            // }, function () {
+            //     layer.msg('ログアウトしました', { icon: 8, });
+            // })
+            // $('#terText').val(response.Evaluation)
+            // $('#terText2').val(response.onEvaluation)
+          }
+        },
+      });
+      //结束
+    }
   });
 
   /**

@@ -109,7 +109,7 @@ $(function () {
     b = new Date(dayTow);
     c = a.getTime();
     d = b.getTime();
-    console.log(c + "" + d);
+    // console.log(c + "" + d);
     if (c == d) return true;
     return false;
   }
@@ -196,6 +196,28 @@ $(function () {
     if (e.target.className == "timeApp") {
       strTime = e.target.innerHTML;
       isDate(getjdTime(), e.target.innerHTML, true);
+    } else if (e.target.className == "layui-btn newprint") {
+      var eleMent = e.target.parentElement.parentElement.childNodes;
+      //id
+
+      var terstatus = e.target.parentElement.parentElement.getAttribute(
+        "data-id"
+      );
+      //时间
+      var terDate = eleMent[0].innerHTML;
+
+      terDate.trim();
+      console.log(terDate);
+      console.log(eleMent);
+      layer.open({
+        type: 2,
+        title: "print页",
+        shadeClose: true,
+        shade: 0.8,
+        area: ["100%", "90%"],
+        content: "./newprint.html?ID=" + terstatus + "&Time=" + terDate,
+        //iframe的url
+      });
     }
     else if (e.target.className == "layui-btn Historyview") {
       var eleMent = e.target.parentElement.parentElement.childNodes

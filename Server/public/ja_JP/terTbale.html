@@ -334,7 +334,8 @@
           <div class="team-members" style="margin: 0 5px;">
             <div class="single-member effect-1">
               <div class="member-image">
-                <img :src="getimgurl(ttps,list.ImgUrl)" style="width: 145px;height: 150px;">
+                <a :href="ht+list.ID"> <img :src="getimgurl(ttps,list.ImgUrl)" style="width: 145px;height: 150px;"></a>
+               
                 <!-- <img  style="width: 145px;height: 150px;" alt="Member"> -->
               </div>
               <div class="member-info">
@@ -354,8 +355,8 @@
                     style="display: block;width: 100%;height: 100%;color: #fff;"
                     :href="ht+list.ID">講師のプロフィール</a></button>
                 <div>
-                  <p style="text-align: center;">本日予約可能<span></span>コマ</p>
-                  <p style="text-align: center;">今週予約可能<span></span>コマ</p>
+                  <p style="text-align: center;">本日予約可能<span> <strong>{{list.ClassHoursOfTheDay}}</strong> </span>コマ</p>
+                  <p style="text-align: center;">今週予約可能<span> <strong>{{list.ClassHoursThisWeek}}</strong> </span>コマ</p>
                 </div>
                 <div class="social-touch">
                   <a href="#" style="color: #fff;"><i class="fab fa-facebook-f"></i></a>

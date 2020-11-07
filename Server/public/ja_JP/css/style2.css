@@ -2045,15 +2045,7 @@ section.anim-object {
   padding-right: 20px;
   position: relative;
 }
-.header-top-area .header-top-left-part .address:after {
-  background: #fff;
-  content: "";
-  position: absolute;
-  height: 90%;
-  width: 1px;
-  right: 0;
-  top: 2px;
-}
+
 .header-top-area .header-top-left-part .phone {
   padding-left: 20px;
 }
