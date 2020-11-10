@@ -1,9 +1,9 @@
 const express = require("express")
 const route = require("./route/index")
-const main = require('./controllers/main')
+// const main = require('./controllers/main')
 const index = require('./middlewares/index')
 // const text = require('./tests/text')
-const port = 8090
+const port = 80
 var app = express()
 app.get('/', function (req, res) {
     // if(req.acceptsLanguages()[0].toLowerCase() == 'zh-cn')
