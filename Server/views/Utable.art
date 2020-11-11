@@ -153,7 +153,7 @@
 											style="background-color:#79B330;height:40px;width:100px;"		
 										<%}%>
 										 					
-										><a href="?teacher_id=83718&amp;yyyy=<%=data.dataTime[s].yyyy%>&amp;mm=<%=data.dataTime[s].mm%>&amp;dd=<%=data.dataTime[s].dd%>#booking">{{#data.Time[s]}}</a> 
+										><a href="?id=<%=data.ID%>&amp;yyyy=<%=data.dataTime[s].yyyy%>&amp;mm=<%=data.dataTime[s].mm%>&amp;dd=<%=data.dataTime[s].dd%>#booking">{{#data.Time[s]}}</a> 
 										</th>
 									</tr>
 									<%for(var i = 0;i < 38 ; i++){%>

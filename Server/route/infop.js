@@ -604,7 +604,7 @@ router.post('/studentEvaluation', function (req, res) {
             if (data == 0) {
                 res.send({
                     status: 1,
-                    msg: "评价成功!"
+                    msg: "送信しました。"
                 })
             }
         })
