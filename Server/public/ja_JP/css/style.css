@@ -525,6 +525,12 @@ thead {
   padding: 10px;
   text-align: center;
 }
+
+@media screen and (max-width: 1600px) {
+  .user-box {
+    width: 100% !important;
+  }
+}
 @media screen and (max-width: 1180px) {
   .box-titmoeny {
     width: 100% !important;
@@ -651,6 +657,7 @@ thead {
   padding: 15px 0;
   border: 1px solid #cccccc;
 }
+
 @media screen and (max-width: 768px) {
   #studata {
     width: 100%;

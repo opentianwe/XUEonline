@@ -588,10 +588,22 @@
           </div>
           <div class="table-responsive">
             <table
-              class="table-bordered table table-hover w-100 table-responsive"
-              style="padding: 5px"
-              0;
+              align="center" class="layui-table center" 
             >
+              <colgroup>
+                          <col width="100">
+                          <col width="80">
+                          <col width="100">
+                          <col width="100">
+                          <col width="50">
+                          <col width="80">
+                          <col width="200">
+                          <col width="100">
+                          <col width="100">
+                          <col width="80">
+                          <col width="80">
+                          <col width="80">
+                        </colgroup>
               <thead>
                 <%if(data.isTeacher){%>
                 <tr>

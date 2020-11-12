@@ -142,7 +142,8 @@
             text("#invoice-business",data.data.Leseon)
             text("#invoice-tname",data.data.TeacherName)
             text("#invoice-ttime",isgetobj(window.location.search).Time)
-            text("#invoice-tmsg",data.data.Tmsg==null?"未收到老师评价":data.data.Tmsg)
+            text("#invoice-tmsg",data.data.Tmsg)
+            text("#invoice-serial",data.data.UserID)
        },
        error:function(error){
            console.log(error)

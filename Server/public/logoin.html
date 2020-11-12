@@ -290,6 +290,8 @@
         <div class="formtit2" style="text-align: center;color: green;">
 
         </div>
+        <p style="padding-left:50px;font-size: 12px;"><input   id="checkedbox" style="display: inline;text-align: left;margin: 0 !important;width:20px;" type="checkbox" >记住密码</p>
+      
         <!-- <span><a href="#">忘记密码</a></span> -->
         <p style="text-align: right;padding-right: 40px;"><a href="./register.html">注册账号</a></p>
         <p style="text-align: center;color: #007bff;">请您保护好个人账户信息，谨防上当受骗！</p>
@@ -309,6 +311,36 @@
     //  getEmali(".Logo-box>#userName")
 
     // })
+    document.onkeydown = function(){
+   if(window.event.keyCode == 13){
+    console.log("我触发了回车事件")
+    $("#LoginBtn").click()
+   }
+       //做点击回车后的事件，回车的键值是13
+}
+    var temp=localStorage.getItem("temp")
+
+    if(temp==null||temp==undefined||temp==""||temp=="false"){
+      $("#passWord").val(localStorage.getItem("isval"))
+      $("#userName").val(localStorage.getItem("isname"))
+      $("#checkedbox").attr("checked",false)
+    }else{
+      $("#checkedbox").attr("checked",true)
+      $("#userName").val(localStorage.getItem("isname"))
+      $("#passWord").val(localStorage.getItem("isval"))
+    }
+  //var temp=$(this).is("checked")
+  $("#checkedbox").on("change",function(){
+    if($(this).is(":checked")){
+          localStorage.setItem("temp",true)
+          localStorage.setItem("isval",$("#passWord").val())
+          localStorage.setItem("isname",$("#userName").val())
+        }else{
+          localStorage.setItem("isval","")
+          localStorage.setItem("temp",false)
+          localStorage.setItem("isname","")
+    }
+  })
     $("#LoginBtn").on("click", () => {
       var datas = {
         Email: $("#userName").val(),

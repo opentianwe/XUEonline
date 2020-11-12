@@ -1101,7 +1101,7 @@ router.get("/ja_JP/personal.html", function (req, res) {
                     '</td><td  class="Textval">' +
                     datas[i].Textval +
                     "</td>" +
-                    '<td  class="time">剩余时间</td><td><button type="button" class="layui-btn Historyview">历史查看</button></td><td><button type="button" class="layui-btn privateEvaluation">课程记录</button></td><td><button type="button" class="layui-btn Studtit"> 評価</button></td></tr>';
+                    '<td  class="time">剩余时间</td><td><button type="button" class="layui-btn Historyview">レッスン履歴</button></td><td><button type="button" class="layui-btn privateEvaluation">レッスン内容</button></td><td><button type="button" class="layui-btn Studtit"> 評価</button></td></tr>';
                 }
 
                 JP_ProfileRendering(

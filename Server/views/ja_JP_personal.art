@@ -340,7 +340,11 @@
                     
                 </div>
             </div>
-           
+           <style>
+           .TeacherSkypeID a{
+             color:#000 !important;
+           }
+           </style>
             <div class="user-content">
                   <div class="user-content-header">
                     <h3 class="color-bu">予約情報一覧</h3>
@@ -350,7 +354,21 @@
                     <div class='yuyue'><span class='isnotAdd active' >未授業</span> <span class='isAdd' >全部を見る</span><span class='isAddter'>授業済み</span> </div>
                    <div class="table-responsive">
                           
-                        <table class='ssss table-bordered table table-hover  table-responsive' style=padding:5px 0;  >
+                        <table align="center" class="layui-table center" style=padding:5px 0;  >
+                         <colgroup>
+                          <col width="100">
+                          <col width="80">
+                          <col width="100">
+                          <col width="100">
+                          <col width="50">
+                          <col width="80">
+                          <col width="200">
+                          <col width="100">
+                          <col width="100">
+                          <col width="80">
+                          <col width="80">
+                          <col width="80">
+                        </colgroup>
                             <thead> 
                             <%if(data.isTeacher){%>
                              <tr>
@@ -363,8 +381,8 @@
                                 <td>語学</td>
                                 <td>生徒さんからのメッセージ</td>
                                 <td>授業開始までの時間表示</td>
-                                 <td>历史查看</td>
-                                 <td>课程记录</td>
+                                 <td>レッスン履歴</td>
+                                 <td>レッスン内容</td>
                                 <td>生徒へのメッセージ</td>
                                
                               </tr>

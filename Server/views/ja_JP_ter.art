@@ -386,7 +386,7 @@
     <div class="user-box">
       <div class="user-top">
         <div class="user-topL">
-          <h4 id="user-name" class="color-bu">{{ data.Name }}老师</h4>
+          <h4 id="user-name" class="color-bu">講師:{{ data.Name }}</h4>
           <div class="user-div">
             <p>
               <i>
@@ -637,16 +637,16 @@
       </script>
       <div class="user-content">
         <div class="user-content-header">
-          <h3 class="color-bu">老师介绍</h3>
+          <h3 class="color-bu"> 講師の自己PR</h3>
           <p id="terData">{{ data.terData2 }}</p>
         </div>
         <div class="user-content-header">
-          <h3 class="color-bu">兴趣爱好介绍</h3>
+          <h3 class="color-bu">趣味</h3>
           <p id="terData2">{{ data.terData }}</p>
         </div>
       </div>
       <h4 style="padding: 20px 0; text-align: center" class="color-bu">
-        视频介绍
+        動画の自己紹介
       </h4>
       <div class="viod-continue">
         <section class="divo" style="position: relative">

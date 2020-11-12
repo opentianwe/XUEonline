@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +9,24 @@
     <script src="./js/print.js"></script>
     <link rel="stylesheet" href="../css/print.css">
 </head>
+
 <body>
-    <div id="print-box" class="print-container" >
+    <div id="print-box" class="print-container">
         <div class="invoice-box" style="position: relative;">
             <div class="invoice-header">
                 <div>
                     订单编号:<span id="invoice-serial" class="incoice-color"></span>
                 </div>
-                <div  class="invoice-header-center" >
+                <div class="invoice-header-center">
                     <div style="position: relative;">
                         <h5>受講証明書</h5>
                         <p class="inv-border"></p>
-                        
+
                     </div>
                 </div>
                 <div>
                     <div>
-                        名    前:<span id="invoice-username"></span>
+                        名 前:<span id="invoice-username"></span>
                     </div>
                     <div>
                         登録ID:<span id="invoice-id"></span>
@@ -42,7 +44,7 @@
                     <ul>
                         <li>担当講師<span id="invoice-tname"></span></li>
                         <li>受講日<span id="invoice-ttime"></span></li>
-                        <li>時間<span > 25分</span></li>
+                        <li>時間<span> 25分</span></li>
                         <li>講師からのコメント<span id="invoice-tmsg"></span></li>
                     </ul>
                 </div>
@@ -89,73 +91,75 @@
                 <div>チェック済み</div>
                 <div>備考</div>
                 <div>上記の通りに受講したことを証明します。</div>
-            </div>  
+            </div>
             <div class="invocie-footer">
 
             </div>
-            <img src="./images/xue.png" style="width: 150px;height: 150px;position: absolute;right:20px;bottom:-10px;" alt="">
+            <img src="./images/xue.png" style="width: 150px;height: 150px;position: absolute;right:20px;bottom:-10px;"
+                alt="">
             <div style="position: relative;padding-left:70px;">
                 <strong>昊旻教育科技(大连)有限公司</strong>
                 <p>www.haominjiaoyu.com</p>
                 <p>XUEonline 2020年10月20日発行</p>
-                <img src="./images/1.jpg" style="width: 70px;height: 52px;position: absolute;top:5px;left:0px;" alt="" >
+                <img src="./images/1.jpg" style="width: 70px;height: 52px;position: absolute;top:5px;left:0px;" alt="">
             </div>
         </div>
-   
+
     </div>
     <div class="print-container" style="padding: 10px 0;">
-        <button id="print-btn" style="padding: 0 10px;height: 40px;margin: 10px auto;display: block;border:none;background:#007bff;color: #fff;border-radius: 10px;">印刷する(A4縦でプリントしてください)</button>
+        <button id="print-btn"
+            style="padding: 0 10px;height: 40px;margin: 10px auto;display: block;border:none;background:#007bff;color: #fff;border-radius: 10px;">印刷する(A4縦でプリントしてください)</button>
     </div>
-    <script >
-        $('#print-btn').on("click",function(){
-        //  alert("845454")
-        
+    <script>
+        $('#print-btn').on("click", function () {
+            //  alert("845454")
             $.print("#print-box");
 
         })
-    function  isgetobj(s){
-    var str =s.substring(s.indexOf("=")+1,s.indexOf("&"))+","+s.substring(s.lastIndexOf("=")+1,s.length)
-    let strarr=str.split(",")
-   return obj={
-        Time:strarr[1].split("%20").join(" "),
-        ID: strarr[0]
-    }
-    }
-    /*
-                       <li>担当講師<span id="invoice-tname"></span></li>
-                        <li>受講日<span id="invoice-ttime"></span></li>
-                        <li>時間<span > 25分</span></li>
-                        <li>　講師からのコメント<span id="invoice-tmsg"></span></li>
-    */
-   function  text(name,html){
-       $(name).html("  "+html)
-   }
-   $.ajax({
-       type:"post",
-       url:"../GetVoucher",
-       dataType:"json",
-       data:JSON.stringify(isgetobj(window.location.search)),
-       success:function(data){
-            console.log(data)
-            text("#invoice-username",data.data.UserName)
-            text("#invoice-id",data.data.UserEmal)
-            text("#invoice-business",data.data.Leseon)
-            text("#invoice-tname",data.data.TeacherName)
-            text("#invoice-ttime",isgetobj(window.location.search).Time)
-            text("#invoice-tmsg",data.data.Tmsg==null?"未收到老师评价":data.data.Tmsg)
-            text("#invoice-serial",data.data.UserID)
-       },
-       error:function(error){
-           console.log(error)
-       }
-   })
-   
-   console.log(isgetobj(window.location.search))
+        function isgetobj(s) {
+            var str = s.substring(s.indexOf("=") + 1, s.indexOf("&")) + "," + s.substring(s.lastIndexOf("=") + 1, s.length)
+            let strarr = str.split(",")
+            return obj = {
+                Time: strarr[1].split("%20").join(" "),
+                ID: strarr[0]
+            }
+        }
+        /*
+                           <li>担当講師<span id="invoice-tname"></span></li>
+                            <li>受講日<span id="invoice-ttime"></span></li>
+                            <li>時間<span > 25分</span></li>
+                            <li>　講師からのコメント<span id="invoice-tmsg"></span></li>
+        */
+        function text(name, html) {
+            $(name).html("  " + html)
+        }
+        $.ajax({
+            type: "post",
+            url: "../GetVoucher",
+            dataType: "json",
+            data: JSON.stringify(isgetobj(window.location.search)),
+            success: function (data) {
+                console.log(data)
+                text("#invoice-username", data.data.UserName)
+                text("#invoice-id", data.data.UserEmal)
+                text("#invoice-business", data.data.Leseon)
+                text("#invoice-tname", data.data.TeacherName)
+                text("#invoice-ttime", isgetobj(window.location.search).Time)
+                text("#invoice-tmsg", data.data.Tmsg)
+                text("#invoice-serial", data.data.UserID)
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        })
+
+        console.log(isgetobj(window.location.search))
     // let strarr=str.split("&")
     // strarr[0].substring(strarr[0].indexOf("=")+1)
     // console.log(str)
     // console.log(window.location.search)
     </script>
-    
+
 </body>
+
 </html>

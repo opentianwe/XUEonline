@@ -9,6 +9,24 @@ $(function () {
     if (c == d) return true;
     return false;
   }
+  function dateFtt(fmt, date) { //author: meizz 
+    var o = {
+      "M+": date.getMonth() + 1,     //月份 
+      "d+": date.getDate(),     //日 
+      "h+": date.getHours(),     //小时 
+      "m+": date.getMinutes(),     //分 
+      "s+": date.getSeconds(),     //秒 
+      "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
+      "S": date.getMilliseconds()    //毫秒 
+    };
+    if (/(y+)/.test(fmt))
+      fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+      if (new RegExp("(" + k + ")").test(fmt))
+        fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+  }
+
   function time_aa(data1, data2) {
     data1 = new Date(data1);
     data2 = new Date(data2);
@@ -213,13 +231,13 @@ $(function () {
       <div>講師:${eleMent[1].innerHTML}</div>
       <div>レッスン日時: ${eleMent[0].innerHTML}</div>
       <div>返還Point:${eleMent[4].innerHTML} <div>
-      <strong>退款机制只退还积分</strong>
+     
       `;
       layer.confirm(
         TerStr,
         {
           btn: ["確認する", "キャンセル"],
-          title: "取消订单",
+          title: "キャンセル",
           closeBtn: false,
           shade: 0.8,
         },
@@ -283,7 +301,7 @@ $(function () {
           if (res.status == 0) {
             return layer.msg(res.msg, { icon: 2 });
           }
-          if (res == false) return layer.msg("学生暂无评价", { icon: 1 });
+          if (res == false) return layer.msg("生徒さんからのメッセージがありません", { icon: 1 });
           console.log(res);
           var a = ``;
           // 反转数组 最新评论在上面
@@ -296,7 +314,7 @@ $(function () {
           }
           let b = `
           <table class="isTable" >
-            <thead><tr ><th>评论内容</th><th>学生姓名</th></tr></thead>
+            <thead><tr ><th>コメント内容</th><th>名前</th></tr></thead>
             <tbody>${a}</tdody>
            </table>
           `;
@@ -304,7 +322,7 @@ $(function () {
             b,
             {
               area: ["55vw", "500px"],
-              btn: ["确认查看"],
+              btn: ["確認する"],
               closeBtn: false,
               shade: 0.8,
             },
@@ -313,7 +331,7 @@ $(function () {
             }
           );
         },
-        error: function (error) {},
+        error: function (error) { },
       });
     } else if (e.target.className == "layui-btn privateEvaluation") {
       var eleMent = e.target.parentElement.parentElement.childNodes;
@@ -329,24 +347,32 @@ $(function () {
           var a = ``;
           for (let i = 0; i < res.length; i++) {
             res[i].Text2 == null
-              ? (res[i].Text2 = "暂无评价")
+              ? (res[i].Text2 = "コメントなし")
               : (res[i].Text2 = res[i].Text2);
             res[i].Leseon == "undefined"
-              ? (res[i].Leseon = "暂无课程信息")
+              ? (res[i].Leseon = "レッスンの予約はありません")
               : (res[i].Leseon = res[i].Leseon);
 
             a += `
-           <tr class="TLeseon" >
+           <tr >
            <td>${res[i].TeacherName}</td>
            <td>${res[i].Leseon}</td>
            <td>${res[i].Text2}</td>
-           <td>${res[i].timeApp}</td>
+          
+           <td>${dateFtt("yyyy-MM-dd hh:mm", new Date(res[i].timeApp))}</td>
            </tr>
         `;
           }
           let b = `
-          <table class="isTable" >
-            <thead><tr><th>教师姓名</th><th>课程信息</th><th>老师评价</th><th>课程时间</th></tr></thead>
+          <table class="layui-table" >
+          <colgroup>
+          <col width="100">
+          <col width="100">
+          <col width="200">
+          <col width="200">
+          <col>
+        </colgroup>
+            <thead><tr><th>講師名前</th><th>レッスン</th><th>老师评价</th><th>课程时间</th></tr></thead>
             <tbody>${a}</tdody>
            </table>
           `;
@@ -354,7 +380,7 @@ $(function () {
             b,
             {
               area: ["55vw", "600px"],
-              btn: ["确认查看"],
+              btn: ["確認する"],
               closeBtn: false,
               shade: 0.8,
             },
@@ -642,13 +668,16 @@ $(function () {
   };
   ControlTable.prototype.SetAddRemoveTable = function () {
     this.ArrayList.map((item) => {
+
       item.getAttribute("data-temp") == 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
   };
   ControlTable.prototype.SetAddRemoveTowTable = function () {
+
     this.ArrayList.map((item) => {
+
       item.getAttribute("data-temp") != 1
         ? (item.className = "list-n")
         : (item.className = "");

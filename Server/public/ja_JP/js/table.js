@@ -14,6 +14,7 @@ new Vue({
         temp: true,
         ht: './ter.html?id=',
         listId: 0,
+        tabID: "#tabID",
     },
     methods: {
         getsearch: function (index) {

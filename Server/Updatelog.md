@@ -279,108 +279,29 @@
 
 ### 时间接口 userTable2.js:182 2020-10-14 10:12:37 分钟需要补 0 小于 10 我这边截取字符串还得判断太麻烦
 
-
-### infop.js 新增 /getprivateEvaluation 接口 用于获取老师私有评价信息 返回为json数组
+### infop.js 新增 /getprivateEvaluation 接口 用于获取老师私有评价信息 返回为 json 数组
 
 [
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-13  21:00",
-		"Text2": null,
-		"Leseon": "韓国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-17  08:00",
-		"Text2": "5566",
-		"Leseon": "undefined"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-18  23:00",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "cen1bo",
-		"timeApp": "2020-10-17  10:30",
-		"Text2": null,
-		"Leseon": "日本語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-18  09:30",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-16  22:00",
-		"Text2": null,
-		"Leseon": "undefined"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-18  22:30",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-18  22:00",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-24  09:00",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-21  06:30",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-21  21:00",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-19  06:30",
-		"Text2": "33333333333333333333333333333",
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-20  07:30",
-		"Text2": null,
-		"Leseon": "中国語"
-	},
-	{
-		"TeacherName": "姜美月",
-		"timeApp": "2020-10-19  21:00",
-		"Text2": null,
-		"Leseon": "中国語"
-	}
+{
+"TeacherName": "姜美月",
+"timeApp": "2020-10-13 21:00",
+"Text2": null,
+"Leseon": "韓国語"
+},
+
 ]
 
-其中 text2 为老师2次评价内容   此接口为查看这个学生预约过的所有的老师给的只有老师能看到的评价
+其中 text2 为老师 2 次评价内容 此接口为查看这个学生预约过的所有的老师给的只有老师能看到的评价
 
 参数：
 {
-	"ID": "21"
+"ID": "21"
 }
 
-id可以从老师预约表上data-id取
-
-
-
+id 可以从老师预约表上 data-id 取
 
 ### 接口 /GetVoucher 获取订单凭证
-### 参数 {"Time":"2020-10-13 21:00","ID":"29"} Time 和老师id
-### 返回请看infop.js 877行相关代码
+
+### 参数 {"Time":"2020-10-13 21:00","ID":"29"} Time 和老师 id
+
+### 返回请看 infop.js 877 行相关代码
