@@ -87,6 +87,5 @@ function getCurrentTime(t) {
     }
     const result = y + "-" + addZero(mon) + "-" + addZero(d) + "  " + addZero(h) + ":" + addZero(m) + ":" + addZero(s);
     return result
-
 }
 //console.log( getCurrentTime(9));

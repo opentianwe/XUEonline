@@ -114,6 +114,8 @@
 
         })
     function  isgetobj(s){
+        
+        console.log(decodeURIComponent(s))
     var str =s.substring(s.indexOf("=")+1,s.indexOf("&"))+","+s.substring(s.lastIndexOf("=")+1,s.length)
     let strarr=str.split(",")
    return obj={

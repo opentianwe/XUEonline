@@ -133,7 +133,7 @@ $(function () {
     }
   }
   var tobody = document.querySelector("#userTale");
-  $("#userTale>tr> .timeApp").each(function () {
+  $("#userTale>tr>.timeApp").each(function () {
     var temp = isDate(getjdTime(), $(this).html(), false);
     if (temp != -1) {
       $(this).css("background", "#67C23A");
@@ -160,20 +160,62 @@ $(function () {
 
     $(this).html("<strong>" + temp + "</strong>");
   });
+  function getCurrentTime(t) {
+    //t为时区参数  默认东八区北京时间
+    if (!t) t = 8;
+    const time = new Date();
+    const len = time.getTime();
+    const offset = time.getTimezoneOffset() * 60000; //本地时间与GMT时间差值
+    const utcTime = len + offset;  //格林尼治时间
+    const date = new Date(utcTime + 3600000 * t); //格林尼治时间和当前时区差值
+    const y = date.getFullYear(),
+        mon = date.getMonth() + 1,
+        d = date.getDate(),
+        h = date.getHours(),
+        m = date.getMinutes(),
+        s = date.getSeconds();
+    //不足两位补0
+    function addZero(value) {
+        if (value < 10) return "0" + value;
+        else return value;
+    }
+    const result = y + "-" + addZero(mon) + "-" + addZero(d) + "  " + addZero(h) + ":" + addZero(m) + ":" + addZero(s);
+    return result
+}
   function getjdTime() {
-    let time;
-    $.ajax({
-      type: "get",
-      url: "/getime",
-      dataType: "json",
-      async: false,
-      //取消 异步
-      success: function (response) {
-        if (response.Time == "" || response.Time == undefined) time = false;
-        time = response.Time;
-      },
-    });
-    return time;
+    let t=9;
+    if (!t) t = 8;
+    const time = new Date();
+    const len = time.getTime();
+    const offset = time.getTimezoneOffset() * 60000; //本地时间与GMT时间差值
+    const utcTime = len + offset;  //格林尼治时间
+    const date = new Date(utcTime + 3600000 * t); //格林尼治时间和当前时区差值
+    const y = date.getFullYear(),
+        mon = date.getMonth() + 1,
+        d = date.getDate(),
+        h = date.getHours(),
+        m = date.getMinutes(),
+        s = date.getSeconds();
+    //不足两位补0
+    function addZero(value) {
+        if (value < 10) return "0" + value;
+        else return value;
+    }
+    const result = y + "-" + addZero(mon) + "-" + addZero(d) + "  " + addZero(h) + ":" + addZero(m) + ":" + addZero(s);
+    return result
+    // let time;
+    // $.ajax({
+    //   type: "get",
+    //   url: "/getime",
+    //   dataType: "json",
+    //   async: false,
+    //   //取消 异步
+    //   success: function (response) {
+    //     if (response.Time == "" || response.Time == undefined) time = false;
+    //     time = response.Time;
+    //   },
+    // });
+    // return time;
   }
   //console.log(getjdTime())
 
@@ -658,30 +700,53 @@ $(function () {
   function ControlTable(ArrayList) {
     this.ArrayList = ArrayList;
     this.ArrayList = [...this.ArrayList];
+    const str=this.ArrayList
+    Object.freeze(str)
+    this.newstr=str
+    
+    this.tobody=document.querySelector("#userTale")
+    
   }
   ControlTable.prototype.SetAddTable = function () {
-    this.ArrayList.map((item) => {
+    this.newstr.map((item) => {
       item.getAttribute("data-temp") == 1
         ? (item.className = "")
         : (item.className = "");
     });
   };
   ControlTable.prototype.SetAddRemoveTable = function () {
-    this.ArrayList.map((item) => {
-
+    this.newstr.map((item) => {  
       item.getAttribute("data-temp") == 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
   };
+  ControlTable.prototype.StrAdd=function(List,temp=false){
+    let str=""
+    if(temp){
+      for (var i = List.length-1; i >= 0; i--) {
+
+        str+= List[i].outerHTML
+     }
+    }else{
+      for (var i =0; i < List.length; i++) {
+        str+= List[i].outerHTML
+     }
+    }
+  
+  
+   return str
+  }
   ControlTable.prototype.SetAddRemoveTowTable = function () {
-
-    this.ArrayList.map((item) => {
-
+  
+   tobody.innerHTML=this.StrAdd(this.ArrayList,true)
+  
+   this.ArrayList.map((item) => {
       item.getAttribute("data-temp") != 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
+   
   };
   let GetStaus = document.querySelector(".yuyue");
   let Settr = document.querySelectorAll("#userTale>tr");
