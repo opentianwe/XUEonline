@@ -224,7 +224,9 @@
                   <tip>例：山本 惠子</tip>
                 </div>
               </div>
-            </td></tr>
+            </td></tr>    
+               
+
             <tr>
                 <td>
                     お名前(カナ)  
@@ -251,7 +253,7 @@
             <div class="layui-input-block">
                 <input type="text" placeholder="yyyy-MM-dd"  lay-verify="required"  lay-reqtext="生年月日をご入力ください" class="layui-input" autocomplete="off" name="UserDate" id="test1">
             </div>
-        </div>
+        </div> 
                 </td>
             </tr>
             <tr>
@@ -263,8 +265,8 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label"> <i style="font-size:26px;color: skyblue;" class="fa fa-mars-double"></i></label>
                         <div class="layui-input-block">
-                          <input type="radio" name="sex" value="男性" title="男性" checked="">
-                          <input type="radio" name="sex" value="女性" title="女性">
+                          <input type="radio" name="Sex" value="男性" title="男性" checked="">
+                          <input type="radio" name="Sex" value="女性" title="女性">
                         </div>
                       </div>
                 </td>
@@ -305,7 +307,8 @@
                         </div>
                     </div>
                 </td>
-            </tr>
+            </tr> 
+         
             <tr>
                 <td>WeChat</td>
                 <td>
@@ -327,7 +330,7 @@
                       <div  class="layui-form-item">
                         <label class="layui-form-label"><i style="font-size:26px;color: skyblue;"  class="fa fa-thumbs-o-up"></i><br>中国語</label>
                         <div class="layui-input-block">
-                          <select name="interest" lay-verify="required" lay-reqtext="中国語をご入力ください" lay-filter="aihao">
+                          <select name="UserChinese" lay-verify="required" lay-reqtext="中国語をご入力ください" lay-filter="aihao">
                             <option value="">レベル</option>
                             <option value="0">1 初心者（No）</option>
                             <option value="1">２少しできる（Beginner）</option>
@@ -337,6 +340,7 @@
                           </select>
                         </div>
                       </div>
+                         
                       <div style="border: 1px solid #ccc;"></div>
                       <br>
                       <div  class="layui-form-item">
@@ -386,7 +390,18 @@
                 </td>
             </tr>
            
-            
+            <!-- Usertrue   ->notnull   string 用户真名
+                 Userflase UserDate  ->notnull  string  用户假名
+                 Sex        ->notnull  string     性别
+                UserEmail    ->notnull   Email 邮箱
+                UserSkype   ->notnull  string  SkeypeId
+                UserWechat     -> OKnull   微信
+                ============== 等级
+                UserChinese  ->notnull   value: 0 1 2 3 4  中文
+                UserEnglish  ->notnull  value: 0 1  2 3 4  英语
+                UserJp   ->notnull     value: 0 1 2 3 4  日语
+                UserKorea ->notnull    value:0 1 2 3 4  韩语
+             -->
             <tr>
                 <td>職業</td>
                 <td>
