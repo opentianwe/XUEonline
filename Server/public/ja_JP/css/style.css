@@ -503,6 +503,10 @@ thead tr:nth-child(1) {
     background: #909399;
 
 } */
+.adduser {
+  width: 70%;
+  margin: 0 auto;
+}
 .TeacherSkypeID a {
   color: #fff !important;
 }
@@ -532,6 +536,9 @@ thead {
   }
 }
 @media screen and (max-width: 1180px) {
+  .adduser {
+    width: 80%;
+  }
   .box-titmoeny {
     width: 100% !important;
   }
@@ -659,6 +666,9 @@ thead {
 }
 
 @media screen and (max-width: 768px) {
+  .adduser {
+    width: 100%;
+  }
   #studata {
     width: 100%;
   }

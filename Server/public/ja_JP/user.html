@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="./js/jq.min.js"></script>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
+	<link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <style>
+        tip{
+            font-size: 12px;
+            color: #fff;
+            background: cornflowerblue;
+            cursor: pointer;
+        }
+        tip>a{
+            color: #fff !important;
+            
+        }
+        tip>a:hover{
+            color: #E6A23C;
+        }
+        .layui-form-label{
+            text-align: center;
+        }
+        .layui-table tr td:nth-child(1){
+            background:#409EFF;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<!-- Preloader Start -->
+<div class="preloader"></div>
+<!-- Preloader End -->
+<!-- header Start -->
+<header class="header-style-two">
+    <div class="header-wrapper">
+        <div class="header-top-area bg-gradient-color d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 header-top-left-part">
+                        <span class="address"><i class="webexflaticon flaticon-placeholder-1"></i>管理员Skype账号:</span>
+                        <span class="phone"><i class="webexflaticon flaticon-send"></i> XUEサポート管理員</span>
+                    </div>
+                    <div class="col-lg-6 header-top-right-part text-right">
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                        <div class="language">
+                            <a class="language-btn" href="#"><i
+                                    class="webexflaticon flaticon-internet"></i>Japanese</a>
+                            <ul class="language-dropdown">
+                                <li> <a href="#">Chinese</a></li>
+                                <!-- <li><a href="#">English</a></li> -->
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-navigation-area two-layers-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="navbar-brand logo f-left mrt-10 mrt-md-0" href="index.html">
+
+                            <!-- <img id="logo-image" class="img-center" src="./images/1.jpg" alt=""> -->
+                        </a>
+                        <div class="mobile-menu-right"></div>
+                        <div class="header-searchbox-style-two d-none d-xl-block">
+                            <div class="side-panel side-panel-trigger text-right d-none d-lg-block">
+                                <span class="bar1"></span>
+                                <span class="bar2"></span>
+                                <span class="bar3"></span>
+                            </div>
+                            <!-- <div class="show-searchbox">
+                                <a href="#"><i class="webex-icon-Search"></i></a>
+                            </div> -->
+                            <div class="toggle-searchbox">
+                                <form action="#" id="searchform-all" method="get">
+                                    <div>
+                                        <input type="text" id="s" class="form-control" placeholder="Search...">
+                                        <div class="input-box">
+                                            <input type="submit" value="" id="searchsubmit"><i
+                                                class="fas fa-search"></i>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="side-panel-content">
+                            <div class="close-icon">
+                                <button><i class="webex-icon-cross"></i></button>
+                            </div>
+                            <div class="side-panel-logo mrb-30">
+                                XUEonline
+                            </div>
+                            <div class="side-info mrb-30">
+                                <div class="side-panel-element mrb-25">
+                                    <h4 class="mrb-10">Skype: XUEサポート管理員</h4>
+                                    <ul class="list-items">
+                                        <li><span class="fa fa-map-marker-alt mrr-10 text-primary-color">
+                                                遼寧省大連市西岗区更新街</span></li>
+                                        <li><span
+                                                class="fas fa-envelope mrr-10 text-primary-color"></span>haominjiaoyu@126.com
+                                        </li>
+                                        <li><span class="fas fa-phone-alt mrr-10 text-primary-color"></span>(00)
+                                            2500-123-4567</li>
+                                    </ul>
+                                </div>
+                                <div class="side-panel-element mrb-30">
+                                    <h4 class="mrb-15">公司状态</h4>
+                                    <ul class="pintarest-list">
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/1.jpg"
+                                                    alt=""></a></li>
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/2.jpg"
+                                                    alt=""></a></li>
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/3.jpg"
+                                                    alt=""></a></li>
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/4.jpg"
+                                                    alt=""></a></li>
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/5.jpg"
+                                                    alt=""></a></li>
+                                        <li><a href="#"><img class="img-full" src="images/side-panel/6.jpg"
+                                                    alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h4 class="mrb-15">可靠联系方式</h4>
+                            <ul class="social-list">
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="main-menu f-right">
+                            <nav id="mobile-menu-right">
+                                <ul>
+                                    <li>
+                                        <!-- class="has-sub" -->
+                                        <a href="./index.html">HOME</a>
+                                        <!-- <ul class="sub-menu">
+                                            <li><a href="index.html">Layout 1</a></li>
+                                            <li><a href="index2.html">Layout 2</a></li>
+                                            <li class="has-sub-child">
+                                                <a href="#">Header Styles</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="page-header-style-one.html">Header Style One</a></li>
+                                                    <li><a href="page-header-style-two.html">Header Style Two</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul> -->
+                                    </li>
+                                    <li><a href="./getmoeny.html">Point購入</a></li>
+                                    <li class="has-sub">
+                                        <a href="./terTbale.html">講師一覧</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="./terTbale.html">先生の予約</a></li>
+                                            <li class="has-sub-child">
+                                                <a href="./logoin.html">ログイン</a>
+                                                <ul class="sub-menu right-view">
+                                                    <li><a href="./logoin.html">登録</a></li>
+                                                    <li><a href="./teacherdata.html">先生入力してください</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="./stunews.html">よくある質問</a>
+
+                                    </li>
+                                    <li class="has-sub right-view">
+                                        <a href="#">新規登録 /ログイン</a>
+                                        <ul class="sub-menu right-view">
+                                            <li><a href="./register.html">新規登録</a></li>
+                                            <li><a href="./logoin.html">ログイン</a></li>
+                                         </ul>
+                                    </li>
+                                    <li class="has-sub right-view">
+                                        <a href="#">MY PAGE</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="personal.html">MY PAGE</a></li>
+                                            <li><a href="./logoin.html">ログイン</a></li>
+                                            <li><a id="qiut-s">サインアウト</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<section class="adduser">
+    <form class="layui-form" action="" lay-filter="example">
+    <h1>ユーザー情報修正</h1>
+    <table class="layui-table">
+            <tr>
+                <td>お名前</td><td>
+                 <div class="layui-form-item">
+                <label class="layui-form-label"><i class="layui-icon" style="font-size:26px;color: skyblue;">&#xe66f;</i></label>
+                <div class="layui-input-block">
+                  <input type="text" name="Usertrue" lay-verify="required" lay-reqtext="姓名不能为空" autocomplete="off" placeholder="お名前" class="layui-input">
+                  <tip>例：山本 惠子</tip>
+                </div>
+              </div>
+            </td></tr>
+            <tr>
+                <td>
+                    お名前(カナ)  
+                </td>
+                <td>
+                    <div class="layui-form-item">
+            
+                        <label class="layui-form-label"><i class="layui-icon"  style="font-size:26px;color: skyblue;">&#xe612;</i></label>
+                        <div class="layui-input-block">
+                          <input type="text" name="Userflase" lay-verify="required" lay-reqtext="お名前(カナ)不能为空" autocomplete="off" placeholder="お名前(カナ)" class="layui-input">
+                          <tip>例：ヤマモト　ケイコ</tip>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    生年月日　
+                </td>
+                <td>
+                    
+        <div class="layui-form-item">
+            <label class="layui-form-label"><span ><i class="layui-icon" style="font-size:26px;color: skyblue;">&#xe637;</i>  </span> </label>
+            <div class="layui-input-block">
+                <input type="text" placeholder="yyyy-MM-dd"  lay-verify="required"  lay-reqtext="生年月日をご入力ください" class="layui-input" autocomplete="off" name="UserDate" id="test1">
+            </div>
+        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    性別
+        
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"> <i style="font-size:26px;color: skyblue;" class="fa fa-mars-double"></i></label>
+                        <div class="layui-input-block">
+                          <input type="radio" name="sex" value="男性" title="男性" checked="">
+                          <input type="radio" name="sex" value="女性" title="女性">
+                        </div>
+                      </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    Email
+                    <br>
+                    <span style="color:red;font-size:14px;">必須*</span>
+                </td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><i class="layui-icon" style="font-size:26px;color: skyblue;">&#xe618;</i> </label>
+                        <div class="layui-input-block">
+                          <input type="text" name="UserEmail" lay-verify="required" lay-reqtext="メールアドレスをご入力ください" autocomplete="off" placeholder="Email" class="layui-input">
+                          <tip>ログイン用IDになります。(営業メールやメルマガは一切配信しておりませんのでご安心ください)</tip>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Skype
+
+                    <br>
+                    <span style="color:red;font-size: 14px;">必須*</span>
+                </td>
+               
+                <td>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;" class="fab   fa fa-skype"></i></label>
+                        <div class="layui-input-block">
+                          <input type="text" name="UserSkype" lay-verify="required"  lay-reqtext="SkypeIDをご入力ください" autocomplete="off" placeholder="SkypeID" class="layui-input">
+                          <tip>SkypeID： <a href="http://skype.gmw.cn/down/skype-for-mobiles.html">live:●●●といった形で表示がある方は、 live:も含めてご登録ください。(Skypeをダウンロード)</a>
+                            </tip>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>WeChat</td>
+                <td>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"><span ><i class="layui-icon" style="font-size:26px;color: skyblue;">&#xe677;</i>  </span> </label>
+                        <div class="layui-input-block">
+                          <input type="text" name="UserWechat" lay-verify="title" autocomplete="off" placeholder="WechatID" class="layui-input">
+                          <tip>Skype<a href="https://weixin.qq.com/">と同じく、無償でビデオ通話・音声通話はどちらでも大丈夫です。（レッスン用です）(Wechatをダウンロード)</a></tip>
+                          
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>得意語学</td>
+                <td>
+                 
+                      <div  class="layui-form-item">
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;"  class="fa fa-thumbs-o-up"></i><br>中国語</label>
+                        <div class="layui-input-block">
+                          <select name="interest" lay-verify="required" lay-reqtext="中国語をご入力ください" lay-filter="aihao">
+                            <option value="">レベル</option>
+                            <option value="0">1 初心者（No）</option>
+                            <option value="1">２少しできる（Beginner）</option>
+                            <option value="2">３割とできる（Intermediate）</option>
+                            <option value="3">４かなりできる（Fluent）</option>
+                            <option value="4">５母国語（Native）</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div style="border: 1px solid #ccc;"></div>
+                      <br>
+                      <div  class="layui-form-item">
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;"  class="fa fa-thumbs-o-up"></i><br>英語</label>
+                        <div class="layui-input-block">
+                          <select name="interest" lay-verify="required" lay-reqtext="レベルをご入力ください" lay-filter="aihao">
+                            <option value="">レベル</option>
+                            <option value="0">1 初心者（No）</option>
+                            <option value="1">２少しできる（Beginner）</option>
+                            <option value="2">３割とできる（Intermediate）</option>
+                            <option value="3">４かなりできる（Fluent）</option>
+                            <option value="4">５母国語（Native）</option>
+                          </select>
+                        </div>
+                      </div>
+                      
+                      <div style="border: 1px solid #ccc;"></div>
+                      <br>
+                      <div  class="layui-form-item">
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;"  class="fa fa-thumbs-o-up"></i><br>日本語</label>
+                        <div class="layui-input-block">
+                          <select name="interest" lay-verify="required" lay-reqtext="レベルをご入力ください" lay-filter="aihao">
+                            <option value="">レベル</option>
+                            <option value="0">1 初心者（No）</option>
+                            <option value="1">２少しできる（Beginner）</option>
+                            <option value="2">３割とできる（Intermediate）</option>
+                            <option value="3">４かなりできる（Fluent）</option>
+                            <option value="4">５母国語（Native）</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div style="border: 1px solid #ccc;"></div>
+                      <br>
+                      <div  class="layui-form-item">
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;"  class="fa fa-thumbs-o-up"></i><br>韓国語</label>
+                        <div class="layui-input-block">
+                          <select name="interest" lay-verify="required" lay-reqtext="レベルをご入力ください" lay-filter="aihao">
+                            <option value="">レベル</option>
+                            <option value="0">1 初心者（No）</option>
+                            <option value="1">２少しできる（Beginner）</option>
+                            <option value="2">３割とできる（Intermediate）</option>
+                            <option value="3">４かなりできる（Fluent）</option>
+                            <option value="4">５母国語（Native）</option>
+                          </select>
+                        </div>
+                      </div>
+                </td>
+            </tr>
+           
+            
+            <tr>
+                <td>職業</td>
+                <td>
+                    <div class="layui-form-item"> 
+                        <label class="layui-form-label"><i style="font-size:26px;color: skyblue;" class="fa fa-user-secret"></i></label>
+                        <div class="layui-input-block">
+                          <input type="text" name="Userpr" lay-verify="title" autocomplete="off" placeholder="職業" class="layui-input">
+                          <!-- <tip><span style="color:red;">必須*</span>Skypeと同じく、無償でビデオ通話・音声通話はどちらでも大丈夫です。（レッスン用です）</tip> -->
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td>レッスン予約の表示時間</td>
+                <td>
+                    日本時間
+                </td>
+            </tr> -->
+    </table>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-setval">赋值</button>
+          <button type="button" class="layui-btn layui-btn-normal" id="LAY-component-form-getval">取值</button>
+          <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">保存する</button>
+        </div>
+    </div>
+</form>
+</section>
+<!-- 能看到吗 -->
+
+<!-- header End -->
+	<!-- Testimonials Section End -->
+	<!-- Footer Area Start -->
+	<footer class="footer">
+		<div class="footer-main-area" data-background="images/footer-bg.png">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<!-- 可以放logo -->
+							<!-- <img src="images/logo-footer.png" alt="" class="mrb-20"> -->
+							<address class="mrb-25">
+								<p class="text-light-gray">昊旻教育科技（大连）有限公司</p>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-phone-alt mrr-10"></i>+090-4179-6014</a></div>
+								<div class="mrb-10"><a href="#" class="text-light-gray"><i
+											class="fas fa-envelope mrr-10"></i>haominjiaoyu@126.com</a></div>
+								<div class="mrb-0"><a href="/index.html" class="text-light-gray"><i
+											class="fas fa-globe mrr-10"></i>WWW.haominjiaoyu.com</a></div>
+							</address>
+							<ul class="social-list">
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">会社案内</h5>
+							<ul class="footer-widget-list">
+								<li><a href="./index.html">HOME</a></li>
+								<li><a href="./about.html">会社概要</a></li>
+								<li><a href="./terTbale.html">教師のリソース</a></li>
+								<li><a href="./stunews.html">お問い合わせ</a></li>
+								<li><a href="./titMoeny.html" target="_blank">支払い条件</a></li>
+								<li><a href="./logoin.html">先生になる</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">サビース</h5>
+							<ul class="footer-widget-list">
+								<li><a href="terTbale.html">中国語　オンライン</a></li>
+								<li><a href="terTbale.html">日本語　オンライン</a></li>
+								<li><a href="terTbale.html">英　語　オンライン</a></li>
+								<li><a href="terTbale.html">韓国語　オンライン</a></li>
+								<li><a href="terTbale.html">お支払い</a></li>
+								<li><a href="stunews.html">よくある質問</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="widget footer-widget">
+							<h5 class="widget-title text-white mrb-30">QRコードを読み取り、サポート管理員を追加します。</h5>
+							<p class="text-light-gray">ご質問やご提案がある場合は、Skypeで当社のサポート管理員までにお問い合わせください。</p>
+							<img src="./images/ewm1.jpg" alt="" style="width: 150px;height: 150px;">
+							<br>
+							<a href="http://skype.gmw.cn/" target="_blank"
+								class="cs-btn-one btn-gradient-color btn-sm has-icon mrt-20"><i
+									class="webexflaticon flaticon-send"></i>下载 Skype</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12">
+						<div class="text-center">
+							<span class="text-light-gray">Copyright <a href="">&copy; 2020 haominjiaoyu.com
+									辽ICP备20008656号</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Area End -->
+	<!-- BACK TO TOP SECTION -->
+	<div class="back-to-top bg-gradient-color">
+		<i class="fab fa-angle-up"></i>
+    </div>
+    
+	<!-- Integrated important scripts here -->
+	<script src="./js/jquery.v1.12.4.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/jquery-core-plugins.js"></script>
+	<script src="./js/main.js"></script>
+	<script src="./js/kefu.js"></script>
+    <script src="layui/layui.js"></script>
+   
+    <script>
+ 
+        layui.use(['form', 'layedit', 'laydate'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate;
+      laydate.render({
+            elem: '#test1' //指定元素
+        });
+      //日期
+      laydate.render({
+        elem: '#date'
+      });
+      laydate.render({
+        elem: '#date1'
+      });
+      
+      //创建一个编辑器
+      var editIndex = layedit.build('LAY_demo_editor');
+     
+      //自定义验证规则
+    //   form.verify({
+    //     title: function(value){
+    //       if(value.length < 5){
+    //         return '标题至少得5个字符啊';
+    //       }
+    //     }
+    //     ,pass: [
+    //       /^[\S]{6,12}$/
+    //       ,'密码必须6到12位，且不能出现空格'
+    //     ]
+    //     ,content: function(value){
+    //       layedit.sync(editIndex);
+    //     }
+    //   });
+      
+      //监听指定开关
+     
+      
+      //监听提交
+      form.on('submit(demo1)', function(data){
+          console.log(data.field)
+        // layer.alert(JSON.stringify(data.field), {
+        //   title: '最终的提交信息'
+        // })
+        return false;
+      });
+     
+      //表单赋值
+    //   layui.$('#LAY-component-form-setval').on('click', function(){
+    //     form.val('example', {
+    //       "username": "贤心" // "name": "value"
+    //       ,"password": "123456"
+    //       ,"interest": 1
+    //       ,"like[write]": true //复选框选中状态
+    //       ,"close": true //开关状态
+    //       ,"sex": "女"
+    //       ,"desc": "我爱 layui"
+    //     });
+    //   });
+      
+      //表单取值
+      layui.$('#LAY-component-form-getval').on('click', function(){
+        var data = form.val('example');
+        alert(JSON.stringify(data));
+      });
+      
+    });
+    </script>
+</body>
+</html>

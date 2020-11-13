@@ -478,6 +478,10 @@ thead tr:nth-child(1) {
   text-align: right;
   padding: 5px 10px;
 }
+.adduser {
+  width: 70%;
+  margin: 0 auto;
+}
 .yuyue span {
   width: 66px;
   padding: 5px;
@@ -526,6 +530,9 @@ thead tr:nth-child(1) {
   }
 }
 @media screen and (max-width: 1078px) {
+  .adduser {
+    width: 80%;
+  }
   .box-titmoeny {
     width: 100% !important;
   }
@@ -668,6 +675,9 @@ thead {
   text-align: center;
 }
 @media screen and (max-width: 768px) {
+  .adduser {
+    width: 100%;
+  }
   #studata {
     width: 100%;
   }
