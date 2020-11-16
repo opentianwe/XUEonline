@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>教师详情页面</title>
+    <title></title>
     <script src="./js/vue.2.6.11.js"></script>
     <script src="./js/jq.min.js"></script>
     <link
@@ -407,7 +407,7 @@
               <span id="user-ter">
                 <%for(var i = 0;i < data.Lesson.length;i++){%>
                 <%=data.Lesson[i]%> <%}%></span
-              >老师
+              >科目
             </p>
             <!--  -->
             <p>
@@ -624,7 +624,7 @@
       <script>
         //  老师的 Skype id 和 emla 未付款是不可以展示的
         var temp = true;
-        var titstr = "未预约无法提供老师联系方式";
+        var titstr = "";
         if (temp == true) {
           $("#user-skype").html(titstr);
           $("#user-emali").html(titstr);

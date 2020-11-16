@@ -77,7 +77,7 @@ function makeAnapp(ID, time, bID) {
                         return;
                     }
                     var Leseon = $('input[name="t"]:checked').val()
-                    if (Leseon == undefined) return layer.msg('请选择要学习的课程', { time: 3000, icon: 2 });
+                    if (Leseon == undefined) return layer.msg('ご予約したいレッスンを選んでください', { time: 3000, icon: 2 });
                     var Textval = $('#textval').val()
                     // 先发一个ajax 请求 然后在  根据ajax  
                     $.ajax({
@@ -113,7 +113,7 @@ function makeAnapp(ID, time, bID) {
                                     })
                                     //回调1
                                 }, function () {
-                                    layer.msg('ログアウト後、MY　PAGEで予約情報を確認することができます', { icon: 6, })
+                                    layer.msg('MY　PAGEで予約情報を確認することができます', { icon: 6, })
                                 });
                             } else if (res.status === 10) {
                                 layer.msg(res.msg)

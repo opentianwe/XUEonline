@@ -535,7 +535,7 @@ router.post('/cancel', function (req, res) {
                 if (Time > current_date) {
                     cancel(req.signedCookies.malli, data.Time, data.id)
                 } else {
-                    res.send({ status: 3, msg: "レッスン開始の一時間前までキャンセルができます" })
+                    res.send({ status: 3, msg: "レッスン開始の一時間前にキャンセル可能です" })
                     return
                 }
             }
@@ -879,20 +879,18 @@ router.post('/GetVoucher', function (req, res) {
         if (model_inf.appraisal_authority(req.signedCookies.malli) != 404) {
             var ret = await model_Appint.queryAppointment_SingleData_Byemail(data.Time, data.ID, req.signedCookies.malli)
             if (ret) {
-                res.send({status:0,data:ret,msg:"ok"})
-            }else
-            {
-                res.send({status:1,data:null,msg:"no data"})
+                res.send({ status: 0, data: ret, msg: "ok" })
+            } else {
+                res.send({ status: 1, data: null, msg: "no data" })
             }
-        }else
-            {
-                res.send({status:1,data:null,msg:"no data"})
-            }
+        } else {
+            res.send({ status: 1, data: null, msg: "no data" })
+        }
     }
 
     readJsondata(req)
         .then(function (data) {
-            GetVoucher(req,res,data)
+            GetVoucher(req, res, data)
         })
 })
 module.exports = router
