@@ -9,7 +9,7 @@ const port = require("./port");
 const url = require("url");
 const { route } = require("./alipay_route");
 const { template } = require("express-art-template");
-
+const getCurrentTime = require("../Toos")
 const path = require("path");
 
 var dataarray = ["日", "月", "火", "水", "木", "金", "土"];
@@ -37,7 +37,9 @@ router.use(cookieParser("wcasd2398123asd12aasd"));
 router.use(cors(corsOptions));
 
 function fun_date_to(aa) {
-  var date1 = new Date(),
+  console.log("时间:")
+  console.log(getCurrentTime.getCurrentTime(9))
+  var date1 = new Date(getCurrentTime.getCurrentTime(9)),
     time1 =
       date1.getFullYear() +
       "-" +
@@ -116,7 +118,6 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
       var Time = new Array();
       var dataTIme = new Array();
       var totime = fun_date_to(-1);
-
       var dTime = fun_date_to(0);
 
       var time = yyyy + "/" + mm + "/" + dd; //请求的时间
@@ -192,12 +193,12 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
             var timestamp2 = new Date();
             var min = timestamp2.getMinutes();
             timestamp2.setHours(timestamp2.getHours() + 1);
-            timestamp2.setMinutes(min + 60);
+            timestamp2.setMinutes(min + 180);
             timestamp2 = Date.parse(timestamp2);
             timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
             timestamp2 = timestamp2 / 1000;
 
-            if (timestamp2 >= timestamp1) {
+            if (timestamp2 > timestamp1) {
               status = 5;
             }
           }
