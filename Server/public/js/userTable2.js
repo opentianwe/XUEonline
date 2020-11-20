@@ -672,56 +672,56 @@ $(function () {
    *  isAddter 已经预约
    * 实例化一个控制表格对象 通过三个原型方法
    */
+
   function ControlTable(ArrayList) {
     this.ArrayList = ArrayList;
     this.ArrayList = [...this.ArrayList];
-    const str=this.ArrayList
+    const str = this.ArrayList
     Object.freeze(str)
-    this.newstr=str
-    
-    this.tobody=document.querySelector("#userTale")
-    
+    this.newstr = str
+
+    this.tobody = document.querySelector("#userTale")
+
   }
   ControlTable.prototype.SetAddTable = function () {
-    this.newstr.map((item) => {
+    this.ArrayList.map((item) => {
       item.getAttribute("data-temp") == 1
         ? (item.className = "")
         : (item.className = "");
     });
   };
   ControlTable.prototype.SetAddRemoveTable = function () {
-    this.newstr.map((item) => {  
+    this.ArrayList.map((item) => {
       item.getAttribute("data-temp") == 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
   };
-  ControlTable.prototype.StrAdd=function(List,temp=false){
-    let str=""
-    if(temp){
-      for (var i = List.length-1; i >= 0; i--) {
+  // ControlTable.prototype.StrAdd = function (List, temp = false) {
+  //   let str = ""
+  //   if (temp) {
+  //     for (var i = List.length - 1; i >= 0; i--) {
+  //       str += List[i].outerHTML
+  //     }
+  //   } else {
+  //     for (var i = 0; i < List.length; i++) {
+  //       str += List[i].outerHTML
+  //     }
+  //   }
 
-        str+= List[i].outerHTML
-     }
-    }else{
-      for (var i =0; i < List.length; i++) {
-        str+= List[i].outerHTML
-     }
-    }
-  
-  
-   return str
-  }
+
+  //   return str
+  // }
   ControlTable.prototype.SetAddRemoveTowTable = function () {
-  
-   tobody.innerHTML=this.StrAdd(this.ArrayList,true)
-  
-   this.ArrayList.map((item) => {
+
+    // tobody.innerHTML = this.StrAdd(this.ArrayList, true)
+
+    this.ArrayList.map((item) => {
       item.getAttribute("data-temp") != 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
-   
+
   };
   let GetStaus = document.querySelector(".yuyue");
   let Settr = document.querySelectorAll("#userTale>tr");

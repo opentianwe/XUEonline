@@ -1005,16 +1005,16 @@ router.get("/ja_JP/ter.html", function (req, res) {
           for (var i = 0; i < lit.length; i++) {
             switch (Number(lit[i])) {
               case 1:
-                lit[i] = "中文";
+                lit[i] = "中国語";
                 break;
               case 2:
-                lit[i] = "日文";
+                lit[i] = "日本語";
                 break;
               case 3:
-                lit[i] = "英文";
+                lit[i] = "英語";
                 break;
               case 4:
-                lit[i] = "韩文";
+                lit[i] = "韓国語";
                 break;
             }
           }

@@ -62,7 +62,7 @@ function Kefu(Obj) {
     '"  class="qqlink" >' +
     "                </a>" +
     '                <div class="absbox">' +
-    '                    <div class="erweima"><img src="../img/dasda.jpg"></div>' +
+    '                    <div class="erweima"><img src="./img/dasda.jpg"></div>' +
     "                </div>" +
     "            </div>" +
     wechatPerson +
@@ -80,10 +80,10 @@ var kefu = new Kefu({
   tel: "暂无", //电话号码
   wechatPerson: {
     state: true, // true是开启个人微信二维码, false不开启
-    imgURL: "../img/569d7f542977ce4256135abe23f6dc3.jpg",
+    imgURL: "./img/569d7f542977ce4256135abe23f6dc3.jpg",
   },
   wechatofficial: {
     state: true, // true是开启微信公众号二维码, false不开启
-    imgURL: "../img/4a3372abbaf4a5ae95b4e7aaeb01d11.png",
+    imgURL: "./img/4a3372abbaf4a5ae95b4e7aaeb01d11.png",
   }, //微信公众号
 });

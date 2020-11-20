@@ -18,7 +18,7 @@
   <!-- <link rel="stylesheet" href="./css/footer.css"> -->
   <style>
     .Logoin-wrap {
-      width: 520px;
+      width:600px;
       background: #ffffff;
       position: absolute;
       right: 70px;
@@ -35,8 +35,7 @@
       margin: 10px auto;
       display: block;
       padding: 6px 5px;
-      border-bottom: 1px solid #ccc;
-
+      border: 1px solid #ccc;
     }
 
     .Logoin-wrap h3 {
@@ -277,58 +276,79 @@
      
       <div class="Logoin-wrap Register-box  shadow-lg" id="register">
         <h3>新規登録</h3>
-        <input type="text" id="Name" placeholder="名前を入力してください">
-        <div class="formtit0" style="text-align: center;">
-
-        </div>
-        <input type="text" id="userName" placeholder="メールアドレス(ログイン用のIDになります)">
-        <div class="formtit" style="text-align: center;">
-
-        </div>
-        <input type="text" id="weixin" placeholder="WeChatID(必須ではありません)">
-        <input type="text" id="SkypeID" placeholder="SkypeID（IDは、live:xxxxxxxxxxxxになります。）">
-        <div class="formtit3" style="text-align: center;">
-
-        </div>
-        <p style="margin-left:45px;">
-           <strong>現在のレベル（生徒）</strong>
-            <select name="" id="Phone">
-              <option value="入門">入門</option>
-              <option value="初級">初級</option>
-              <option value="中級">中級</option>
-              <option value="上級">上級</option>
-            </select>
-            <br>
-          
-          </p>
-        <div class="formtit6" style="text-align: center;">
-
-        </div>
-        <input type="password" placeholder="パスワード入力" id="passWord">
-        <div class="formtit2" style="text-align: center;">
-
-        </div>
-        <input type="password" placeholder="パスワード（確認用）" id="passWord2">
-        <div class="formtit4" style="text-align: center;">
-
-        </div>
-        <p style="margin-left:45px;">
-          <select name="" id="read">
-            <option value="中文">中国語</option>
-            <option value="日语">日本語</option>
-            <option value="英语">英語</option>
-            <option value="韩语">韓国語</option>
-          </select>
-          <br>
-          <span style="font-size: 12px;">生徒さんのみ書きます</span>
+        <p style="font-size:12px;">
+          登録は簡単！皆さまとお会いできるの楽しみにしております！<br/> 未経験者でもご安心ください。(90%の講師は日本語が得意です)<br/>講師と生徒さん、共通のログイン画面です。
         </p>
-        <div style="margin-left: 45px;">
-          性别:
-          男<input style="display: inline-block;width: 50px;" name="Fruit" type="radio" value="男" checked="checked" />
-          女<input style="display: inline-block;width: 50px;" name="Fruit" type="radio" value="女" />
-        </div>
-        <input type="text" id="Codes" placeholder="先生招待コード（先生は新規登録用です）">
+        <table class="layui-table" >
+          <tr><td colspan="2">お名前を入力してください。　　　例）　山本恵子</td></tr>
+          <tr>
+            <td>
+              お名前　　　　　　
+              <br>
+              <span style="color: red;">*必須</span>
+            </td>
+            <td> <input type="text" id="Name" placeholder="名前を入力してください">
+              <div class="formtit0" style="text-align: center;">
+      
+              </div></td>
+          </tr>
+          <tr>
+            <td>
+              メールアドレス　
+              <br>
+              <span style="color: red;">*必須</span>
+            </td>
+            <td>
+              <input type="text" id="userName" placeholder="メールアドレス(ログイン用のIDになります)">
+              <div class="formtit" style="text-align: center;">
+      
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>ログイン用IDになります。</td>
+            <td>(営業メールやメルマガは一切配信しておりませんのでご安心ください)</td>
+          </tr>
+          <tr>
+            <td>パスワード
+              <br>
+              <span style="color: red;">*（必須）</span> 
+            </td>
+            <td>
+              <input type="password" placeholder="パスワード入力" id="passWord">
+             <div class="formtit2" style="text-align: center;">
+            </div>
 
+            </td>
+          </tr>
+          <tr><td colspan="2">半角英数字8～12文字でパスワードを入力してください</td></tr>
+          <tr>
+            <td>
+              パスワード
+              <br>
+              <span style="color: red;">*（確認用）</span> 
+              
+            </td>
+            <td>
+              <input type="password" placeholder="パスワード（確認用）" id="passWord2">
+              <div class="formtit4" style="text-align: center;">
+      
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>講師の招待コード</td>
+            <td><input type="text" id="Codes" placeholder="先生招待コード（先生は新規登録用です）">
+            </td>
+          </tr>
+        </table>
+       
+      
+       
+        
+      
+      
+     
         <p style="text-align: right;padding-right: 40px;"><a href="./logoin.html">ログイン</a></p>
         <button id="RegsBtn" class="layui-btn  layui-btn-lg layui-btn-normal">新規登録</button>
       </div>
@@ -350,8 +370,6 @@
         $(this).val('')
         $('.formtit').html('')
         $('.formtit0').html('')
-        $('.formtit3').html('')
-        $('.formtit6').html('')
         $('.formtit2').html('')
         $('.formtit4').html('')
       })
@@ -398,19 +416,7 @@
     $('.Register-box>#passWord').on('change', function () {
       getPassWord('.Register-box>#passWord')
     })
-    function getSkype() {
-      if ($('#SkypeID').val() == '', $('#SkypeID').val().length > 6) {
-        $('.formtit3').html('正確')
-        $('.formtit3').css('color', 'green')
-        return true
-      }
-      $('.formtit3').html('SKYPEフォーマットエラー')
-      $('.formtit3').css('color', 'red')
-      return false
-    }
-    $('#SkypeID').on('change', function () {
-      getSkype()
-    })
+   
 
     function getPassWord(psstr) {
       var reg = /^(\w){6,12}$/;
@@ -426,8 +432,9 @@
       }
     }
     function getpassWord2() {
-      console.log($('#passWord').val())
-      if ($('#passWord2').val() == $('#register>#passWord').val()) {
+      console.log($('#passWord').val()==$('#passWord2').val())
+      console.log()
+      if ($('#passWord2').val() == $('#passWord').val()) {
         $('.formtit4').html('正確')
         $('.formtit4').css('color', 'green')
         return true
@@ -457,22 +464,16 @@
       getName()
     })
     $('#RegsBtn').on('click', function () {
-      var options = $("#read option:selected")
-      var sex = $('input[name="Fruit"]:checked').val();
+  
       var datas = {
         oAName: $("#Name").val(),
-        oAEmail: $(".Register-box>#userName").val(), 
-        oAPaonee: $("#Phone option:selected").val(),
-        oApassword: $(".Register-box>#passWord2").val(),
-        oAhobby: options.val(),
-        oAsex: sex,
-        oAskype: $("#SkypeID").val(),
+        oAEmail: $("#userName").val(), 
+        oApassword: $("#passWord2").val(),
         oAcodes: $("#Codes").val(),
-        oAweixin: $('#weixin').val()
       }
       console.log(datas)
       console.log(getEmali())
-      if (getName() && getEmali('.Register-box>#userName') && getSkype()  && getPassWord('.Register-box>#passWord') && getpassWord2()) {
+      if (getName() && getEmali('#userName') && getPassWord('#passWord') && getpassWord2()) {
         function goUrl(url) {
           $(".confirm").on("click", function () {
             window.location.href = url
@@ -490,7 +491,7 @@
               // 
             } else if (e.status == 1) {
               swal("Yes!", "新規登録しました", "success");
-              goUrl("./index.html")
+              goUrl("./personal.html")
 
             } else if (e.status == 2) {
               swal("Yes!", "新規登録しました", "success");
