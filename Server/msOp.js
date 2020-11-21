@@ -120,7 +120,7 @@ function queryUserinformbyEmal(emal, callback) {
 
 //查询所有用户资料
 function queryUserinform(callback) {
-    var strQuery = "select * FROM `Userinformation`"
+    var strQuery = "select * FROM `Userinformation` WHERE `ImgUrl` != '' AND `Name` != ''  ORDER BY 1 DESC"
     woreData(strQuery, function (data, error) {
         callback(data, error)
     })

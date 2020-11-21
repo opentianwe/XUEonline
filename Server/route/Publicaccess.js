@@ -4,7 +4,8 @@ const url = require('url');
 const { connect } = require('http2');
 
 const router = express.Router()
-const model_Ainfor = require('../models/tAinformation')
+const model_Ainfor = require('../models/tAinformation');
+const { Console } = require('console');
 router.all("*", function (req, res, next) {
     //设置允许跨域的域名，*代表允许任意域名跨域
     res.header("Access-Control-Allow-Origin", "*");
@@ -103,12 +104,13 @@ router.get('/Atinfo', function (req, res) {
         async function pushweek(data,res)
         {
             for (var i = age; i < age + numNp; i++) {
-                if (i >= Count) {
+                if (i > Count) {
                     break;
                 }
                 data[i].ClassHoursThisWeek = await model_Ainfor.query_ClassHoursThisWeek_Byemal(data[i].Email)
                 data[i].ClassHoursOfTheDay = await model_Ainfor.query_ClassHoursOfTheDay(data[i].Email)  
-                database.push(datas[i])
+                console.log(data[i].ClassHoursOfTheDay + ":" + i)
+                database.push(data[i])
                 sin++
             }
             var da = {

@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
 const ord = require('../helpers/order')
 const toos = require('../Toos')
+const moddel = require("../models/OrderList")
 const ServiceCharge = 0.1  //手续费调整
 router.use(cookieParser("wcasd2398123asd12aasd"))
 paypal.configure({
@@ -85,6 +86,15 @@ router.post('/checkout', (req, res) => {
    // req.body = JSON.parse(req.body)
     console.log(req.body)
     async function checkout(Emal, CommodityID, return_url, cancel_url) {
+        if(CommodityID == 0)
+        {
+           var a = await moddel.query_List(req.signedCookies.malli)
+           if(!a)
+           {
+            res.send({ status: 145, msg: "198积分只能充值一次!" })
+            return
+           }
+        }
         var ret = await mysql.asyncqueryCommodityInfoByID(CommodityID)
         if (ret == null) {
             resove({ status: 0, msg: "商品信息异常!" })
@@ -144,23 +154,37 @@ router.post('/tocheckout', (req, res) => {
         res.send({ status: 144, msg: "数据异常!" })
         return
     }
-    mysql.queryCommodityInfoByID(CommodityID, function (data, err) {
-        if (data) {
-            if (data != null && data[0].Yen != undefined && data[0].Yen != '' && data[0].Yen != null && data[0].Yen != 0) {
-                var $ = Number(data[0].Yen) + (Number(data[0].Yen) * 0.1)
-                res.send({
-                    money: Number(data[0].Yen),
-                    Amountactuallypaid: $.toFixed(0),
-                    taxRate: "10%",
-                    integral: data[0].integral
-                })
-            } else {
-                res.send({ status: 145, msg: "数据库商品信息异常!" })
-            }
-        } else {
-            res.send({ status: 146, msg: "数据库商品信息异常!" })
+    async function query_List(){
+        if(CommodityID == 0)
+        {
+           var a = await moddel.query_List(req.signedCookies.malli)
+           if(!a)
+           {
+            res.send({ status: 145, msg: "198积分只能充值一次!" })
+            return
+           }
         }
-    })
+        mysql.queryCommodityInfoByID(CommodityID, function (data, err) {
+            if (data) {
+                if (data != null && data[0].Yen != undefined && data[0].Yen != '' && data[0].Yen != null && data[0].Yen != 0) {
+                    var $ = Number(data[0].Yen) + (Number(data[0].Yen) * 0.1)
+                    res.send({
+                        money: Number(data[0].Yen),
+                        Amountactuallypaid: $.toFixed(0),
+                        taxRate: "10%",
+                        integral: data[0].integral
+                    })
+                } else {
+                    res.send({ status: 145, msg: "数据库商品信息异常!" })
+                }
+            } else {
+                res.send({ status: 146, msg: "数据库商品信息异常!" })
+            }
+        })
+       
+    }
+    query_List()
+    
 })
 
 

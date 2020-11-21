@@ -21,7 +21,7 @@ async function modify_Makeanappointment(Emal, time, status) {
 }
 
 
-//获取通过emal和time评价信息
+
 async function query_MsgBytime(time,emal) {
     var queryStr = "SELECT `TeacherEmal`,`TeacherID`,`Price`,`Tstatus`,`Pstatus`,`Tmsg`,`Pmsg` FROM `Appointment` WHERE timeApp = ? AND TeacherEmal = ?"
     var value = [String(time),String(emal)]

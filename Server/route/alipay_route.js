@@ -2,7 +2,7 @@ const alipay = require('../helpers/alipay')
 const express = require('express')
 const router = express.Router()
 const ord = require('../helpers/order')
-
+const moddel = require("../models/OrderList")
 const cookieParser = require('cookie-parser')
 const mysql = require('../msOp')
 const checkSign = require('../helpers/checkSign')
@@ -32,25 +32,35 @@ router.get('/alipay', function (req, res) {
 		res.send({
 			status: 0,
 			msg: "Cookies校验失败!,请跳转到登录页",
-			Url:'./logoin.html'
+			Url: './logoin.html'
 		})
 		return
 	}
-	const order = new ord(req.query.CommodityID, req.signedCookies.malli)
-	order.Creat(function (params) {
-		if (params == null) {
-			res.send({
-				status: 1,
-				msg: "订单生成错误"
-			})
+	async function alipays() {
+		if (req.query.CommodityID == 0) {
+			var a = await moddel.query_List(req.signedCookies.malli)
+			if (!a) {
+				res.send({ status: 145, msg: "198积分只能充值一次!" })
+				return
+			}
 		}
-		const alip = new alipay()
-		alip.index(params.number, params.$, params.Orname, function (apUrl) {
-			res.send({ status: 0, Url: apUrl })
-		})
+			const order = new ord(req.query.CommodityID, req.signedCookies.malli)
+			order.Creat(function (params) {
+				if (params == null) {
+					res.send({
+						status: 1,
+						msg: "订单生成错误"
+					})
+				}
+				const alip = new alipay()
+				alip.index(params.number, params.$, params.Orname, function (apUrl) {
+					res.send({ status: 0, Url: apUrl })
+				})
 
-	})
-
+			})
+		
+	}
+	alipays();
 })
 
 
@@ -77,12 +87,10 @@ router.post('/AlipayRecharge', function (req, res) {
 					if (amount[0].amount == Orinfo.OrderAmount) {
 						let ret = toos.aUpdatePoints(Orinfo.integral, Orinfo.Useremail, Orinfo.UserID)
 						if (ret) {
-							let ret = mysql.setOrderstatus(data.out_trade_no,2)
-							if(ret)
-							{
+							let ret = mysql.setOrderstatus(data.out_trade_no, 2)
+							if (ret) {
 								let ret = mysql.CreatAppinfo(data)
-								if(ret)
-								{
+								if (ret) {
 									console.log(data)
 									console.log(Orinfo)
 									console.log('付款成功')

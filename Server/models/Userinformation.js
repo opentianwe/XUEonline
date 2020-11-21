@@ -2,14 +2,7 @@ const main = require('./main')
 
 exports.appraisal_authority = appraisal_authority
 
-/**
- * @brief  Cookie鉴权 通过用户Emal查询返回用户身份
- * @param  {*} Emal  用户邮箱
- * @return 老师对应等级返回1,2,3 普通用户返回null  
- * @note   如果不存在返回404
- * @Time   2020/10/08 20：03
- * @name   Tian
- */
+
 async function appraisal_authority(Emal) {
     var query_statement = "SELECT `Grade` FROM `Userinformation` WHERE `Email` = ?"
     var value = [String(Emal)]

@@ -188,18 +188,24 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
               status = data[x].status;
             }
           }
+          var ystatus = status
           if (status != 2) {
-            var timestamp1 = new Date(timestr);
-            var timestamp2 = new Date();
-            var min = timestamp2.getMinutes();
-            timestamp2.setHours(timestamp2.getHours() + 1);
-            timestamp2.setMinutes(min + 180);
-            timestamp2 = Date.parse(timestamp2);
-            timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-            timestamp2 = timestamp2 / 1000;
-
-            if (timestamp2 > timestamp1) {
-              status = 5;
+            if(Timearray[s] != Timearray[Timearray.length - 2] || Timearray[s] != Timearray[Timearray.length - 3])
+            {
+              var timestamp1 = new Date(timestr);
+              var timestamp2 = new Date(getCurrentTime.getCurrentTime(9));
+              var min = timestamp2.getMinutes();
+              timestamp2.setHours(timestamp2.getHours() + 1);
+              timestamp2.setMinutes(min + 180);
+              timestamp2 = Date.parse(timestamp2);
+              timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
+              timestamp2 = timestamp2 / 1000;
+                if (timestamp2 > timestamp1) {
+                  status = 5;
+                }
+            }else
+            {
+              status = ystatus
             }
           }
           yymmddff[i][s] = { ID: usertId, time: timestr, status: status };
@@ -266,18 +272,24 @@ function URenderTable(usertId, id, emal, yyyy, mm, dd, callback) {
               status = data[x].status;
             }
           }
+          var ystatus = status
           if (status != 2) {
-            var timestamp1 = new Date(timestr);
-            var timestamp2 = new Date();
-            var min = timestamp2.getMinutes();
-            timestamp2.setHours(timestamp2.getHours() + 1);
-            timestamp2.setMinutes(min + 60);
-            timestamp2 = Date.parse(timestamp2);
-            timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-            timestamp2 = timestamp2 / 1000;
-
-            if (timestamp2 >= timestamp1) {
-              status = 5;
+            if(!(Timearray[s] == Timearray[Timearray.length - 2] || Timearray[s] == Timearray[Timearray.length - 1]))
+            {
+              var timestamp1 = new Date(timestr);
+              var timestamp2 = new Date(getCurrentTime.getCurrentTime(9));
+              var min = timestamp2.getMinutes();
+              timestamp2.setHours(timestamp2.getHours() + 1);
+              timestamp2.setMinutes(min + 180);
+              timestamp2 = Date.parse(timestamp2);
+              timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
+              timestamp2 = timestamp2 / 1000;
+                if (timestamp2 > timestamp1) {
+                  status = 5;
+                }
+            }else
+            {
+              status = ystatus
             }
           }
 
@@ -377,18 +389,23 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
               break;
             }
           }
-
-          var timestamp1 = new Date(timestr);
-          var timestamp2 = new Date();
-          var min = timestamp2.getMinutes();
-          timestamp2.setHours(timestamp2.getHours() + 1);
-          timestamp2.setMinutes(min + 60);
-          timestamp2 = Date.parse(timestamp2);
-          timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-          timestamp2 = timestamp2 / 1000;
-
-          if (timestamp2 >= timestamp1) {
-            status = 5;
+           var ystatus = status
+          if(!(Timearray[s] == Timearray[Timearray.length - 2] || Timearray[s] == Timearray[Timearray.length - 1]))
+          {
+            var timestamp1 = new Date(timestr);
+            var timestamp2 = new Date(getCurrentTime.getCurrentTime(9));
+            var min = timestamp2.getMinutes();
+            timestamp2.setHours(timestamp2.getHours() + 1);
+            timestamp2.setMinutes(min + 180);
+            timestamp2 = Date.parse(timestamp2);
+            timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
+            timestamp2 = timestamp2 / 1000;
+              if (timestamp2 > timestamp1) {
+                status = 5;
+              }
+          }else
+          {
+            status = ystatus
           }
           yymmddff[i][s] = { time: timestr, status: status };
         }
@@ -451,17 +468,23 @@ function TRenderTable(emal, yyyy, mm, dd, callback) {
               status = data[x].status;
             }
           }
-          var timestamp1 = new Date(timestr);
-          var timestamp2 = new Date();
-          var min = timestamp2.getMinutes();
-          timestamp2.setHours(timestamp2.getHours() + 1);
-          timestamp2.setMinutes(min + 60);
-          timestamp2 = Date.parse(timestamp2);
-          timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
-          timestamp2 = timestamp2 / 1000;
-
-          if (timestamp2 >= timestamp1) {
-            status = 5;
+          var ystatus = status
+          if(!(Timearray[s] == Timearray[Timearray.length - 2] || Timearray[s] == Timearray[Timearray.length - 1]))
+          {
+            var timestamp1 = new Date(timestr);
+            var timestamp2 = new Date(getCurrentTime.getCurrentTime(9));
+            var min = timestamp2.getMinutes();
+            timestamp2.setHours(timestamp2.getHours() + 1);
+            timestamp2.setMinutes(min + 180);
+            timestamp2 = Date.parse(timestamp2);
+            timestamp1 = timestamp1 / 1000; //25分钟之后的时间戳
+            timestamp2 = timestamp2 / 1000;
+              if (timestamp2 > timestamp1) {
+                status = 5;
+              }
+          }else
+          {
+            status = ystatus
           }
           yymmddff[i][s] = { time: timestr, status: status };
         }
@@ -924,7 +947,7 @@ router.get("/ter.html", function (req, res) {
             function (data) {
               console.log(list);
               try {
-                var date = new Date();
+                var date = new Date(getCurrentTime.getCurrentTime(9));
                 var age =
                   Number(date.getFullYear()) -
                   Number(list[0].yearData.split("-")[0]);
@@ -1030,7 +1053,7 @@ router.get("/ja_JP/ter.html", function (req, res) {
             function (data) {
               console.log(list);
               try {
-                var date = new Date();
+                var date = new Date(getCurrentTime.getCurrentTime(9));
                 var age =
                   Number(date.getFullYear()) -
                   Number(list[0].yearData.split("-")[0]);

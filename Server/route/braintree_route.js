@@ -16,18 +16,6 @@ const geteway = new braintree.BraintreeGateway({
 })
 
 
-
-
-router.get('/1.html', (req, res) => {
-    geteway.clientToken.generate({}, (err, response) => {
-        if (response.clientToken == undefined) {
-            res.render('<h1>PayPal网关服务器异常</h1>')
-            return
-        }
-        res.render('1.art', { data: response.clientToken })
-    })
-})
-
 // router.post('/checkout', (req, res) => {
 //     if (req.body.CommodityID == undefined || req.signedCookies.malli == undefined) {
 //         res.send({
