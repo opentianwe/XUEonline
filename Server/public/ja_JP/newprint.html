@@ -40,10 +40,11 @@
                 </div>
                 <div class="invocie-right">
                     <ul>
-                        <li>担当講師<span id="invoice-tname"></span></li>
-                        <li>受講日<span id="invoice-ttime"></span></li>
-                        <li>時間<span > 25分</span></li>
-                        <li>講師からのコメント<span id="invoice-tmsg"></span></li>
+                        <li>講師からのコメント:<span id="invoice-tmsg"></span></li>
+                        <li>担当講師:<span id="invoice-tname"></span></li>
+                        <li>受講日:<span id="invoice-ttime"></span></li>
+                        <li>時間:<span > 25分</span></li>
+                      
                     </ul>
                 </div>
             </div>
@@ -144,7 +145,7 @@
             text("#invoice-business",data.data.Leseon)
             text("#invoice-tname",data.data.TeacherName)
             text("#invoice-ttime",isgetobj(window.location.search).Time)
-            text("#invoice-tmsg",data.data.Tmsg)
+            text("#invoice-tmsg",data.data.Tmsg==null?data.data.Tmsg='':data.data.Tmsg=data.data.Tmsg)
             text("#invoice-serial",data.data.UserID)
        },
        error:function(error){
@@ -152,7 +153,7 @@
        }
    })
    
-   console.log(isgetobj(window.location.search))
+    //console.log(isgetobj(window.location.search))
     // let strarr=str.split("&")
     // strarr[0].substring(strarr[0].indexOf("=")+1)
     // console.log(str)

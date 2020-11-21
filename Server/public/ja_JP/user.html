@@ -528,7 +528,16 @@
     <script src="layui/layui.js"></script>
    
     <script>
- 
+            $.ajax({
+                type:"get",
+                url:"http://www.haominjiaoyu.com/UserInfo/Alldata",
+                dataType:"json",
+                success:function(d){
+                    console.log(d);
+                },error:function(e){
+                    console.log(e);
+                }
+            })
         layui.use(['form', 'layedit', 'laydate'], function(){
       var form = layui.form
       ,layer = layui.layer
@@ -597,7 +606,7 @@
 
         });
       });
-      
+      //http://www.haominjiaoyu.com/UserInfo/Insert
       //表单取值
       layui.$('#LAY-component-form-getval').on('click', function(){
         // var data = form.val('example');

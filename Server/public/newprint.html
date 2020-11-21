@@ -15,11 +15,11 @@
         <div class="invoice-box" style="position: relative;">
             <div class="invoice-header">
                 <div>
-                    订单编号:<span id="invoice-serial" class="incoice-color"></span>
+                    オーダ-:<span id="invoice-serial" class="incoice-color"></span>
                 </div>
                 <div class="invoice-header-center">
                     <div style="position: relative;">
-                        <h5>受講証明書</h5>
+                        <h5>受講証明書:</h5>
                         <p class="inv-border"></p>
 
                     </div>
@@ -38,14 +38,15 @@
             </div>
             <div class="invocie-content">
                 <div class="invocie-left">
-                    受講明細 <span class="invocie-username"></span>
+                    受講明細:<span class="invocie-username"></span>
                 </div>
                 <div class="invocie-right">
                     <ul>
-                        <li>担当講師<span id="invoice-tname"></span></li>
-                        <li>受講日<span id="invoice-ttime"></span></li>
-                        <li>時間<span> 25分</span></li>
-                        <li>講師からのコメント<span id="invoice-tmsg"></span></li>
+                        <li>講師からのコメント:<span id="invoice-tmsg"></span></li>
+                        <li>担当講師:<span id="invoice-tname"></span></li>
+                        <li>受講日:<span id="invoice-ttime"></span></li>
+                        <li>時間:<span> 25分</span></li>
+                      
                     </ul>
                 </div>
             </div>
@@ -145,7 +146,7 @@
                 text("#invoice-business", data.data.Leseon)
                 text("#invoice-tname", data.data.TeacherName)
                 text("#invoice-ttime", isgetobj(window.location.search).Time)
-                text("#invoice-tmsg", data.data.Tmsg)
+                text("#invoice-tmsg", data.data.Tmsg==null?data.data.Tmsg='':data.data.Tmsg=data.data.Tmsg)
                 text("#invoice-serial", data.data.UserID)
             },
             error: function (error) {

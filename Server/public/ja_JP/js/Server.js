@@ -94,6 +94,7 @@ function makeAnapp(ID, time, bID) {
                         dataType: 'json',
                         success: function (res) {
                             layer.close(index)
+                            console.log(res);
                             if (res.status === 0) {
                                 bID.parentNode.innerHTML = '<td bgcolor="#ffffff"><span style="background-color:#ddffff;">予約済</span></td>'
                                 layer.confirm('購入しました', {

@@ -79,21 +79,27 @@ function makeAnapp(ID, time, bID) {
                     var Leseon = $('input[name="t"]:checked').val()
                     if (Leseon == undefined) return layer.msg('请选择要学习的课程', { time: 3000, icon: 2 });
                     var Textval = $('#textval').val()
-                    // 先发一个ajax 请求 然后在  根据ajax  
+                    //先发一个ajax 请求 然后在  根据ajax  
                     $.ajax({
                         type: "post",
+
                         url: "./pay",
+
                         async: true,
+
                         beforeSend: function () {
                             ShowDiv();
                         },
+
                         complete: function () {
                             HiddenDiv();
                         },
+
                         data: JSON.stringify({ ID: ID, Time: time }),
+
                         dataType: 'json',
                         success: function (res) {
-
+                            console.log(res)
                             layer.close(index)
                             if (res.status === 0) {
                                 bID.parentNode.innerHTML = '<td bgcolor="#ffffff"><span style="background-color:#ddffff;">予約済</span></td>'
@@ -109,8 +115,9 @@ function makeAnapp(ID, time, bID) {
                                         return;
                                     }
                                     layer.msg('正在跳转', { icon: 1, time: 2000 }, function () {
-                                        console.log('执行跳转操作')
+
                                         window.location.href = './personal.html'
+
                                     })
                                     //回调1
                                 }, function () {

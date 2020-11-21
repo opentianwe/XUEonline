@@ -33,11 +33,9 @@ braintree.dropin.create({
                             layer.confirm('支払い完了', {
                                 btn: ['MY PAGEに移動', '現在のページにとどまる'] //按钮
                             }, function () {
-
                                 layer.msg('ジャンプ中', { icon: 1, time: 2000 }, function () {
-
-                                    window.location.href = './personal.html'
-                                })
+                                    window.location.href = './personal.html';
+                                });
                             }, function () {
                                 layer.msg('MY PAGEでポイントの確認ができる')
                             });

@@ -55,8 +55,8 @@ $(function () {
             },
             crossDomain: true,
             success: (res) => {
-              console.log(res)
-              console.log()
+
+              if (res.status == 145) return layer.msg("只可以购买一次198积分", { icon: 2 })
               if (res.status == 0) {
 
                 window.location.href = res.Url
@@ -77,8 +77,8 @@ $(function () {
             },
             crossDomain: true,
             success: (res) => {
-              console.log(res)
-              console.log()
+              if (res.status == 145) return layer.msg("只可以购买一次198积分", { icon: 2 })
+
               if (res.status == 0) {
 
                 window.location.href = res.Url
@@ -107,6 +107,10 @@ $(function () {
           type: "post",
           dataType: "json",
           success: function (d) {
+
+            if (d.status == 145) return layer.msg("只可以购买一次198积分", { icon: 2 })
+
+
             if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.status == 0) return window.location.href = './logoin.html'
             if (d.status == 0) return layer.msg(d.msg, { icon: 2 })
             var m = d.integral - d.money
@@ -134,7 +138,7 @@ $(function () {
                 },
                 url: '../checkout'
                 , type: "post",
-                data:comstr,
+                data: comstr,
                 success: function (data) {
                   if (data.status == 1) {
                     window.location.href = data.Url
