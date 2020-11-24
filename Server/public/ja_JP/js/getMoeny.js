@@ -56,7 +56,7 @@ $(function () {
             crossDomain: true,
             success: (res) => {
 
-              if (res.status == 145) return layer.msg("只可以购买一次198积分", { icon: 2 })
+              if (res.status == 145) return layer.msg("一度に198ポイント購入できる", { icon: 2 })
               if (res.status == 0) {
 
                 window.location.href = res.Url
