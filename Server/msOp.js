@@ -120,7 +120,7 @@ function queryUserinformbyEmal(emal, callback) {
 
 //查询所有用户资料
 function queryUserinform(callback) {
-    var strQuery = "select * FROM `Userinformation` WHERE `ImgUrl` != '' AND `Name` != ''  ORDER BY 1 DESC"
+    var strQuery = "select * FROM `Userinformation` WHERE `ImgUrl` != '' AND `Name` != ''"
     woreData(strQuery, function (data, error) {
         callback(data, error)
     })
@@ -231,7 +231,7 @@ function queryTimedatabyID(ID, temp, callback) {
 }
 //通过老师邮箱查询这个老师所有时间段的数据
 function queryTimedatabyemal(emal, callback) {
-    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'" 
+    var querystr = "select * from `tAinformation` where UserEmal = '" + emal + "'"
     woreData(querystr, function (data, error) {
         callback(data, error)
     })
@@ -689,8 +689,8 @@ function getMsgBytime(time) {
 }
 
 //设置老师评价学生
-function setTMsgBytime(time, text, classhour,TeacherEmal,Text2) {
-    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Ttime` = CURRENT_TIMESTAMP ,`Tmsg` = '" + text + "',`Text2` = '"+ Text2 +"' WHERE `timeApp` = '" + time + "' AND TeacherEmal = '"+ TeacherEmal +"'"
+function setTMsgBytime(time, text, classhour, TeacherEmal, Text2) {
+    var queryStr = "UPDATE `OfficialWebsiteData`.`Appointment` SET `classhour` = " + classhour + " , `Ttime` = CURRENT_TIMESTAMP ,`Tmsg` = '" + text + "',`Text2` = '" + Text2 + "' WHERE `timeApp` = '" + time + "' AND TeacherEmal = '" + TeacherEmal + "'"
     return new Promise(function (resolve, reject) {
         woreData(queryStr, function (data, error) {
             if (error) {
@@ -879,9 +879,9 @@ async function isTeacher(Temal) {
     })
 }
 
-//通过老师邮箱查询学生评价信息
+//通过老师邮箱查询学生评价信息  
 async function queryStudentEvaluationByEmal(Emal) {
-    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`Price` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '" + Emal + "'"
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`Price` FROM `Appointment` WHERE `Pstatus` = 1 AND `TeacherEmal` = '" + Emal + "' order by `Ptime` DESC "
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if (err) {
@@ -901,7 +901,7 @@ async function queryStudentEvaluationByEmal(Emal) {
 
 //通过老师邮箱查询老师对学生评价信息
 async function queryTStudentEvaluationByEmal(Emal) {
-    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`RMB` FROM `Appointment` WHERE `Tstatus` = 1 AND `TeacherEmal` = '" + Emal + "'" 
+    var querystr = "SELECT `Pmsg`,`UserName`,`Ptime`,`RMB` FROM `Appointment` WHERE `Tstatus` = 1 AND `TeacherEmal` = '" + Emal + "' order by `Ptime` DESC "
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if (err) {
@@ -922,7 +922,7 @@ async function queryTStudentEvaluationByEmal(Emal) {
 
 //通过学生邮箱查询评价信息
 async function queryTeacherEvaluationByEmal(Emal) {
-    var querystr = "SELECT `Tmsg`,`TeacherName`,`Ttime`,`Price` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '" + Emal + "'"
+    var querystr = "SELECT `Tmsg`,`TeacherName`,`Ttime`,`Price` FROM `Appointment` WHERE `Tstatus` = 1 AND `UserEmal` = '" + Emal + "'  order by `Ttime` DESC "
     return new Promise((resove, reject) => {
         woreData(querystr, (data, err) => {
             if (err) {

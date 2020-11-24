@@ -592,7 +592,7 @@
             >
               <colgroup>
                           <col width="100">
-                          <col width="80">
+                          <col width="100">
                           <col width="100">
                           <col width="100">
                           <col width="50">
@@ -607,7 +607,7 @@
               <thead>
                 <%if(data.isTeacher){%>
                 <tr>
-                  <td>预约日期</td>
+                  <td>预约日期 <br/>（日本時間）</td>
                   <td>学生姓名</td>
                   <td>学生微信</td>
                   <td>学生SkypeID</td>
@@ -621,7 +621,7 @@
                 </tr>
                 <%}else{%>
                 <tr>
-                  <td>预约日期</td>
+                  <td>预约日期 <br/>（日本時間）</td>
                   <td>预约老师姓名</td>
                   <td>老师微信</td>
                   <td>老师SkypeID</td>

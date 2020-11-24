@@ -357,7 +357,7 @@
                         <table align="center" class="layui-table center" style=padding:5px 0;  >
                          <colgroup>
                           <col width="100">
-                          <col width="80">
+                          <col width="100">
                           <col width="100">
                           <col width="100">
                           <col width="50">
@@ -372,7 +372,9 @@
                             <thead> 
                             <%if(data.isTeacher){%>
                              <tr>
-                                <td>予約日</td>
+                                <td>予約日<br/>
+                                  （日本時間）
+                                </td>
                                 <td>生徒の名前</td>
                                 <td>生徒WeChatID</td>
                                 <td>生徒SkypeID</td>
@@ -388,7 +390,7 @@
                               </tr>
                             <%}else{%>
                             <tr>
-                                <td>予約日</td>
+                                <td>予約日 <br/>（日本時間）</td>
                                 <td>先生の名前</td>
                                 <td>先生WeChatID</td>
                                 <td>先生SkypeID</td>

@@ -19,14 +19,14 @@
 ## [_Back_To_Top]
 ## [_Accordion]
 ## [_Owl_Carousel]
-	## [_home_carousel]
-	## [_testimonial_items_1col]
-	## [_Testimonial_Items_2col]
-	## [_Testimonial_Items_3col]
-	## [_Team_Items_5col]
-	## [_Team_Items_3col]
-	## [_Project_Items_5col]
-	## [_Client_Items]
+  ## [_home_carousel]
+  ## [_testimonial_items_1col]
+  ## [_Testimonial_Items_2col]
+  ## [_Testimonial_Items_3col]
+  ## [_Team_Items_5col]
+  ## [_Team_Items_3col]
+  ## [_Project_Items_5col]
+  ## [_Client_Items]
 ## [_Language_Button]
 ## [_Inline_Data_Attribute]
 ## [_MagnificPopUp]
@@ -40,7 +40,7 @@
 function clearCookie() {
   var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
   if (keys) {
-    for (var i = keys.length; i--; ) {
+    for (var i = keys.length; i--;) {
       document.cookie =
         keys[i] + "=0;path=/;expires=" + new Date(0).toUTCString(); //清除当前域名下的,例如：m.kevis.com
       document.cookie =
@@ -146,7 +146,7 @@ function clearCookie() {
 	</div>
 	
 	`;
-  $(".sub-menu:last").append('<li><a href="http://skype.gmw/">SKYPE</a><li>');
+  $(".sub-menu:last").append('<li><a href="https://skype.gmw.cn/down/skype-for-computers.html">SKYPE</a><li>');
   $(".language-btn").html(
     '<i class="webexflaticon flaticon-internet"></i> Chineseに翻訳'
   );
@@ -190,6 +190,8 @@ function clearCookie() {
       .eq(1)
       .html("<h5 class='widget-title text-white mrb-30'>サービス</h5>")
   );
+  $(".social-links").empty().append('<li><a href="http://www.haominjiaoyu.com/book/">ReadBook</a></li>')
+  console.log()
   jQuery(document).on("ready", function () {
     /*=============================================*/
     /*----------- [_Side_Panel_Start] -------------*/

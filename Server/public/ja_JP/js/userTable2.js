@@ -297,7 +297,9 @@ $(function () {
                     icon: 1,
                   });
                   e.target.parentElement.parentElement.remove();
+                  return
                 }
+
                 if (d.status == 1) {
                   layer.msg(d.msg, {
                     icon: 2,
@@ -660,7 +662,7 @@ $(function () {
               }
             });
           } else if (response.status == 3) {
-            layer.msg("已经评价过,本次积分结算完毕", {
+            layer.msg("今回ポイントの決済が完了しました", {
               closeBtn: 0,
               anim: 5, //动画类型
               icon: 1,
@@ -713,29 +715,18 @@ $(function () {
         ? (item.className = "")
         : (item.className = "");
     });
+
   };
   ControlTable.prototype.SetAddRemoveTable = function () {
+
+
     this.ArrayList.map((item) => {
       item.getAttribute("data-temp") == 1
         ? (item.className = "list-n")
         : (item.className = "");
     });
   };
-  // ControlTable.prototype.StrAdd = function (List, temp = false) {
-  //   let str = ""
-  //   if (temp) {
-  //     for (var i = List.length - 1; i >= 0; i--) {
-  //       str += List[i].outerHTML
-  //     }
-  //   } else {
-  //     for (var i = 0; i < List.length; i++) {
-  //       str += List[i].outerHTML
-  //     }
-  //   }
 
-
-  //   return str
-  // }
   ControlTable.prototype.SetAddRemoveTowTable = function () {
 
     // tobody.innerHTML = this.StrAdd(this.ArrayList, true)

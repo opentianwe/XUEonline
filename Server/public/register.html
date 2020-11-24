@@ -344,6 +344,9 @@
             <td><input type="text" id="Codes" placeholder="先生招待コード（先生は新規登録用です）">
             </td>
           </tr>
+        
+          <tr><td colspan="2">  <a href="snewtit.html">用户规定</a></td></tr>
+          <tr><td colspan="2"><input type="checkbox"  checked id="isture" style="display: inline !important;width: 30px;" />※規約に同意後、登録内容確認ボタンを押してください</td></tr>
         </table>
        
       
@@ -354,6 +357,8 @@
      
         <p style="text-align: right;padding-right: 40px;"><a href="./logoin.html">登录</a></p>
         <button id="RegsBtn" class="layui-btn  layui-btn-lg layui-btn-normal">注册</button>
+        <br/>
+        <p style="float: right;">（すべての情報は後から変更/削除できます）</p>
       </div>
     </div>
   </div>
@@ -476,8 +481,10 @@
       }
       console.log(datas)
       console.log(getEmali())
+    
       if (getName() && getEmali('#userName') && getPassWord('#passWord') && getpassWord2()) {
-        function goUrl(url) {
+        if($("#isture").is(":checked")){
+          function goUrl(url) {
           $(".confirm").on("click", function () {
             window.location.href = url
           })
@@ -506,6 +513,11 @@
             swal("Sorry!", error, "error");
           }
         })
+
+}else{
+  swal("Sorry!", '请同意用户规定', "error");
+}
+        
       } else {
         swal("Sorry!", '未入力項目がございます。', "error");
       }

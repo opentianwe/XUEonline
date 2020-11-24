@@ -341,6 +341,9 @@
             <td><input type="text" id="Codes" placeholder="先生招待コード（先生は新規登録用です）">
             </td>
           </tr>
+          <tr><td colspan="2"><a href="snewtit.html">ご利用規約</a></td></tr>
+          <tr><td colspan="2"><input type="checkbox"  checked id="isture" style="display: inline !important;width: 30px;" />※規約に同意後、登録内容確認ボタンを押してください</td></tr>
+          
         </table>
        
       
@@ -351,6 +354,8 @@
      
         <p style="text-align: right;padding-right: 40px;"><a href="./logoin.html">ログイン</a></p>
         <button id="RegsBtn" class="layui-btn  layui-btn-lg layui-btn-normal">新規登録</button>
+        <br/>
+        <p style="float: right;">（すべての情報は後から変更/削除できます）</p>
       </div>
     </div>
   </div>
@@ -448,7 +453,7 @@
     $('#passWord2').on('change', function () {
       getpassWord2()
     })
-   
+    console.log()
   
     function getName() {
       if (($('#Name').val().length >= 1 && $('#Name').val().length <= 7) && $('#Name').val() != '') {
@@ -463,50 +468,57 @@
     $('#Name').on('change', function () {
       getName()
     })
-    $('#RegsBtn').on('click', function () {
+   
+      $('#RegsBtn').on('click', function () {
   
-      var datas = {
-        oAName: $("#Name").val(),
-        oAEmail: $("#userName").val(), 
-        oApassword: $("#passWord2").val(),
-        oAcodes: $("#Codes").val(),
-      }
-      console.log(datas)
-      console.log(getEmali())
-      if (getName() && getEmali('#userName') && getPassWord('#passWord') && getpassWord2()) {
-        function goUrl(url) {
-          $(".confirm").on("click", function () {
-            window.location.href = url
-          })
+  var datas = {
+    oAName: $("#Name").val(),
+    oAEmail: $("#userName").val(), 
+    oApassword: $("#passWord2").val(),
+    oAcodes: $("#Codes").val(),
+  }
+  console.log(datas)
+  console.log(getEmali())
+  if (getName() && getEmali('#userName') && getPassWord('#passWord') && getpassWord2()) {
+    function goUrl(url) {
+      $(".confirm").on("click", function () {
+        window.location.href = url
+      })
+    }
+    if($("#isture").is(":checked")){
+    $.ajax({
+      type: "post",
+      data: JSON.stringify(datas),
+      dataType: 'json',
+      url: '../register',
+      success: function (e) {
+        if (e.status == 0) {
+          swal("Sorry!", "再入力お願いします", "error");
+          console.log(e.msg)
+          // 
+        } else if (e.status == 1) {
+          swal("Yes!", "新規登録しました", "success");
+          goUrl("./personal.html")
+
+        } else if (e.status == 2) {
+          swal("Yes!", "新規登録しました", "success");
+          goUrl("./teacherdata.html")
+
         }
-        $.ajax({
-          type: "post",
-          data: JSON.stringify(datas),
-          dataType: 'json',
-          url: '../register',
-          success: function (e) {
-            if (e.status == 0) {
-              swal("Sorry!", "再入力お願いします", "error");
-              console.log(e.msg)
-              // 
-            } else if (e.status == 1) {
-              swal("Yes!", "新規登録しました", "success");
-              goUrl("./personal.html")
-
-            } else if (e.status == 2) {
-              swal("Yes!", "新規登録しました", "success");
-              goUrl("./teacherdata.html")
-
-            }
-          },
-          error: function (error) {
-            swal("Sorry!", error, "error");
-          }
-        })
-      } else {
-        swal("Sorry!", '未入力項目がございます。', "error");
+      },
+      error: function (error) {
+        swal("Sorry!", error, "error");
       }
     })
+  }else{
+      swal("Sorry!", '同意してくださいご利用規約', "error");
+    }
+  } else {
+    swal("Sorry!", '未入力項目がございます。', "error");
+  }
+})
+    
+   
   </script>
   <!-- Footer Area Start -->
   <footer class="footer">
