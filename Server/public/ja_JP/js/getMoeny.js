@@ -108,7 +108,7 @@ $(function () {
           dataType: "json",
           success: function (d) {
 
-            if (d.status == 145) return layer.msg("只可以购买一次198积分", { icon: 2 })
+            if (d.status == 145) return layer.msg("一度に198ポイント購入できる", { icon: 2 })
 
 
             if (d.msg == 'Cookies校验失败!,请跳转到登录页' && d.status == 0) return window.location.href = './logoin.html'
@@ -153,7 +153,6 @@ $(function () {
 
               })
           }, error: function (error) {
-
             layer.msg(error, { icon: 2 })
           }
         })
