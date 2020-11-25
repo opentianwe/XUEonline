@@ -473,6 +473,10 @@ thead tr:nth-child(1) {
   text-align: right;
   padding: 5px 10px;
 }
+#tabID {
+  width: 70%;
+  margin: 0 auto;
+}
 .yuyue span {
   /* width:66px; */
   padding: 5px;
@@ -535,6 +539,9 @@ thead {
   }
 }
 @media screen and (max-width: 1180px) {
+  #tabID {
+    width: 100%;
+  }
   .adduser {
     width: 80%;
   }
@@ -665,6 +672,10 @@ thead {
 }
 
 @media screen and (max-width: 768px) {
+  #tabID {
+    overflow-x: scroll;
+  }
+
   .adduser {
     width: 100%;
   }

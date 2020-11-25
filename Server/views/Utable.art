@@ -1,6 +1,6 @@
 
-		<div id="tabID" style="overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;width: 70%;margin: 0 auto;">
-		<table class="none cal">
+		<div id="tabID" >
+		<table class="none cal" >
 			<tbody>
 				<tr>
 					<td colspan="4"><a href="?id=<%=data.ID%>&amp;yyyy=<%=data.totime.yyyy%>&amp;mm=<%=data.totime.mm%>&amp;dd=<%=data.totime.dd%>#tabID"">&lt;&lt;Prev
