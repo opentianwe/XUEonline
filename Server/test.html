@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" id="btn">
+<script src="./public/js/jq.min.js"></script>
+    <script type="text/javascript">
+        $("#btn").click(function () {
+            $.ajax({
+                type: "get",
+                url: "http://39.106.89.79:9090/back/BillingInfo/getAllInfo",
+                success: function (data) {
+                }
+            });
+        });
+    </script>
+</body>
+</html>

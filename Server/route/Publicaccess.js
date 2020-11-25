@@ -121,7 +121,7 @@ router.get('/Atinfo', function (req, res) {
             }
             res.send(da)
         }
-        pushweek(data,res)
+        pushweek(datas,res)
     
     })
 })
